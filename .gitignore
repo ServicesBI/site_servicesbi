@@ -5,3 +5,7 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# Pastas antigas do projeto anterior - não usadas no ServicesBI novo
+config/
+sitepages/
