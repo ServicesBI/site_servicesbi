@@ -40,10 +40,12 @@
     color: var(--color-bg);
     background: var(--color-accent);
     border-color: var(--color-accent);
+    box-shadow: 0 8px 18px color-mix(in srgb, var(--color-accent) 18%, transparent);
 }
 
 .btn--primary:hover {
-    box-shadow: var(--shadow-soft);
+    border-color: var(--color-accent);
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--color-accent) 22%, transparent);
 }
 
 .btn--secondary {

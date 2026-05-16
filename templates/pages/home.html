@@ -1,15 +1,96 @@
 {% extends "base.html" %}
 
-{% block title %}ServicesBI | Dados, BI, Python e Automações{% endblock %}
-{% block meta_description %}ServicesBI: dados, BI, Python e automações.{% endblock %}
+{% block title %}ServicesBI | Laboratório visual{% endblock %}
+{% block meta_description %}Página temporária para validar componentes visuais do ServicesBI.{% endblock %}
 
 {% block content %}
 <section class="section">
     <div class="container">
         <div class="section-header">
-            <p class="eyebrow text-accent">Novo site ServicesBI</p>
-            <h1 class="section-title">Dados que viram <span class="display-word">decisões</span></h1>
-            <p class="section-subtitle">estrutura limpa funcionando</p>
+            <p class="eyebrow text-accent">Laboratório visual ServicesBI</p>
+            <h1 class="section-title">Teste de <span class="display-word">componentes</span></h1>
+            <p class="section-subtitle">Página temporária para validar botões, cards, grids, tipografia e temas light/dark.</p>
+        </div>
+
+        <div class="stack">
+            <div class="section-header">
+                <h2 class="section-title">Botões</h2>
+                <p class="section-subtitle">Variações base para ações e navegação.</p>
+            </div>
+
+            <div class="btn-group">
+                <a class="btn btn--primary" href="#">Primário</a>
+                <a class="btn btn--secondary" href="#">Secundário</a>
+                <a class="btn btn--ghost" href="#">Ghost</a>
+                <a class="btn btn--link" href="#">Link</a>
+                <button class="btn btn--primary btn--sm" type="button">Pequeno</button>
+                <button class="btn btn--primary btn--lg" type="button">Grande</button>
+            </div>
+        </div>
+
+        <div class="stack">
+            <div class="section-header">
+                <h2 class="section-title">Cards</h2>
+                <p class="section-subtitle">Bases reutilizáveis para blocos de conteúdo.</p>
+            </div>
+
+            <div class="grid-3">
+                <article class="card">
+                    <p class="card__eyebrow">Base</p>
+                    <h3 class="card__title">Card padrão</h3>
+                    <p class="card__text">Estrutura simples com superfície, borda e sombra suave.</p>
+                    <p class="card__meta">Componente genérico</p>
+                    <div class="card__footer">
+                        <a class="btn btn--secondary btn--sm" href="#">Ver exemplo</a>
+                    </div>
+                </article>
+
+                <article class="card card--soft">
+                    <p class="card__eyebrow">Soft</p>
+                    <h3 class="card__title">Card suave</h3>
+                    <p class="card__text">Variação discreta para áreas de apoio e informação complementar.</p>
+                    <p class="card__meta">Baixo contraste</p>
+                    <div class="card__footer">
+                        <a class="btn btn--ghost btn--sm" href="#">Detalhes</a>
+                    </div>
+                </article>
+
+                <article class="card card--strong card--interactive">
+                    <p class="card__eyebrow">Interativo</p>
+                    <h3 class="card__title">Card em destaque</h3>
+                    <p class="card__text">Variação com presença visual maior e hover controlado.</p>
+                    <p class="card__meta">Hover habilitado</p>
+                    <div class="card__footer">
+                        <a class="btn btn--primary btn--sm" href="#">Ação</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section--soft">
+    <div class="container">
+        <div class="section-header">
+            <p class="eyebrow text-accent">Tema</p>
+            <h2 class="section-title">Validação de tema</h2>
+            <p class="section-subtitle">Use o botão de tema no topo para alternar entre os modos.</p>
+        </div>
+
+        <div class="grid-2">
+            <article class="card">
+                <p class="card__eyebrow">Light mode</p>
+                <h3 class="card__title">Fundo claro quente</h3>
+                <p class="card__text">Texto escuro, bordas suaves e accent vermelho/laranja pelos tokens.</p>
+                <p class="card__meta">Validação visual</p>
+            </article>
+
+            <article class="card card--strong">
+                <p class="card__eyebrow">Dark mode</p>
+                <h3 class="card__title">Azul-escuro ERP</h3>
+                <p class="card__text">Texto claro, bordas translúcidas e accent ciano pelos tokens.</p>
+                <p class="card__meta">Validação visual</p>
+            </article>
         </div>
     </div>
 </section>
