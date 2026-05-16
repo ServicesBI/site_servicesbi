@@ -24,6 +24,11 @@
     transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
+.card--interactive > * {
+    position: relative;
+    z-index: 1;
+}
+
 .card--interactive::after {
     content: "";
     position: absolute;
@@ -36,6 +41,8 @@
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 180ms ease;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .card--interactive:hover {

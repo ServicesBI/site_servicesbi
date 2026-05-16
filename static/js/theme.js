@@ -3,7 +3,32 @@
     const darkTheme = "dark";
 
     function applyTheme(theme) {
-        document.body.classList.toggle("theme-dark", theme === darkTheme);
+        const isDark = theme === darkTheme;
+
+        document.documentElement.classList.toggle("theme-dark", isDark);
+
+        if (document.body) {
+            document.body.classList.toggle("theme-dark", isDark);
+        }
+    }
+
+    function getStoredTheme() {
+        try {
+            return localStorage.getItem(storageKey);
+        } catch (error) {
+            return null;
+        }
+    }
+
+    function setStoredTheme(theme) {
+        try {
+            localStorage.setItem(storageKey, theme);
+        } catch (error) {
+        }
+    }
+
+    function isDarkTheme() {
+        return document.documentElement.classList.contains("theme-dark");
     }
 
     function updateButton(button) {
@@ -11,7 +36,7 @@
             return;
         }
 
-        const isDark = document.body.classList.contains("theme-dark");
+        const isDark = isDarkTheme();
         button.textContent = isDark ? "☾" : "☀";
         button.setAttribute(
             "aria-label",
@@ -19,9 +44,11 @@
         );
     }
 
-    applyTheme(localStorage.getItem(storageKey));
+    applyTheme(getStoredTheme());
 
     document.addEventListener("DOMContentLoaded", function () {
+        applyTheme(getStoredTheme());
+
         const button = document.getElementById("themeToggle");
 
         updateButton(button);
@@ -31,9 +58,9 @@
         }
 
         button.addEventListener("click", function () {
-            const nextTheme = document.body.classList.contains("theme-dark") ? "light" : darkTheme;
+            const nextTheme = isDarkTheme() ? "light" : darkTheme;
 
-            localStorage.setItem(storageKey, nextTheme);
+            setStoredTheme(nextTheme);
             applyTheme(nextTheme);
             updateButton(button);
         });

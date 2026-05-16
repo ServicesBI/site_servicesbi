@@ -44,8 +44,16 @@
 }
 
 .btn--primary:hover {
+    color: var(--color-bg);
     border-color: var(--color-accent);
     box-shadow: 0 10px 24px color-mix(in srgb, var(--color-accent) 22%, transparent);
+}
+
+.btn--primary:focus-visible,
+.btn--primary:active {
+    color: var(--color-bg);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
 }
 
 .btn--secondary {

@@ -64,6 +64,7 @@
     --shadow-card: 0 18px 48px rgba(26, 26, 24, 0.12);
 }
 
+html.theme-dark,
 body.theme-dark {
     color-scheme: dark;
 
