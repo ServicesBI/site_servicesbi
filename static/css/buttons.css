@@ -1,0 +1,107 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 44px;
+    padding: var(--space-3) var(--space-5);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    font: inherit;
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-medium);
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.btn:hover {
+    text-decoration: none;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+    color: var(--color-text-muted);
+    background: var(--color-bg-soft);
+    border-color: var(--color-border);
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn--primary {
+    color: var(--color-bg);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.btn--primary:hover {
+    box-shadow: var(--shadow-soft);
+}
+
+.btn--secondary {
+    color: var(--color-text);
+    background: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+.btn--secondary:hover {
+    border-color: var(--color-border-strong);
+    box-shadow: var(--shadow-soft);
+}
+
+.btn--ghost {
+    color: var(--color-text);
+    background: transparent;
+    border-color: var(--color-border);
+}
+
+.btn--ghost:hover {
+    color: var(--color-accent);
+    border-color: var(--color-border-strong);
+}
+
+.btn--link {
+    min-height: auto;
+    padding: 0;
+    color: var(--color-accent);
+    background: transparent;
+    border-color: transparent;
+    border-radius: var(--radius-sm);
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-underline-offset: 0.18em;
+}
+
+.btn--link:hover {
+    color: var(--color-text);
+}
+
+.btn--sm {
+    min-height: 36px;
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-caption);
+}
+
+.btn--lg {
+    min-height: 52px;
+    padding: var(--space-4) var(--space-6);
+}
+
+.btn--full {
+    width: 100%;
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+}
