@@ -1,0 +1,203 @@
+/* TESTE DE COR DO ROBÔ
+   Como o robô é preto/cinza dentro da cena Spline, CSS filter tem limite.
+   Para mudar a cor real do material, será necessário editar o material/iluminação da cena no Spline.
+*/
+:root {
+    --home-robot-tint: #c2ac98;
+    --home-robot-tint-opacity: 0.56;
+    --home-robot-tint-blend-mode: color;
+    --home-robot-filter:
+        brightness(1.18)
+        contrast(0.72)
+        saturate(0.88)
+        sepia(0.58)
+        hue-rotate(-18deg)
+        drop-shadow(0 24px 60px color-mix(in srgb, #c2ac98 28%, transparent));
+}
+
+html.theme-dark {
+    --home-robot-tint: #081724;
+    --home-robot-tint-opacity: 0.78;
+    --home-robot-tint-blend-mode: color;
+    --home-robot-filter:
+        brightness(0.88)
+        contrast(1.08)
+        saturate(1.35)
+        sepia(0.32)
+        hue-rotate(165deg)
+        drop-shadow(0 24px 70px color-mix(in srgb, #081724 42%, transparent));
+}
+
+.home-robot-stage {
+    position: relative;
+    min-height: calc(100svh - 72px);
+    overflow: hidden;
+    isolation: isolate;
+    background:
+        radial-gradient(circle at 72% 46%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 34%),
+        linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-soft) 52%, var(--color-surface) 100%);
+}
+
+.home-spotlight {
+    position: absolute;
+    inset: auto auto 4% 48%;
+    width: min(72vw, 760px);
+    aspect-ratio: 1;
+    color: var(--color-accent);
+    opacity: 0.9;
+    transform: translate(-50%, 0);
+    animation: home-spotlight-pulse 7s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.home-spotlight__svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.home-robot__viewer {
+    position: absolute;
+    top: 0;
+    right: -14%;
+    bottom: 0;
+    left: 38%;
+    width: auto;
+    height: 100%;
+    transform: none;
+    z-index: 1;
+}
+
+.home-robot__viewer spline-viewer {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: transparent;
+    filter: var(--home-robot-filter);
+}
+
+.home-robot__viewer::after {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    content: "";
+    background:
+        radial-gradient(
+            circle at 54% 46%,
+            color-mix(in srgb, var(--home-robot-tint) 82%, transparent) 0%,
+            color-mix(in srgb, var(--home-robot-tint) 56%, transparent) 38%,
+            transparent 68%
+        );
+    mix-blend-mode: var(--home-robot-tint-blend-mode);
+    opacity: var(--home-robot-tint-opacity);
+}
+
+.home-robot__loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--space-10);
+    height: var(--space-10);
+    border: 2px solid var(--color-border);
+    border-top-color: var(--color-accent);
+    border-radius: 999px;
+    transform: translate(-50%, -50%);
+    animation: home-loader-spin 900ms linear infinite;
+    transition: opacity 180ms ease, visibility 180ms ease;
+    z-index: 2;
+}
+
+.home-robot__viewer.is-loaded .home-robot__loader {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.home-hero-copy {
+    position: relative;
+    z-index: 2;
+    width: min(70vw, 860px);
+    min-height: calc(100svh - 72px);
+    padding-block: var(--space-20);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: max(var(--space-3), calc((100vw - var(--container-xl)) / 2 - var(--space-20)));
+}
+
+.home-hero-copy .section-title {
+    max-width: 60ch;
+    font-size: clamp(3rem, 4vw, 3.5rem);
+    line-height: 1.12;
+    text-wrap: balance;
+}
+
+.home-hero-copy .section-subtitle {
+    max-width: 720px;
+}
+
+.home-hero-copy__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-8);
+}
+
+@keyframes home-spotlight-pulse {
+    0%,
+    100% {
+        opacity: 0.58;
+        transform: translate(-50%, 0) scale(0.96);
+    }
+
+    50% {
+        opacity: 0.95;
+        transform: translate(-50%, 0) scale(1.04);
+    }
+}
+
+@keyframes home-loader-spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@media (max-width: 900px) {
+    .home-robot-stage,
+    .home-hero-copy {
+        min-height: calc(100svh - 96px);
+    }
+
+    .home-hero-copy {
+        width: min(100% - var(--space-6), var(--container-xl));
+        margin-left: auto;
+        padding-block: var(--space-16);
+    }
+
+    .home-hero-copy .section-title {
+        max-width: 100%;
+        font-size: clamp(2.4rem, 8.8vw, 3.4rem);
+        line-height: 1.12;
+    }
+
+    .home-hero-copy .section-subtitle {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .home-robot-stage,
+    .home-hero-copy {
+        min-height: calc(100svh - 120px);
+    }
+
+    .home-hero-copy {
+        width: min(100% - var(--space-4), var(--container-xl));
+        padding-block: var(--space-12);
+    }
+
+}

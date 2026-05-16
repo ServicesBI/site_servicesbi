@@ -8,7 +8,18 @@ body > header {
     backdrop-filter: blur(16px);
 }
 
-.site-header__inner,
+.site-header__inner {
+    width: 100%;
+    max-width: none;
+    min-height: 72px;
+    margin-inline: 0;
+    padding-inline: clamp(var(--space-3), 2vw, var(--space-6));
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    align-items: center;
+    gap: var(--space-4);
+}
+
 body > header > nav {
     width: min(100% - var(--space-6), var(--container-xl));
     min-height: 72px;
@@ -20,10 +31,12 @@ body > header > nav {
 }
 
 .site-logo {
+    justify-self: start;
     display: inline-flex;
     align-items: center;
-    gap: var(--space-2);
+    gap: 0;
     color: var(--color-text);
+    font-size: clamp(1.125rem, 1.4vw, 1.35rem);
     font-weight: var(--font-weight-medium);
     text-decoration: none;
 }
@@ -36,15 +49,26 @@ body > header > nav {
 body > header > nav {
     display: flex;
     align-items: center;
-    gap: var(--space-4);
+    gap: clamp(var(--space-3), 1.8vw, var(--space-5));
+}
+
+.site-nav {
+    justify-self: center;
+    justify-content: center;
 }
 
 .site-nav a,
 body > header > nav a {
     color: var(--color-text-body);
-    font-size: var(--font-size-caption);
+    font-size: clamp(0.875rem, 1vw, 0.975rem);
     font-weight: var(--font-weight-medium);
     text-decoration: none;
+}
+
+.site-nav a.is-active,
+.site-nav a[aria-current="page"] {
+    color: var(--color-accent);
+    font-weight: 600;
 }
 
 .site-nav a:hover,
@@ -54,23 +78,37 @@ body > header > nav a:hover {
 
 .theme-toggle,
 body > header button {
-    min-height: 36px;
-    padding: var(--space-2) var(--space-3);
+    min-height: 32px;
+    padding: var(--space-1) var(--space-2);
     color: var(--color-text);
-    background: var(--color-surface);
+    background: color-mix(in srgb, var(--color-surface) 68%, transparent);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     cursor: pointer;
+    opacity: 0.76;
+}
+
+.theme-toggle {
+    justify-self: end;
 }
 
 .theme-toggle:hover,
 body > header button:hover {
     border-color: var(--color-border-strong);
     box-shadow: var(--shadow-soft);
+    opacity: 1;
 }
 
 @media (max-width: 760px) {
-    .site-header__inner,
+    .site-header__inner {
+        width: 100%;
+        min-height: auto;
+        padding-inline: var(--space-3);
+        padding-block: var(--space-4);
+        grid-template-columns: 1fr max-content;
+        gap: var(--space-3);
+    }
+
     body > header > nav {
         width: min(100% - var(--space-4), var(--container-xl));
         min-height: auto;
@@ -82,6 +120,10 @@ body > header button:hover {
 
     .site-nav,
     body > header > nav {
+        grid-column: 1 / -1;
+        justify-self: start;
+        justify-content: flex-start;
+        flex-wrap: wrap;
         gap: var(--space-3);
     }
 }
