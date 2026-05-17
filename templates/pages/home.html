@@ -44,8 +44,228 @@
         </div>
     </div>
 </section>
+
+<section class="home-solutions" aria-labelledby="home-solutions-title">
+    <div class="home-solutions__header">
+        <p class="eyebrow text-accent">O que entregamos</p>
+        <h2 class="section-title" id="home-solutions-title">Engenharia de dados e automação de alto impacto.</h2>
+        <p class="section-subtitle">
+            Projetos práticos e sob medida para empresas que precisam eliminar processos manuais e decidir com precisão.
+        </p>
+    </div>
+
+    <div class="home-solutions__grid">
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img class="home-solution-card__image home-solution-card__image--light" src="{% static 'img/home/cards/light/card01.png' %}" alt="Desenvolvimento e scripts Python" loading="lazy">
+                <img class="home-solution-card__image home-solution-card__image--dark" src="{% static 'img/home/cards/dark/card01.png' %}" alt="Desenvolvimento e scripts Python" loading="lazy">
+            </div>
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Python</p>
+                <h3 class="home-solution-card__title">Desenvolvimento &amp; Scripts Python</h3>
+                <p class="home-solution-card__text">
+                    Criação de robôs operacionais, integração entre sistemas via APIs e tratamento massivo de dados para eliminar processos manuais e falhas humanas.
+                </p>
+                <a class="home-solution-card__link" href="{% url 'pages:python' %}">Saiba mais →</a>
+            </div>
+        </article>
+
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img class="home-solution-card__image home-solution-card__image--light" src="{% static 'img/home/cards/light/card02.png' %}" alt="Business Intelligence e dashboards Power BI" loading="lazy">
+                <img class="home-solution-card__image home-solution-card__image--dark" src="{% static 'img/home/cards/dark/card02.png' %}" alt="Business Intelligence e dashboards Power BI" loading="lazy">
+            </div>
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Business Intelligence</p>
+                <h3 class="home-solution-card__title">Business Intelligence Estratégico</h3>
+                <p class="home-solution-card__text">
+                    Transformação de dados brutos em dashboards dinâmicos. Indicadores financeiros, comerciais e operacionais em tempo real para direcionar o futuro do negócio.
+                </p>
+                <a class="home-solution-card__link" href="{% url 'pages:powerbi' %}">Saiba mais →</a>
+            </div>
+        </article>
+
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img class="home-solution-card__image home-solution-card__image--light" src="{% static 'img/home/cards/light/card03.png' %}" alt="Automação de processos com n8n" loading="lazy">
+                <img class="home-solution-card__image home-solution-card__image--dark" src="{% static 'img/home/cards/dark/card03.png' %}" alt="Automação de processos com n8n" loading="lazy">
+            </div>
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Fluxos inteligentes</p>
+                <h3 class="home-solution-card__title">Automação de Processos com n8n</h3>
+                <p class="home-solution-card__text">
+                    Conexão inteligente e fluxos automatizados entre CRMs, ERPs, planilhas e WhatsApp. Produtividade máxima rodando 24 horas por dia.
+                </p>
+                <a class="home-solution-card__link" href="{% url 'pages:automacoes' %}">Saiba mais →</a>
+            </div>
+        </article>
+
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img class="home-solution-card__image home-solution-card__image--light" src="{% static 'img/home/cards/light/card04.png' %}" alt="Engenharia de planilhas e Excel avançado" loading="lazy">
+                <img class="home-solution-card__image home-solution-card__image--dark" src="{% static 'img/home/cards/dark/card04.png' %}" alt="Engenharia de planilhas e Excel avançado" loading="lazy">
+            </div>
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Excel corporativo</p>
+                <h3 class="home-solution-card__title">Engenharia de Planilhas &amp; VBA</h3>
+                <p class="home-solution-card__text">
+                    Modelagem financeira e ferramentas gerenciais customizadas. Otimização de planilhas com Power Query e automações em VBA.
+                </p>
+                <a class="home-solution-card__link" href="{% url 'pages:excel' %}">Saiba mais →</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="home-portfolio" id="home-portfolio" aria-labelledby="home-portfolio-title">
+    <div class="home-portfolio__head">
+        <div class="home-portfolio__intro">
+            <p class="eyebrow text-accent">Portfólio</p>
+            <h2 class="section-title" id="home-portfolio-title">Soluções reais desenvolvidas para o mercado</h2>
+            <p class="section-subtitle">
+                Explore meu portfólio de projetos interativos, ecossistemas automatizados e materiais técnicos criados para gerar eficiência máxima.
+            </p>
+        </div>
+
+        <div class="home-portfolio__filters" role="tablist" aria-label="Filtros do portfólio">
+            <button class="home-portfolio__filter is-active" type="button" data-filter="featured" role="tab" aria-selected="true">Em destaque</button>
+            <button class="home-portfolio__filter" type="button" data-filter="dashboards" role="tab" aria-selected="false">Dashboards</button>
+            <button class="home-portfolio__filter" type="button" data-filter="automacoes" role="tab" aria-selected="false">Automações</button>
+            <button class="home-portfolio__filter" type="button" data-filter="ebooks" role="tab" aria-selected="false">E-books</button>
+        </div>
+    </div>
+
+    <div class="home-portfolio__grid">
+        <article class="home-portfolio-card" data-category="featured dashboards">
+            <div class="home-portfolio-card__media">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/image01.png' %}" alt="Sistema integrado de gestão empresarial" loading="lazy">
+            </div>
+            <div class="home-portfolio-card__body">
+                <p class="home-portfolio-card__tag">ERP</p>
+                <h3 class="home-portfolio-card__title">SIGE_ServicesBI</h3>
+                <p class="home-portfolio-card__text">
+                    Sistema integrado de gestão empresarial desenvolvido para centralizar cadastros, compras, vendas, financeiro, estoque, fluxo de caixa e indicadores.
+                </p>
+                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver projeto →</a>
+            </div>
+        </article>
+
+        <article class="home-portfolio-card" data-category="featured dashboards">
+            <div class="home-portfolio-card__media">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/image02.png' %}" alt="Dashboard financeiro executivo" loading="lazy">
+            </div>
+            <div class="home-portfolio-card__body">
+                <p class="home-portfolio-card__tag">Dashboard</p>
+                <h3 class="home-portfolio-card__title">Dashboard Financeiro Executivo</h3>
+                <p class="home-portfolio-card__text">
+                    Indicadores financeiros consolidados para controle de fluxo de caixa, DRE e projeções operacionais, eliminando a necessidade de consolidações manuais.
+                </p>
+                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver dashboard →</a>
+            </div>
+        </article>
+
+        <article class="home-portfolio-card" data-category="dashboards">
+            <div class="home-portfolio-card__media">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/dashboard/image01.png' %}" alt="Dashboard comercial" loading="lazy">
+            </div>
+            <div class="home-portfolio-card__body">
+                <p class="home-portfolio-card__tag">Dashboard</p>
+                <h3 class="home-portfolio-card__title">Dashboard Comercial</h3>
+                <p class="home-portfolio-card__text">
+                    Análise de performance de vendas, metas, funil de conversão e ticket médio por vendedor para decisões comerciais imediatas.
+                </p>
+                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver dashboard →</a>
+            </div>
+        </article>
+
+        <article class="home-portfolio-card" data-category="dashboards">
+            <div class="home-portfolio-card__media">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/dashboard/image02.png' %}" alt="Dashboard de compras" loading="lazy">
+            </div>
+            <div class="home-portfolio-card__body">
+                <p class="home-portfolio-card__tag">Dashboard</p>
+                <h3 class="home-portfolio-card__title">Dashboard de Compras</h3>
+                <p class="home-portfolio-card__text">
+                    Gestão estratégica de suprimentos, análise de saving, prazos de entrega e histórico de fornecedores para otimizar custos.
+                </p>
+                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver dashboard →</a>
+            </div>
+        </article>
+
+        <article class="home-portfolio-card" data-category="featured automacoes">
+            <div class="home-portfolio-card__media">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/image03.png' %}" alt="Automação de envio de relatórios" loading="lazy">
+            </div>
+            <div class="home-portfolio-card__body">
+                <p class="home-portfolio-card__tag">Automação</p>
+                <h3 class="home-portfolio-card__title">Automação de Envio de Relatórios</h3>
+                <p class="home-portfolio-card__text">
+                    Geração e disparo automatizado de relatórios e PDFs via e-mail ou WhatsApp para os gestores, economizando horas diárias de trabalho manual.
+                </p>
+                <a class="home-portfolio-card__link" href="{% url 'pages:automacoes' %}">Ver automação →</a>
+            </div>
+        </article>
+
+        <article class="home-portfolio-card" data-category="automacoes">
+            <div class="home-portfolio-card__media">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/automacoes/image01.png' %}" alt="Conciliação automatizada de planilhas" loading="lazy">
+            </div>
+            <div class="home-portfolio-card__body">
+                <p class="home-portfolio-card__tag">Automação</p>
+                <h3 class="home-portfolio-card__title">Conciliação de Planilhas</h3>
+                <p class="home-portfolio-card__text">
+                    Robô em Python que cruza dados de diferentes fontes, arquivos e sistemas de forma 100% automatizada, identificando divergências em segundos.
+                </p>
+                <a class="home-portfolio-card__link" href="{% url 'pages:python' %}">Ver automação →</a>
+            </div>
+        </article>
+
+        <article class="home-portfolio-card" data-category="featured ebooks">
+            <div class="home-portfolio-card__media">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/image04.png' %}" alt="E-books ServicesBI" loading="lazy">
+            </div>
+            <div class="home-portfolio-card__body">
+                <p class="home-portfolio-card__tag">E-book</p>
+                <h3 class="home-portfolio-card__title">E-books ServicesBI</h3>
+                <p class="home-portfolio-card__text">
+                    Conteúdos práticos sobre BI, automações, indicadores financeiros, Excel e análise de dados para apoiar empresas na tomada de decisão.
+                </p>
+                <a class="home-portfolio-card__link" href="{% url 'pages:contato' %}">Ver e-books →</a>
+            </div>
+        </article>
+
+        <article class="home-portfolio-card" data-category="ebooks">
+            <div class="home-portfolio-card__media">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/ebooks/image01.png' %}" alt="Checklist para implantação de BI" loading="lazy">
+            </div>
+            <div class="home-portfolio-card__body">
+                <p class="home-portfolio-card__tag">Checklist</p>
+                <h3 class="home-portfolio-card__title">Checklist para Implantação de BI</h3>
+                <p class="home-portfolio-card__text">
+                    Material prático com os principais pontos para estruturar indicadores, fontes de dados e governança antes da implantação de BI.
+                </p>
+                <a class="home-portfolio-card__link" href="{% url 'pages:contato' %}">Acessar checklist →</a>
+            </div>
+        </article>
+
+        <article class="home-portfolio-card" data-category="ebooks">
+            <div class="home-portfolio-card__media">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/ebooks/image02.png' %}" alt="Template financeiro" loading="lazy">
+            </div>
+            <div class="home-portfolio-card__body">
+                <p class="home-portfolio-card__tag">Template</p>
+                <h3 class="home-portfolio-card__title">Template Financeiro</h3>
+                <p class="home-portfolio-card__text">
+                    Modelo prático para acompanhamento financeiro, organização de indicadores e apoio ao controle gerencial.
+                </p>
+                <a class="home-portfolio-card__link" href="{% url 'pages:contato' %}">Baixar template →</a>
+            </div>
+        </article>
+    </div>
+</section>
 {% endblock %}
 
 {% block extra_js %}
 <script src="{% static 'js/home-robot.js' %}"></script>
+<script src="{% static 'js/home-portfolio.js' %}"></script>
 {% endblock %}
