@@ -6,6 +6,7 @@
 
 {% block extra_head %}
 <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
 {% endblock %}
 
@@ -114,6 +115,238 @@
                 <a class="home-solution-card__link" href="{% url 'pages:excel' %}">Saiba mais →</a>
             </div>
         </article>
+    </div>
+</section>
+
+<section class="home-jarvis" id="jarvis-agents" aria-labelledby="home-jarvis-title">
+    <div class="home-jarvis__inner">
+        <div class="home-jarvis__header">
+            <p class="home-jarvis__badge">DESTAQUES ESTRATÉGICOS</p>
+            <h2 class="home-jarvis__title" id="home-jarvis-title">
+                <span class="home-jarvis__title-line">Conheça os Agentes de IA do Services_Jarvis:</span>
+                <span class="home-jarvis__title-line">Seu novo time digital focado em escala</span>
+            </h2>
+        </div>
+
+        <div class="home-jarvis-carousel">
+            <button class="home-jarvis-nav home-jarvis-nav--prev" type="button" aria-label="Agente anterior">
+                <span aria-hidden="true">‹</span>
+            </button>
+
+            <div class="swiper home-jarvis-swiper">
+                <div class="swiper-wrapper">
+                    <article class="swiper-slide">
+                        <div class="home-jarvis-agent-card">
+                            <div class="home-jarvis-agent-card__visual">
+                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/orquestrador.png' %}" alt="Agente Orquestrador do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
+                            </div>
+                            <div class="home-jarvis-agent-card__body">
+                                <h3 class="home-jarvis-agent-card__title">Orquestrador</h3>
+                                <p class="home-jarvis-agent-card__text">O cérebro do ecossistema. Coordena, prioriza e direciona tarefas entre os outros agentes, transformando processos complexos em fluxos autônomos.</p>
+                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Orquestrador">
+                                    <span>Orquestração</span>
+                                    <span>Governança</span>
+                                    <span>Workflow</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="swiper-slide">
+                        <div class="home-jarvis-agent-card">
+                            <div class="home-jarvis-agent-card__visual">
+                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/dados.png' %}" alt="Agente Dados do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
+                            </div>
+                            <div class="home-jarvis-agent-card__body">
+                                <h3 class="home-jarvis-agent-card__title">Dados</h3>
+                                <p class="home-jarvis-agent-card__text">Análise preditiva avançada. Conecta-se às suas bases para minerar dados, identificar padrões ocultos e gerar relatórios estratégicos em tempo real.</p>
+                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Dados">
+                                    <span>Big Data</span>
+                                    <span>BI Insights</span>
+                                    <span>Predição</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="swiper-slide">
+                        <div class="home-jarvis-agent-card">
+                            <div class="home-jarvis-agent-card__visual">
+                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/python.png' %}" alt="Agente Python do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
+                            </div>
+                            <div class="home-jarvis-agent-card__body">
+                                <h3 class="home-jarvis-agent-card__title">Python</h3>
+                                <p class="home-jarvis-agent-card__text">Processamento de missão crítica. Executa scripts de alta performance e integra sistemas via API, eliminando horas de trabalho repetitivo.</p>
+                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Python">
+                                    <span>Scripts</span>
+                                    <span>Integrações</span>
+                                    <span>RPA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="swiper-slide">
+                        <div class="home-jarvis-agent-card">
+                            <div class="home-jarvis-agent-card__visual">
+                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/power-bi.png' %}" alt="Agente Power BI do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
+                            </div>
+                            <div class="home-jarvis-agent-card__body">
+                                <h3 class="home-jarvis-agent-card__title">Power BI</h3>
+                                <p class="home-jarvis-agent-card__text">Conecta métricas, propõe visões executivas e prepara narrativas para dashboards com foco em performance.</p>
+                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Power BI">
+                                    <span>DAX</span>
+                                    <span>KPIs</span>
+                                    <span>Dashboards</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="swiper-slide">
+                        <div class="home-jarvis-agent-card">
+                            <div class="home-jarvis-agent-card__visual">
+                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/automacao.png' %}" alt="Agente Automação do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
+                            </div>
+                            <div class="home-jarvis-agent-card__body">
+                                <h3 class="home-jarvis-agent-card__title">Automação</h3>
+                                <p class="home-jarvis-agent-card__text">Mapeia processos, desenha fluxos e elimina tarefas operacionais que travam escala e produtividade.</p>
+                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Automação">
+                                    <span>n8n</span>
+                                    <span>Rotinas</span>
+                                    <span>Processos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="swiper-slide">
+                        <div class="home-jarvis-agent-card">
+                            <div class="home-jarvis-agent-card__visual">
+                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/financeiro.png' %}" alt="Agente Financeiro do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
+                            </div>
+                            <div class="home-jarvis-agent-card__body">
+                                <h3 class="home-jarvis-agent-card__title">Financeiro</h3>
+                                <p class="home-jarvis-agent-card__text">Apoia conciliações, leitura de relatórios e acompanhamento de caixa para dar clareza ao resultado.</p>
+                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Financeiro">
+                                    <span>Caixa</span>
+                                    <span>DRE</span>
+                                    <span>Conciliação</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="swiper-slide">
+                        <div class="home-jarvis-agent-card">
+                            <div class="home-jarvis-agent-card__visual">
+                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/documentos.png' %}" alt="Agente Documentos do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
+                            </div>
+                            <div class="home-jarvis-agent-card__body">
+                                <h3 class="home-jarvis-agent-card__title">Documentos</h3>
+                                <p class="home-jarvis-agent-card__text">Inteligência documental. Extrai dados, resume arquivos complexos e analisa contratos de ponta a ponta com precisão instantânea.</p>
+                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Documentos">
+                                    <span>OCR</span>
+                                    <span>Extração</span>
+                                    <span>IA Analítica</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="swiper-slide">
+                        <div class="home-jarvis-agent-card">
+                            <div class="home-jarvis-agent-card__visual">
+                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/email.png' %}" alt="Agente E-mail do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
+                            </div>
+                            <div class="home-jarvis-agent-card__body">
+                                <h3 class="home-jarvis-agent-card__title">E-mail</h3>
+                                <p class="home-jarvis-agent-card__text">Ajuda a classificar mensagens, preparar respostas e organizar comunicações operacionais.</p>
+                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente E-mail">
+                                    <span>Inbox</span>
+                                    <span>Respostas</span>
+                                    <span>Triagem</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="swiper-slide">
+                        <div class="home-jarvis-agent-card">
+                            <div class="home-jarvis-agent-card__visual">
+                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/calendario.png' %}" alt="Agente Calendário do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
+                            </div>
+                            <div class="home-jarvis-agent-card__body">
+                                <h3 class="home-jarvis-agent-card__title">Calendário</h3>
+                                <p class="home-jarvis-agent-card__text">Apoia organização de agenda, compromissos, lembretes e rotinas recorrentes.</p>
+                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Calendário">
+                                    <span>Agenda</span>
+                                    <span>Prazos</span>
+                                    <span>Rotina</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="swiper-slide">
+                        <div class="home-jarvis-agent-card">
+                            <div class="home-jarvis-agent-card__visual">
+                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/pesquisa.png' %}" alt="Agente Pesquisa do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
+                            </div>
+                            <div class="home-jarvis-agent-card__body">
+                                <h3 class="home-jarvis-agent-card__title">Pesquisa</h3>
+                                <p class="home-jarvis-agent-card__text">Busca informações, compara referências e apoia análises com dados externos estruturados.</p>
+                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Pesquisa">
+                                    <span>Pesquisa</span>
+                                    <span>Fontes</span>
+                                    <span>Comparação</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="swiper-slide">
+                        <div class="home-jarvis-agent-card">
+                            <div class="home-jarvis-agent-card__visual">
+                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/qualidade.png' %}" alt="Agente Qualidade do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
+                            </div>
+                            <div class="home-jarvis-agent-card__body">
+                                <h3 class="home-jarvis-agent-card__title">Qualidade</h3>
+                                <p class="home-jarvis-agent-card__text">Revisa entregas, identifica inconsistências e melhora a confiabilidade dos fluxos.</p>
+                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Qualidade">
+                                    <span>Revisão</span>
+                                    <span>Testes</span>
+                                    <span>Padrão</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="swiper-slide">
+                        <div class="home-jarvis-agent-card">
+                            <div class="home-jarvis-agent-card__visual">
+                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/dev.png' %}" alt="Agente Dev do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
+                            </div>
+                            <div class="home-jarvis-agent-card__body">
+                                <h3 class="home-jarvis-agent-card__title">Dev</h3>
+                                <p class="home-jarvis-agent-card__text">Automação de infraestrutura. Planeja telas, revisa scripts e acelera a evolução técnica dos seus sistemas com zero fricção manual.</p>
+                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Dev">
+                                    <span>Core Code</span>
+                                    <span>APIs</span>
+                                    <span>Automação</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <button class="home-jarvis-nav home-jarvis-nav--next" type="button" aria-label="Próximo agente">
+                <span aria-hidden="true">›</span>
+            </button>
+        </div>
+
+        <div class="home-jarvis-pagination" aria-label="Paginação dos agentes"></div>
     </div>
 </section>
 
@@ -268,4 +501,51 @@
 {% block extra_js %}
 <script src="{% static 'js/home-robot.js' %}"></script>
 <script src="{% static 'js/home-portfolio.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        if (typeof Swiper === "undefined") {
+            return;
+        }
+
+        new Swiper(".home-jarvis-swiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            loop: true,
+            slidesPerView: 1.08,
+            spaceBetween: 16,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            navigation: {
+                nextEl: ".home-jarvis-nav--next",
+                prevEl: ".home-jarvis-nav--prev",
+            },
+            pagination: {
+                el: ".home-jarvis-pagination",
+                clickable: true,
+            },
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 16,
+                depth: 170,
+                modifier: 1.25,
+                slideShadows: false,
+            },
+            breakpoints: {
+                720: {
+                    slidesPerView: 2,
+                    spaceBetween: 18,
+                },
+                1040: {
+                    slidesPerView: 3,
+                    spaceBetween: 22,
+                },
+            },
+        });
+    });
+</script>
 {% endblock %}

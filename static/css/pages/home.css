@@ -349,6 +349,311 @@ html.theme-dark .home-solution-card__image--dark {
     transform: translateX(3px);
 }
 
+.home-jarvis {
+    --jarvis-bg: color-mix(in srgb, var(--color-text) 86%, var(--color-bg) 14%);
+    --jarvis-surface: color-mix(in srgb, var(--color-text) 78%, transparent);
+    --jarvis-text: var(--color-bg);
+    --jarvis-text-soft: color-mix(in srgb, var(--color-bg) 72%, var(--color-text-muted));
+    --jarvis-heading-text: var(--color-text);
+
+    position: relative;
+    padding: var(--space-20) clamp(var(--space-4), 4vw, var(--space-8));
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 6%, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 34%),
+        radial-gradient(circle at 12% 68%, color-mix(in srgb, var(--color-info) 8%, transparent), transparent 32%),
+        radial-gradient(circle at 88% 74%, color-mix(in srgb, var(--color-success) 7%, transparent), transparent 30%),
+        linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-soft) 52%, color-mix(in srgb, var(--color-surface) 88%, var(--color-accent) 12%) 100%);
+}
+
+html.theme-dark .home-jarvis {
+    --jarvis-bg: var(--color-bg);
+    --jarvis-surface: color-mix(in srgb, var(--color-surface) 68%, transparent);
+    --jarvis-text: var(--color-text);
+    --jarvis-text-soft: var(--color-text-body);
+    --jarvis-heading-text: var(--color-text);
+
+    background:
+        radial-gradient(circle at 50% 6%, color-mix(in srgb, var(--color-accent) 14%, transparent), transparent 34%),
+        radial-gradient(circle at 12% 68%, color-mix(in srgb, var(--color-info) 14%, transparent), transparent 32%),
+        radial-gradient(circle at 88% 74%, color-mix(in srgb, var(--color-success) 10%, transparent), transparent 30%),
+        linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-soft) 100%);
+}
+
+.home-jarvis__inner {
+    width: min(100%, var(--container-xl));
+    margin-inline: auto;
+}
+
+.home-jarvis__header {
+    max-width: 1180px;
+    margin-inline: auto;
+    margin-bottom: var(--space-10);
+    text-align: center;
+}
+
+.home-jarvis__badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    margin: 0 0 var(--space-4);
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-accent);
+    font-size: var(--font-size-eyebrow);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--letter-spacing-eyebrow);
+    text-transform: uppercase;
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 24%, transparent);
+    border-radius: var(--radius-sm);
+}
+
+.home-jarvis__title {
+    margin: 0;
+    color: var(--jarvis-heading-text);
+    font-size: 3rem;
+    font-weight: var(--font-weight-medium);
+    line-height: 1.08;
+    text-wrap: balance;
+}
+
+.home-jarvis__title-line {
+    display: block;
+    white-space: nowrap;
+}
+
+.home-jarvis-carousel {
+    position: relative;
+    isolation: isolate;
+    padding-inline: var(--space-10);
+    overflow: hidden;
+}
+
+.home-jarvis-swiper {
+    padding: var(--space-4) 0 var(--space-12);
+    overflow: visible;
+}
+
+.home-jarvis-swiper .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    opacity: 0.5;
+    transform-origin: center;
+    transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.home-jarvis-swiper .swiper-slide-prev,
+.home-jarvis-swiper .swiper-slide-next {
+    opacity: 0.72;
+}
+
+.home-jarvis-swiper .swiper-slide-active {
+    opacity: 1;
+}
+
+.home-jarvis-agent-card {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 520px;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: var(--space-5);
+    background:
+        linear-gradient(180deg, color-mix(in srgb, var(--jarvis-surface) 62%, transparent), color-mix(in srgb, var(--jarvis-bg) 76%, transparent));
+    border: 1px solid color-mix(in srgb, var(--jarvis-text) 16%, transparent);
+    border-radius: var(--radius-lg);
+    box-shadow:
+        var(--shadow-soft),
+        inset 0 1px 0 color-mix(in srgb, var(--jarvis-text) 10%, transparent);
+    backdrop-filter: blur(12px) saturate(1.18);
+    isolation: isolate;
+    transform: scale(0.92);
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, opacity 220ms ease;
+}
+
+.home-jarvis-agent-card::before {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        radial-gradient(circle at 50% 12%, color-mix(in srgb, var(--color-info) 16%, transparent), transparent 38%),
+        linear-gradient(180deg, color-mix(in srgb, var(--jarvis-bg) 14%, transparent) 0%, color-mix(in srgb, var(--jarvis-bg) 48%, transparent) 48%, color-mix(in srgb, var(--jarvis-bg) 92%, transparent) 100%);
+    content: "";
+    pointer-events: none;
+}
+
+.home-jarvis-swiper .swiper-slide-active .home-jarvis-agent-card {
+    border-color: color-mix(in srgb, var(--color-info) 54%, var(--color-success));
+    box-shadow:
+        0 28px 72px color-mix(in srgb, var(--color-info) 24%, transparent),
+        0 0 0 1px color-mix(in srgb, var(--color-success) 28%, transparent),
+        inset 0 1px 0 color-mix(in srgb, var(--jarvis-text) 16%, transparent);
+    transform: scale(1.05);
+}
+
+.home-jarvis-agent-card__visual {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+    background: transparent;
+    pointer-events: none;
+}
+
+.home-jarvis-agent-card__image {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    mix-blend-mode: normal;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(1.05) contrast(1.04);
+}
+
+.home-jarvis-agent-card__body {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: var(--space-16);
+    text-align: center;
+}
+
+.home-jarvis-agent-card__title {
+    margin: 0;
+    color: var(--jarvis-text);
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.12;
+    text-shadow: 0 2px 18px color-mix(in srgb, var(--jarvis-bg) 74%, transparent);
+}
+
+.home-jarvis-agent-card__text {
+    margin-top: var(--space-4);
+    color: var(--jarvis-text-soft);
+    font-size: var(--font-size-body);
+    line-height: 1.55;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    text-shadow: 0 2px 14px color-mix(in srgb, var(--jarvis-bg) 76%, transparent);
+}
+
+.home-jarvis-agent-card__tags {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: var(--space-2);
+    width: 100%;
+    margin-top: var(--space-5);
+    padding-top: 0;
+    overflow: hidden;
+}
+
+.home-jarvis-agent-card__tags span {
+    display: inline-flex;
+    min-height: 30px;
+    min-width: 0;
+    max-width: 34%;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-1) var(--space-2);
+    overflow: hidden;
+    color: var(--jarvis-text-soft);
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.2;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: color-mix(in srgb, var(--jarvis-bg) 82%, transparent);
+    border: 1px solid color-mix(in srgb, var(--jarvis-text) 18%, transparent);
+    border-radius: var(--radius-sm);
+    backdrop-filter: blur(10px);
+}
+
+.home-jarvis-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    padding: 0;
+    color: var(--jarvis-text);
+    background: color-mix(in srgb, var(--jarvis-surface) 74%, transparent);
+    border: 1px solid color-mix(in srgb, var(--jarvis-text) 18%, transparent);
+    border-radius: 999px;
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.home-jarvis-nav:hover {
+    color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 12%, var(--color-surface));
+    border-color: color-mix(in srgb, var(--color-accent) 36%, var(--color-border));
+}
+
+.home-jarvis-nav--prev {
+    left: 0;
+}
+
+.home-jarvis-nav--next {
+    right: 0;
+}
+
+.home-jarvis-nav span {
+    display: block;
+    font-size: 1.75rem;
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
+.home-jarvis-pagination {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+}
+
+.home-jarvis-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    margin: 0;
+    background: color-mix(in srgb, var(--jarvis-text-soft) 62%, transparent);
+    border-radius: 999px;
+    opacity: 1;
+    transition: width 180ms ease, background 180ms ease;
+}
+
+.home-jarvis-pagination .swiper-pagination-bullet-active {
+    width: 28px;
+    background: var(--color-accent);
+}
+
 .home-portfolio {
     padding: var(--space-20) clamp(var(--space-4), 4vw, var(--space-8));
     background:
@@ -576,6 +881,26 @@ html.theme-dark .home-solution-card__image--dark {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .home-jarvis {
+        padding-block: var(--space-16);
+    }
+
+    .home-jarvis__title {
+        font-size: 2.65rem;
+    }
+
+    .home-jarvis__title-line {
+        white-space: normal;
+    }
+
+    .home-jarvis-carousel {
+        padding-inline: var(--space-8);
+    }
+
+    .home-jarvis-agent-card {
+        min-height: 500px;
+    }
+
     .home-portfolio__head {
         grid-template-columns: 1fr;
         align-items: start;
@@ -613,6 +938,37 @@ html.theme-dark .home-solution-card__image--dark {
 
     .home-solution-card__body {
         padding: var(--space-5);
+    }
+
+    .home-jarvis {
+        padding-block: var(--space-12);
+    }
+
+    .home-jarvis__header {
+        margin-bottom: var(--space-8);
+    }
+
+    .home-jarvis__title {
+        font-size: 2.25rem;
+    }
+
+    .home-jarvis-carousel {
+        padding-inline: 0;
+        overflow: visible;
+    }
+
+    .home-jarvis-nav {
+        display: none;
+    }
+
+    .home-jarvis-agent-card {
+        min-height: 480px;
+        padding: var(--space-4);
+        transform: scale(0.96);
+    }
+
+    .home-jarvis-swiper .swiper-slide-active .home-jarvis-agent-card {
+        transform: scale(1);
     }
 
     .home-portfolio {
