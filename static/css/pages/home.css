@@ -1,32 +1,3 @@
-/* TESTE DE COR DO ROBÔ
-   Como o robô é preto/cinza dentro da cena Spline, CSS filter tem limite.
-   Para mudar a cor real do material, será necessário editar o material/iluminação da cena no Spline.
-*/
-:root {
-    --home-robot-tint: #c2ac98;
-    --home-robot-tint-opacity: 0.56;
-    --home-robot-tint-blend-mode: color;
-    --home-robot-filter:
-        brightness(1.18)
-        contrast(0.72)
-        saturate(0.88)
-        sepia(0.58)
-        hue-rotate(-18deg)
-        drop-shadow(0 24px 60px color-mix(in srgb, #c2ac98 28%, transparent));
-}
-
-html.theme-dark {
-    --home-robot-tint: #081724;
-    --home-robot-tint-opacity: 0.78;
-    --home-robot-tint-blend-mode: color;
-    --home-robot-filter:
-        brightness(0.88)
-        contrast(1.08)
-        saturate(1.35)
-        sepia(0.32)
-        hue-rotate(165deg)
-        drop-shadow(0 24px 70px color-mix(in srgb, #081724 42%, transparent));
-}
 
 .home-robot-stage {
     position: relative;
@@ -80,27 +51,10 @@ html.theme-dark {
     display: block;
     background: transparent;
     border: none;
-    filter: var(--home-robot-filter);
     -webkit-mask-image: radial-gradient(ellipse 72% 88% at 52% 50%, black 38%, transparent 82%);
     mask-image: radial-gradient(ellipse 72% 88% at 52% 50%, black 38%, transparent 82%);
 }
 
-.home-robot__viewer::after {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    content: "";
-    background:
-        radial-gradient(
-            circle at 54% 46%,
-            color-mix(in srgb, var(--home-robot-tint) 82%, transparent) 0%,
-            color-mix(in srgb, var(--home-robot-tint) 56%, transparent) 38%,
-            transparent 68%
-        );
-    mix-blend-mode: var(--home-robot-tint-blend-mode);
-    opacity: var(--home-robot-tint-opacity);
-}
 
 .home-robot__loader {
     position: absolute;
