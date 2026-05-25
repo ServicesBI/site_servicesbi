@@ -151,11 +151,20 @@ html.theme-dark {
 body.capture-mode * {
     animation: none !important;
     transition: none !important;
+    scroll-behavior: auto !important;
+}
+
+body.capture-mode .home-robot-stage {
+    contain: layout paint;
+    overflow: hidden;
+    isolation: isolate;
 }
 
 body.capture-mode .home-robot__viewer {
     position: absolute;
     transform: none !important;
+    will-change: auto !important;
+    contain: paint;
 }
 
 body.capture-mode .home-spotlight {
@@ -166,6 +175,26 @@ body.capture-mode .home-robot__viewer spline-viewer,
 body.capture-mode .home-robot__viewer::after,
 body.capture-mode .home-robot__loader {
     display: none !important;
+}
+
+body.capture-mode .home-jarvis {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+body.capture-mode .home-jarvis-carousel,
+body.capture-mode .home-jarvis-swiper {
+    overflow: hidden;
+    transform: none !important;
+    will-change: auto !important;
+}
+
+body.capture-mode .home-jarvis .swiper-wrapper,
+body.capture-mode .home-jarvis .swiper-slide {
+    will-change: auto !important;
+    backface-visibility: visible;
 }
 
 .home-solutions {
@@ -250,7 +279,7 @@ body.capture-mode .home-robot__loader {
 .home-solution-card__media {
     position: relative;
     display: flex;
-    height: 170px;
+    height: 250px;
     align-items: center;
     justify-content: center;
     overflow: hidden;

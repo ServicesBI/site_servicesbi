@@ -6,6 +6,16 @@ __pycache__/
 .venv/
 venv/
 
-# Pastas antigas do projeto anterior - n�o usadas no ServicesBI novo
+# Pastas antigas do projeto anterior - n�o usadas no ServicesBI novo
 config/
 sitepages/
+
+# Django collectstatic output
+staticfiles/
+
+# Local AI/tooling files
+.claude/
+
+# Scripts de debug/captura local — não versionar
+static/js/home-capture.js
+static/js/dev-home-text-metrics.js

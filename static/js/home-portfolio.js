@@ -26,4 +26,7 @@
             applyFilter(button.dataset.filter);
         });
     });
+
+    const activeFilter = filters.find((button) => button.classList.contains("is-active"));
+    applyFilter(activeFilter?.dataset.filter || "featured");
 })();

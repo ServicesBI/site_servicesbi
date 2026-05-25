@@ -1,11 +1,294 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
+{% load static %}
 
 {% block title %}Automações | ServicesBI{% endblock %}
+{% block meta_description %}Automações com n8n, fluxos integrados, conexão entre sistemas e redução de trabalho manual para empresas.{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/python.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/automacoes.css' %}">
+{% endblock %}
 
 {% block content %}
-<section class="section">
-    <div class="container">
-        <h1 class="section-title">Automações Inteligentes</h1>
+<section class="service-hero automacoes-hero" aria-labelledby="automacoes-hero-title">
+    <div class="service-hero__inner">
+        <div class="service-hero__copy">
+            <p class="eyebrow text-accent">Automações</p>
+            <h1 class="section-title" id="automacoes-hero-title">Fluxos automatizados para conectar sistemas e reduzir trabalho manual.</h1>
+            <p class="section-subtitle">
+                Automações com n8n, integrações entre ferramentas e processos digitais para transformar tarefas repetitivas em rotinas confiáveis.
+            </p>
+            <div class="service-hero__actions">
+                <a class="btn btn--primary" href="#automacoes-beneficios">Ver soluções</a>
+                <a class="btn btn--secondary" href="{% url 'pages:contato' %}">Falar comigo</a>
+            </div>
+            <ul class="service-hero__points" aria-label="Principais frentes de automação">
+                <li>n8n e workflows</li>
+                <li>Integração entre sistemas</li>
+                <li>Operação 24/7</li>
+            </ul>
+        </div>
+
+        <div class="automacoes-hero__media" aria-hidden="true">
+            <img
+                src="{% static 'img/automacoes/hero/hero_automacoes_light.png' %}"
+                alt="Representação visual de automações, integrações e fluxos inteligentes"
+                class="automacoes-hero__image automacoes-hero__image--light"
+            >
+
+            <img
+                src="{% static 'img/automacoes/hero/hero_automacoes_dark.png' %}"
+                alt=""
+                class="automacoes-hero__image automacoes-hero__image--dark"
+            >
+        </div>
+    </div>
+</section>
+
+<section class="home-solutions" id="automacoes-beneficios" aria-labelledby="automacoes-beneficios-title">
+    <div class="home-solutions__header">
+        <p class="eyebrow text-accent">O que automatizar</p>
+        <h2 class="section-title" id="automacoes-beneficios-title">Menos tarefas manuais, mais processo rodando sozinho.</h2>
+        <p class="section-subtitle">
+            Fluxos desenhados para integrar sistemas, movimentar dados e acionar pessoas no momento certo.
+        </p>
+    </div>
+
+    <div class="home-solutions__grid">
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img
+                    class="home-solution-card__image home-solution-card__image--light"
+                    src="{% static 'img/automacoes/cards/light/card01.png' %}"
+                    alt="Fluxos automatizados com n8n"
+                    loading="lazy"
+                >
+                <img
+                    class="home-solution-card__image home-solution-card__image--dark"
+                    src="{% static 'img/automacoes/cards/dark/card01.png' %}"
+                    alt="Fluxos automatizados com n8n"
+                    loading="lazy"
+                >
+            </div>
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">n8n</p>
+                <h3 class="home-solution-card__title">Fluxos automatizados</h3>
+                <p class="home-solution-card__text">Workflows para capturar dados, validar regras, atualizar sistemas e acionar responsáveis.</p>
+                <a class="home-solution-card__link" href="{% url 'pages:contato' %}">Saiba mais &rarr;</a>
+            </div>
+        </article>
+
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img
+                    class="home-solution-card__image home-solution-card__image--light"
+                    src="{% static 'img/automacoes/cards/light/card02.png' %}"
+                    alt="Integração entre sistemas"
+                    loading="lazy"
+                >
+                <img
+                    class="home-solution-card__image home-solution-card__image--dark"
+                    src="{% static 'img/automacoes/cards/dark/card02.png' %}"
+                    alt="Integração entre sistemas"
+                    loading="lazy"
+                >
+            </div>
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Integrações</p>
+                <h3 class="home-solution-card__title">Ferramentas conectadas</h3>
+                <p class="home-solution-card__text">Conexão entre CRM, ERP, e-mail, WhatsApp, formulários, bancos de dados e planilhas.</p>
+                <a class="home-solution-card__link" href="{% url 'pages:contato' %}">Saiba mais &rarr;</a>
+            </div>
+        </article>
+
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img
+                    class="home-solution-card__image home-solution-card__image--light"
+                    src="{% static 'img/automacoes/cards/light/card03.png' %}"
+                    alt="Alertas e notificações automáticas"
+                    loading="lazy"
+                >
+                <img
+                    class="home-solution-card__image home-solution-card__image--dark"
+                    src="{% static 'img/automacoes/cards/dark/card03.png' %}"
+                    alt="Alertas e notificações automáticas"
+                    loading="lazy"
+                >
+            </div>
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Alertas</p>
+                <h3 class="home-solution-card__title">Notificações inteligentes</h3>
+                <p class="home-solution-card__text">Avisos automáticos para prazos, pagamentos, vendas, ocorrências e mudanças críticas.</p>
+                <a class="home-solution-card__link" href="{% url 'pages:contato' %}">Saiba mais &rarr;</a>
+            </div>
+        </article>
+
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img
+                    class="home-solution-card__image home-solution-card__image--light"
+                    src="{% static 'img/automacoes/cards/light/card04.png' %}"
+                    alt="Redução de trabalho manual"
+                    loading="lazy"
+                >
+                <img
+                    class="home-solution-card__image home-solution-card__image--dark"
+                    src="{% static 'img/automacoes/cards/dark/card04.png' %}"
+                    alt="Redução de trabalho manual"
+                    loading="lazy"
+                >
+            </div>
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Eficiência</p>
+                <h3 class="home-solution-card__title">Rotinas recorrentes</h3>
+                <p class="home-solution-card__text">Execuções agendadas para relatórios, conferências, disparos e movimentações de dados.</p>
+                <a class="home-solution-card__link" href="{% url 'pages:contato' %}">Saiba mais &rarr;</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="home-portfolio python-projects" aria-labelledby="automacoes-projetos-title">
+    <div class="home-portfolio__head">
+        <div class="home-portfolio__intro">
+            <p class="eyebrow text-accent">Projetos</p>
+            <h2 class="section-title" id="automacoes-projetos-title">Fluxos que simplificam a rotina.</h2>
+            <p class="section-subtitle">
+                Automações desenhadas para integrar sistemas, movimentar dados e acionar pessoas no momento certo.
+            </p>
+        </div>
+    </div>
+
+    <div class="python-projects__list">
+        <article class="python-project">
+            <div class="python-project__content">
+                <p class="python-project__tag">Relatórios</p>
+                <h3 class="python-project__title">Envio automático de relatórios</h3>
+                <div class="python-project__text">
+                    <p>Fluxo que gera, organiza e distribui relatórios por e-mail ou mensageria sem intervenção manual.</p>
+                    <ul>
+                        <li>Gatilho por data ou evento;</li>
+                        <li>geração do arquivo;</li>
+                        <li>formatação e envio;</li>
+                        <li>confirmação de entrega;</li>
+                        <li>log de execução.</li>
+                    </ul>
+                </div>
+                <a class="btn btn--primary python-project__cta" href="{% url 'pages:contato' %}">Ver automação</a>
+            </div>
+            <div class="python-project__media">
+                <img
+                    class="python-project__image python-project__image--light"
+                    src="{% static 'img/automacoes/cards/light/card01.png' %}"
+                    alt="Automação de relatórios"
+                    loading="lazy"
+                >
+                <img
+                    class="python-project__image python-project__image--dark"
+                    src="{% static 'img/automacoes/cards/dark/card01.png' %}"
+                    alt="Automação de relatórios"
+                    loading="lazy"
+                >
+            </div>
+        </article>
+
+        <article class="python-project python-project--reverse">
+            <div class="python-project__content">
+                <p class="python-project__tag">Cadastro</p>
+                <h3 class="python-project__title">Entrada de dados integrada</h3>
+                <div class="python-project__text">
+                    <p>Formulários e sistemas alimentando bases, planilhas e ferramentas sem digitação duplicada.</p>
+                    <ul>
+                        <li>Captura via formulário ou API;</li>
+                        <li>validação de campos;</li>
+                        <li>envio para base de dados;</li>
+                        <li>atualização de planilha ou sistema;</li>
+                        <li>notificação ao responsável.</li>
+                    </ul>
+                </div>
+                <a class="btn btn--primary python-project__cta" href="{% url 'pages:contato' %}">Conhecer</a>
+            </div>
+            <div class="python-project__media">
+                <img
+                    class="python-project__image python-project__image--light"
+                    src="{% static 'img/automacoes/cards/light/card02.png' %}"
+                    alt="Automação de entrada de dados"
+                    loading="lazy"
+                >
+                <img
+                    class="python-project__image python-project__image--dark"
+                    src="{% static 'img/automacoes/cards/dark/card02.png' %}"
+                    alt="Automação de entrada de dados"
+                    loading="lazy"
+                >
+            </div>
+        </article>
+
+        <article class="python-project">
+            <div class="python-project__content">
+                <p class="python-project__tag">Alertas</p>
+                <h3 class="python-project__title">Monitoramento de eventos</h3>
+                <div class="python-project__text">
+                    <p>Fluxos que identificam mudanças importantes e notificam a pessoa certa no momento certo.</p>
+                    <ul>
+                        <li>Monitoramento de condições críticas;</li>
+                        <li>alerta por e-mail ou WhatsApp;</li>
+                        <li>escalada automática;</li>
+                        <li>registro de ocorrências;</li>
+                        <li>relatório de histórico.</li>
+                    </ul>
+                </div>
+                <a class="btn btn--primary python-project__cta" href="{% url 'pages:contato' %}">Ver fluxo</a>
+            </div>
+            <div class="python-project__media">
+                <img
+                    class="python-project__image python-project__image--light"
+                    src="{% static 'img/automacoes/cards/light/card03.png' %}"
+                    alt="Monitoramento de eventos automatizado"
+                    loading="lazy"
+                >
+                <img
+                    class="python-project__image python-project__image--dark"
+                    src="{% static 'img/automacoes/cards/dark/card03.png' %}"
+                    alt="Monitoramento de eventos automatizado"
+                    loading="lazy"
+                >
+            </div>
+        </article>
+
+        <article class="python-project python-project--reverse">
+            <div class="python-project__content">
+                <p class="python-project__tag">Integrações</p>
+                <h3 class="python-project__title">Ferramentas conectadas</h3>
+                <div class="python-project__text">
+                    <p>Conexão entre CRM, ERP, e-mail, WhatsApp, formulários, bancos de dados e planilhas em um único fluxo.</p>
+                    <ul>
+                        <li>Sincronização entre sistemas;</li>
+                        <li>transformação de dados em trânsito;</li>
+                        <li>tratamento de erros automático;</li>
+                        <li>log de operações;</li>
+                        <li>reprocessamento sob demanda.</li>
+                    </ul>
+                </div>
+                <a class="btn btn--primary python-project__cta" href="{% url 'pages:contato' %}">Ver integração</a>
+            </div>
+            <div class="python-project__media">
+                <img
+                    class="python-project__image python-project__image--light"
+                    src="{% static 'img/automacoes/cards/light/card04.png' %}"
+                    alt="Integração entre ferramentas"
+                    loading="lazy"
+                >
+                <img
+                    class="python-project__image python-project__image--dark"
+                    src="{% static 'img/automacoes/cards/dark/card04.png' %}"
+                    alt="Integração entre ferramentas"
+                    loading="lazy"
+                >
+            </div>
+        </article>
     </div>
 </section>
 {% endblock %}

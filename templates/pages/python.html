@@ -1,11 +1,506 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Python | ServicesBI{% endblock %}
+{% block meta_description %}Soluções em Python para automação de processos, integrações, scripts, APIs, dados e produtividade corporativa.{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/python.css' %}">
+{% endblock %}
 
 {% block content %}
-<section class="section">
-    <div class="container">
-        <h1 class="section-title">Python & Automações</h1>
+<section class="service-hero python-hero" aria-labelledby="python-hero-title">
+    <div class="service-hero__inner">
+        <div class="service-hero__copy">
+            <p class="eyebrow text-accent">Python</p>
+
+            <h1 class="section-title" id="python-hero-title">
+                Automações, integrações e dados com Python aplicado ao negócio.
+            </h1>
+
+            <p class="section-subtitle">
+                Scripts, APIs e rotinas inteligentes para reduzir trabalho manual, organizar dados e acelerar operações que dependem de precisão todos os dias.
+            </p>
+
+            <div class="service-hero__actions">
+                <a class="btn btn--primary" href="#python-beneficios">Ver soluções</a>
+                <a class="btn btn--secondary" href="{% url 'pages:contato' %}">Falar comigo</a>
+            </div>
+
+            <ul class="service-hero__points" aria-label="Principais frentes em Python">
+                <li>Robôs operacionais</li>
+                <li>Integração via APIs</li>
+                <li>Tratamento de dados</li>
+            </ul>
+        </div>
+
+        <div class="python-hero__media" aria-hidden="true">
+            <img
+                src="{% static 'img/python/hero/hero_python_light.png' %}"
+                alt="Representação visual de desenvolvimento Python, automações e sistemas internos"
+                class="python-hero__image python-hero__image--light"
+            >
+
+            <img
+                src="{% static 'img/python/hero/hero_python_dark.png' %}"
+                alt=""
+                class="python-hero__image python-hero__image--dark"
+            >
+        </div>
     </div>
 </section>
+
+<section class="home-solutions" id="python-beneficios" aria-labelledby="python-beneficios-title">
+    <div class="home-solutions__header">
+        <p class="eyebrow text-accent">O que melhora</p>
+
+        <h2 class="section-title" id="python-beneficios-title">
+            Python para tirar peso operacional da equipe.
+        </h2>
+
+        <p class="section-subtitle">
+            Entregas focadas em eliminar retrabalho, reduzir erros e dar mais velocidade para processos que dependem de arquivos, sistemas e dados.
+        </p>
+    </div>
+
+    <div class="home-solutions__grid">
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img
+                    class="home-solution-card__image home-solution-card__image--light"
+                    src="{% static 'img/python/cards/light/card01.png' %}"
+                    alt="Automação de processos com Python"
+                    loading="lazy"
+                >
+                <img
+                    class="home-solution-card__image home-solution-card__image--dark"
+                    src="{% static 'img/python/cards/dark/card01.png' %}"
+                    alt="Automação de processos com Python"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Automação</p>
+                <h3 class="home-solution-card__title">Scripts e robôs operacionais</h3>
+                <p class="home-solution-card__text">
+                    Rotinas para baixar, conferir, cruzar, transformar e enviar informações sem depender de execução manual.
+                </p>
+                <a class="home-solution-card__link" href="{% url 'pages:contato' %}">Saiba mais &rarr;</a>
+            </div>
+        </article>
+
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img
+                    class="home-solution-card__image home-solution-card__image--light"
+                    src="{% static 'img/python/cards/light/card02.png' %}"
+                    alt="Integrações com APIs em Python"
+                    loading="lazy"
+                >
+                <img
+                    class="home-solution-card__image home-solution-card__image--dark"
+                    src="{% static 'img/python/cards/dark/card02.png' %}"
+                    alt="Integrações com APIs em Python"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Integrações</p>
+                <h3 class="home-solution-card__title">APIs e sistemas conectados</h3>
+                <p class="home-solution-card__text">
+                    Conexão entre ERPs, CRMs, planilhas, bancos de dados e plataformas que precisam trocar informações.
+                </p>
+                <a class="home-solution-card__link" href="{% url 'pages:contato' %}">Saiba mais &rarr;</a>
+            </div>
+        </article>
+
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img
+                    class="home-solution-card__image home-solution-card__image--light"
+                    src="{% static 'img/python/cards/light/card03.png' %}"
+                    alt="Tratamento de dados com Python"
+                    loading="lazy"
+                >
+                <img
+                    class="home-solution-card__image home-solution-card__image--dark"
+                    src="{% static 'img/python/cards/dark/card03.png' %}"
+                    alt="Tratamento de dados com Python"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Dados</p>
+                <h3 class="home-solution-card__title">Tratamento e validação</h3>
+                <p class="home-solution-card__text">
+                    Limpeza, padronização e conferência de bases para relatórios, dashboards e processos internos.
+                </p>
+                <a class="home-solution-card__link" href="{% url 'pages:contato' %}">Saiba mais &rarr;</a>
+            </div>
+        </article>
+
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img
+                    class="home-solution-card__image home-solution-card__image--light"
+                    src="{% static 'img/python/cards/light/card04.png' %}"
+                    alt="Produtividade com Python"
+                    loading="lazy"
+                >
+                <img
+                    class="home-solution-card__image home-solution-card__image--dark"
+                    src="{% static 'img/python/cards/dark/card04.png' %}"
+                    alt="Produtividade com Python"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Produtividade</p>
+                <h3 class="home-solution-card__title">Relatórios automáticos</h3>
+                <p class="home-solution-card__text">
+                    Geração de arquivos, alertas, e-mails e pacotes de informação prontos para decisão.
+                </p>
+                <a class="home-solution-card__link" href="{% url 'pages:contato' %}">Saiba mais &rarr;</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="home-portfolio python-projects" aria-labelledby="python-projetos-title">
+    <div class="home-portfolio__head">
+        <div class="home-portfolio__intro">
+            <p class="eyebrow text-accent">Projetos</p>
+
+            <h2 class="section-title" id="python-projetos-title">
+                Soluções Python que viram operação.
+            </h2>
+
+            <p class="section-subtitle">
+                Exemplos de frentes que podem ser demonstradas, adaptadas ou evoluídas conforme a rotina da empresa.
+            </p>
+        </div>
+    </div>
+
+    <div class="python-projects__list">
+        <article class="python-project">
+            <div class="python-project__content">
+                <p class="python-project__tag">Sistema</p>
+                <h3 class="python-project__title">Services_Jarvis</h3>
+                <div class="python-project__text">
+                    <p>O ServicesBI Jarvis é um assistente operacional local criado para atuar como uma central de comando inteligente.</p>
+                    <ul>
+                        <li>HUD visual futurista;</li>
+                        <li>comandos por voz;</li>
+                        <li>integração com Claude e Codex;</li>
+                        <li>12 agentes especializados de IA;</li>
+                        <li>Obsidian Brain;</li>
+                        <li>Mega-Brain;</li>
+                        <li>criação e análise de arquivos;</li>
+                        <li>geração de planilhas e relatórios;</li>
+                        <li>protocolos operacionais;</li>
+                        <li>automações futuras com ERP, SaaS, Excel, Power BI e PDF.</li>
+                    </ul>
+                </div>
+                <a class="btn btn--primary python-project__cta" href="{% url 'pages:contato' %}">Acessar Demo</a>
+            </div>
+
+            <div class="python-project__media">
+                <img
+                    class="python-project__image python-project__image--light"
+                    src="{% static 'img/python/projetos/card01_light.png' %}"
+                    alt="Services_Jarvis"
+                    loading="lazy"
+                >
+                <img
+                    class="python-project__image python-project__image--dark"
+                    src="{% static 'img/python/projetos/card01_dark.png' %}"
+                    alt="Services_Jarvis"
+                    loading="lazy"
+                >
+            </div>
+        </article>
+
+        <article class="python-project python-project--reverse">
+            <div class="python-project__content">
+                <p class="python-project__tag">Integração</p>
+                <h3 class="python-project__title">Sige_ServicesBI</h3>
+                <div class="python-project__text">
+                    <p>O objetivo do SIGE_ServicesBI é centralizar processos empresariais que normalmente ficam espalhados em planilhas, sistemas desconectados ou controles manuais.</p>
+                    <p>A plataforma busca organizar:</p>
+                    <ul>
+                        <li>Vendas</li>
+                        <li>Compras</li>
+                        <li>Cotações</li>
+                        <li>Financeiro</li>
+                        <li>Contas a pagar</li>
+                        <li>Contas a receber</li>
+                        <li>Fluxo de caixa</li>
+                        <li>Conciliação bancária</li>
+                        <li>DRE</li>
+                        <li>Estoque</li>
+                        <li>Cadastros</li>
+                        <li>Relatórios</li>
+                        <li>Integrações</li>
+                        <li>Automações</li>
+                        <li>Análises gerenciais</li>
+                    </ul>
+                    <p>A proposta é transformar dados operacionais em informações confiáveis para tomada de decisão.</p>
+                </div>
+                <a class="btn btn--primary python-project__cta" href="{% url 'pages:contato' %}">Acessar Demo</a>
+            </div>
+
+            <div class="python-project__media">
+                <img
+                    class="python-project__image python-project__image--light"
+                    src="{% static 'img/python/projetos/card02_light.png' %}"
+                    alt="Sige_ServicesBI"
+                    loading="lazy"
+                >
+                <img
+                    class="python-project__image python-project__image--dark"
+                    src="{% static 'img/python/projetos/card02_dark.png' %}"
+                    alt="Sige_ServicesBI"
+                    loading="lazy"
+                >
+            </div>
+        </article>
+
+        <article class="python-project">
+            <div class="python-project__content">
+                <p class="python-project__tag">Relatórios</p>
+                <h3 class="python-project__title">Sice</h3>
+                <p class="python-project__text">
+                    Sistema Integrado de Controle de Estoque para gestão de entradas, saídas, inventário e movimentação de produtos.
+                </p>
+                <a class="btn btn--primary python-project__cta" href="{% url 'pages:contato' %}">Acessar Demo</a>
+            </div>
+
+            <div class="python-project__media">
+                <img
+                    class="python-project__image python-project__image--light"
+                    src="{% static 'img/python/projetos/card03_light.png' %}"
+                    alt="Sice"
+                    loading="lazy"
+                >
+                <img
+                    class="python-project__image python-project__image--dark"
+                    src="{% static 'img/python/projetos/card03_dark.png' %}"
+                    alt="Sice"
+                    loading="lazy"
+                >
+            </div>
+        </article>
+
+        <article class="python-project python-project--reverse">
+            <div class="python-project__content">
+                <p class="python-project__tag">Automação</p>
+                <h3 class="python-project__title">Chatbot IA para WhatsApp com EvolutionAPI</h3>
+                <p class="python-project__text">
+                    Solução de atendimento e automação via WhatsApp com IA integrada à EvolutionAPI.
+                </p>
+                <a class="btn btn--primary python-project__cta" href="{% url 'pages:contato' %}">Acessar Demo</a>
+            </div>
+
+            <div class="python-project__media">
+                <img
+                    class="python-project__image python-project__image--light"
+                    src="{% static 'img/python/projetos/card04_light.png' %}"
+                    alt="Chatbot IA para WhatsApp com EvolutionAPI"
+                    loading="lazy"
+                >
+                <img
+                    class="python-project__image python-project__image--dark"
+                    src="{% static 'img/python/projetos/card04_dark.png' %}"
+                    alt="Chatbot IA para WhatsApp com EvolutionAPI"
+                    loading="lazy"
+                >
+            </div>
+        </article>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+{% if request.GET.debugPythonText == "1" %}
+<script>
+    (function () {
+        "use strict";
+
+        const targets = [
+            ["Hero text block", ".service-hero__copy"],
+            ["Eyebrow Python", ".service-hero__copy .eyebrow"],
+            ["Hero title", ".service-hero__copy .section-title"],
+            ["Hero subtitle", ".service-hero__copy .section-subtitle"],
+            ["Primary CTA Ver solucoes", ".service-hero__actions .btn--primary"],
+            ["Secondary CTA Falar comigo", ".service-hero__actions .btn--secondary"],
+        ];
+
+        window.addEventListener("load", function () {
+            requestAnimationFrame(renderPanel);
+        });
+
+        function renderPanel() {
+            const data = {
+                environment: {
+                    viewportWidth: window.innerWidth,
+                    viewportHeight: window.innerHeight,
+                    devicePixelRatio: window.devicePixelRatio,
+                    scrollX: window.scrollX,
+                    scrollY: window.scrollY,
+                    pathname: window.location.pathname,
+                    url: window.location.href,
+                },
+                metrics: targets.map(function (target) {
+                    return measure(target[0], target[1]);
+                }),
+            };
+            const panel = document.createElement("aside");
+            const pre = document.createElement("pre");
+
+            panel.setAttribute("aria-label", "Python hero text metrics");
+            panel.style.cssText = [
+                "position:fixed",
+                "right:16px",
+                "bottom:16px",
+                "z-index:2147483647",
+                "width:min(680px,calc(100vw - 32px))",
+                "max-height:min(76vh,720px)",
+                "overflow:auto",
+                "padding:16px",
+                "color:#f8fafc",
+                "background:rgba(2,6,23,.94)",
+                "border:1px solid rgba(148,163,184,.35)",
+                "border-radius:8px",
+                "box-shadow:0 24px 80px rgba(0,0,0,.45)",
+                "font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace",
+            ].join(";");
+
+            pre.textContent = format(data);
+            pre.style.cssText = "margin:0;white-space:pre-wrap;user-select:text;";
+            panel.appendChild(pre);
+            document.body.appendChild(panel);
+        }
+
+        function format(data) {
+            const lines = [
+                "PYTHON HERO TEXT METRICS",
+                "Use text_start_x/text_start_y como o inicio real do texto.",
+                "",
+                "ENVIRONMENT",
+                "viewportWidth: " + data.environment.viewportWidth,
+                "viewportHeight: " + data.environment.viewportHeight,
+                "devicePixelRatio: " + data.environment.devicePixelRatio,
+                "scrollX: " + data.environment.scrollX,
+                "scrollY: " + data.environment.scrollY,
+                "",
+                "METRICS",
+            ];
+
+            data.metrics.forEach(function (item) {
+                lines.push("");
+                lines.push(item.label);
+                lines.push("  selector: " + item.selector);
+                if (item.error) {
+                    lines.push("  error: " + item.error);
+                    return;
+                }
+                lines.push("  element_x: " + item.element_x);
+                lines.push("  element_y: " + item.element_y);
+                lines.push("  element_width: " + item.element_width);
+                lines.push("  element_height: " + item.element_height);
+                lines.push("  text_start_x: " + item.text_start_x);
+                lines.push("  text_start_y: " + item.text_start_y);
+                lines.push("  first_line_x: " + item.first_line_x);
+                lines.push("  first_line_y: " + item.first_line_y);
+                lines.push("  fontSize: " + item.fontSize);
+                lines.push("  lineHeight: " + item.lineHeight);
+                lines.push("  fontWeight: " + item.fontWeight);
+                lines.push("  letterSpacing: " + item.letterSpacing);
+                lines.push("  margin: " + item.margin);
+                lines.push("  padding: " + item.padding);
+            });
+
+            return lines.join("\n");
+        }
+
+        function measure(label, selector) {
+            const element = document.querySelector(selector);
+            if (!element) {
+                return { label: label, selector: selector, error: "Element not found" };
+            }
+            const rect = element.getBoundingClientRect();
+            const styles = window.getComputedStyle(element);
+            const text = measureText(element);
+
+            return {
+                label: label,
+                selector: selector,
+                element_x: round(rect.left),
+                element_y: round(rect.top),
+                element_width: round(rect.width),
+                element_height: round(rect.height),
+                text_start_x: text ? round(text.textStart.left) : null,
+                text_start_y: text ? round(text.textStart.top) : null,
+                first_line_x: text ? round(text.firstLine.left) : null,
+                first_line_y: text ? round(text.firstLine.top) : null,
+                fontSize: styles.fontSize,
+                lineHeight: styles.lineHeight,
+                fontWeight: styles.fontWeight,
+                letterSpacing: styles.letterSpacing,
+                margin: [styles.marginTop, styles.marginRight, styles.marginBottom, styles.marginLeft].join(" "),
+                padding: [styles.paddingTop, styles.paddingRight, styles.paddingBottom, styles.paddingLeft].join(" "),
+            };
+        }
+
+        function measureText(element) {
+            const first = firstTextNode(element);
+            if (!first) {
+                return null;
+            }
+            const text = first.node.nodeValue || "";
+            const firstCharRange = document.createRange();
+            const firstLineRange = document.createRange();
+
+            firstCharRange.setStart(first.node, first.offset);
+            firstCharRange.setEnd(first.node, Math.min(first.offset + 1, text.length));
+            firstLineRange.setStart(first.node, first.offset);
+            firstLineRange.setEnd(first.node, text.length);
+
+            const textStart = firstRect(firstCharRange);
+            const firstLine = firstRect(firstLineRange);
+
+            firstCharRange.detach();
+            firstLineRange.detach();
+
+            return textStart && firstLine ? { textStart: textStart, firstLine: firstLine } : null;
+        }
+
+        function firstTextNode(element) {
+            const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, {
+                acceptNode: function (node) {
+                    return /\S/.test(node.nodeValue || "") ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+                },
+            });
+            const node = walker.nextNode();
+            const match = node ? /\S/.exec(node.nodeValue || "") : null;
+            return node ? { node: node, offset: match ? match.index : 0 } : null;
+        }
+
+        function firstRect(range) {
+            return Array.from(range.getClientRects()).find(function (rect) {
+                return rect.width > 0 || rect.height > 0;
+            }) || null;
+        }
+
+        function round(value) {
+            return Math.round((Number(value) + Number.EPSILON) * 1000) / 1000;
+        }
+    })();
+</script>
+{% endif %}
 {% endblock %}

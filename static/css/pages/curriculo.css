@@ -1,0 +1,910 @@
+/* ============================================================
+   CURRICULO — estilos específicos da página
+   Depende de: python.css (service-hero) e home.css (cards)
+   ============================================================ */
+
+/* ===== HERO ===== */
+.curriculo-hero .service-hero__inner {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: calc(100svh - 72px);
+    margin: 0;
+    padding: 0;
+}
+
+.curriculo-hero .service-hero__copy {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: min(70vw, 860px);
+    min-height: calc(100svh - 72px);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: max(var(--space-3), calc((100vw - var(--container-xl)) / 2 - var(--space-20)));
+    padding-block: var(--space-20);
+}
+
+.curriculo-hero .service-hero__copy .section-title {
+    max-width: 22ch;
+}
+
+.curriculo-hero__media {
+    position: absolute;
+    top: 50%;
+    right: max(var(--space-6), calc((100vw - var(--container-xl)) / 2 - var(--space-20)));
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(40vw, 860px);
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    pointer-events: none;
+    transform: translate(132px, -50%);
+}
+
+.curriculo-hero__media::before,
+.curriculo-hero__media::after {
+    display: none;
+    content: none;
+}
+
+.curriculo-hero__image {
+    display: block;
+    width: min(122%, 880px);
+    height: auto;
+    max-height: min(84svh, 780px);
+    margin: 0 auto;
+    padding: 0;
+    object-fit: contain;
+    object-position: center;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    filter: none;
+    mix-blend-mode: normal;
+}
+
+.curriculo-hero__image--dark {
+    display: none;
+}
+
+.curriculo-hero__image--light {
+    transform: translateX(60px);
+}
+
+html.theme-dark .curriculo-hero__image--light {
+    display: none;
+}
+
+html.theme-dark .curriculo-hero__image--dark {
+    display: block;
+    transform: translateX(60px);
+}
+
+.curriculo-hero__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-3);
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.curriculo-hero__tags li {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-accent);
+    font-size: var(--font-size-eyebrow);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--letter-spacing-eyebrow);
+    text-transform: uppercase;
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 24%, transparent);
+    border-radius: var(--radius-sm);
+}
+
+/* ===== SEÇÕES — base compartilhada ===== */
+.curriculo-section {
+    padding: var(--space-20) clamp(var(--space-4), 4vw, var(--space-8));
+}
+
+.curriculo-section__inner {
+    width: min(100%, var(--container-xl));
+    margin-inline: auto;
+}
+
+.curriculo-section__inner > .eyebrow {
+    margin-bottom: var(--space-3);
+}
+
+.curriculo-section__inner > .section-title {
+    max-width: 760px;
+    margin-bottom: var(--space-10);
+}
+
+/* Fundos alternados por seção */
+.curriculo-resumo {
+    background:
+        radial-gradient(circle at 12% 12%, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 32%),
+        linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-soft) 100%);
+}
+
+.curriculo-experiencia {
+    background: var(--color-bg-soft);
+}
+
+.curriculo-formacao {
+    background:
+        radial-gradient(circle at 88% 8%, color-mix(in srgb, var(--color-accent) 8%, transparent), transparent 30%),
+        linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-soft) 100%);
+}
+
+.curriculo-habilidades {
+    background:
+        radial-gradient(circle at 12% 68%, color-mix(in srgb, var(--color-info) 7%, transparent), transparent 32%),
+        linear-gradient(180deg, var(--color-bg-soft) 0%, var(--color-bg) 100%);
+}
+
+.curriculo-idiomas {
+    background: var(--color-bg);
+}
+
+/* ===== RESUMO ===== */
+.curriculo-resumo__card {
+    max-width: 900px;
+    padding: var(--space-10) var(--space-12);
+    background:
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--color-surface) 84%, transparent),
+            color-mix(in srgb, var(--color-surface) 66%, transparent));
+    border: 1px solid color-mix(in srgb, var(--color-border-strong) 42%, transparent);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    box-shadow:
+        var(--shadow-soft),
+        inset 0 1px 0 color-mix(in srgb, var(--color-text) 8%, transparent);
+    backdrop-filter: blur(12px) saturate(1.16);
+}
+
+.curriculo-resumo__card p {
+    color: var(--color-text-body);
+    font-size: clamp(1rem, 1.25vw, 1.125rem);
+    line-height: 1.7;
+    margin: 0 0 var(--space-5);
+}
+
+.curriculo-resumo__card p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== TIMELINE ===== */
+.curriculo-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-left: var(--space-8);
+}
+
+.curriculo-timeline::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background: linear-gradient(
+        180deg,
+        var(--color-accent),
+        color-mix(in srgb, var(--color-accent) 20%, var(--color-border))
+    );
+    border-radius: 999px;
+    content: "";
+}
+
+.curriculo-timeline__item {
+    position: relative;
+    padding: var(--space-8) 0 var(--space-8) var(--space-8);
+}
+
+.curriculo-timeline__item:not(:last-child) {
+    border-bottom: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+}
+
+.curriculo-timeline__marker {
+    position: absolute;
+    top: calc(var(--space-8) + 6px);
+    left: calc(-1 * var(--space-8) - 6px);
+    width: 14px;
+    height: 14px;
+    background: var(--color-accent);
+    border: 3px solid var(--color-bg-soft);
+    border-radius: 999px;
+    box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+html.theme-dark .curriculo-timeline__marker {
+    border-color: var(--color-bg-soft);
+}
+
+.curriculo-timeline__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-4);
+}
+
+.curriculo-timeline__role {
+    margin: 0 0 var(--space-2);
+    color: var(--color-text);
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.2;
+}
+
+.curriculo-timeline__company {
+    margin: 0;
+    color: var(--color-accent);
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.04em;
+}
+
+.curriculo-timeline__period {
+    flex-shrink: 0;
+    padding: var(--space-1) var(--space-3);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-medium);
+    background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+}
+
+.curriculo-timeline__description {
+    color: var(--color-text-body);
+    font-size: clamp(0.9375rem, 1.15vw, 1.0625rem);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ===== FORMAÇÃO ===== */
+.curriculo-formacao__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+    max-width: 900px;
+}
+
+.curriculo-formacao__card {
+    position: relative;
+    padding: var(--space-8);
+    background:
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--color-surface) 84%, transparent),
+            color-mix(in srgb, var(--color-surface) 66%, transparent));
+    border: 1px solid color-mix(in srgb, var(--color-border-strong) 40%, transparent);
+    border-radius: var(--radius-md);
+    box-shadow:
+        var(--shadow-soft),
+        inset 0 1px 0 color-mix(in srgb, var(--color-text) 8%, transparent);
+    backdrop-filter: blur(12px) saturate(1.16);
+}
+
+.curriculo-formacao__card::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--color-accent);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    content: "";
+}
+
+.curriculo-formacao__tag {
+    margin: 0 0 var(--space-3);
+    color: var(--color-accent);
+    font-size: var(--font-size-eyebrow);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--letter-spacing-eyebrow);
+    text-transform: uppercase;
+}
+
+.curriculo-formacao__title {
+    margin: 0 0 var(--space-2);
+    color: var(--color-text);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.2;
+}
+
+.curriculo-formacao__institution {
+    margin: 0 0 var(--space-2);
+    color: var(--color-text-body);
+    font-size: var(--font-size-body);
+}
+
+.curriculo-formacao__period {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-caption);
+}
+
+.curriculo-formacao__skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-5);
+}
+
+.curriculo-formacao__skills span {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-1) var(--space-3);
+    color: var(--color-text-body);
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-medium);
+    background: color-mix(in srgb, var(--color-surface-strong) 70%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+    border-radius: var(--radius-sm);
+}
+
+/* ===== HABILIDADES ===== */
+.curriculo-habilidades__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+}
+
+.curriculo-skill-group {
+    padding: var(--space-6);
+    background:
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--color-surface) 84%, transparent),
+            color-mix(in srgb, var(--color-surface) 66%, transparent));
+    border: 1px solid color-mix(in srgb, var(--color-border-strong) 40%, transparent);
+    border-radius: var(--radius-md);
+    box-shadow:
+        var(--shadow-soft),
+        inset 0 1px 0 color-mix(in srgb, var(--color-text) 8%, transparent);
+    backdrop-filter: blur(12px) saturate(1.16);
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.curriculo-skill-group:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--color-accent) 46%, var(--color-border));
+    box-shadow:
+        0 20px 48px color-mix(in srgb, var(--color-accent) 14%, transparent),
+        inset 0 1px 0 color-mix(in srgb, var(--color-text) 12%, transparent);
+}
+
+.curriculo-skill-group__title {
+    margin: 0 0 var(--space-4);
+    color: var(--color-accent);
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--letter-spacing-eyebrow);
+    text-transform: uppercase;
+}
+
+.curriculo-skill-group__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.curriculo-skill-group__list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-text-body);
+    font-size: var(--font-size-body);
+    line-height: 1.5;
+}
+
+.curriculo-skill-group__list li::before {
+    flex-shrink: 0;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: var(--color-accent);
+    border-radius: 999px;
+    content: "";
+}
+
+/* ===== IDIOMAS ===== */
+.curriculo-idiomas__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+}
+
+.curriculo-idioma {
+    padding: var(--space-8);
+    background:
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--color-surface) 84%, transparent),
+            color-mix(in srgb, var(--color-surface) 66%, transparent));
+    border: 1px solid color-mix(in srgb, var(--color-border-strong) 40%, transparent);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(12px) saturate(1.16);
+    min-width: 280px;
+}
+
+.curriculo-idioma__name {
+    margin: 0 0 var(--space-5);
+    color: var(--color-text);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.2;
+}
+
+.curriculo-idioma__levels {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.curriculo-idioma__level {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+}
+
+.curriculo-idioma__level dt {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.curriculo-idioma__level dd {
+    margin: 0;
+    color: var(--color-text-body);
+    font-size: var(--font-size-body);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 900px) {
+    .curriculo-hero .service-hero__inner {
+        width: min(100% - var(--space-6), var(--container-xl));
+        min-height: calc(100svh - 96px);
+        margin-inline: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        padding-block: var(--space-16);
+    }
+
+    .curriculo-hero .service-hero__copy {
+        width: 100%;
+        min-height: auto;
+        margin-left: 0;
+        padding-block: 0;
+    }
+
+    .curriculo-hero .curriculo-hero__media {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        transform: none;
+    }
+
+    .curriculo-hero__image {
+        width: min(108%, 700px);
+        max-height: min(62svh, 580px);
+    }
+
+    .curriculo-habilidades__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .curriculo-formacao__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .curriculo-timeline__header {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .curriculo-resumo__card {
+        padding: var(--space-8) var(--space-6);
+    }
+}
+
+@media (max-width: 640px) {
+    .curriculo-hero .service-hero__inner {
+        width: min(100% - var(--space-4), var(--container-xl));
+        padding-block: var(--space-12);
+    }
+
+    .curriculo-hero__media {
+        padding: 0;
+    }
+
+    .curriculo-hero__image {
+        width: 112%;
+        max-width: none;
+        max-height: min(56svh, 460px);
+    }
+
+    .curriculo-section {
+        padding-block: var(--space-14);
+    }
+
+    .curriculo-habilidades__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .curriculo-timeline {
+        padding-left: var(--space-6);
+    }
+
+    .curriculo-timeline__item {
+        padding-left: var(--space-6);
+    }
+
+    .curriculo-timeline__marker {
+        left: calc(-1 * var(--space-6) - 6px);
+    }
+
+    .curriculo-resumo__card {
+        padding: var(--space-6) var(--space-5);
+    }
+
+    .curriculo-formacao__card {
+        padding: var(--space-6);
+    }
+
+    .curriculo-idioma {
+        min-width: 0;
+        width: 100%;
+    }
+}
+
+/* ===== IMPRESSÃO ===== */
+@page {
+    size: A4;
+    margin: 10mm 12mm;
+}
+
+@media print {
+    /* --- Esconder navegação e elementos decorativos --- */
+    .site-header,
+    .site-footer,
+    .curriculo-hero__tags,
+    .service-hero__actions {
+        display: none !important;
+    }
+
+    /* --- Reset geral de fundo/sombra --- */
+    body {
+        background: #fff !important;
+        color: #111 !important;
+        font-size: 9.5pt !important;
+        line-height: 1.3 !important;
+    }
+
+    /* --- Hero: colapsar min-height e padding da viewport --- */
+    .service-hero,
+    .curriculo-hero {
+        min-height: 0 !important;
+        height: auto !important;
+        padding: 0.4rem 0 0.6rem !important;
+        background: #fff !important;
+    }
+
+    .service-hero__inner,
+    .curriculo-hero .service-hero__inner {
+        display: block !important;
+        min-height: 0 !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .service-hero__copy {
+        width: 100% !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .curriculo-hero .section-title {
+        font-size: 17pt !important;
+        line-height: 1.1 !important;
+        max-width: 100% !important;
+        margin: 0.15rem 0 0.3rem !important;
+        color: #111 !important;
+    }
+
+    .curriculo-hero .section-subtitle {
+        font-size: 9pt !important;
+        line-height: 1.3 !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        color: #333 !important;
+    }
+
+    .eyebrow,
+    .text-accent {
+        color: #b0321a !important;
+        font-size: 7pt !important;
+    }
+
+    /* --- Seções: padding mínimo, sem quebra forçada --- */
+    .curriculo-section {
+        padding: 0.45rem 0 !important;
+        background: #fff !important;
+        break-before: avoid !important;
+        page-break-before: avoid !important;
+    }
+
+    .curriculo-section__inner {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .curriculo-section__inner > .eyebrow {
+        margin-bottom: 0.1rem !important;
+    }
+
+    .curriculo-section__inner > .section-title {
+        font-size: 12pt !important;
+        line-height: 1.15 !important;
+        margin-bottom: 0.35rem !important;
+        max-width: 100% !important;
+        color: #111 !important;
+    }
+
+    /* --- Resumo --- */
+    .curriculo-resumo__card {
+        padding: 0.45rem 0.75rem !important;
+        background: #fff !important;
+        border: 1px solid #ccc !important;
+        border-left: 3px solid #b0321a !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+    }
+
+    .curriculo-resumo__card p {
+        font-size: 8.5pt !important;
+        line-height: 1.35 !important;
+        color: #222 !important;
+        margin: 0 0 0.2rem !important;
+    }
+
+    /* --- Timeline: compacta sem decoração pesada --- */
+    .curriculo-timeline {
+        padding-left: 0.85rem !important;
+    }
+
+    .curriculo-timeline::before {
+        width: 1px !important;
+        background: #ccc !important;
+    }
+
+    .curriculo-timeline__item {
+        padding: 0.3rem 0 0.3rem 0.65rem !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    .curriculo-timeline__item:not(:last-child) {
+        border-bottom: 1px solid #eee !important;
+    }
+
+    .curriculo-timeline__marker {
+        width: 8px !important;
+        height: 8px !important;
+        top: calc(0.3rem + 3px) !important;
+        left: calc(-0.85rem - 4px) !important;
+        background: #b0321a !important;
+        border: 2px solid #fff !important;
+        box-shadow: none !important;
+    }
+
+    .curriculo-timeline__header {
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        gap: 0.4rem !important;
+        flex-wrap: nowrap !important;
+        margin-bottom: 0.1rem !important;
+    }
+
+    .curriculo-timeline__meta {
+        flex: 1 !important;
+        min-width: 0 !important;
+    }
+
+    .curriculo-timeline__role {
+        font-size: 9.5pt !important;
+        font-weight: 600 !important;
+        color: #111 !important;
+        margin: 0 !important;
+    }
+
+    .curriculo-timeline__company {
+        font-size: 8pt !important;
+        color: #b0321a !important;
+    }
+
+    .curriculo-timeline__period {
+        font-size: 7.5pt !important;
+        padding: 0.05rem 0.25rem !important;
+        border: 1px solid #ccc !important;
+        background: #fff !important;
+        color: #555 !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+
+    .curriculo-timeline__description {
+        font-size: 8pt !important;
+        line-height: 1.3 !important;
+        color: #333 !important;
+        margin: 0 !important;
+    }
+
+    /* --- Formação: 2 colunas no print --- */
+    .curriculo-formacao__grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 0.4rem !important;
+        max-width: 100% !important;
+    }
+
+    .curriculo-formacao__card {
+        padding: 0.4rem 0.6rem !important;
+        background: #fff !important;
+        border: 1px solid #ccc !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    .curriculo-formacao__card::after {
+        height: 2px !important;
+        background: #b0321a !important;
+    }
+
+    .curriculo-formacao__tag {
+        font-size: 7pt !important;
+        color: #b0321a !important;
+        margin-bottom: 0.1rem !important;
+    }
+
+    .curriculo-formacao__title {
+        font-size: 10.5pt !important;
+        color: #111 !important;
+        margin-bottom: 0.1rem !important;
+    }
+
+    .curriculo-formacao__institution {
+        font-size: 8pt !important;
+        color: #333 !important;
+    }
+
+    .curriculo-formacao__period {
+        font-size: 7.5pt !important;
+        color: #666 !important;
+    }
+
+    .curriculo-formacao__skills {
+        gap: 0.15rem !important;
+        margin-top: 0.25rem !important;
+    }
+
+    .curriculo-formacao__skills span {
+        font-size: 7pt !important;
+        padding: 0.05rem 0.25rem !important;
+        border: 1px solid #ccc !important;
+        background: #fff !important;
+        color: #333 !important;
+    }
+
+    /* --- Habilidades: 3 colunas compactas --- */
+    .curriculo-habilidades__grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 0.35rem !important;
+    }
+
+    .curriculo-skill-group {
+        padding: 0.35rem 0.45rem !important;
+        background: #fff !important;
+        border: 1px solid #ddd !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    .curriculo-skill-group__title {
+        font-size: 6.5pt !important;
+        color: #b0321a !important;
+        margin-bottom: 0.15rem !important;
+    }
+
+    .curriculo-skill-group__list {
+        gap: 0.08rem !important;
+    }
+
+    .curriculo-skill-group__list li {
+        font-size: 7.5pt !important;
+        line-height: 1.25 !important;
+        color: #333 !important;
+        gap: 0.2rem !important;
+    }
+
+    .curriculo-skill-group__list li::before {
+        width: 0.22rem !important;
+        height: 0.22rem !important;
+        background: #b0321a !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* --- Idiomas: inline, junto com o fim das habilidades --- */
+    .curriculo-idiomas__list {
+        gap: 0.35rem !important;
+    }
+
+    .curriculo-idioma {
+        padding: 0.35rem 0.55rem !important;
+        min-width: 0 !important;
+        background: #fff !important;
+        border: 1px solid #ddd !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    .curriculo-idioma__name {
+        font-size: 9.5pt !important;
+        color: #111 !important;
+        margin-bottom: 0.15rem !important;
+    }
+
+    .curriculo-idioma__levels {
+        gap: 0.1rem !important;
+    }
+
+    .curriculo-idioma__level dt {
+        font-size: 7pt !important;
+        color: #555 !important;
+    }
+
+    .curriculo-idioma__level dd {
+        font-size: 8pt !important;
+        color: #333 !important;
+    }
+}

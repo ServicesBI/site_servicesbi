@@ -362,6 +362,7 @@
 
         <div class="home-portfolio__filters" role="tablist" aria-label="Filtros do portfólio">
             <button class="home-portfolio__filter is-active" type="button" data-filter="featured" role="tab" aria-selected="true">Em destaque</button>
+            <button class="home-portfolio__filter" type="button" data-filter="python" role="tab" aria-selected="false">Python</button>
             <button class="home-portfolio__filter" type="button" data-filter="dashboards" role="tab" aria-selected="false">Dashboards</button>
             <button class="home-portfolio__filter" type="button" data-filter="automacoes" role="tab" aria-selected="false">Automações</button>
             <button class="home-portfolio__filter" type="button" data-filter="ebooks" role="tab" aria-selected="false">E-books</button>
@@ -371,7 +372,7 @@
     <div class="home-portfolio__grid">
         <article class="home-portfolio-card" data-category="featured dashboards">
             <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/image01.png' %}" alt="Sistema integrado de gestão empresarial" loading="lazy">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/sige-servicesbi.png' %}" alt="Sistema integrado de gestão empresarial" loading="lazy">
             </div>
             <div class="home-portfolio-card__body">
                 <p class="home-portfolio-card__tag">ERP</p>
@@ -385,7 +386,7 @@
 
         <article class="home-portfolio-card" data-category="featured dashboards">
             <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/image02.png' %}" alt="Dashboard financeiro executivo" loading="lazy">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/dashboard-financeiro.png' %}" alt="Dashboard financeiro executivo" loading="lazy">
             </div>
             <div class="home-portfolio-card__body">
                 <p class="home-portfolio-card__tag">Dashboard</p>
@@ -397,9 +398,9 @@
             </div>
         </article>
 
-        <article class="home-portfolio-card" data-category="dashboards">
+        <article class="home-portfolio-card" data-category="featured dashboards">
             <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/dashboard/image01.png' %}" alt="Dashboard comercial" loading="lazy">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/dashboard-comercial.png' %}" alt="Dashboard comercial" loading="lazy">
             </div>
             <div class="home-portfolio-card__body">
                 <p class="home-portfolio-card__tag">Dashboard</p>
@@ -411,9 +412,9 @@
             </div>
         </article>
 
-        <article class="home-portfolio-card" data-category="dashboards">
+        <article class="home-portfolio-card" data-category="featured dashboards">
             <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/dashboard/image02.png' %}" alt="Dashboard de compras" loading="lazy">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/dashboard-compras.png' %}" alt="Dashboard de compras" loading="lazy">
             </div>
             <div class="home-portfolio-card__body">
                 <p class="home-portfolio-card__tag">Dashboard</p>
@@ -427,7 +428,7 @@
 
         <article class="home-portfolio-card" data-category="featured automacoes">
             <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/image03.png' %}" alt="Automação de envio de relatórios" loading="lazy">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/robos-python-operacional.png' %}" alt="Automação de envio de relatórios" loading="lazy">
             </div>
             <div class="home-portfolio-card__body">
                 <p class="home-portfolio-card__tag">Automação</p>
@@ -439,9 +440,9 @@
             </div>
         </article>
 
-        <article class="home-portfolio-card" data-category="automacoes">
+        <article class="home-portfolio-card" data-category="featured automacoes">
             <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/automacoes/image01.png' %}" alt="Conciliação automatizada de planilhas" loading="lazy">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/integracao-excel-banco.png' %}" alt="Conciliação automatizada de planilhas" loading="lazy">
             </div>
             <div class="home-portfolio-card__body">
                 <p class="home-portfolio-card__tag">Automação</p>
@@ -455,7 +456,7 @@
 
         <article class="home-portfolio-card" data-category="featured ebooks">
             <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/image04.png' %}" alt="E-books ServicesBI" loading="lazy">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/ebooks-servicesbi.png' %}" alt="E-books ServicesBI" loading="lazy">
             </div>
             <div class="home-portfolio-card__body">
                 <p class="home-portfolio-card__tag">E-book</p>
@@ -463,13 +464,13 @@
                 <p class="home-portfolio-card__text">
                     Conteúdos práticos sobre BI, automações, indicadores financeiros, Excel e análise de dados para apoiar empresas na tomada de decisão.
                 </p>
-                <a class="home-portfolio-card__link" href="{% url 'pages:contato' %}">Ver e-books →</a>
+                <a class="home-portfolio-card__link" href="{% static 'docs/ebooks/ebook_servicesbi.pdf' %}" target="_blank" rel="noopener noreferrer">Ver e-book →</a>
             </div>
         </article>
 
-        <article class="home-portfolio-card" data-category="ebooks">
+        <article class="home-portfolio-card" data-category="featured ebooks">
             <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/ebooks/image01.png' %}" alt="Checklist para implantação de BI" loading="lazy">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/ebook power bi.png' %}" alt="Checklist para implantação de BI" loading="lazy">
             </div>
             <div class="home-portfolio-card__body">
                 <p class="home-portfolio-card__tag">Checklist</p>
@@ -481,9 +482,9 @@
             </div>
         </article>
 
-        <article class="home-portfolio-card" data-category="ebooks">
+        <article class="home-portfolio-card" data-category="featured ebooks">
             <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/ebooks/image02.png' %}" alt="Template financeiro" loading="lazy">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/ebook-indicadores-financeiros.png' %}" alt="Template financeiro" loading="lazy">
             </div>
             <div class="home-portfolio-card__body">
                 <p class="home-portfolio-card__tag">Template</p>
@@ -492,6 +493,62 @@
                     Modelo prático para acompanhamento financeiro, organização de indicadores e apoio ao controle gerencial.
                 </p>
                 <a class="home-portfolio-card__link" href="{% url 'pages:contato' %}">Baixar template →</a>
+            </div>
+        </article>
+
+        <article class="home-portfolio-card is-hidden" data-category="python">
+            <div class="home-portfolio-card__media">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/dashboard-comercial.png' %}" alt="Dashboard comercial" loading="lazy">
+            </div>
+            <div class="home-portfolio-card__body">
+                <p class="home-portfolio-card__tag">Dashboard</p>
+                <h3 class="home-portfolio-card__title">Dashboard Comercial</h3>
+                <p class="home-portfolio-card__text">
+                    Análise de performance de vendas, metas, funil de conversão e ticket médio por vendedor para decisões comerciais imediatas.
+                </p>
+                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver dashboard →</a>
+            </div>
+        </article>
+
+        <article class="home-portfolio-card is-hidden" data-category="python">
+            <div class="home-portfolio-card__media">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/dashboard-compras.png' %}" alt="Dashboard de compras" loading="lazy">
+            </div>
+            <div class="home-portfolio-card__body">
+                <p class="home-portfolio-card__tag">Dashboard</p>
+                <h3 class="home-portfolio-card__title">Dashboard de Compras</h3>
+                <p class="home-portfolio-card__text">
+                    Gestão estratégica de suprimentos, análise de saving, prazos de entrega e histórico de fornecedores para otimizar custos.
+                </p>
+                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver dashboard →</a>
+            </div>
+        </article>
+
+        <article class="home-portfolio-card is-hidden" data-category="python">
+            <div class="home-portfolio-card__media">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/sige-servicesbi.png' %}" alt="Sistema integrado de gestão empresarial" loading="lazy">
+            </div>
+            <div class="home-portfolio-card__body">
+                <p class="home-portfolio-card__tag">ERP</p>
+                <h3 class="home-portfolio-card__title">SIGE_ServicesBI</h3>
+                <p class="home-portfolio-card__text">
+                    Sistema integrado de gestão empresarial desenvolvido para centralizar cadastros, compras, vendas, financeiro, estoque, fluxo de caixa e indicadores.
+                </p>
+                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver projeto →</a>
+            </div>
+        </article>
+
+        <article class="home-portfolio-card is-hidden" data-category="python">
+            <div class="home-portfolio-card__media">
+                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/dashboard-financeiro.png' %}" alt="Dashboard financeiro executivo" loading="lazy">
+            </div>
+            <div class="home-portfolio-card__body">
+                <p class="home-portfolio-card__tag">Dashboard</p>
+                <h3 class="home-portfolio-card__title">Dashboard Financeiro Executivo</h3>
+                <p class="home-portfolio-card__text">
+                    Indicadores financeiros consolidados para controle de fluxo de caixa, DRE e projeções operacionais, eliminando a necessidade de consolidações manuais.
+                </p>
+                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver dashboard →</a>
             </div>
         </article>
     </div>
