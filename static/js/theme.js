@@ -44,10 +44,10 @@
         );
     }
 
-    applyTheme(getStoredTheme());
+    applyTheme(getStoredTheme() || darkTheme);
 
     document.addEventListener("DOMContentLoaded", function () {
-        applyTheme(getStoredTheme());
+        applyTheme(getStoredTheme() || darkTheme);
 
         const button = document.getElementById("themeToggle");
 
