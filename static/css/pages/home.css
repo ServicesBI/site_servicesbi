@@ -6,6 +6,7 @@
     --home-robot-tint: #c2ac98;
     --home-robot-tint-opacity: 0.56;
     --home-robot-tint-blend-mode: color;
+    --home-robot-iframe-blend: multiply;
     --home-robot-filter:
         brightness(1.18)
         contrast(0.72)
@@ -19,8 +20,9 @@ html.theme-dark {
     --home-robot-tint: #081724;
     --home-robot-tint-opacity: 0.78;
     --home-robot-tint-blend-mode: color;
+    --home-robot-iframe-blend: multiply;
     --home-robot-filter:
-        brightness(0.88)
+        brightness(1.8)
         contrast(1.08)
         saturate(1.35)
         sepia(0.32)
@@ -66,6 +68,8 @@ html.theme-dark {
     left: 38%;
     width: auto;
     height: 100%;
+    overflow: hidden;
+    contain: paint;
     transform: translateZ(0);
     z-index: 1;
 }
@@ -79,6 +83,7 @@ html.theme-dark {
     background: transparent;
     border: none;
     filter: var(--home-robot-filter);
+    mix-blend-mode: var(--home-robot-iframe-blend);
 }
 
 .home-robot__viewer::after {
@@ -891,6 +896,12 @@ html.theme-dark .home-jarvis {
         min-height: calc(100svh - 96px);
     }
 
+    .home-robot__viewer {
+        left: 52%;
+        right: -24%;
+        opacity: 0.55;
+    }
+
     .home-hero-copy {
         width: min(100% - var(--space-6), var(--container-xl));
         margin-left: auto;
@@ -951,6 +962,10 @@ html.theme-dark .home-jarvis {
     .home-robot-stage,
     .home-hero-copy {
         min-height: calc(100svh - 120px);
+    }
+
+    .home-robot__viewer {
+        display: none;
     }
 
     .home-hero-copy {
