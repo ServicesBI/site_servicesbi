@@ -5,6 +5,7 @@
 {% block meta_description %}ServicesBI cria soluções com dados, BI, Python e automações para decisões mais rápidas.{% endblock %}
 
 {% block extra_head %}
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
 {% endblock %}
@@ -27,17 +28,9 @@
     <div
         class="home-robot__viewer"
         id="homeRobotViewer"
+        data-scene-url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
     >
         <div class="home-robot__loader" aria-label="Carregando cena 3D"></div>
-        <iframe
-            src="https://my.spline.design/nexbotrobotcharacterconcept-BIR4Ukx8uYr7OKIUE2lPSbJg/"
-            frameborder="0"
-            width="100%"
-            height="100%"
-            loading="eager"
-            title="Robô 3D ServicesBI — assistente virtual animado"
-            class="home-robot__iframe"
-        ></iframe>
     </div>
 
     <div class="home-hero-copy">
