@@ -6,7 +6,6 @@
     --home-robot-tint: #c2ac98;
     --home-robot-tint-opacity: 0.56;
     --home-robot-tint-blend-mode: color;
-    --home-robot-iframe-blend: multiply;
     --home-robot-filter:
         brightness(1.18)
         contrast(0.72)
@@ -20,9 +19,8 @@ html.theme-dark {
     --home-robot-tint: #081724;
     --home-robot-tint-opacity: 0.78;
     --home-robot-tint-blend-mode: color;
-    --home-robot-iframe-blend: multiply;
     --home-robot-filter:
-        brightness(1.8)
+        brightness(0.88)
         contrast(1.08)
         saturate(1.35)
         sepia(0.32)
@@ -83,7 +81,8 @@ html.theme-dark {
     background: transparent;
     border: none;
     filter: var(--home-robot-filter);
-    mix-blend-mode: var(--home-robot-iframe-blend);
+    -webkit-mask-image: radial-gradient(ellipse 72% 88% at 52% 50%, black 38%, transparent 82%);
+    mask-image: radial-gradient(ellipse 72% 88% at 52% 50%, black 38%, transparent 82%);
 }
 
 .home-robot__viewer::after {
