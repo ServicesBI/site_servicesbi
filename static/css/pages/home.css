@@ -70,13 +70,14 @@ html.theme-dark {
     z-index: 1;
 }
 
-.home-robot__viewer spline-viewer {
+.home-robot__viewer iframe {
     position: relative;
     z-index: 0;
     width: 100%;
     height: 100%;
     display: block;
     background: transparent;
+    border: none;
     filter: var(--home-robot-filter);
 }
 
@@ -171,7 +172,7 @@ body.capture-mode .home-spotlight {
     transform: translate(-50%, 0) !important;
 }
 
-body.capture-mode .home-robot__viewer spline-viewer,
+body.capture-mode .home-robot__viewer iframe,
 body.capture-mode .home-robot__viewer::after,
 body.capture-mode .home-robot__loader {
     display: none !important;
