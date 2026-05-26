@@ -1,4 +1,4 @@
-.env
+﻿.env
 db.sqlite3
 media/
 __pycache__/
@@ -6,15 +6,14 @@ __pycache__/
 .venv/
 venv/
 
-# Pastas antigas do projeto anterior - n�o usadas no ServicesBI novo
+# Pastas antigas do projeto anterior - nï¿½o usadas no ServicesBI novo
 config/
 sitepages/
 
 # Django collectstatic output
 staticfiles/
 
-# Export estático para Cloudflare Pages (gerado pelo management command)
-cloudflare_dist/
+# Export estÃ¡tico para Cloudflare Pages (gerado pelo management command)
 
 # Cache de testes
 .pytest_cache/
@@ -22,6 +21,6 @@ cloudflare_dist/
 # Local AI/tooling files
 .claude/
 
-# Scripts de debug/captura local — não versionar
+# Scripts de debug/captura local â€” nÃ£o versionar
 static/js/home-capture.js
 static/js/dev-home-text-metrics.js

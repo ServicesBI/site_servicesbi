@@ -1,0 +1,5 @@
+(function () {
+    if (new URLSearchParams(window.location.search).get("capture") === "1") {
+        document.body.classList.add("capture-mode");
+    }
+}());
