@@ -1,5 +1,7 @@
 # ServicesBI — Site Oficial
 
+![Preview da Home do ServicesBI](docs/assets/servicesbi-home-preview.png)
+
 Repositório oficial do site institucional da **ServicesBI**.
 
 O projeto foi desenvolvido em Django como fonte principal, com exportação estática para publicação via Nginx no servidor de produção.
