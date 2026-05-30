@@ -1,0 +1,103 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard — SIGE ServicesBI</title>
+    <script src="{% static 'js/theme-init.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/tokens.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cards.css' %}">
+    <style>
+        html, body { min-height: 100vh; }
+
+        .sige-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-4) var(--space-6);
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .sige-logo {
+            color: var(--color-text);
+            font-size: 1.1rem;
+            font-weight: var(--font-weight-medium);
+            text-decoration: none;
+        }
+        .sige-logo span { color: var(--color-accent); }
+
+        .sige-header-right {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        .sige-user {
+            font-size: var(--font-size-caption);
+            color: var(--color-text-muted);
+        }
+        .sige-user strong {
+            display: block;
+            color: var(--color-text);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .sige-main {
+            padding-block: var(--space-12);
+        }
+        .sige-welcome {
+            margin-bottom: var(--space-10);
+        }
+        .sige-welcome h1 {
+            font-size: var(--font-size-h2);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text);
+        }
+        .sige-welcome p {
+            margin-top: var(--space-2);
+            color: var(--color-text-muted);
+            font-size: var(--font-size-caption);
+        }
+    </style>
+</head>
+<body>
+    <header class="sige-header">
+        <a class="sige-logo" href="/sige/">Services<span>BI</span> &mdash; SIGE</a>
+        <div class="sige-header-right">
+            <div class="sige-user">
+                <strong>{{ request.user.get_full_name|default:request.user.username }}</strong>
+                {{ request.user.email }}
+            </div>
+            <form method="post" action="{% url 'sige:logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn--ghost btn--sm">Sair</button>
+            </form>
+        </div>
+    </header>
+
+    <main class="sige-main">
+        <div class="container">
+            <div class="sige-welcome">
+                <h1>Olá, {{ request.user.get_full_name|default:request.user.username }}.</h1>
+                <p>Bem-vindo ao SIGE ServicesBI.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card card--strong">
+                    <p class="card__eyebrow">Acesso rápido</p>
+                    <h2 class="card__title">Admin do sistema</h2>
+                    <p class="card__text">Gerencie usuários, permissões e configurações gerais.</p>
+                    <div class="card__footer">
+                        <a href="/admin/" class="btn btn--secondary btn--sm">Abrir Admin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="{% static 'js/theme.js' %}"></script>
+</body>
+</html>
