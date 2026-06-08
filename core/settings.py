@@ -114,7 +114,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = "/sige/login/"
-LOGIN_REDIRECT_URL = "/sige/dashboard/"
+LOGIN_REDIRECT_URL = "/sige-servicesbi/"
 LOGOUT_REDIRECT_URL = "/"
 
 # Segurança de produção — ativada por DJANGO_ENV=production

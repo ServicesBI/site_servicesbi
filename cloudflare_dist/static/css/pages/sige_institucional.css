@@ -1,0 +1,254 @@
+/* ────────────────────────────────────────────────
+   SIGE INSTITUCIONAL — hero sem imagem
+   Sobrescreve o grid do .service-hero__inner para
+   manter layout 2 colunas com visual de módulos
+   ──────────────────────────────────────────────── */
+
+.sige-hero .service-hero__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.5fr);
+    align-items: center;
+}
+
+.sige-hero__support {
+    max-width: 62ch;
+    margin-top: var(--space-5);
+    color: var(--color-text-body);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+}
+
+/* ────── VISUAL DIREITO — grade de módulos ────── */
+
+.sige-hero__visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sige-hero__module-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+    width: 100%;
+    max-width: 340px;
+}
+
+.sige-hero__module {
+    padding: var(--space-4) var(--space-4);
+    background: color-mix(in srgb, var(--color-surface) 74%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-border-strong) 38%, transparent);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    letter-spacing: 0.02em;
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(8px);
+    transition: border-color 180ms ease, background 180ms ease;
+}
+
+.sige-hero__module:hover {
+    border-color: color-mix(in srgb, var(--color-accent) 48%, var(--color-border-strong));
+    background: color-mix(in srgb, var(--color-surface-strong) 90%, var(--color-accent) 10%);
+}
+
+/* ────── GRID DE MÓDULOS (8 cards) ────── */
+
+.sige-modules-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.sige-module-card .home-solution-card__eyebrow {
+    font-size: var(--font-size-eyebrow);
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-2);
+}
+
+/* ────── SEÇÃO FLUXOS ────── */
+
+.sige-flows {
+    padding: var(--space-20) clamp(var(--space-4), 4vw, var(--space-8));
+    background:
+        radial-gradient(circle at 82% 50%, color-mix(in srgb, var(--color-accent) 8%, transparent), transparent 36%),
+        linear-gradient(180deg, var(--color-bg-soft) 0%, var(--color-bg) 100%);
+}
+
+.sige-flows__inner {
+    width: min(100%, var(--container-xl));
+    margin-inline: auto;
+}
+
+.sige-flows__header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+}
+
+.sige-flows__header .section-title {
+    max-width: 720px;
+    margin-inline: auto;
+}
+
+.sige-flows__header .section-subtitle {
+    max-width: 640px;
+    margin-inline: auto;
+}
+
+.sige-flows__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    max-width: 680px;
+    margin-inline: auto;
+}
+
+.sige-flow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-8);
+    background: color-mix(in srgb, var(--color-surface) 74%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(8px);
+}
+
+.sige-flow__step {
+    flex: 1;
+    padding: var(--space-3) var(--space-4);
+    background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-size: var(--font-size-caption);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+}
+
+.sige-flow__step--accent {
+    background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface));
+    border-color: color-mix(in srgb, var(--color-accent) 38%, var(--color-border));
+    color: var(--color-accent);
+    font-weight: var(--font-weight-medium);
+}
+
+.sige-flow__arrow {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+    line-height: 1;
+}
+
+/* ────── CTA FINAL ────── */
+
+.sige-cta {
+    padding: var(--space-24) clamp(var(--space-4), 4vw, var(--space-8));
+    background:
+        radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 56%),
+        linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-soft) 100%);
+}
+
+.sige-cta__inner {
+    width: min(100%, var(--container-xl));
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+}
+
+.sige-cta__inner .section-title {
+    max-width: 720px;
+}
+
+.sige-cta__inner .section-subtitle {
+    max-width: 600px;
+}
+
+.sige-cta__credentials {
+    margin: 0;
+    padding: var(--space-3) var(--space-6);
+    background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-border-strong) 40%, transparent);
+    border-radius: var(--radius-md);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-caption);
+    line-height: var(--line-height-body);
+}
+
+.sige-cta__credentials strong {
+    color: var(--color-text);
+    font-weight: var(--font-weight-medium);
+}
+
+.sige-cta__credentials-label {
+    display: block;
+    margin-bottom: var(--space-1);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-eyebrow);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.sige-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+    margin-top: var(--space-4);
+}
+
+/* ────── RESPONSIVO ────── */
+
+@media (max-width: 900px) {
+    .sige-hero .service-hero__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+        padding-block: var(--space-16);
+    }
+
+    .sige-hero__visual {
+        order: -1;
+    }
+
+    .sige-hero__module-grid {
+        max-width: 100%;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .sige-modules-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sige-flow {
+        padding: var(--space-4) var(--space-5);
+    }
+}
+
+@media (max-width: 640px) {
+    .sige-hero .service-hero__inner {
+        padding-block: var(--space-12);
+    }
+
+    .sige-hero__module-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sige-modules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sige-flow {
+        flex-wrap: wrap;
+        gap: var(--space-3);
+        padding: var(--space-4);
+    }
+
+    .sige-flow__step {
+        flex: 1 1 auto;
+        min-width: 80px;
+    }
+}

@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}SIGE | ServicesBI{% endblock %}
+{% block meta_description %}SIGE ServicesBI — sistema integrado de gestão empresarial para pequenas e médias empresas. Gerencie Cadastros, Vendas, Compras, Estoque, Financeiro, RH, Relatórios e Auditoria em uma plataforma unificada.{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/python.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/sige_institucional.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="service-hero sige-hero" aria-labelledby="sige-hero-title">
+    <div class="service-hero__inner">
+        <div class="service-hero__copy">
+            <p class="eyebrow text-accent">SIGE ServicesBI</p>
+
+            <h1 class="section-title" id="sige-hero-title">
+                SIGE ServicesBI
+            </h1>
+
+            <p class="section-subtitle">
+                Sistema integrado de gestão empresarial para pequenas e médias empresas.
+            </p>
+
+            <p class="sige-hero__support">
+                Centralize Cadastro, Vendas, Compras, Estoque, Financeiro, RH, Relatórios e Auditoria em uma plataforma única — transformando dados operacionais em informações confiáveis para tomada de decisão.
+            </p>
+
+            <div class="service-hero__actions">
+                <a class="btn btn--primary" href="/sige/">Acessar demonstração</a>
+                <a class="btn btn--secondary" href="#sige-modulos">Ver módulos</a>
+            </div>
+
+            <ul class="service-hero__points" aria-label="Módulos principais do SIGE">
+                <li>Cadastros e Vendas</li>
+                <li>Estoque e Compras</li>
+                <li>Financeiro e RH</li>
+            </ul>
+        </div>
+
+        <div class="sige-hero__visual" aria-hidden="true">
+            <div class="sige-hero__module-grid">
+                <div class="sige-hero__module">Cadastro</div>
+                <div class="sige-hero__module">Vendas</div>
+                <div class="sige-hero__module">Compras</div>
+                <div class="sige-hero__module">Estoque</div>
+                <div class="sige-hero__module">Financeiro</div>
+                <div class="sige-hero__module">RH</div>
+                <div class="sige-hero__module">Relatórios</div>
+                <div class="sige-hero__module">Auditoria</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="home-solutions" id="sige-modulos" aria-labelledby="sige-modulos-title">
+    <div class="home-solutions__header">
+        <p class="eyebrow text-accent">Módulos</p>
+
+        <h2 class="section-title" id="sige-modulos-title">
+            Gestão integrada em oito módulos.
+        </h2>
+
+        <p class="section-subtitle">
+            Cada módulo resolve uma frente da operação. Juntos, criam um ciclo completo de controle e visibilidade.
+        </p>
+    </div>
+
+    <div class="home-solutions__grid sige-modules-grid">
+        <article class="home-solution-card sige-module-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">01</p>
+                <h3 class="home-solution-card__title">Cadastro</h3>
+                <p class="home-solution-card__text">
+                    Base de clientes, fornecedores, produtos e serviços. Dados organizados que alimentam todos os demais módulos.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card sige-module-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">02</p>
+                <h3 class="home-solution-card__title">Vendas</h3>
+                <p class="home-solution-card__text">
+                    Pedidos, faturamento e cotações com rastreabilidade completa — do orçamento ao financeiro.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card sige-module-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">03</p>
+                <h3 class="home-solution-card__title">Compras</h3>
+                <p class="home-solution-card__text">
+                    Pedidos de compra, cotações com fornecedores e recebimento integrado ao estoque e financeiro.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card sige-module-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">04</p>
+                <h3 class="home-solution-card__title">Estoque</h3>
+                <p class="home-solution-card__text">
+                    Controle de entradas, saídas, inventário e movimentação de produtos com histórico auditável.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card sige-module-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">05</p>
+                <h3 class="home-solution-card__title">Financeiro</h3>
+                <p class="home-solution-card__text">
+                    Contas a pagar e receber, fluxo de caixa, conciliação bancária e DRE em um único painel.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card sige-module-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">06</p>
+                <h3 class="home-solution-card__title">RH</h3>
+                <p class="home-solution-card__text">
+                    Cadastro de colaboradores, controle de ponto, provisões e folha integrada ao financeiro.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card sige-module-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">07</p>
+                <h3 class="home-solution-card__title">Relatórios</h3>
+                <p class="home-solution-card__text">
+                    Painéis gerenciais, análises e exportações para suporte à decisão em todas as frentes.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card sige-module-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">08</p>
+                <h3 class="home-solution-card__title">Auditoria</h3>
+                <p class="home-solution-card__text">
+                    Log completo de ações, rastreabilidade de alterações e controle de acesso por perfil.
+                </p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="sige-flows" aria-labelledby="sige-fluxos-title">
+    <div class="sige-flows__inner">
+        <div class="sige-flows__header">
+            <p class="eyebrow text-accent">Integração</p>
+
+            <h2 class="section-title" id="sige-fluxos-title">
+                Fluxos que conectam toda a operação.
+            </h2>
+
+            <p class="section-subtitle">
+                Cada movimento operacional reflete automaticamente no estoque e no financeiro — sem retrabalho, sem inconsistência.
+            </p>
+        </div>
+
+        <div class="sige-flows__list">
+            <div class="sige-flow">
+                <div class="sige-flow__step">Venda</div>
+                <div class="sige-flow__arrow" aria-hidden="true">&#8594;</div>
+                <div class="sige-flow__step">Estoque</div>
+                <div class="sige-flow__arrow" aria-hidden="true">&#8594;</div>
+                <div class="sige-flow__step sige-flow__step--accent">Financeiro</div>
+            </div>
+
+            <div class="sige-flow">
+                <div class="sige-flow__step">Compra</div>
+                <div class="sige-flow__arrow" aria-hidden="true">&#8594;</div>
+                <div class="sige-flow__step">Estoque</div>
+                <div class="sige-flow__arrow" aria-hidden="true">&#8594;</div>
+                <div class="sige-flow__step sige-flow__step--accent">Financeiro</div>
+            </div>
+
+            <div class="sige-flow">
+                <div class="sige-flow__step">RH</div>
+                <div class="sige-flow__arrow" aria-hidden="true">&#8594;</div>
+                <div class="sige-flow__step">Provisões</div>
+                <div class="sige-flow__arrow" aria-hidden="true">&#8594;</div>
+                <div class="sige-flow__step sige-flow__step--accent">Financeiro</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sige-cta" aria-labelledby="sige-cta-title">
+    <div class="sige-cta__inner">
+        <p class="eyebrow text-accent">Demonstração</p>
+
+        <h2 class="section-title" id="sige-cta-title">
+            Veja o SIGE funcionando na prática.
+        </h2>
+
+        <p class="section-subtitle">
+            Acesse a demonstração e explore os módulos de gestão integrada do SIGE ServicesBI.
+        </p>
+
+        <p class="sige-cta__credentials">
+            <span class="sige-cta__credentials-label">Acesso demo:</span>
+            Login: <strong>Demo</strong> &nbsp;·&nbsp; Senha: <strong>admin@demo</strong>
+        </p>
+
+        <div class="sige-cta__actions">
+            <a class="btn btn--primary" href="/sige/">Acessar demonstração</a>
+            <a class="btn btn--secondary" href="{% url 'pages:contato' %}">Falar comigo</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

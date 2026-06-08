@@ -1,191 +1,1085 @@
 {% load static %}
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login — SIGE ServicesBI</title>
-    <script src="{% static 'js/theme-init.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/tokens.css' %}">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SIGE ServicesBI</title>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem("erp-theme");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const theme = savedTheme || (prefersDark ? "dark" : "light");
+            document.documentElement.setAttribute("data-theme", theme);
+        })();
+    </script>
+    <link rel="stylesheet" href="{% static 'css/erp-theme.css' %}">
     <style>
-        html, body {
-            min-height: 100vh;
-        }
-        .login-page {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: var(--space-6);
-            background: var(--color-bg);
-        }
-        .login-card {
+        html,
+        body {
             width: 100%;
-            max-width: 400px;
-            padding: var(--space-8);
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-card);
-        }
-        .login-logo {
-            display: block;
-            margin-bottom: var(--space-8);
-            color: var(--color-text);
-            font-size: 1.25rem;
-            font-weight: var(--font-weight-medium);
-            text-decoration: none;
-            text-align: center;
-        }
-        .login-logo span {
-            color: var(--color-accent);
-        }
-        .login-eyebrow {
-            margin-bottom: var(--space-2);
-            color: var(--color-accent);
-            font-size: var(--font-size-eyebrow);
-            font-weight: var(--font-weight-medium);
-            letter-spacing: var(--letter-spacing-eyebrow);
-            text-transform: uppercase;
-            text-align: center;
-        }
-        .login-title {
-            margin-bottom: var(--space-6);
-            font-size: var(--font-size-h3);
-            font-weight: var(--font-weight-medium);
-            line-height: var(--line-height-h3);
-            color: var(--color-text);
-            text-align: center;
-        }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-2);
-            margin-bottom: var(--space-4);
-        }
-        .form-label {
-            font-size: var(--font-size-caption);
-            font-weight: var(--font-weight-medium);
-            color: var(--color-text);
-        }
-        .form-input {
-            width: 100%;
-            padding: var(--space-3) var(--space-4);
-            background: var(--color-bg);
-            border: 1px solid var(--color-border-strong);
-            border-radius: var(--radius-md);
-            color: var(--color-text);
-            font: inherit;
-            font-size: var(--font-size-body);
-            transition: border-color 160ms ease, box-shadow 160ms ease;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--color-accent);
-            box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 14%, transparent);
-        }
-        .form-input::placeholder {
-            color: var(--color-text-muted);
-        }
-        .form-errors {
-            margin-bottom: var(--space-4);
-            padding: var(--space-3) var(--space-4);
-            background: color-mix(in srgb, var(--color-danger) 10%, transparent);
-            border: 1px solid color-mix(in srgb, var(--color-danger) 30%, transparent);
-            border-radius: var(--radius-md);
-            color: var(--color-danger);
-            font-size: var(--font-size-caption);
-        }
-        .form-errors ul {
+            min-height: 100%;
             margin: 0;
-            padding-left: var(--space-4);
+            padding: 0;
+            background: #020b14;
+            overflow-x: hidden;
         }
-        .form-errors li + li {
-            margin-top: var(--space-1);
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        }
+
+        .login-card,
+        .login-form,
+        .form-group,
+        .input-shell,
+        .form-group input,
         .login-submit {
-            margin-top: var(--space-6);
+            max-width: 100%;
         }
-        .login-back {
+
+        .login-page {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            place-items: center;
+            padding: 42px 5.5vw;
+            isolation: isolate;
+            background:
+                radial-gradient(circle at 20% 34%, rgba(0, 174, 255, 0.20), transparent 22%),
+                radial-gradient(circle at 44% 52%, rgba(0, 174, 255, 0.12), transparent 20%),
+                radial-gradient(circle at 88% 46%, rgba(0, 145, 255, 0.10), transparent 24%),
+                linear-gradient(120deg, #020b14 0%, #061524 44%, #020812 100%);
+            color: #ffffff;
+        }
+
+        html[data-theme="light"] .login-page,
+        body.light-mode .login-page {
+            background:
+                radial-gradient(circle at 20% 34%, rgba(232, 80, 30, 0.18), transparent 22%),
+                radial-gradient(circle at 44% 52%, rgba(232, 80, 30, 0.10), transparent 20%),
+                radial-gradient(circle at 88% 46%, rgba(232, 80, 30, 0.08), transparent 24%),
+                linear-gradient(120deg, #fbf3ee 0%, #f6e6dc 48%, #fff8f4 100%);
+            color: #1e1a17;
+        }
+
+        .login-page::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background-image:
+                linear-gradient(rgba(0, 174, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 174, 255, 0.035) 1px, transparent 1px);
+            background-size: 52px 52px;
+            mask-image: radial-gradient(circle at 52% 50%, black, transparent 72%);
+        }
+
+        html[data-theme="light"] .login-page::before,
+        body.light-mode .login-page::before {
+            background-image:
+                linear-gradient(rgba(232, 80, 30, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(232, 80, 30, 0.05) 1px, transparent 1px);
+        }
+
+        .login-page::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 49% 16%, rgba(0, 174, 255, 0.12), transparent 2px),
+                radial-gradient(circle at 48% 21%, rgba(0, 174, 255, 0.10), transparent 2px),
+                radial-gradient(circle at 47% 27%, rgba(0, 174, 255, 0.10), transparent 2px),
+                radial-gradient(circle at 46% 33%, rgba(0, 174, 255, 0.10), transparent 2px),
+                radial-gradient(circle at 45% 40%, rgba(0, 174, 255, 0.12), transparent 3px);
+            opacity: 0.75;
+        }
+
+        .theme-switch {
+            position: fixed;
+            top: 54px;
+            right: 7.5vw;
+            z-index: 4;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(0, 174, 255, 0.24);
+            background: rgba(2, 13, 24, 0.74);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+            backdrop-filter: blur(16px);
+        }
+
+        html[data-theme="light"] .theme-switch,
+        body.light-mode .theme-switch {
+            border-color: rgba(232, 80, 30, 0.22);
+            background: rgba(255, 249, 245, 0.80);
+            box-shadow: 0 18px 42px rgba(60, 39, 28, 0.12);
+        }
+
+        .theme-option {
+            height: 42px;
+            border: 0;
+            border-radius: 999px;
+            padding: 0 18px;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 15px;
+            font-weight: 450;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        html[data-theme="light"] .theme-option,
+        body.light-mode .theme-option {
+            color: rgba(30, 26, 23, 0.70);
+        }
+
+        .theme-option.is-active {
+            color: #19bfff;
+            background: rgba(0, 174, 255, 0.15);
+            box-shadow: inset 0 0 0 1px rgba(0, 174, 255, 0.08);
+        }
+
+        html[data-theme="light"] .theme-option.is-active,
+        body.light-mode .theme-option.is-active {
+            color: #e8501e;
+            background: rgba(232, 80, 30, 0.12);
+        }
+
+        .theme-icon {
+            width: 23px;
+            height: 23px;
+            display: inline-grid;
+            place-items: center;
+            font-size: 20px;
+        }
+
+        .login-shell {
+            width: min(100%, 1220px);
+            display: grid;
+            grid-template-columns: minmax(560px, 1.08fr) minmax(390px, 454px);
+            gap: 64px;
+            align-items: center;
+        }
+
+        .brand-area {
+            position: relative;
+            min-height: 690px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 30px;
+        }
+
+        .brand-blocks,
+        .circuit-layer,
+        .dot-field {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .brand-blocks span {
+            position: absolute;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 184, 255, 0.75);
+            background: linear-gradient(135deg, rgba(0, 174, 255, 0.16), rgba(0, 174, 255, 0.02));
+            box-shadow:
+                0 0 26px rgba(0, 174, 255, 0.18),
+                inset 0 0 28px rgba(0, 174, 255, 0.08);
+        }
+
+        html[data-theme="light"] .brand-blocks span,
+        body.light-mode .brand-blocks span {
+            border-color: rgba(232, 80, 30, 0.46);
+            background: linear-gradient(135deg, rgba(232, 80, 30, 0.12), rgba(232, 80, 30, 0.03));
+            box-shadow:
+                0 0 24px rgba(232, 80, 30, 0.12),
+                inset 0 0 24px rgba(232, 80, 30, 0.06);
+        }
+
+        .brand-blocks span:nth-child(1) {
+            width: 108px;
+            height: 108px;
+            left: 10px;
+            top: 88px;
+        }
+
+        .brand-blocks span:nth-child(2) {
+            width: 96px;
+            height: 96px;
+            left: 84px;
+            top: 128px;
+            border: 0;
+            background: rgba(0, 174, 255, 0.20);
+            box-shadow: 0 0 70px rgba(0, 174, 255, 0.46);
+        }
+
+        .brand-blocks span:nth-child(3) {
+            width: 52px;
+            height: 52px;
+            left: 162px;
+            top: 28px;
+        }
+
+        .brand-blocks span:nth-child(4) {
+            width: 66px;
+            height: 66px;
+            left: 230px;
+            top: 148px;
+        }
+
+        .brand-blocks span:nth-child(5) {
+            width: 64px;
+            height: 64px;
+            right: 96px;
+            top: 206px;
+        }
+
+        .brand-blocks span:nth-child(6) {
+            width: 62px;
+            height: 62px;
+            left: 10px;
+            top: 280px;
+        }
+
+        .brand-blocks span:nth-child(7) {
+            width: 48px;
+            height: 48px;
+            left: 24px;
+            top: 382px;
+        }
+
+        .brand-blocks span:nth-child(8) {
+            width: 94px;
+            height: 76px;
+            right: 132px;
+            top: 296px;
+            border-color: rgba(0, 184, 255, 0.18);
+        }
+
+        .brand-blocks span:nth-child(9) {
+            width: 78px;
+            height: 78px;
+            right: 0;
+            bottom: 96px;
+            border-color: rgba(0, 184, 255, 0.22);
+        }
+
+        .brand-content {
+            position: relative;
+            z-index: 1;
+            max-width: 610px;
+            padding-left: 94px;
+        }
+
+        .brand-kicker {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin-left: 36px;
+            margin-bottom: 16px;
+            color: #09b8ff;
+            font-size: 19px;
+            line-height: 1.15;
+            font-weight: 450;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        html[data-theme="light"] .brand-kicker,
+        body.light-mode .brand-kicker {
+            color: #e8501e;
+        }
+
+        .brand-kicker::before {
+            content: "";
+            width: 44px;
+            height: 2px;
+            background: currentColor;
+            box-shadow: 0 0 18px currentColor;
+        }
+
+        .brand-title {
+            margin: 0;
+            color: #ffffff;
+            font-size: clamp(82px, 8vw, 130px);
+            line-height: 0.92;
+            letter-spacing: -0.032em;
+            font-weight: 680;
+            text-shadow: 0 18px 44px rgba(0, 0, 0, 0.44);
+        }
+
+        html[data-theme="light"] .brand-title,
+        body.light-mode .brand-title {
+            color: #1e1a17;
+            text-shadow: 0 12px 28px rgba(60, 39, 28, 0.12);
+        }
+
+        .brand-title span {
             display: block;
-            margin-top: var(--space-5);
-            text-align: center;
-            font-size: var(--font-size-caption);
-            color: var(--color-text-muted);
-            text-decoration: none;
-            transition: color 160ms ease;
+            margin-top: 16px;
+            font-size: 0.64em;
+            line-height: 1.04;
+            letter-spacing: -0.018em;
+            font-weight: 500;
+            color: #ffffff;
         }
-        .login-back:hover {
-            color: var(--color-accent);
+
+        .brand-title strong {
+            color: #04bfff;
+            font-weight: 600;
+        }
+
+        html[data-theme="light"] .brand-title span,
+        body.light-mode .brand-title span {
+            color: #2f2925;
+        }
+
+        html[data-theme="light"] .brand-title strong,
+        body.light-mode .brand-title strong {
+            color: #e8501e;
+        }
+
+        .brand-copy {
+            position: relative;
+            margin: 34px 0 0 0;
+            padding: 28px 0 0 0;
+            max-width: 520px;
+            color: rgba(226, 240, 250, 0.86);
+            font-size: 19px;
+            line-height: 1.68;
+            font-weight: 400;
+            text-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+        }
+
+        .brand-copy::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 420px;
+            max-width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #0ebfff, transparent);
+            box-shadow: 0 0 20px rgba(0, 184, 255, 0.70);
+        }
+
+        html[data-theme="light"] .brand-copy,
+        body.light-mode .brand-copy {
+            color: rgba(78, 69, 63, 0.88);
+            text-shadow: none;
+        }
+
+        html[data-theme="light"] .brand-copy::before,
+        body.light-mode .brand-copy::before {
+            background: linear-gradient(90deg, transparent, #e8501e, transparent);
+            box-shadow: 0 0 18px rgba(232, 80, 30, 0.30);
+        }
+
+        .feature-row {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(6, minmax(76px, 1fr));
+            gap: 16px;
+            width: min(100%, 610px);
+            margin-top: 70px;
+            padding-left: 56px;
+        }
+
+        .feature-item {
+            text-align: center;
+            color: rgba(234, 244, 252, 0.92);
+            font-size: 14px;
+            line-height: 1.52;
+            font-weight: 400;
+        }
+
+        html[data-theme="light"] .feature-item,
+        body.light-mode .feature-item {
+            color: rgba(47, 41, 37, 0.84);
+        }
+
+        .feature-icon {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 12px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            color: #09b8ff;
+            border: 1px solid rgba(0, 184, 255, 0.28);
+            background: rgba(0, 184, 255, 0.06);
+            box-shadow: inset 0 0 28px rgba(0, 184, 255, 0.07);
+        }
+
+        html[data-theme="light"] .feature-icon,
+        body.light-mode .feature-icon {
+            color: #e8501e;
+            border-color: rgba(232, 80, 30, 0.24);
+            background: rgba(232, 80, 30, 0.06);
+        }
+
+        .feature-icon svg {
+            width: 31px;
+            height: 31px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.7;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .circuit-layer svg {
+            position: absolute;
+            right: -14px;
+            bottom: 94px;
+            width: 430px;
+            height: 330px;
+            opacity: 0.34;
+        }
+
+        .circuit-layer path,
+        .circuit-layer circle {
+            stroke: rgba(0, 184, 255, 0.62);
+        }
+
+        html[data-theme="light"] .circuit-layer path,
+        html[data-theme="light"] .circuit-layer circle,
+        body.light-mode .circuit-layer path,
+        body.light-mode .circuit-layer circle {
+            stroke: rgba(232, 80, 30, 0.32);
+        }
+
+        .dot-field {
+            left: auto;
+            right: 4px;
+            top: 92px;
+            width: 140px;
+            height: 210px;
+            background-image: radial-gradient(circle, rgba(0, 184, 255, 0.42) 2px, transparent 2px);
+            background-size: 24px 24px;
+            opacity: 0.42;
+        }
+
+        html[data-theme="light"] .dot-field,
+        body.light-mode .dot-field {
+            background-image: radial-gradient(circle, rgba(232, 80, 30, 0.28) 2px, transparent 2px);
+        }
+
+        .login-card {
+            position: relative;
+            width: 100%;
+            min-height: 588px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 184, 255, 0.38);
+            background: linear-gradient(150deg, rgba(3, 14, 26, 0.82), rgba(8, 25, 42, 0.62));
+            box-shadow:
+                0 28px 80px rgba(0, 0, 0, 0.38),
+                inset 0 0 58px rgba(0, 184, 255, 0.035);
+            backdrop-filter: blur(18px);
+            padding: 46px 44px 36px;
+        }
+
+        html[data-theme="light"] .login-card,
+        body.light-mode .login-card {
+            border-color: rgba(232, 80, 30, 0.30);
+            background: linear-gradient(150deg, rgba(255, 249, 245, 0.88), rgba(255, 255, 255, 0.72));
+            box-shadow:
+                0 28px 80px rgba(60, 39, 28, 0.14),
+                inset 0 0 58px rgba(232, 80, 30, 0.035);
+        }
+
+        .login-card::before {
+            content: "";
+            position: absolute;
+            right: -1px;
+            top: 112px;
+            width: 1px;
+            height: 258px;
+            background: linear-gradient(transparent, #0ebfff, transparent);
+            box-shadow: 0 0 18px #0ebfff;
+        }
+
+        html[data-theme="light"] .login-card::before,
+        body.light-mode .login-card::before {
+            background: linear-gradient(transparent, #e8501e, transparent);
+            box-shadow: 0 0 15px rgba(232, 80, 30, 0.42);
+        }
+
+        .lock-orb {
+            width: 86px;
+            height: 86px;
+            margin: 0 auto 28px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #16bdff;
+            border: 3px solid rgba(0, 184, 255, 0.38);
+            background:
+                radial-gradient(circle at 68% 18%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.18) 3px, transparent 8px),
+                radial-gradient(circle, rgba(0, 184, 255, 0.14), transparent 62%);
+            box-shadow:
+                0 0 32px rgba(0, 184, 255, 0.20),
+                inset 0 0 26px rgba(0, 184, 255, 0.12);
+        }
+
+        html[data-theme="light"] .lock-orb,
+        body.light-mode .lock-orb {
+            color: #e8501e;
+            border-color: rgba(232, 80, 30, 0.32);
+            background:
+                radial-gradient(circle at 68% 18%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.18) 3px, transparent 8px),
+                radial-gradient(circle, rgba(232, 80, 30, 0.12), transparent 62%);
+            box-shadow:
+                0 0 30px rgba(232, 80, 30, 0.12),
+                inset 0 0 24px rgba(232, 80, 30, 0.08);
+        }
+
+        .lock-orb svg {
+            width: 36px;
+            height: 36px;
+            fill: currentColor;
+        }
+
+        .login-heading {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .login-heading h2 {
+            margin: 0 0 8px;
+            color: #ffffff;
+            font-size: 25px;
+            font-weight: 560;
+            letter-spacing: 0;
+            line-height: 1.24;
+        }
+
+        .login-heading p {
+            margin: 0;
+            color: rgba(226, 240, 250, 0.82);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.48;
+        }
+
+        html[data-theme="light"] .login-heading h2,
+        body.light-mode .login-heading h2 {
+            color: #1e1a17;
+        }
+
+        html[data-theme="light"] .login-heading p,
+        body.light-mode .login-heading p {
+            color: rgba(78, 69, 63, 0.76);
+        }
+
+        .login-error {
+            margin-bottom: 18px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(244, 67, 54, 0.36);
+            background: rgba(244, 67, 54, 0.10);
+            color: #ff8d84;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        html[data-theme="light"] .login-error,
+        body.light-mode .login-error {
+            color: #b83232;
+            background: rgba(214, 69, 69, 0.10);
+        }
+
+        .login-form {
+            display: grid;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 10px;
+        }
+
+        .form-group label {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0;
+        }
+
+        html[data-theme="light"] .form-group label,
+        body.light-mode .form-group label {
+            color: #1e1a17;
+        }
+
+        .input-shell {
+            position: relative;
+        }
+
+        .input-shell svg {
+            position: absolute;
+            left: 17px;
+            top: 50%;
+            width: 22px;
+            height: 22px;
+            transform: translateY(-50%);
+            color: rgba(226, 240, 250, 0.74);
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            pointer-events: none;
+        }
+
+        html[data-theme="light"] .input-shell svg,
+        body.light-mode .input-shell svg {
+            color: rgba(78, 69, 63, 0.62);
+        }
+
+        .password-eye {
+            left: auto !important;
+            right: 16px;
+        }
+
+        .form-group input {
+            width: 100%;
+            height: 58px;
+            border-radius: 8px;
+            border: 1px solid rgba(113, 168, 210, 0.34);
+            background: rgba(3, 14, 26, 0.58);
+            color: #ffffff;
+            padding: 0 48px 0 54px;
+            font-size: 15px;
+            font-weight: 400;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        html[data-theme="light"] .form-group input,
+        body.light-mode .form-group input {
+            border-color: rgba(232, 80, 30, 0.22);
+            background: rgba(255, 255, 255, 0.72);
+            color: #1e1a17;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(226, 240, 250, 0.43);
+            font-weight: 400;
+        }
+
+        html[data-theme="light"] .form-group input::placeholder,
+        body.light-mode .form-group input::placeholder {
+            color: rgba(78, 69, 63, 0.44);
+        }
+
+        .form-group input:focus {
+            border-color: rgba(0, 184, 255, 0.78);
+            box-shadow: 0 0 0 3px rgba(0, 184, 255, 0.14);
+            background: rgba(5, 18, 32, 0.78);
+        }
+
+        html[data-theme="light"] .form-group input:focus,
+        body.light-mode .form-group input:focus {
+            border-color: rgba(232, 80, 30, 0.54);
+            box-shadow: 0 0 0 3px rgba(232, 80, 30, 0.12);
+            background: rgba(255, 255, 255, 0.94);
+        }
+
+        .login-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 2px;
+            font-size: 14px;
+            line-height: 1.45;
+        }
+
+        .remember {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.92);
+            font-weight: 400;
+        }
+
+        html[data-theme="light"] .remember,
+        body.light-mode .remember {
+            color: rgba(30, 26, 23, 0.82);
+        }
+
+        .remember input {
+            width: 20px;
+            height: 20px;
+            accent-color: #11b9ff;
+        }
+
+        .login-help {
+            color: #15bfff;
+            font-weight: 450;
+        }
+
+        html[data-theme="light"] .login-help,
+        body.light-mode .login-help {
+            color: #e8501e;
+        }
+
+        .login-submit {
+            width: 100%;
+            height: 58px;
+            margin-top: 6px;
+            border: 0;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #17c7f3, #0759bd);
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 18px 38px rgba(0, 126, 255, 0.26);
+            transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        html[data-theme="light"] .login-submit,
+        body.light-mode .login-submit {
+            background: linear-gradient(135deg, #ff7848, #c2410c);
+            box-shadow: 0 18px 38px rgba(232, 80, 30, 0.18);
+        }
+
+        .login-submit:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.08);
+            box-shadow: 0 22px 46px rgba(0, 126, 255, 0.34);
+        }
+
+        html[data-theme="light"] .login-submit:hover,
+        body.light-mode .login-submit:hover {
+            box-shadow: 0 22px 46px rgba(232, 80, 30, 0.24);
+        }
+
+        .login-footer {
+            margin-top: 30px;
+            text-align: center;
+            color: rgba(226, 240, 250, 0.62);
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        html[data-theme="light"] .login-footer,
+        body.light-mode .login-footer {
+            color: rgba(78, 69, 63, 0.58);
+        }
+
+        .login-footer p {
+            margin: 0 0 12px;
+        }
+
+        .login-back-link {
+            color: rgba(226, 240, 250, 0.72);
+            font-size: 13px;
+            font-weight: 450;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .login-back-link:hover {
+            color: #15bfff;
+        }
+
+        html[data-theme="light"] .login-back-link,
+        body.light-mode .login-back-link {
+            color: rgba(78, 69, 63, 0.68);
+        }
+
+        html[data-theme="light"] .login-back-link:hover,
+        body.light-mode .login-back-link:hover {
+            color: #e8501e;
+        }
+
+        @media (max-width: 1120px) {
+            .login-shell {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .brand-area {
+                min-height: auto;
+                padding-top: 76px;
+            }
+
+            .brand-content {
+                padding-left: 72px;
+            }
+
+            .feature-row {
+                padding-left: 56px;
+            }
+
+            .login-card {
+                max-width: 520px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .login-page {
+                padding: 22px 14px;
+            }
+
+            .theme-switch {
+                position: relative;
+                top: auto;
+                right: auto;
+                justify-self: center;
+                margin-bottom: 22px;
+            }
+
+            .login-shell {
+                display: block;
+            }
+
+            .brand-area {
+                min-height: auto;
+                padding: 0 0 28px;
+                text-align: center;
+            }
+
+            .brand-content {
+                padding-left: 0;
+                margin: 0 auto;
+            }
+
+            .brand-kicker {
+                margin-left: 0;
+                font-size: 14px;
+            }
+
+            .brand-title {
+                font-size: clamp(62px, 20vw, 92px);
+            }
+
+            .brand-copy {
+                font-size: 16px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .feature-row {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                padding-left: 0;
+                margin: 36px auto 0;
+            }
+
+            .login-card {
+                min-height: auto;
+                padding: 30px 22px;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .feature-row {
+                grid-template-columns: 1fr;
+            }
+
+            .login-options {
+                align-items: flex-start;
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="login-page">
-        <div class="login-card">
-            <a class="login-logo" href="/">Services<span>BI</span></a>
-            <p class="login-eyebrow">Sistema de Gestão</p>
-            <h1 class="login-title">Acesse o SIGE</h1>
+    <main class="login-page">
+        <div class="theme-switch" role="group" aria-label="Tema">
+            <button type="button" class="theme-option" data-theme-option="light">
+                <span class="theme-icon" aria-hidden="true">☼</span>
+                Claro
+            </button>
+            <button type="button" class="theme-option" data-theme-option="dark">
+                <span class="theme-icon" aria-hidden="true">◐</span>
+                Escuro
+            </button>
+        </div>
 
-            {% if form.non_field_errors %}
-            <div class="form-errors" role="alert">
-                <ul>
-                    {% for error in form.non_field_errors %}
-                    <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
+        <section class="login-shell" aria-label="Acesso ao SIGE ServicesBI">
+            <section class="brand-area">
+                <div class="brand-blocks" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="dot-field" aria-hidden="true"></div>
+                <div class="circuit-layer" aria-hidden="true">
+                    <svg viewBox="0 0 430 330">
+                        <path d="M12 238 H132 L184 186 H250 L302 132 H392" fill="none" stroke-width="1"/>
+                        <path d="M86 294 H190 L226 258 H318" fill="none" stroke-width="1"/>
+                        <path d="M174 312 H286 L322 276 H420" fill="none" stroke-width="1"/>
+                        <path d="M244 92 V168 L210 202" fill="none" stroke-width="1"/>
+                        <circle cx="132" cy="238" r="5" fill="rgba(0,184,255,.62)"/>
+                        <circle cx="250" cy="186" r="5" fill="rgba(0,184,255,.62)"/>
+                        <circle cx="86" cy="294" r="5" fill="rgba(0,184,255,.62)"/>
+                        <circle cx="318" cy="258" r="5" fill="rgba(0,184,255,.62)"/>
+                        <circle cx="392" cy="132" r="5" fill="rgba(0,184,255,.62)"/>
+                    </svg>
+                </div>
 
-            <form method="post" novalidate>
-                {% csrf_token %}
-                {% if next %}
-                <input type="hidden" name="next" value="{{ next }}">
+                <div class="brand-content">
+                    <div class="brand-kicker">ERP ServicesBI</div>
+                    <h1 class="brand-title">
+                        SIGE
+                        <span>Services<strong>BI</strong></span>
+                    </h1>
+                    <p class="brand-copy">
+                        Gestão empresarial com visão integrada para cadastro, compras, vendas, financeiro, estoque e indicadores.
+                    </p>
+                </div>
+
+                <div class="feature-row" aria-label="Benefícios do SIGE ServicesBI">
+                    <div class="feature-item">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg viewBox="0 0 32 32"><path d="M5 25V14h5v11M14 25V8h5v17M23 25V4h5v21M4 25h25"/></svg>
+                        </div>
+                        Dashboards<br>Inteligentes
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg viewBox="0 0 32 32"><path d="M5 7h4l3 14h12l3-10H11M14 26h.01M24 26h.01"/></svg>
+                        </div>
+                        Processos<br>Integrados
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="10"/><path d="M16 9v14M12 13c0-2 8-2 8 1s-8 2-8 5 8 3 8 0"/></svg>
+                        </div>
+                        Gestão<br>Financeira
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg viewBox="0 0 32 32"><path d="M16 4 27 10v12l-11 6-11-6V10zM5 10l11 6 11-6M16 16v12"/></svg>
+                        </div>
+                        Estoque<br>Inteligente
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg viewBox="0 0 32 32"><path d="M5 24h22M7 21l5-6 5 3 7-9M24 9h3v3"/></svg>
+                        </div>
+                        Indicadores<br>Estratégicos
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg viewBox="0 0 32 32"><path d="M12 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M4 27c0-5 3.5-9 8-9s8 4 8 9"/><path d="M22 14a4 4 0 1 0 0-8"/><path d="M22 18c3.5.5 6 4 6 8"/></svg>
+                        </div>
+                        RH<br>Integrado
+                    </div>
+                </div>
+            </section>
+
+            <section class="login-card">
+                <div class="lock-orb" aria-hidden="true">
+                    <svg viewBox="0 0 32 32">
+                        <path d="M10 14v-3a6 6 0 0 1 12 0v3h1a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h1zm3 0h6v-3a3 3 0 0 0-6 0v3z"/>
+                    </svg>
+                </div>
+
+                <div class="login-heading">
+                    <h2>Bem-vindo de volta!</h2>
+                    <p>Faça login para acessar sua conta</p>
+                </div>
+
+                {% if form.errors %}
+                    <div class="login-error">Usuário ou senha inválidos.</div>
                 {% endif %}
 
-                <div class="form-group">
-                    <label class="form-label" for="{{ form.username.id_for_label }}">Usuário</label>
-                    <input
-                        class="form-input{% if form.username.errors %} form-input--error{% endif %}"
-                        type="text"
-                        id="{{ form.username.id_for_label }}"
-                        name="{{ form.username.html_name }}"
-                        value="{{ form.username.value|default:'' }}"
-                        autocomplete="username"
-                        autofocus
-                        placeholder="Nome de usuário"
-                    >
-                    {% if form.username.errors %}
-                    <p style="margin:0;font-size:var(--font-size-caption);color:var(--color-danger);">
-                        {{ form.username.errors|join:", " }}
-                    </p>
+                <form method="post" class="login-form">
+                    {% csrf_token %}
+                    {% if next %}
+                        <input type="hidden" name="next" value="{{ next }}">
                     {% endif %}
+
+                    <div class="form-group">
+                        <label for="id_username">Usuário</label>
+                        <div class="input-shell">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+                            <input type="text" id="id_username" name="username" autocomplete="username" required autofocus placeholder="Digite seu usuário">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_password">Senha</label>
+                        <div class="input-shell">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                            <input type="password" id="id_password" name="password" autocomplete="current-password" required placeholder="Digite sua senha">
+                            <svg class="password-eye" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="login-options">
+                        <label class="remember">
+                            <input type="checkbox" checked>
+                            Lembrar de mim
+                        </label>
+                        <a href="#" class="login-help">Esqueceu sua senha?</a>
+                    </div>
+
+                    <button type="submit" class="login-submit">Entrar</button>
+                </form>
+
+                <div class="login-footer">
+                    <p>© 2026 SIGE ServicesBI. Todos os direitos reservados.</p>
+                    <a href="/sige-servicesbi/" class="login-back-link">← Voltar para a página do SIGE</a>
                 </div>
+            </section>
+        </section>
+    </main>
 
-                <div class="form-group">
-                    <label class="form-label" for="{{ form.password.id_for_label }}">Senha</label>
-                    <input
-                        class="form-input"
-                        type="password"
-                        id="{{ form.password.id_for_label }}"
-                        name="{{ form.password.html_name }}"
-                        autocomplete="current-password"
-                        placeholder="Sua senha"
-                    >
-                </div>
+    <script>
+        (function () {
+            const buttons = Array.from(document.querySelectorAll("[data-theme-option]"));
 
-                <div class="login-submit">
-                    <button type="submit" class="btn btn--primary btn--full">Entrar</button>
-                </div>
-            </form>
+            function applyLoginTheme(theme) {
+                const isDark = theme === "dark";
+                document.documentElement.setAttribute("data-theme", theme);
+                document.body.classList.toggle("light-mode", !isDark);
+                localStorage.setItem("erp-theme", theme);
+                buttons.forEach((button) => {
+                    button.classList.toggle("is-active", button.dataset.themeOption === theme);
+                });
+            }
 
-            <a class="login-back" href="/">← Voltar ao site</a>
-        </div>
-    </div>
+            const initialTheme = document.documentElement.getAttribute("data-theme") || "dark";
+            applyLoginTheme(initialTheme);
 
-    <script src="{% static 'js/theme.js' %}"></script>
+            buttons.forEach((button) => {
+                button.addEventListener("click", function () {
+                    applyLoginTheme(button.dataset.themeOption);
+                });
+            });
+        })();
+    </script>
 </body>
 </html>

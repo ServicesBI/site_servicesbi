@@ -7,6 +7,8 @@ from django.test import Client, override_settings
 
 PAGES = [
     ("/", "index.html"),
+    ("/sige-servicesbi/", "sige-servicesbi/index.html"),
+    ("/jarvis/", "jarvis/index.html"),
     ("/python/", "python/index.html"),
     ("/power-bi/", "power-bi/index.html"),
     ("/automacoes/", "automacoes/index.html"),

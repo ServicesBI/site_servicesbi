@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Jarvis | ServicesBI{% endblock %}
+{% block meta_description %}Jarvis ServicesBI — assistente operacional com 12 agentes de IA, terminal inteligente, comandos por voz, Mega Brain, integração com Claude e Codex, automação local e memória técnica.{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/python.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/jarvis.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="service-hero jarvis-hero" aria-labelledby="jarvis-hero-title">
+    <div class="service-hero__inner">
+        <div class="service-hero__copy">
+            <p class="eyebrow text-accent">Jarvis ServicesBI</p>
+
+            <h1 class="section-title" id="jarvis-hero-title">
+                Jarvis ServicesBI
+            </h1>
+
+            <p class="section-subtitle">
+                Assistente operacional com agentes de IA, voz, terminal, automação e memória técnica.
+            </p>
+
+            <p class="jarvis-hero__support">
+                Um copiloto operacional para desenvolvimento, negócios, documentação e automações. O Jarvis age como central de comando inteligente — pronto para executar, organizar e apoiar em tempo real.
+            </p>
+
+            <div class="service-hero__actions">
+                <a class="btn btn--primary" href="{% url 'pages:contato' %}">Solicitar demonstração</a>
+                <a class="btn btn--secondary" href="#jarvis-recursos">Ver recursos</a>
+            </div>
+
+            <ul class="service-hero__points" aria-label="Principais recursos do Jarvis">
+                <li>12 agentes de IA</li>
+                <li>Terminal inteligente</li>
+                <li>Comandos por voz</li>
+            </ul>
+        </div>
+
+        <div class="jarvis-hero__visual" aria-hidden="true">
+            <div class="jarvis-hero__feature-list">
+                <div class="jarvis-hero__feature">12 agentes de IA</div>
+                <div class="jarvis-hero__feature">Terminal inteligente</div>
+                <div class="jarvis-hero__feature">Comandos por voz</div>
+                <div class="jarvis-hero__feature">Mega Brain / Obsidian</div>
+                <div class="jarvis-hero__feature">Claude e Codex</div>
+                <div class="jarvis-hero__feature">Contexto de projeto</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="home-solutions" id="jarvis-recursos" aria-labelledby="jarvis-recursos-title">
+    <div class="home-solutions__header">
+        <p class="eyebrow text-accent">Recursos</p>
+
+        <h2 class="section-title" id="jarvis-recursos-title">
+            Um copiloto completo para operação e desenvolvimento.
+        </h2>
+
+        <p class="section-subtitle">
+            Cada recurso do Jarvis é projetado para ampliar a capacidade operacional — da linha de comando ao relatório final.
+        </p>
+    </div>
+
+    <div class="home-solutions__grid jarvis-recursos-grid">
+        <article class="home-solution-card jarvis-resource-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">IA</p>
+                <h3 class="home-solution-card__title">12 agentes de IA</h3>
+                <p class="home-solution-card__text">
+                    Agentes especializados para desenvolvimento, documentação, análise, relatórios e operações — cada um treinado para uma frente específica.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card jarvis-resource-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Interface</p>
+                <h3 class="home-solution-card__title">Terminal inteligente</h3>
+                <p class="home-solution-card__text">
+                    HUD visual com terminal integrado para execução de comandos, scripts e automações diretamente na interface.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card jarvis-resource-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Voz</p>
+                <h3 class="home-solution-card__title">Comandos por voz</h3>
+                <p class="home-solution-card__text">
+                    Interação por fala para ativar agentes, executar rotinas e consultar informações sem precisar digitar.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card jarvis-resource-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Memória</p>
+                <h3 class="home-solution-card__title">Mega Brain / Obsidian</h3>
+                <p class="home-solution-card__text">
+                    Base de conhecimento técnico integrada ao Obsidian. O Jarvis consulta, aprende e evolui com o projeto ao longo do tempo.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card jarvis-resource-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Integração</p>
+                <h3 class="home-solution-card__title">Claude e Codex</h3>
+                <p class="home-solution-card__text">
+                    Conectado aos principais modelos de IA da Anthropic e OpenAI para geração de código, texto e análises avançadas.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card jarvis-resource-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Contexto</p>
+                <h3 class="home-solution-card__title">Leitura de arquivos</h3>
+                <p class="home-solution-card__text">
+                    Leitura e análise de arquivos locais — código, planilhas, PDFs e documentos — com contexto real do projeto.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card jarvis-resource-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Automação</p>
+                <h3 class="home-solution-card__title">Automação local</h3>
+                <p class="home-solution-card__text">
+                    Rotinas automáticas para tarefas repetitivas: backup, organização de arquivos, geração de relatórios e notificações.
+                </p>
+            </div>
+        </article>
+
+        <article class="home-solution-card jarvis-resource-card">
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Desenvolvimento</p>
+                <h3 class="home-solution-card__title">Apoio técnico e documentação</h3>
+                <p class="home-solution-card__text">
+                    Suporte a desenvolvimento de software, geração de documentação técnica, revisão de código e criação de scripts sob demanda.
+                </p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="jarvis-cta" aria-labelledby="jarvis-cta-title">
+    <div class="jarvis-cta__inner">
+        <p class="eyebrow text-accent">Demonstração</p>
+
+        <h2 class="section-title" id="jarvis-cta-title">
+            Veja o Jarvis em operação.
+        </h2>
+
+        <p class="section-subtitle">
+            Solicite uma demonstração e entenda como o Jarvis pode ampliar a sua capacidade operacional.
+        </p>
+
+        <div class="jarvis-cta__actions">
+            <a class="btn btn--primary" href="{% url 'pages:contato' %}">Solicitar demonstração</a>
+            <a class="btn btn--secondary" href="{% url 'pages:contato' %}">Falar comigo</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

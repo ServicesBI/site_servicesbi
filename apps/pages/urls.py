@@ -7,6 +7,8 @@ app_name = "pages"
 
 urlpatterns = [
     path("", views.home, name="home"),
+    path("sige-servicesbi/", views.sige_institucional_page, name="sige_institucional"),
+    path("jarvis/", views.jarvis_page, name="jarvis"),
     path("python/", views.python_page, name="python"),
     path("power-bi/", views.powerbi_page, name="powerbi"),
     path("automacoes/", views.automacoes_page, name="automacoes"),

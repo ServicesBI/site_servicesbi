@@ -5,6 +5,14 @@ def home(request):
     return render(request, "pages/home.html")
 
 
+def sige_institucional_page(request):
+    return render(request, "pages/sige_institucional.html")
+
+
+def jarvis_page(request):
+    return render(request, "pages/jarvis.html")
+
+
 def python_page(request):
     return render(request, "pages/python.html")
 
