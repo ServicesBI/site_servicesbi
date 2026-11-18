@@ -1,3 +1,5 @@
+> ⚠️ **Documento anterior ao ServicesBI 2.0.** Para cores, tipografia e componentes, a referência oficial agora é `docs/SERVICESBI_IDENTIDADE_VISUAL.md` (e o PDF `Manual_Identidade_Visual_ServicesBI.pdf`).
+
 # ServicesBI — Skill de Padronização de Páginas
 
 > **Uso:** este arquivo deve ser usado como regra fixa para qualquer ajuste/criação de página do site ServicesBI.  

@@ -375,7 +375,7 @@
     height: 2.25rem;
     border-radius: 999px;
     background: var(--color-accent);
-    color: var(--color-bg);
+    color: var(--color-on-accent);
     font-weight: 700;
 }
 
@@ -451,7 +451,7 @@
     padding: 0 var(--space-4);
     border-radius: var(--radius-md);
     background: var(--color-accent);
-    color: var(--color-bg) !important;
+    color: var(--color-on-accent) !important;
     font-weight: 600 !important;
     white-space: nowrap;
 }
@@ -595,4 +595,24 @@
         order: -1;
         min-height: 34px;
     }
+}
+
+/* ---------- Tema light: faixa de CTA em petróleo (Manual de Identidade) ---------- */
+html:not(.theme-dark) .v2-cta {
+    background:
+        radial-gradient(40rem 20rem at 100% 0%, rgba(224, 129, 47, 0.28), transparent 70%),
+        var(--brand-petroleo);
+}
+
+html:not(.theme-dark) .v2-cta p {
+    color: #DDE8EA;
+}
+
+html:not(.theme-dark) .v2-card--featured {
+    border-color: var(--brand-laranja);
+}
+
+/* ---------- Assinatura em texto: "BI" na cor da marca (Manual de Identidade) ---------- */
+.site-logo span {
+    color: var(--color-accent-bright);
 }

@@ -1,3 +1,5 @@
+> ⚠️ **Documento anterior ao ServicesBI 2.0.** Para cores, tipografia e componentes, a referência oficial agora é `docs/SERVICESBI_IDENTIDADE_VISUAL.md` (e o PDF `Manual_Identidade_Visual_ServicesBI.pdf`).
+
 # ServicesBI — Paleta de Cores Oficial
 
 > **Fonte de verdade visual do projeto.**

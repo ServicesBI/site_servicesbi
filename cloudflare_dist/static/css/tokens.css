@@ -1,22 +1,31 @@
 :root {
     color-scheme: light;
 
-    --color-bg: #FFFFFB;
-    --color-bg-soft: #FAFAF7;
-    --color-surface: #FAFAF7;
-    --color-surface-strong: #FFFFFF;
-    --color-text: #1A1A18;
-    --color-text-body: #505C57;
-    --color-text-muted: #717A76;
-    --color-border: #E5E5E5;
-    --color-border-strong: #D4D4D4;
-    --color-accent: #CA3A18;
-    --color-success: #10B981;
-    --color-warning: #F59E0B;
-    --color-danger: #DC2626;
-    --color-info: #3B82F6;
+    /* ===== Paleta oficial ServicesBI — tema light (Manual de Identidade 2026) ===== */
+    --brand-laranja: #E0812F;      /* Laranja ServicesBI: marca, áreas grandes, barras de gráfico */
+    --brand-petroleo: #17545E;     /* Petróleo: títulos, cabeçalhos, faixas escuras */
+    --brand-bege: #F3EFE7;         /* Bege: fundo principal */
+    --brand-grafite: #2B2B2B;      /* Grafite: texto corrido */
+    --brand-vermelho: #C2553D;     /* Vermelho: alertas e quedas */
 
-    --font-base: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --color-bg: var(--brand-bege);
+    --color-bg-soft: #EBE5D9;
+    --color-surface: #F8F5EF;
+    --color-surface-strong: #FFFFFF;
+    --color-text: var(--brand-petroleo);
+    --color-text-body: var(--brand-grafite);
+    --color-text-muted: #6B6B6B;
+    --color-border: #E1D9CB;
+    --color-border-strong: #D2C8B6;
+    --color-accent: #A9561A;        /* laranja de texto/botão: contraste AA sobre bege e branco */
+    --color-accent-bright: var(--brand-laranja);
+    --color-on-accent: #FFFFFF;
+    --color-success: #2E7D4F;
+    --color-warning: #B7791F;
+    --color-danger: #A8432C;
+    --color-info: #2F6690;
+
+--font-base: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --font-display: Georgia, "Times New Roman", serif;
 
     --font-size-display: clamp(3.5rem, 7vw, 4.5rem);
@@ -78,6 +87,8 @@ body.theme-dark {
     --color-border: rgba(255, 255, 255, 0.10);
     --color-border-strong: rgba(255, 255, 255, 0.16);
     --color-accent: #38CBD9;
+    --color-accent-bright: #38CBD9;
+    --color-on-accent: #0A1420;
     --color-success: #30D08D;
     --color-warning: #F2C94C;
     --color-danger: #FF6B7A;
