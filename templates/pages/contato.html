@@ -91,60 +91,50 @@
                 </div>
 
                 <div class="contato-form__group">
-                    <label class="contato-form__label" for="nome">Nome <span class="contato-form__required" aria-hidden="true">*</span></label>
+                    <label class="contato-form__label" for="nome">Nome completo <span class="contato-form__required" aria-hidden="true">*</span></label>
                     <input class="contato-form__input" type="text" name="nome" id="nome" placeholder="Seu nome completo" required autocomplete="name">
                 </div>
 
                 <div class="contato-form__group">
-                    <label class="contato-form__label" for="email">E-mail <span class="contato-form__required" aria-hidden="true">*</span></label>
-                    <input class="contato-form__input" type="email" name="email" id="email" placeholder="seuemail@exemplo.com" required autocomplete="email">
+                    <label class="contato-form__label" for="whatsapp">WhatsApp (com DDD) <span class="contato-form__required" aria-hidden="true">*</span></label>
+                    <input class="contato-form__input" type="tel" name="whatsapp" id="whatsapp" placeholder="(61) 99999-9999" required autocomplete="tel" inputmode="tel">
                 </div>
 
                 <div class="contato-form__group">
-                    <label class="contato-form__label" for="whatsapp">WhatsApp</label>
-                    <input class="contato-form__input" type="tel" name="whatsapp" id="whatsapp" placeholder="+55 61 99999-9999" autocomplete="tel">
+                    <label class="contato-form__label" for="empresa">Nome da empresa</label>
+                    <input class="contato-form__input" type="text" name="empresa" id="empresa" placeholder="Nome da sua empresa" autocomplete="organization">
                 </div>
 
                 <div class="contato-form__group">
-                    <label class="contato-form__label" for="tipo_demanda">Tipo de demanda <span class="contato-form__required" aria-hidden="true">*</span></label>
+                    <label class="contato-form__label" for="tipo_demanda">Qual o maior desafio hoje? <span class="contato-form__required" aria-hidden="true">*</span></label>
                     <select class="contato-form__select" name="tipo_demanda" id="tipo_demanda" required>
-                        <option value="" disabled selected>Selecione uma área</option>
-                        <option value="Business Intelligence / Power BI">Business Intelligence / Power BI</option>
-                        <option value="Automação de Processos">Automação de Processos</option>
-                        <option value="Sistema Interno / Desenvolvimento Web">Sistema Interno / Desenvolvimento Web</option>
-                        <option value="Integração de Sistemas / APIs">Integração de Sistemas / APIs</option>
-                        <option value="Consultoria Técnica">Consultoria Técnica</option>
-                        <option value="Outro">Outro</option>
+                        <option value="" disabled selected>Selecione uma opção</option>
+                        <option value="Organizar o financeiro">Organizar o financeiro</option>
+                        <option value="Criar dashboards e indicadores">Criar dashboards e indicadores</option>
+                        <option value="Integrar processos e sistemas">Integrar processos e sistemas</option>
+                        <option value="Consultoria geral">Consultoria geral</option>
                     </select>
                 </div>
 
                 <div class="contato-form__group">
-                    <label class="contato-form__label" for="mensagem">Mensagem <span class="contato-form__required" aria-hidden="true">*</span></label>
-                    <textarea class="contato-form__textarea" name="mensagem" id="mensagem" rows="5" placeholder="Descreva brevemente a demanda, o contexto ou o projeto." required></textarea>
+                    <label class="contato-form__label" for="mensagem">Conte um pouco sobre a situação (opcional)</label>
+                    <textarea class="contato-form__textarea" name="mensagem" id="mensagem" rows="4" placeholder="Ex.: não sei quanto sobra no fim do mês, as planilhas não batem..."></textarea>
                 </div>
 
+                <p class="contato-form__lgpd">Seus dados serão usados apenas para retornar o seu contato.</p>
+
+                <p id="contato-form-erro" class="contato-form__erro" role="alert" hidden>Preencha nome, WhatsApp e o maior desafio para continuar.</p>
+
                 <button class="btn btn--primary contato-form__submit" type="submit" id="contato-submit">
-                    Enviar mensagem
+                    Solicitar contato pelo WhatsApp
                 </button>
 
             </form>
 
-            <!-- Estado: integração pendente (N8N_WEBHOOK_URL vazia) -->
-            <div id="contato-estado-pendente" class="contato-estado contato-estado--pendente" hidden>
-                <p class="contato-estado__title">Formulário em configuração.</p>
-                <p class="contato-estado__text">Para contato imediato, envie sua mensagem para <a href="mailto:servicesbi.ltda@gmail.com">servicesbi.ltda@gmail.com</a> ou fale pelo <a href="https://wa.me/5561993029988?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20ServicesBI%20e%20gostaria%20de%20falar%20sobre%20uma%20solu%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">WhatsApp</a>.</p>
-            </div>
-
             <!-- Estado: sucesso -->
             <div id="contato-estado-sucesso" class="contato-estado contato-estado--sucesso" hidden>
-                <p class="contato-estado__title">Mensagem enviada com sucesso.</p>
-                <p class="contato-estado__text">Obrigado pelo contato. Em breve retorno pelo e-mail ou WhatsApp informado.</p>
-            </div>
-
-            <!-- Estado: erro -->
-            <div id="contato-estado-erro" class="contato-estado contato-estado--erro" hidden>
-                <p class="contato-estado__title">Não foi possível enviar sua mensagem.</p>
-                <p class="contato-estado__text">Tente novamente em alguns instantes ou envie diretamente para <a href="mailto:servicesbi.ltda@gmail.com">servicesbi.ltda@gmail.com</a>.</p>
+                <p class="contato-estado__title">Quase lá! Abrimos o WhatsApp para você.</p>
+                <p class="contato-estado__text">Sua mensagem já está escrita: é só tocar em enviar. Se o WhatsApp não abriu, <a id="contato-wa-fallback" href="https://wa.me/5561993029988" target="_blank" rel="noopener noreferrer">clique aqui</a>.</p>
             </div>
         </div>
 

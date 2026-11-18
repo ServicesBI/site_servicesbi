@@ -458,3 +458,19 @@ html.theme-dark .contato-form__select {
         padding: var(--space-6);
     }
 }
+
+/* ===== Formulário via WhatsApp (ServicesBI 2.0) ===== */
+.contato-form__lgpd {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+.contato-form__erro {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid #d64545;
+    color: #d64545;
+    font-size: 0.9375rem;
+}

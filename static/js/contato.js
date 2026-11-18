@@ -1,83 +1,69 @@
 (function () {
-    // Quando o workflow do n8n estiver em produção, inserir aqui a Production URL do webhook.
-    // Exemplo: https://SEU_DOMINIO_N8N/webhook/servicesbi-contato
-    const N8N_WEBHOOK_URL = "";
+    // Formulário de contato: monta a mensagem com os dados preenchidos e abre o WhatsApp.
+    // Não depende de servidor/webhook. Para trocar por n8n ou Formspree no futuro,
+    // basta substituir a função abrirWhatsApp por um fetch() ao endpoint escolhido.
+    var WHATSAPP_NUMERO = "5561993029988";
 
     var form = document.getElementById("contato-form");
-    var submitBtn = document.getElementById("contato-submit");
-    var estadoPendente = document.getElementById("contato-estado-pendente");
-    var estadoSucesso = document.getElementById("contato-estado-sucesso");
-    var estadoErro = document.getElementById("contato-estado-erro");
-
     if (!form) return;
 
-    function ocultarEstados() {
-        estadoPendente.hidden = true;
-        estadoSucesso.hidden = true;
-        estadoErro.hidden = true;
+    var submitBtn = document.getElementById("contato-submit");
+    var erroEl = document.getElementById("contato-form-erro");
+    var sucessoEl = document.getElementById("contato-estado-sucesso");
+    var fallbackLink = document.getElementById("contato-wa-fallback");
+
+    function valor(nome) {
+        var el = form.querySelector('[name="' + nome + '"]');
+        return el ? el.value.trim() : "";
     }
 
-    function mostrarEstado(el) {
-        ocultarEstados();
-        el.hidden = false;
-        el.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
-
-    function setEnviando(enviando) {
-        submitBtn.disabled = enviando;
-        submitBtn.textContent = enviando ? "Enviando..." : "Enviar mensagem";
+    function montarMensagem(d) {
+        var linhas = [
+            "Olá Leles, vim pelo site da ServicesBI e gostaria de solicitar um contato.",
+            "",
+            "*Nome:* " + d.nome,
+            "*WhatsApp:* " + d.whatsapp
+        ];
+        if (d.empresa) linhas.push("*Empresa:* " + d.empresa);
+        linhas.push("*Maior desafio:* " + d.desafio);
+        if (d.mensagem) {
+            linhas.push("");
+            linhas.push(d.mensagem);
+        }
+        return linhas.join("\n");
     }
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
-        ocultarEstados();
+        erroEl.hidden = true;
 
-        // Honeypot anti-spam — bot preencheu, silêncio
-        var honeypot = form.querySelector('[name="website"]');
-        if (honeypot && honeypot.value) {
-            mostrarEstado(estadoSucesso);
-            return;
-        }
+        // Honeypot anti-spam: se um robô preencheu, não faz nada.
+        if (valor("website")) return;
 
-        // Integração ainda não configurada
-        if (!N8N_WEBHOOK_URL) {
-            form.hidden = true;
-            mostrarEstado(estadoPendente);
-            return;
-        }
-
-        var data = {
-            nome: form.querySelector('[name="nome"]').value.trim(),
-            email: form.querySelector('[name="email"]').value.trim(),
-            whatsapp: form.querySelector('[name="whatsapp"]').value.trim(),
-            tipo_demanda: form.querySelector('[name="tipo_demanda"]').value,
-            mensagem: form.querySelector('[name="mensagem"]').value.trim(),
-            origem: "site-servicesbi-contato",
-            pagina: window.location.href,
-            user_agent: navigator.userAgent,
-            enviado_em: new Date().toISOString()
+        var dados = {
+            nome: valor("nome"),
+            whatsapp: valor("whatsapp"),
+            empresa: valor("empresa"),
+            desafio: valor("tipo_demanda"),
+            mensagem: valor("mensagem")
         };
 
-        setEnviando(true);
+        var digitos = dados.whatsapp.replace(/\D/g, "");
+        if (!dados.nome || digitos.length < 10 || !dados.desafio) {
+            erroEl.hidden = false;
+            erroEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            return;
+        }
 
-        fetch(N8N_WEBHOOK_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        })
-            .then(function (response) {
-                if (response.ok) {
-                    form.hidden = true;
-                    mostrarEstado(estadoSucesso);
-                } else {
-                    mostrarEstado(estadoErro);
-                }
-            })
-            .catch(function () {
-                mostrarEstado(estadoErro);
-            })
-            .finally(function () {
-                setEnviando(false);
-            });
+        var url = "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + encodeURIComponent(montarMensagem(dados));
+
+        if (fallbackLink) fallbackLink.href = url;
+        var janela = window.open(url, "_blank", "noopener");
+        if (!janela) window.location.href = url; // pop-up bloqueado: abre na mesma aba
+
+        form.hidden = true;
+        sucessoEl.hidden = false;
+        sucessoEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        submitBtn.blur();
     });
 })();

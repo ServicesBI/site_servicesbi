@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/static/css/cards.css">
     <link rel="stylesheet" href="/static/css/header.css">
     <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/whatsapp-float.css">
     
 <link rel="stylesheet" href="/static/css/pages/home.css">
 <link rel="stylesheet" href="/static/css/pages/python.css">
@@ -131,60 +132,50 @@
                 </div>
 
                 <div class="contato-form__group">
-                    <label class="contato-form__label" for="nome">Nome <span class="contato-form__required" aria-hidden="true">*</span></label>
+                    <label class="contato-form__label" for="nome">Nome completo <span class="contato-form__required" aria-hidden="true">*</span></label>
                     <input class="contato-form__input" type="text" name="nome" id="nome" placeholder="Seu nome completo" required autocomplete="name">
                 </div>
 
                 <div class="contato-form__group">
-                    <label class="contato-form__label" for="email">E-mail <span class="contato-form__required" aria-hidden="true">*</span></label>
-                    <input class="contato-form__input" type="email" name="email" id="email" placeholder="seuemail@exemplo.com" required autocomplete="email">
+                    <label class="contato-form__label" for="whatsapp">WhatsApp (com DDD) <span class="contato-form__required" aria-hidden="true">*</span></label>
+                    <input class="contato-form__input" type="tel" name="whatsapp" id="whatsapp" placeholder="(61) 99999-9999" required autocomplete="tel" inputmode="tel">
                 </div>
 
                 <div class="contato-form__group">
-                    <label class="contato-form__label" for="whatsapp">WhatsApp</label>
-                    <input class="contato-form__input" type="tel" name="whatsapp" id="whatsapp" placeholder="+55 61 99999-9999" autocomplete="tel">
+                    <label class="contato-form__label" for="empresa">Nome da empresa</label>
+                    <input class="contato-form__input" type="text" name="empresa" id="empresa" placeholder="Nome da sua empresa" autocomplete="organization">
                 </div>
 
                 <div class="contato-form__group">
-                    <label class="contato-form__label" for="tipo_demanda">Tipo de demanda <span class="contato-form__required" aria-hidden="true">*</span></label>
+                    <label class="contato-form__label" for="tipo_demanda">Qual o maior desafio hoje? <span class="contato-form__required" aria-hidden="true">*</span></label>
                     <select class="contato-form__select" name="tipo_demanda" id="tipo_demanda" required>
-                        <option value="" disabled selected>Selecione uma área</option>
-                        <option value="Business Intelligence / Power BI">Business Intelligence / Power BI</option>
-                        <option value="Automação de Processos">Automação de Processos</option>
-                        <option value="Sistema Interno / Desenvolvimento Web">Sistema Interno / Desenvolvimento Web</option>
-                        <option value="Integração de Sistemas / APIs">Integração de Sistemas / APIs</option>
-                        <option value="Consultoria Técnica">Consultoria Técnica</option>
-                        <option value="Outro">Outro</option>
+                        <option value="" disabled selected>Selecione uma opção</option>
+                        <option value="Organizar o financeiro">Organizar o financeiro</option>
+                        <option value="Criar dashboards e indicadores">Criar dashboards e indicadores</option>
+                        <option value="Integrar processos e sistemas">Integrar processos e sistemas</option>
+                        <option value="Consultoria geral">Consultoria geral</option>
                     </select>
                 </div>
 
                 <div class="contato-form__group">
-                    <label class="contato-form__label" for="mensagem">Mensagem <span class="contato-form__required" aria-hidden="true">*</span></label>
-                    <textarea class="contato-form__textarea" name="mensagem" id="mensagem" rows="5" placeholder="Descreva brevemente a demanda, o contexto ou o projeto." required></textarea>
+                    <label class="contato-form__label" for="mensagem">Conte um pouco sobre a situação (opcional)</label>
+                    <textarea class="contato-form__textarea" name="mensagem" id="mensagem" rows="4" placeholder="Ex.: não sei quanto sobra no fim do mês, as planilhas não batem..."></textarea>
                 </div>
 
+                <p class="contato-form__lgpd">Seus dados serão usados apenas para retornar o seu contato.</p>
+
+                <p id="contato-form-erro" class="contato-form__erro" role="alert" hidden>Preencha nome, WhatsApp e o maior desafio para continuar.</p>
+
                 <button class="btn btn--primary contato-form__submit" type="submit" id="contato-submit">
-                    Enviar mensagem
+                    Solicitar contato pelo WhatsApp
                 </button>
 
             </form>
 
-            <!-- Estado: integração pendente (N8N_WEBHOOK_URL vazia) -->
-            <div id="contato-estado-pendente" class="contato-estado contato-estado--pendente" hidden>
-                <p class="contato-estado__title">Formulário em configuração.</p>
-                <p class="contato-estado__text">Para contato imediato, envie sua mensagem para <a href="mailto:servicesbi.ltda@gmail.com">servicesbi.ltda@gmail.com</a> ou fale pelo <a href="https://wa.me/5561993029988?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20ServicesBI%20e%20gostaria%20de%20falar%20sobre%20uma%20solu%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">WhatsApp</a>.</p>
-            </div>
-
             <!-- Estado: sucesso -->
             <div id="contato-estado-sucesso" class="contato-estado contato-estado--sucesso" hidden>
-                <p class="contato-estado__title">Mensagem enviada com sucesso.</p>
-                <p class="contato-estado__text">Obrigado pelo contato. Em breve retorno pelo e-mail ou WhatsApp informado.</p>
-            </div>
-
-            <!-- Estado: erro -->
-            <div id="contato-estado-erro" class="contato-estado contato-estado--erro" hidden>
-                <p class="contato-estado__title">Não foi possível enviar sua mensagem.</p>
-                <p class="contato-estado__text">Tente novamente em alguns instantes ou envie diretamente para <a href="mailto:servicesbi.ltda@gmail.com">servicesbi.ltda@gmail.com</a>.</p>
+                <p class="contato-estado__title">Quase lá! Abrimos o WhatsApp para você.</p>
+                <p class="contato-estado__text">Sua mensagem já está escrita: é só tocar em enviar. Se o WhatsApp não abriu, <a id="contato-wa-fallback" href="https://wa.me/5561993029988" target="_blank" rel="noopener noreferrer">clique aqui</a>.</p>
             </div>
         </div>
 
@@ -210,6 +201,11 @@
     </div>
 </footer>
 
+
+    <a class="whatsapp-float" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20financeira." target="_blank" rel="noopener noreferrer" aria-label="Falar com a ServicesBI pelo WhatsApp">
+        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16.04 3C8.86 3 3.02 8.83 3.02 16c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75A13 13 0 0 0 16.04 29C23.2 29 29.04 23.17 29.04 16S23.2 3 16.04 3zm0 23.8c-1.95 0-3.86-.52-5.53-1.51l-.4-.24-3.96 1.04 1.06-3.86-.26-.4A10.77 10.77 0 0 1 5.25 16c0-5.95 4.84-10.79 10.8-10.79 5.95 0 10.78 4.84 10.78 10.79 0 5.95-4.84 10.8-10.79 10.8zm5.92-8.08c-.32-.16-1.92-.95-2.22-1.06-.3-.11-.51-.16-.73.16-.22.32-.84 1.06-1.03 1.27-.19.22-.38.24-.7.08-.32-.16-1.37-.5-2.6-1.6-.96-.86-1.61-1.91-1.8-2.24-.19-.32-.02-.5.14-.66.15-.14.32-.38.49-.57.16-.19.21-.32.32-.54.11-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.63-.53-.54-.73-.55h-.62c-.22 0-.57.08-.86.4-.3.32-1.13 1.1-1.13 2.69s1.16 3.12 1.32 3.34c.16.22 2.28 3.48 5.53 4.88.77.33 1.37.53 1.84.68.77.25 1.48.21 2.03.13.62-.09 1.92-.78 2.19-1.54.27-.76.27-1.41.19-1.54-.08-.14-.3-.22-.62-.38z"/></svg>
+        <span class="whatsapp-float__label">Fale conosco</span>
+    </a>
     <script src="/static/js/theme.js"></script>
     
 <script src="/static/js/contato.js"></script>
