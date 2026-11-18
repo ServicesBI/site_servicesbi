@@ -7,6 +7,8 @@ app_name = "pages"
 
 urlpatterns = [
     path("", views.home, name="home"),
+    path("consultoria-financeira/", views.consultoria_page, name="consultoria"),
+    path("sobre/", views.sobre_page, name="sobre"),
     path("sige-servicesbi/", views.sige_institucional_page, name="sige_institucional"),
     path("jarvis/", views.jarvis_page, name="jarvis"),
     path("python/", views.python_page, name="python"),
@@ -15,4 +17,6 @@ urlpatterns = [
     path("excel/", views.excel_page, name="excel"),
     path("curriculo/", views.curriculo_page, name="curriculo"),
     path("contato/", views.contato_page, name="contato"),
+    path("robots.txt", views.robots_txt, name="robots"),
+    path("sitemap.xml", views.sitemap_xml, name="sitemap"),
 ]

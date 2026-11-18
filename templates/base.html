@@ -5,7 +5,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}ServicesBI{% endblock %}</title>
-    <meta name="description" content="{% block meta_description %}ServicesBI{% endblock %}">
+    <meta name="description" content="{% block meta_description %}ServicesBI — consultoria financeira com inteligência de dados.{% endblock %}">
+    <link rel="canonical" href="{{ SITE_URL }}{{ request.path }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="ServicesBI">
+    <meta property="og:url" content="{{ SITE_URL }}{{ request.path }}">
+    <meta property="og:title" content="{% block og_title %}ServicesBI | Consultoria Financeira e BI para Empresas{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Organizamos o financeiro da sua empresa com inteligência de dados: fluxo de caixa, DRE gerencial, dashboards em Power BI e automação.{% endblock %}">
+    <meta property="og:image" content="{{ SITE_URL }}/static/img/brand/og-servicesbi.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ServicesBI — Consultoria financeira com inteligência de dados">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="{% static 'img/brand/favicon.ico' %}" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/brand/favicon-32.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'img/brand/apple-touch-icon.png' %}">
+    <meta name="theme-color" content="#0A1420">
+
+    {% if CLARITY_ID %}
+    <script>
+        (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "{{ CLARITY_ID }}");
+    </script>
+    {% endif %}
     <script src="{% static 'js/theme-init.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/tokens.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -15,6 +42,7 @@
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/whatsapp-float.css' %}">
+    <link rel="stylesheet" href="{% static 'css/v2.css' %}">
     {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -26,7 +54,7 @@
 
     {% include "includes/footer.html" %}
 
-    <a class="whatsapp-float" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20financeira." target="_blank" rel="noopener noreferrer" aria-label="Falar com a ServicesBI pelo WhatsApp">
+    <a class="whatsapp-float" href="{{ WA_GERAL }}" target="_blank" rel="noopener noreferrer" aria-label="Falar com a ServicesBI pelo WhatsApp">
         <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16.04 3C8.86 3 3.02 8.83 3.02 16c0 2.29.6 4.53 1.74 6.5L3 29l6.68-1.75A13 13 0 0 0 16.04 29C23.2 29 29.04 23.17 29.04 16S23.2 3 16.04 3zm0 23.8c-1.95 0-3.86-.52-5.53-1.51l-.4-.24-3.96 1.04 1.06-3.86-.26-.4A10.77 10.77 0 0 1 5.25 16c0-5.95 4.84-10.79 10.8-10.79 5.95 0 10.78 4.84 10.78 10.79 0 5.95-4.84 10.8-10.79 10.8zm5.92-8.08c-.32-.16-1.92-.95-2.22-1.06-.3-.11-.51-.16-.73.16-.22.32-.84 1.06-1.03 1.27-.19.22-.38.24-.7.08-.32-.16-1.37-.5-2.6-1.6-.96-.86-1.61-1.91-1.8-2.24-.19-.32-.02-.5.14-.66.15-.14.32-.38.49-.57.16-.19.21-.32.32-.54.11-.22.05-.4-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.63-.53-.54-.73-.55h-.62c-.22 0-.57.08-.86.4-.3.32-1.13 1.1-1.13 2.69s1.16 3.12 1.32 3.34c.16.22 2.28 3.48 5.53 4.88.77.33 1.37.53 1.84.68.77.25 1.48.21 2.03.13.62-.09 1.92-.78 2.19-1.54.27-.76.27-1.41.19-1.54-.08-.14-.3-.22-.62-.38z"/></svg>
         <span class="whatsapp-float__label">Fale conosco</span>
     </a>

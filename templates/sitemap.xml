@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for caminho, prioridade in paginas %}    <url>
+        <loc>{{ SITE_URL }}{{ caminho }}</loc>
+        <priority>{{ prioridade }}</priority>
+    </url>
+{% endfor %}</urlset>

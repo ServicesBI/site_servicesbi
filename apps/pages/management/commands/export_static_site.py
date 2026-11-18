@@ -7,6 +7,8 @@ from django.test import Client, override_settings
 
 PAGES = [
     ("/", "index.html"),
+    ("/consultoria-financeira/", "consultoria-financeira/index.html"),
+    ("/sobre/", "sobre/index.html"),
     ("/sige-servicesbi/", "sige-servicesbi/index.html"),
     ("/jarvis/", "jarvis/index.html"),
     ("/python/", "python/index.html"),
@@ -15,6 +17,8 @@ PAGES = [
     ("/excel/", "excel/index.html"),
     ("/curriculo/", "curriculo/index.html"),
     ("/contato/", "contato/index.html"),
+    ("/robots.txt", "robots.txt"),
+    ("/sitemap.xml", "sitemap.xml"),
 ]
 
 

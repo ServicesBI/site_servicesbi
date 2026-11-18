@@ -1,20 +1,18 @@
 <header class="site-header">
     <div class="site-header__inner">
-        <a class="site-logo" href="{% url 'pages:home' %}" aria-label="ServicesBI Home">
+        <a class="site-logo" href="{% url 'pages:home' %}" aria-label="ServicesBI — página inicial">
             Services<span>BI</span>
         </a>
 
         {% with current_url=request.resolver_match.url_name %}
         <nav class="site-nav" aria-label="Menu principal">
-            <a class="{% if current_url == 'home' %}is-active{% endif %}" href="{% url 'pages:home' %}"{% if current_url == 'home' %} aria-current="page"{% endif %}>Home</a>
-            <a class="{% if current_url == 'sige_institucional' %}is-active{% endif %}" href="{% url 'pages:sige_institucional' %}"{% if current_url == 'sige_institucional' %} aria-current="page"{% endif %}>SIGE</a>
-            <a class="{% if current_url == 'jarvis' %}is-active{% endif %}" href="{% url 'pages:jarvis' %}"{% if current_url == 'jarvis' %} aria-current="page"{% endif %}>Jarvis</a>
-            <a class="{% if current_url == 'python' %}is-active{% endif %}" href="{% url 'pages:python' %}"{% if current_url == 'python' %} aria-current="page"{% endif %}>Python</a>
-            <a class="{% if current_url == 'powerbi' %}is-active{% endif %}" href="{% url 'pages:powerbi' %}"{% if current_url == 'powerbi' %} aria-current="page"{% endif %}>Power BI</a>
-            <a class="{% if current_url == 'automacoes' %}is-active{% endif %}" href="{% url 'pages:automacoes' %}"{% if current_url == 'automacoes' %} aria-current="page"{% endif %}>Automações</a>
-            <a class="{% if current_url == 'excel' %}is-active{% endif %}" href="{% url 'pages:excel' %}"{% if current_url == 'excel' %} aria-current="page"{% endif %}>Excel</a>
-            <a class="{% if current_url == 'curriculo' %}is-active{% endif %}" href="{% url 'pages:curriculo' %}"{% if current_url == 'curriculo' %} aria-current="page"{% endif %}>Currículo</a>
-            <a class="{% if current_url == 'contato' %}is-active{% endif %}" href="{% url 'pages:contato' %}"{% if current_url == 'contato' %} aria-current="page"{% endif %}>Contato</a>
+            <a class="{% if current_url == 'home' %}is-active{% endif %}" href="{% url 'pages:home' %}"{% if current_url == 'home' %} aria-current="page"{% endif %}>Início</a>
+            <a class="{% if current_url == 'consultoria' %}is-active{% endif %}" href="{% url 'pages:consultoria' %}"{% if current_url == 'consultoria' %} aria-current="page"{% endif %}>Consultoria Financeira</a>
+            <a class="{% if current_url == 'powerbi' %}is-active{% endif %}" href="{% url 'pages:powerbi' %}"{% if current_url == 'powerbi' %} aria-current="page"{% endif %}>BI &amp; Dashboards</a>
+            <a class="{% if current_url == 'automacoes' %}is-active{% endif %}" href="{% url 'pages:automacoes' %}"{% if current_url == 'automacoes' %} aria-current="page"{% endif %}>Automação &amp; Sistemas</a>
+            <a href="{% url 'pages:home' %}#cases">Cases</a>
+            <a class="{% if current_url == 'sobre' or current_url == 'curriculo' %}is-active{% endif %}" href="{% url 'pages:sobre' %}"{% if current_url == 'sobre' %} aria-current="page"{% endif %}>Sobre</a>
+            <a class="site-nav__cta" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Diagnóstico gratuito</a>
         </nav>
         {% endwith %}
 

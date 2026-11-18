@@ -1,608 +1,282 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}ServicesBI | Dados, BI e Automações{% endblock %}
-{% block meta_description %}ServicesBI cria soluções com dados, BI, Python e automações para decisões mais rápidas.{% endblock %}
+{% block title %}ServicesBI | Consultoria Financeira e BI para Empresas{% endblock %}
+{% block meta_description %}Consultoria financeira com inteligência de dados: fluxo de caixa, DRE gerencial, redução de custos, dashboards em Power BI e automação de processos. Agende um diagnóstico gratuito.{% endblock %}
 
 {% block extra_head %}
-<script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+<link rel="preload" as="image" href="{% static 'img/home/portfolio/destaques/dashboard-financeiro.webp' %}">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "ServicesBI",
+    "description": "Consultoria financeira com inteligência de dados: fluxo de caixa, DRE gerencial, redução de custos, Business Intelligence (Power BI) e automação de processos.",
+    "url": "{{ SITE_URL }}/",
+    "image": "{{ SITE_URL }}/static/img/brand/og-servicesbi.png",
+    "logo": "{{ SITE_URL }}/static/img/brand/icon-512.png",
+    "telephone": "+55-61-99302-9988",
+    "email": "{{ EMAIL_CONTATO }}",
+    "areaServed": "BR",
+    "founder": {
+        "@type": "Person",
+        "name": "Antônio M. Leles Júnior",
+        "jobTitle": "Consultor financeiro e analista de dados",
+        "sameAs": ["{{ LINKEDIN_URL }}"]
+    },
+    "sameAs": ["{{ LINKEDIN_URL }}", "https://github.com/ServicesBI"],
+    "knowsAbout": ["Fluxo de caixa", "DRE gerencial", "Precificação", "Power BI", "Business Intelligence", "Automação de processos"]
+}
+</script>
 {% endblock %}
 
 {% block content %}
-<section class="home-robot-stage" aria-label="ServicesBI">
-    <div class="home-spotlight" aria-hidden="true">
-        <svg class="home-spotlight__svg" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <radialGradient id="home-spotlight-gradient" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="currentColor" stop-opacity="0.32" />
-                    <stop offset="48%" stop-color="currentColor" stop-opacity="0.12" />
-                    <stop offset="100%" stop-color="currentColor" stop-opacity="0" />
-                </radialGradient>
-            </defs>
-            <circle cx="450" cy="450" r="450" fill="url(#home-spotlight-gradient)" />
-        </svg>
-    </div>
 
-    <div
-        class="home-robot__viewer"
-        id="homeRobotViewer"
-        data-scene-url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-    >
-        <div class="home-robot__loader" aria-label="Carregando cena 3D"></div>
-    </div>
-
-    <div class="home-hero-copy">
-        <p class="eyebrow text-accent">ServicesBI</p>
-        <h1 class="section-title">Inteligência de dados e automação para economizar tempo e dinheiro.</h1>
-        <p class="section-subtitle">
-            Otimize processos e integre sistemas com soluções sob medida em Python e n8n. Visualize seus resultados e tome decisões em tempo real com Power BI.
-        </p>
-        <div class="home-hero-copy__actions">
-            <a class="btn btn--primary" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20agendar%20o%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener noreferrer">Agendar diagnóstico gratuito</a>
-            <a class="btn btn--secondary" href="{% url 'pages:powerbi' %}">Ver soluções</a>
-        </div>
-    </div>
-</section>
-
-<section class="home-solutions" aria-labelledby="home-solutions-title">
-    <div class="home-solutions__header">
-        <p class="eyebrow text-accent">O que entregamos</p>
-        <h2 class="section-title" id="home-solutions-title">Engenharia de dados e automação de alto impacto.</h2>
-        <p class="section-subtitle">
-            Projetos práticos e sob medida para empresas que precisam eliminar processos manuais e decidir com precisão.
-        </p>
-    </div>
-
-    <div class="home-solutions__grid">
-        <article class="home-solution-card">
-            <div class="home-solution-card__media">
-                <img class="home-solution-card__image home-solution-card__image--light" src="{% static 'img/home/cards/light/card01.png' %}" alt="Desenvolvimento e scripts Python" loading="lazy">
-                <img class="home-solution-card__image home-solution-card__image--dark" src="{% static 'img/home/cards/dark/card01.png' %}" alt="Desenvolvimento e scripts Python" loading="lazy">
-            </div>
-            <div class="home-solution-card__body">
-                <p class="home-solution-card__eyebrow">Python</p>
-                <h3 class="home-solution-card__title">Desenvolvimento &amp; Scripts Python</h3>
-                <p class="home-solution-card__text">
-                    Criação de robôs operacionais, integração entre sistemas via APIs e tratamento massivo de dados para eliminar processos manuais e falhas humanas.
-                </p>
-                <a class="home-solution-card__link" href="{% url 'pages:python' %}">Saiba mais →</a>
-            </div>
-        </article>
-
-        <article class="home-solution-card">
-            <div class="home-solution-card__media">
-                <img class="home-solution-card__image home-solution-card__image--light" src="{% static 'img/home/cards/light/card02.png' %}" alt="Business Intelligence e dashboards Power BI" loading="lazy">
-                <img class="home-solution-card__image home-solution-card__image--dark" src="{% static 'img/home/cards/dark/card02.png' %}" alt="Business Intelligence e dashboards Power BI" loading="lazy">
-            </div>
-            <div class="home-solution-card__body">
-                <p class="home-solution-card__eyebrow">Business Intelligence</p>
-                <h3 class="home-solution-card__title">Business Intelligence Estratégico</h3>
-                <p class="home-solution-card__text">
-                    Transformação de dados brutos em dashboards dinâmicos. Indicadores financeiros, comerciais e operacionais em tempo real para direcionar o futuro do negócio.
-                </p>
-                <a class="home-solution-card__link" href="{% url 'pages:powerbi' %}">Saiba mais →</a>
-            </div>
-        </article>
-
-        <article class="home-solution-card">
-            <div class="home-solution-card__media">
-                <img class="home-solution-card__image home-solution-card__image--light" src="{% static 'img/home/cards/light/card03.png' %}" alt="Automação de processos com n8n" loading="lazy">
-                <img class="home-solution-card__image home-solution-card__image--dark" src="{% static 'img/home/cards/dark/card03.png' %}" alt="Automação de processos com n8n" loading="lazy">
-            </div>
-            <div class="home-solution-card__body">
-                <p class="home-solution-card__eyebrow">Fluxos inteligentes</p>
-                <h3 class="home-solution-card__title">Automação de Processos com n8n</h3>
-                <p class="home-solution-card__text">
-                    Conexão inteligente e fluxos automatizados entre CRMs, ERPs, planilhas e WhatsApp. Produtividade máxima rodando 24 horas por dia.
-                </p>
-                <a class="home-solution-card__link" href="{% url 'pages:automacoes' %}">Saiba mais →</a>
-            </div>
-        </article>
-
-        <article class="home-solution-card">
-            <div class="home-solution-card__media">
-                <img class="home-solution-card__image home-solution-card__image--light" src="{% static 'img/home/cards/light/card04.png' %}" alt="Engenharia de planilhas e Excel avançado" loading="lazy">
-                <img class="home-solution-card__image home-solution-card__image--dark" src="{% static 'img/home/cards/dark/card04.png' %}" alt="Engenharia de planilhas e Excel avançado" loading="lazy">
-            </div>
-            <div class="home-solution-card__body">
-                <p class="home-solution-card__eyebrow">Excel corporativo</p>
-                <h3 class="home-solution-card__title">Engenharia de Planilhas &amp; VBA</h3>
-                <p class="home-solution-card__text">
-                    Modelagem financeira e ferramentas gerenciais customizadas. Otimização de planilhas com Power Query e automações em VBA.
-                </p>
-                <a class="home-solution-card__link" href="{% url 'pages:excel' %}">Saiba mais →</a>
-            </div>
-        </article>
-    </div>
-</section>
-
-<section class="home-jarvis" id="jarvis-agents" aria-labelledby="home-jarvis-title">
-    <div class="home-jarvis__inner">
-        <div class="home-jarvis__header">
-            <p class="home-jarvis__badge">DESTAQUES ESTRATÉGICOS</p>
-            <h2 class="home-jarvis__title" id="home-jarvis-title">
-                <span class="home-jarvis__title-line">Conheça os Agentes de IA do Services_Jarvis:</span>
-                <span class="home-jarvis__title-line">Seu novo time digital focado em escala</span>
-            </h2>
-        </div>
-
-        <div class="home-jarvis-carousel">
-            <button class="home-jarvis-nav home-jarvis-nav--prev" type="button" aria-label="Agente anterior">
-                <span aria-hidden="true">‹</span>
-            </button>
-
-            <div class="swiper home-jarvis-swiper">
-                <div class="swiper-wrapper">
-                    <article class="swiper-slide">
-                        <div class="home-jarvis-agent-card">
-                            <div class="home-jarvis-agent-card__visual">
-                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/orquestrador.png' %}" alt="Agente Orquestrador do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
-                            </div>
-                            <div class="home-jarvis-agent-card__body">
-                                <h3 class="home-jarvis-agent-card__title">Orquestrador</h3>
-                                <p class="home-jarvis-agent-card__text">O cérebro do ecossistema. Coordena, prioriza e direciona tarefas entre os outros agentes, transformando processos complexos em fluxos autônomos.</p>
-                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Orquestrador">
-                                    <span>Orquestração</span>
-                                    <span>Governança</span>
-                                    <span>Workflow</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="swiper-slide">
-                        <div class="home-jarvis-agent-card">
-                            <div class="home-jarvis-agent-card__visual">
-                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/dados.png' %}" alt="Agente Dados do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
-                            </div>
-                            <div class="home-jarvis-agent-card__body">
-                                <h3 class="home-jarvis-agent-card__title">Dados</h3>
-                                <p class="home-jarvis-agent-card__text">Análise preditiva avançada. Conecta-se às suas bases para minerar dados, identificar padrões ocultos e gerar relatórios estratégicos em tempo real.</p>
-                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Dados">
-                                    <span>Big Data</span>
-                                    <span>BI Insights</span>
-                                    <span>Predição</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="swiper-slide">
-                        <div class="home-jarvis-agent-card">
-                            <div class="home-jarvis-agent-card__visual">
-                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/python.png' %}" alt="Agente Python do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
-                            </div>
-                            <div class="home-jarvis-agent-card__body">
-                                <h3 class="home-jarvis-agent-card__title">Python</h3>
-                                <p class="home-jarvis-agent-card__text">Processamento de missão crítica. Executa scripts de alta performance e integra sistemas via API, eliminando horas de trabalho repetitivo.</p>
-                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Python">
-                                    <span>Scripts</span>
-                                    <span>Integrações</span>
-                                    <span>RPA</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="swiper-slide">
-                        <div class="home-jarvis-agent-card">
-                            <div class="home-jarvis-agent-card__visual">
-                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/power-bi.png' %}" alt="Agente Power BI do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
-                            </div>
-                            <div class="home-jarvis-agent-card__body">
-                                <h3 class="home-jarvis-agent-card__title">Power BI</h3>
-                                <p class="home-jarvis-agent-card__text">Conecta métricas, propõe visões executivas e prepara narrativas para dashboards com foco em performance.</p>
-                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Power BI">
-                                    <span>DAX</span>
-                                    <span>KPIs</span>
-                                    <span>Dashboards</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="swiper-slide">
-                        <div class="home-jarvis-agent-card">
-                            <div class="home-jarvis-agent-card__visual">
-                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/automacao.png' %}" alt="Agente Automação do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
-                            </div>
-                            <div class="home-jarvis-agent-card__body">
-                                <h3 class="home-jarvis-agent-card__title">Automação</h3>
-                                <p class="home-jarvis-agent-card__text">Mapeia processos, desenha fluxos e elimina tarefas operacionais que travam escala e produtividade.</p>
-                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Automação">
-                                    <span>n8n</span>
-                                    <span>Rotinas</span>
-                                    <span>Processos</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="swiper-slide">
-                        <div class="home-jarvis-agent-card">
-                            <div class="home-jarvis-agent-card__visual">
-                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/financeiro.png' %}" alt="Agente Financeiro do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
-                            </div>
-                            <div class="home-jarvis-agent-card__body">
-                                <h3 class="home-jarvis-agent-card__title">Financeiro</h3>
-                                <p class="home-jarvis-agent-card__text">Apoia conciliações, leitura de relatórios e acompanhamento de caixa para dar clareza ao resultado.</p>
-                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Financeiro">
-                                    <span>Caixa</span>
-                                    <span>DRE</span>
-                                    <span>Conciliação</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="swiper-slide">
-                        <div class="home-jarvis-agent-card">
-                            <div class="home-jarvis-agent-card__visual">
-                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/documentos.png' %}" alt="Agente Documentos do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
-                            </div>
-                            <div class="home-jarvis-agent-card__body">
-                                <h3 class="home-jarvis-agent-card__title">Documentos</h3>
-                                <p class="home-jarvis-agent-card__text">Inteligência documental. Extrai dados, resume arquivos complexos e analisa contratos de ponta a ponta com precisão instantânea.</p>
-                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Documentos">
-                                    <span>OCR</span>
-                                    <span>Extração</span>
-                                    <span>IA Analítica</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="swiper-slide">
-                        <div class="home-jarvis-agent-card">
-                            <div class="home-jarvis-agent-card__visual">
-                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/email.png' %}" alt="Agente E-mail do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
-                            </div>
-                            <div class="home-jarvis-agent-card__body">
-                                <h3 class="home-jarvis-agent-card__title">E-mail</h3>
-                                <p class="home-jarvis-agent-card__text">Ajuda a classificar mensagens, preparar respostas e organizar comunicações operacionais.</p>
-                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente E-mail">
-                                    <span>Inbox</span>
-                                    <span>Respostas</span>
-                                    <span>Triagem</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="swiper-slide">
-                        <div class="home-jarvis-agent-card">
-                            <div class="home-jarvis-agent-card__visual">
-                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/calendario.png' %}" alt="Agente Calendário do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
-                            </div>
-                            <div class="home-jarvis-agent-card__body">
-                                <h3 class="home-jarvis-agent-card__title">Calendário</h3>
-                                <p class="home-jarvis-agent-card__text">Apoia organização de agenda, compromissos, lembretes e rotinas recorrentes.</p>
-                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Calendário">
-                                    <span>Agenda</span>
-                                    <span>Prazos</span>
-                                    <span>Rotina</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="swiper-slide">
-                        <div class="home-jarvis-agent-card">
-                            <div class="home-jarvis-agent-card__visual">
-                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/pesquisa.png' %}" alt="Agente Pesquisa do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
-                            </div>
-                            <div class="home-jarvis-agent-card__body">
-                                <h3 class="home-jarvis-agent-card__title">Pesquisa</h3>
-                                <p class="home-jarvis-agent-card__text">Busca informações, compara referências e apoia análises com dados externos estruturados.</p>
-                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Pesquisa">
-                                    <span>Pesquisa</span>
-                                    <span>Fontes</span>
-                                    <span>Comparação</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="swiper-slide">
-                        <div class="home-jarvis-agent-card">
-                            <div class="home-jarvis-agent-card__visual">
-                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/qualidade.png' %}" alt="Agente Qualidade do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
-                            </div>
-                            <div class="home-jarvis-agent-card__body">
-                                <h3 class="home-jarvis-agent-card__title">Qualidade</h3>
-                                <p class="home-jarvis-agent-card__text">Revisa entregas, identifica inconsistências e melhora a confiabilidade dos fluxos.</p>
-                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Qualidade">
-                                    <span>Revisão</span>
-                                    <span>Testes</span>
-                                    <span>Padrão</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="swiper-slide">
-                        <div class="home-jarvis-agent-card">
-                            <div class="home-jarvis-agent-card__visual">
-                                <img class="home-jarvis-agent-card__image" src="{% static 'img/home/Services_Jarvis/dev.png' %}" alt="Agente Dev do Services_Jarvis" loading="lazy" onerror="this.hidden = true;">
-                            </div>
-                            <div class="home-jarvis-agent-card__body">
-                                <h3 class="home-jarvis-agent-card__title">Dev</h3>
-                                <p class="home-jarvis-agent-card__text">Automação de infraestrutura. Planeja telas, revisa scripts e acelera a evolução técnica dos seus sistemas com zero fricção manual.</p>
-                                <div class="home-jarvis-agent-card__tags" aria-label="Competências do agente Dev">
-                                    <span>Core Code</span>
-                                    <span>APIs</span>
-                                    <span>Automação</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <button class="home-jarvis-nav home-jarvis-nav--next" type="button" aria-label="Próximo agente">
-                <span aria-hidden="true">›</span>
-            </button>
-        </div>
-
-        <div class="home-jarvis-pagination" aria-label="Paginação dos agentes"></div>
-    </div>
-</section>
-
-<section class="home-portfolio" id="home-portfolio" aria-labelledby="home-portfolio-title">
-    <div class="home-portfolio__head">
-        <div class="home-portfolio__intro">
-            <p class="eyebrow text-accent">Portfólio</p>
-            <h2 class="section-title" id="home-portfolio-title">Soluções reais desenvolvidas para o mercado</h2>
-            <p class="section-subtitle">
-                Explore meu portfólio de projetos interativos, ecossistemas automatizados e materiais técnicos criados para gerar eficiência máxima.
+<!-- ===== 1. HERO ===== -->
+<section class="v2-hero" aria-labelledby="hero-title">
+    <div class="v2-container v2-hero__grid">
+        <div>
+            <p class="eyebrow text-accent">Consultoria financeira · Inteligência de dados</p>
+            <h1 id="hero-title">Sua empresa fatura, mas você não vê a cor do lucro? <em>Nós organizamos o seu financeiro com inteligência de dados.</em></h1>
+            <p class="v2-hero__lead">
+                Consultoria financeira estratégica e Business Intelligence sob medida para empresas que precisam de controle de caixa, redução de custos e decisões baseadas em números reais — sem planilhas confusas.
             </p>
+            <div class="v2-hero__actions">
+                <a class="btn btn--primary" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Agendar diagnóstico financeiro gratuito</a>
+                <a class="btn btn--secondary" href="#solucoes">Conhecer nossas soluções</a>
+            </div>
+            <ul class="v2-hero__trust" aria-label="Diferenciais">
+                <li>Diagnóstico inicial sem custo</li>
+                <li>Gestão financeira + análise de dados</li>
+                <li>Atendimento direto com o consultor</li>
+            </ul>
         </div>
 
-        <div class="home-portfolio__filters" role="tablist" aria-label="Filtros do portfólio">
-            <button class="home-portfolio__filter is-active" type="button" data-filter="featured" role="tab" aria-selected="true">Em destaque</button>
-            <button class="home-portfolio__filter" type="button" data-filter="python" role="tab" aria-selected="false">Python</button>
-            <button class="home-portfolio__filter" type="button" data-filter="dashboards" role="tab" aria-selected="false">Dashboards</button>
-            <button class="home-portfolio__filter" type="button" data-filter="automacoes" role="tab" aria-selected="false">Automações</button>
-            <button class="home-portfolio__filter" type="button" data-filter="ebooks" role="tab" aria-selected="false">E-books</button>
+        <div class="v2-hero__visual">
+            <div class="v2-frame">
+                <img src="{% static 'img/home/portfolio/destaques/dashboard-financeiro.webp' %}" alt="Exemplo de dashboard financeiro com contas a pagar, a receber, receita líquida e lucro" width="1271" height="713" fetchpriority="high">
+            </div>
+            <span class="v2-badge">Exemplo de entrega · dados ilustrativos</span>
         </div>
-    </div>
-
-    <div class="home-portfolio__grid">
-        <article class="home-portfolio-card" data-category="featured dashboards">
-            <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/sige-servicesbi.png' %}" alt="Sistema integrado de gestão empresarial" loading="lazy">
-            </div>
-            <div class="home-portfolio-card__body">
-                <p class="home-portfolio-card__tag">ERP</p>
-                <h3 class="home-portfolio-card__title">SIGE_ServicesBI</h3>
-                <p class="home-portfolio-card__text">
-                    Sistema integrado de gestão empresarial desenvolvido para centralizar cadastros, compras, vendas, financeiro, estoque, fluxo de caixa e indicadores.
-                </p>
-                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver projeto →</a>
-            </div>
-        </article>
-
-        <article class="home-portfolio-card" data-category="featured dashboards">
-            <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/dashboard-financeiro.png' %}" alt="Dashboard financeiro executivo" loading="lazy">
-            </div>
-            <div class="home-portfolio-card__body">
-                <p class="home-portfolio-card__tag">Dashboard</p>
-                <h3 class="home-portfolio-card__title">Dashboard Financeiro Executivo</h3>
-                <p class="home-portfolio-card__text">
-                    Indicadores financeiros consolidados para controle de fluxo de caixa, DRE e projeções operacionais, eliminando a necessidade de consolidações manuais.
-                </p>
-                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver dashboard →</a>
-            </div>
-        </article>
-
-        <article class="home-portfolio-card" data-category="featured dashboards">
-            <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/dashboard-comercial.png' %}" alt="Dashboard comercial" loading="lazy">
-            </div>
-            <div class="home-portfolio-card__body">
-                <p class="home-portfolio-card__tag">Dashboard</p>
-                <h3 class="home-portfolio-card__title">Dashboard Comercial</h3>
-                <p class="home-portfolio-card__text">
-                    Análise de performance de vendas, metas, funil de conversão e ticket médio por vendedor para decisões comerciais imediatas.
-                </p>
-                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver dashboard →</a>
-            </div>
-        </article>
-
-        <article class="home-portfolio-card" data-category="featured dashboards">
-            <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/dashboard-compras.png' %}" alt="Dashboard de compras" loading="lazy">
-            </div>
-            <div class="home-portfolio-card__body">
-                <p class="home-portfolio-card__tag">Dashboard</p>
-                <h3 class="home-portfolio-card__title">Dashboard de Compras</h3>
-                <p class="home-portfolio-card__text">
-                    Gestão estratégica de suprimentos, análise de saving, prazos de entrega e histórico de fornecedores para otimizar custos.
-                </p>
-                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver dashboard →</a>
-            </div>
-        </article>
-
-        <article class="home-portfolio-card" data-category="featured automacoes">
-            <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/robos-python-operacional.png' %}" alt="Automação de envio de relatórios" loading="lazy">
-            </div>
-            <div class="home-portfolio-card__body">
-                <p class="home-portfolio-card__tag">Automação</p>
-                <h3 class="home-portfolio-card__title">Automação de Envio de Relatórios</h3>
-                <p class="home-portfolio-card__text">
-                    Geração e disparo automatizado de relatórios e PDFs via e-mail ou WhatsApp para os gestores, economizando horas diárias de trabalho manual.
-                </p>
-                <a class="home-portfolio-card__link" href="{% url 'pages:automacoes' %}">Ver automação →</a>
-            </div>
-        </article>
-
-        <article class="home-portfolio-card" data-category="featured automacoes">
-            <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/integracao-excel-banco.png' %}" alt="Conciliação automatizada de planilhas" loading="lazy">
-            </div>
-            <div class="home-portfolio-card__body">
-                <p class="home-portfolio-card__tag">Automação</p>
-                <h3 class="home-portfolio-card__title">Conciliação de Planilhas</h3>
-                <p class="home-portfolio-card__text">
-                    Robô em Python que cruza dados de diferentes fontes, arquivos e sistemas de forma 100% automatizada, identificando divergências em segundos.
-                </p>
-                <a class="home-portfolio-card__link" href="{% url 'pages:python' %}">Ver automação →</a>
-            </div>
-        </article>
-
-        <article class="home-portfolio-card" data-category="featured ebooks">
-            <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/ebooks-servicesbi.png' %}" alt="E-books ServicesBI" loading="lazy">
-            </div>
-            <div class="home-portfolio-card__body">
-                <p class="home-portfolio-card__tag">E-book</p>
-                <h3 class="home-portfolio-card__title">E-books ServicesBI</h3>
-                <p class="home-portfolio-card__text">
-                    Conteúdos práticos sobre BI, automações, indicadores financeiros, Excel e análise de dados para apoiar empresas na tomada de decisão.
-                </p>
-                <a class="home-portfolio-card__link" href="{% static 'docs/ebooks/ebook_servicesbi.pdf' %}" target="_blank" rel="noopener noreferrer">Ver e-book →</a>
-            </div>
-        </article>
-
-        <article class="home-portfolio-card" data-category="featured ebooks">
-            <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/ebook power bi.png' %}" alt="Checklist para implantação de BI" loading="lazy">
-            </div>
-            <div class="home-portfolio-card__body">
-                <p class="home-portfolio-card__tag">Checklist</p>
-                <h3 class="home-portfolio-card__title">Checklist para Implantação de BI</h3>
-                <p class="home-portfolio-card__text">
-                    Material prático com os principais pontos para estruturar indicadores, fontes de dados e governança antes da implantação de BI.
-                </p>
-                <a class="home-portfolio-card__link" href="{% url 'pages:contato' %}">Acessar checklist →</a>
-            </div>
-        </article>
-
-        <article class="home-portfolio-card" data-category="featured ebooks">
-            <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/ebook-indicadores-financeiros.png' %}" alt="Template financeiro" loading="lazy">
-            </div>
-            <div class="home-portfolio-card__body">
-                <p class="home-portfolio-card__tag">Template</p>
-                <h3 class="home-portfolio-card__title">Template Financeiro</h3>
-                <p class="home-portfolio-card__text">
-                    Modelo prático para acompanhamento financeiro, organização de indicadores e apoio ao controle gerencial.
-                </p>
-                <a class="home-portfolio-card__link" href="{% url 'pages:contato' %}">Baixar template →</a>
-            </div>
-        </article>
-
-        <article class="home-portfolio-card is-hidden" data-category="python">
-            <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/dashboard-comercial.png' %}" alt="Dashboard comercial" loading="lazy">
-            </div>
-            <div class="home-portfolio-card__body">
-                <p class="home-portfolio-card__tag">Dashboard</p>
-                <h3 class="home-portfolio-card__title">Dashboard Comercial</h3>
-                <p class="home-portfolio-card__text">
-                    Análise de performance de vendas, metas, funil de conversão e ticket médio por vendedor para decisões comerciais imediatas.
-                </p>
-                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver dashboard →</a>
-            </div>
-        </article>
-
-        <article class="home-portfolio-card is-hidden" data-category="python">
-            <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/dashboard-compras.png' %}" alt="Dashboard de compras" loading="lazy">
-            </div>
-            <div class="home-portfolio-card__body">
-                <p class="home-portfolio-card__tag">Dashboard</p>
-                <h3 class="home-portfolio-card__title">Dashboard de Compras</h3>
-                <p class="home-portfolio-card__text">
-                    Gestão estratégica de suprimentos, análise de saving, prazos de entrega e histórico de fornecedores para otimizar custos.
-                </p>
-                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver dashboard →</a>
-            </div>
-        </article>
-
-        <article class="home-portfolio-card is-hidden" data-category="python">
-            <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/sige-servicesbi.png' %}" alt="Sistema integrado de gestão empresarial" loading="lazy">
-            </div>
-            <div class="home-portfolio-card__body">
-                <p class="home-portfolio-card__tag">ERP</p>
-                <h3 class="home-portfolio-card__title">SIGE_ServicesBI</h3>
-                <p class="home-portfolio-card__text">
-                    Sistema integrado de gestão empresarial desenvolvido para centralizar cadastros, compras, vendas, financeiro, estoque, fluxo de caixa e indicadores.
-                </p>
-                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver projeto →</a>
-            </div>
-        </article>
-
-        <article class="home-portfolio-card is-hidden" data-category="python">
-            <div class="home-portfolio-card__media">
-                <img class="home-portfolio-card__image" src="{% static 'img/home/portfolio/destaques/dashboard-financeiro.png' %}" alt="Dashboard financeiro executivo" loading="lazy">
-            </div>
-            <div class="home-portfolio-card__body">
-                <p class="home-portfolio-card__tag">Dashboard</p>
-                <h3 class="home-portfolio-card__title">Dashboard Financeiro Executivo</h3>
-                <p class="home-portfolio-card__text">
-                    Indicadores financeiros consolidados para controle de fluxo de caixa, DRE e projeções operacionais, eliminando a necessidade de consolidações manuais.
-                </p>
-                <a class="home-portfolio-card__link" href="{% url 'pages:powerbi' %}">Ver dashboard →</a>
-            </div>
-        </article>
     </div>
 </section>
-{% endblock %}
 
-{% block extra_js %}
-<script src="{% static 'js/home-robot.js' %}"></script>
-<script src="{% static 'js/home-portfolio.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    window.addEventListener("DOMContentLoaded", function () {
-        if (typeof Swiper === "undefined") {
-            return;
-        }
+<!-- ===== 2. DORES ===== -->
+<section class="v2-section v2-section--soft" aria-labelledby="dores-title">
+    <div class="v2-container">
+        <div class="v2-head">
+            <p class="eyebrow text-accent">Você se identifica?</p>
+            <h2 id="dores-title">Você sente que trabalha muito, mas falta clareza sobre a saúde real do seu negócio?</h2>
+        </div>
 
-        new Swiper(".home-jarvis-swiper", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            loop: true,
-            slidesPerView: 1.08,
-            spaceBetween: 16,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-            },
-            navigation: {
-                nextEl: ".home-jarvis-nav--next",
-                prevEl: ".home-jarvis-nav--prev",
-            },
-            pagination: {
-                el: ".home-jarvis-pagination",
-                clickable: true,
-            },
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 16,
-                depth: 170,
-                modifier: 1.25,
-                slideShadows: false,
-            },
-            breakpoints: {
-                720: {
-                    slidesPerView: 2,
-                    spaceBetween: 18,
-                },
-                1040: {
-                    slidesPerView: 3,
-                    spaceBetween: 22,
-                },
-            },
-        });
-    });
-</script>
+        <div class="v2-grid v2-grid--4">
+            <article class="v2-card">
+                <span class="v2-card__icon" aria-hidden="true">$</span>
+                <h3>Falta de visibilidade de caixa</h3>
+                <p>Você não sabe exatamente quanto vai sobrar ou faltar nos próximos 30, 60 ou 90 dias.</p>
+            </article>
+            <article class="v2-card">
+                <span class="v2-card__icon" aria-hidden="true">?</span>
+                <h3>Decisões no "achismo"</h3>
+                <p>Falta uma DRE gerencial clara para saber quais produtos ou serviços dão lucro e quais dão prejuízo.</p>
+            </article>
+            <article class="v2-card">
+                <span class="v2-card__icon" aria-hidden="true">▤</span>
+                <h3>Dependência de planilhas manuais</h3>
+                <p>Dados espalhados entre vendas, estoque e financeiro que não batem e geram retrabalho constante.</p>
+            </article>
+            <article class="v2-card">
+                <span class="v2-card__icon" aria-hidden="true">⇄</span>
+                <h3>Áreas desalinhadas</h3>
+                <p>Compras, comercial e estoque operam cada um do seu jeito e acabam drenando o caixa da empresa.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 3. SOLUÇÕES ===== -->
+<section class="v2-section" id="solucoes" aria-labelledby="solucoes-title">
+    <div class="v2-container">
+        <div class="v2-head">
+            <p class="eyebrow text-accent">O método ServicesBI</p>
+            <h2 id="solucoes-title">Consultoria financeira completa, com respaldo em todas as áreas da sua empresa</h2>
+            <p>Começamos pelo dinheiro — caixa, margem e custos — e usamos dados e tecnologia para que os números sejam confiáveis e cheguem até você sem esforço.</p>
+        </div>
+
+        <div class="v2-grid v2-grid--3">
+            <article class="v2-card v2-card--pillar v2-card--featured">
+                <p class="eyebrow">Pilar 1 · O coração do negócio</p>
+                <h3>Consultoria Financeira Estratégica</h3>
+                <ul class="v2-list">
+                    <li>Estruturação e projeção de fluxo de caixa</li>
+                    <li>DRE gerencial e análise de margem de contribuição</li>
+                    <li>Revisão de custos fixos e variáveis e precificação</li>
+                    <li>Planejamento orçamentário e metas financeiras</li>
+                </ul>
+                <a class="v2-link" href="{% url 'pages:consultoria' %}">Ver a consultoria financeira →</a>
+            </article>
+
+            <article class="v2-card v2-card--pillar">
+                <p class="eyebrow">Pilar 2 · Visão em tempo real</p>
+                <h3>Business Intelligence &amp; Dashboards</h3>
+                <ul class="v2-list">
+                    <li>Painéis executivos interativos em Power BI</li>
+                    <li>KPIs financeiros, comerciais e operacionais sempre atualizados</li>
+                    <li>Fim dos relatórios estáticos montados à mão</li>
+                </ul>
+                <a class="v2-link" href="{% url 'pages:powerbi' %}">Ver BI &amp; dashboards →</a>
+            </article>
+
+            <article class="v2-card v2-card--pillar">
+                <p class="eyebrow">Pilar 3 · Respaldo operacional</p>
+                <h3>Processos, Automação &amp; Sistemas</h3>
+                <ul class="v2-list">
+                    <li>Integração entre comercial, estoque, compras e financeiro</li>
+                    <li>Automação de rotinas repetitivas e envio de relatórios</li>
+                    <li>Integração de sistemas e soluções sob medida, como o SIGE</li>
+                </ul>
+                <a class="v2-link" href="{% url 'pages:automacoes' %}">Ver automação &amp; sistemas →</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 4. CASES ===== -->
+<section class="v2-section v2-section--soft" id="cases" aria-labelledby="cases-title">
+    <div class="v2-container">
+        <div class="v2-head">
+            <p class="eyebrow text-accent">Cases e experiência</p>
+            <h2 id="cases-title">Experiência real em finanças e dados, em empresas de diferentes setores</h2>
+            <p>Projetos que conduzi em educação, saúde e instituições de grande porte — apresentados de forma anônima — e exemplos do tipo de painel que você recebe.</p>
+        </div>
+
+        <div class="v2-grid v2-grid--3">
+            <article class="v2-card v2-case">
+                <div class="v2-case__media">
+                    <img src="{% static 'img/home/portfolio/destaques/dashboard-financeiro.webp' %}" alt="Dashboard financeiro com contas a pagar, a receber e principais resultados" loading="lazy" width="1271" height="713">
+                    <span class="v2-badge">Dados ilustrativos</span>
+                </div>
+                <div class="v2-case__body">
+                    <p class="v2-case__tag">Educação · Financeiro</p>
+                    <h3>Gestão financeira de uma instituição de ensino</h3>
+                    <dl>
+                        <dt>Desafio</dt>
+                        <dd>Receitas, inadimplência e contas a pagar e receber controladas em planilhas separadas, sem visão consolidada para a diretoria.</dd>
+                        <dt>O que foi feito</dt>
+                        <dd>Dashboards em Power BI de receitas, inadimplência e fluxo de caixa, além de DRE, projeções financeiras e relatórios gerenciais.</dd>
+                        <dt>Resultado</dt>
+                        <dd>Diretoria passou a decidir com base em indicadores consolidados, com menos rotinas manuais.</dd>
+                    </dl>
+                </div>
+            </article>
+
+            <article class="v2-card v2-case">
+                <div class="v2-case__media">
+                    <img src="{% static 'img/home/portfolio/destaques/dashboard-comercial.webp' %}" alt="Exemplo de painel de indicadores com realizado versus meta" loading="lazy" width="1323" height="729">
+                    <span class="v2-badge">Exemplo de painel · dados ilustrativos</span>
+                </div>
+                <div class="v2-case__body">
+                    <p class="v2-case__tag">Saúde · Compras e suprimentos</p>
+                    <h3>Indicadores de compras de um hospital</h3>
+                    <dl>
+                        <dt>Desafio</dt>
+                        <dd>Compras, contratos e fornecedores sem acompanhamento de saving, prazos e desempenho.</dd>
+                        <dt>O que foi feito</dt>
+                        <dd>Controles e relatórios em Power BI e Excel de compras, estoques, saving e performance de fornecedores, com apoio às negociações.</dd>
+                        <dt>Resultado</dt>
+                        <dd>Negociações apoiadas em histórico e indicadores, e não em impressões.</dd>
+                    </dl>
+                </div>
+            </article>
+
+            <article class="v2-card v2-case">
+                <div class="v2-case__media">
+                    <img src="{% static 'img/home/portfolio/destaques/integracao-excel-banco.png' %}" alt="Fluxo de automação integrando sistemas, banco de dados e relatórios" loading="lazy" width="1024" height="436">
+                    <span class="v2-badge">Exemplo de fluxo</span>
+                </div>
+                <div class="v2-case__body">
+                    <p class="v2-case__tag">Instituição nacional · Dados e automação</p>
+                    <h3>Consolidação de dados financeiros e automação</h3>
+                    <dl>
+                        <dt>Desafio</dt>
+                        <dd>Dados financeiros e acadêmicos espalhados e demandas manuais repetitivas nas áreas administrativas.</dd>
+                        <dt>O que foi feito</dt>
+                        <dd>Integração e consolidação dos dados com Python e SQL, análises de inadimplência, receitas e orçamento, e fluxos automatizados.</dd>
+                        <dt>Resultado</dt>
+                        <dd>Rotinas manuais transformadas em relatórios e processos automáticos.</dd>
+                    </dl>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 5. QUEM ESTÁ POR TRÁS ===== -->
+<section class="v2-section" aria-labelledby="sobre-title">
+    <div class="v2-container v2-about">
+        <!-- Para usar sua foto: salve em static/img/sobre/leles.webp e troque o "LJ" por
+             <img src="{% static 'img/sobre/leles.webp' %}" alt="Leles Júnior, fundador da ServicesBI"> -->
+        <div class="v2-avatar" aria-hidden="true">LJ</div>
+
+        <div>
+            <p class="eyebrow text-accent">Quem está por trás da ServicesBI</p>
+            <h2 id="sobre-title">A união entre visão financeira de negócios e domínio técnico de dados</h2>
+            <blockquote>
+                <p class="v2-hero__lead">Olá, eu sou <strong>Leles Júnior</strong>, fundador da ServicesBI.</p>
+                <p>Com formação em <strong>Gestão Financeira</strong> e em <strong>Análise de Dados</strong>, fundei a ServicesBI para resolver um problema que vejo nas empresas: consultores financeiros que não dominam a tecnologia para extrair dados limpos, e profissionais de TI que criam sistemas complexos mas não entendem de fluxo de caixa e margem de lucro.</p>
+                <p>Meu papel é atuar ao lado do empresário como um braço estratégico — organizando as finanças, estruturando os processos de todas as áreas e entregando indicadores claros para você crescer com segurança e previsibilidade.</p>
+            </blockquote>
+            <ul class="v2-about__meta" aria-label="Formação e experiência">
+                <li>Gestão Financeira</li>
+                <li>Análise de Dados</li>
+                <li>Experiência em educação, saúde e suprimentos</li>
+            </ul>
+            <div class="v2-hero__actions">
+                <a class="btn btn--secondary" href="{% url 'pages:sobre' %}">Conheça minha trajetória</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 6. COMO FUNCIONA ===== -->
+<section class="v2-section v2-section--soft" aria-labelledby="processo-title">
+    <div class="v2-container">
+        <div class="v2-head v2-head--center">
+            <p class="eyebrow text-accent">Como funciona</p>
+            <h2 id="processo-title">Do primeiro contato aos resultados, em três passos</h2>
+        </div>
+
+        <ol class="v2-grid v2-grid--3 v2-steps">
+            <li class="v2-card v2-step">
+                <h3>Diagnóstico inicial gratuito</h3>
+                <p>Uma conversa objetiva de 20 a 30 minutos para entender o momento da sua empresa e os principais gargalos financeiros ou operacionais.</p>
+            </li>
+            <li class="v2-card v2-step">
+                <h3>Mapeamento e plano de ação</h3>
+                <p>Levantamento dos dados, processos e sistemas atuais para desenhar um cronograma claro de organização e melhorias.</p>
+            </li>
+            <li class="v2-card v2-step">
+                <h3>Implementação e acompanhamento</h3>
+                <p>Estruturação financeira, criação dos dashboards de controle e suporte contínuo nas áreas da empresa para garantir resultados.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- ===== 7. CTA FINAL ===== -->
+<section class="v2-section" aria-labelledby="cta-title">
+    <div class="v2-container">
+        <div class="v2-cta">
+            <div>
+                <h2 id="cta-title">Pronto para assumir o controle dos números da sua empresa?</h2>
+                <p>Dê o primeiro passo hoje. Solicite uma análise inicial sem compromisso e descubra onde estão as oportunidades de ganho e economia no seu negócio.</p>
+            </div>
+            <div class="v2-cta__actions">
+                <a class="btn btn--whatsapp" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Falar agora pelo WhatsApp</a>
+                <a class="btn btn--secondary" href="{% url 'pages:contato' %}">Preencher formulário</a>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

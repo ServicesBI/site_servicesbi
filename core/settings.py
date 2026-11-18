@@ -54,6 +54,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "apps.pages.context_processors.site",
             ],
         },
     },
@@ -128,3 +129,8 @@ if DJANGO_ENV == "production":
     SECURE_HSTS_SECONDS = 31536000
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
+
+# ServicesBI 2.0 — SEO e medição
+SITE_URL = os.getenv("SITE_URL", "https://www.servicesbi.com.br")
+# Microsoft Clarity: crie o projeto em https://clarity.microsoft.com e coloque o ID no .env
+CLARITY_ID = os.getenv("CLARITY_ID", "")

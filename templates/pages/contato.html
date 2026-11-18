@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}Contato | ServicesBI{% endblock %}
-{% block meta_description %}Entre em contato com a ServicesBI para projetos de Business Intelligence, Power BI, Python, Django, automações, dashboards e sistemas internos.{% endblock %}
+{% block meta_description %}Fale com a ServicesBI: agende um diagnóstico financeiro gratuito pelo WhatsApp ou pelo formulário. Consultoria financeira, dashboards em Power BI e automação.{% endblock %}
 
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
@@ -16,29 +16,28 @@
 <section class="service-hero contato-hero" aria-labelledby="contato-hero-title">
     <div class="service-hero__inner">
         <div class="service-hero__copy">
-            <p class="eyebrow text-accent">Contato · Projetos · Parcerias</p>
-            <h1 class="section-title" id="contato-hero-title">Vamos conversar sobre dados, automações e sistemas para o seu negócio</h1>
+            <p class="eyebrow text-accent">Contato · Diagnóstico gratuito</p>
+            <h1 class="section-title" id="contato-hero-title">Vamos conversar sobre os números da sua empresa</h1>
             <p class="section-subtitle">
-                Entre em contato para falar sobre projetos de Business Intelligence, Power BI, Python, Django, automações, dashboards, integrações, APIs e sistemas internos desenvolvidos sob medida para áreas financeiras, administrativas e operacionais.
+                Conte o principal desafio da sua empresa — caixa, margem, custos, indicadores ou processos. O diagnóstico inicial é gratuito e sem compromisso: respondo pessoalmente pelo WhatsApp.
             </p>
             <ul class="contato-hero__tags" aria-label="Áreas de atuação">
-                <li>Business Intelligence</li>
-                <li>Power BI</li>
-                <li>Python/Django</li>
-                <li>Automações</li>
-                <li>Sistemas Internos</li>
-                <li>APIs REST</li>
+                <li>Fluxo de caixa</li>
+                <li>DRE gerencial</li>
+                <li>Custos e precificação</li>
+                <li>Dashboards Power BI</li>
+                <li>Automação de processos</li>
             </ul>
         </div>
 
         <div class="contato-hero__media" aria-hidden="true">
             <img
-                src="{% static 'img/contato/hero/hero_contato_light.png' %}"
+                src="{% static 'img/contato/hero/hero_contato_light.webp' %}"
                 alt="Representação visual de projetos de dados, automações e sistemas internos"
                 class="contato-hero__image contato-hero__image--light"
             >
             <img
-                src="{% static 'img/contato/hero/hero_contato_dark.png' %}"
+                src="{% static 'img/contato/hero/hero_contato_dark.webp' %}"
                 alt=""
                 class="contato-hero__image contato-hero__image--dark"
             >
@@ -55,10 +54,10 @@
             <p class="eyebrow text-accent">Fale comigo</p>
             <h2 class="section-title" id="contato-section-title">Contato ServicesBI</h2>
             <p class="contato-info__text">
-                Se você precisa estruturar indicadores, automatizar processos, criar dashboards, integrar sistemas ou desenvolver uma solução interna para sua empresa, envie uma mensagem com o contexto da demanda.
+                Preencha o formulário e ele abre o WhatsApp com a sua mensagem pronta — é só enviar. Se preferir, fale direto pelos canais abaixo.
             </p>
             <p class="contato-info__text">
-                Atendo projetos de dados, BI, automação, desenvolvimento web, integrações, consultorias técnicas e soluções sob medida para empresas que precisam reduzir retrabalho e tomar decisões com mais segurança.
+                Atendo empresas que precisam organizar o financeiro, enxergar seus resultados com clareza e reduzir retrabalho entre as áreas.
             </p>
             <ul class="contato-canais" aria-label="Canais de contato">
                 <li class="contato-canal">
@@ -67,7 +66,7 @@
                 </li>
                 <li class="contato-canal">
                     <span class="contato-canal__label">WhatsApp</span>
-                    <a class="contato-canal__link" href="https://wa.me/5561993029988?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20ServicesBI%20e%20gostaria%20de%20falar%20sobre%20uma%20solu%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">+55 61 99302-9988</a>
+                    <a class="contato-canal__link" href="{{ WA_GERAL }}" target="_blank" rel="noopener noreferrer">+55 61 99302-9988</a>
                 </li>
                 <li class="contato-canal">
                     <span class="contato-canal__label">LinkedIn</span>
