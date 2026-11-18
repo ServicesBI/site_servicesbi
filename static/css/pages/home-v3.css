@@ -6,7 +6,6 @@
     --h-surface: #FFFFFF;
     --h-strong: var(--brand-petroleo);
     --h-hero-accent: var(--color-accent);
-    --h-grid: rgba(23, 84, 94, 0.05);
     --h-shadow: 0 24px 60px rgba(23, 84, 94, 0.12);
     --h-bar: var(--brand-petroleo);
     --h-bar-alert: var(--brand-laranja);
@@ -29,7 +28,6 @@ html.theme-dark {
     --h-surface: #161624;
     --h-strong: #F5F4FA;
     --h-hero-accent: #8B5CFF;
-    --h-grid: rgba(155, 123, 255, 0.05);
     --h-shadow: 0 24px 60px rgba(115, 53, 253, 0.22);
     --h-bar: #7335FD;
     --h-bar-alert: #E8C9A0;
@@ -70,18 +68,9 @@ html.theme-dark .hv-btn--primary { background: linear-gradient(180deg, #F1D9B8, 
 .hv-btn--outline:hover { color: var(--color-text); }
 
 /* ---------- Hero ---------- */
-.hv-hero {
-    background-image:
-        linear-gradient(var(--h-grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--h-grid) 1px, transparent 1px);
-    background-size: 48px 48px;
-}
+.hv-hero { background: var(--color-bg); }
 html.theme-dark .hv-hero {
-    background-image:
-        radial-gradient(60rem 30rem at 50% -10%, rgba(115, 53, 253, 0.30), transparent 70%),
-        linear-gradient(var(--h-grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--h-grid) 1px, transparent 1px);
-    background-size: auto, 48px 48px, 48px 48px;
+    background: radial-gradient(60rem 30rem at 50% -10%, rgba(115, 53, 253, 0.30), transparent 70%), var(--color-bg);
 }
 .hv-hero__grid { display: flex; flex-wrap: wrap; gap: 56px; align-items: center; padding-block: 88px 72px; }
 .hv-hero__copy { flex: 1 1 460px; min-width: 0; }
