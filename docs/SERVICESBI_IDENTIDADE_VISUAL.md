@@ -20,11 +20,11 @@
 |---|---|
 | `static/img/brand/logo-servicesbi.png` | Símbolo redondo, fundo transparente (410×410 px) |
 | `static/img/brand/favicon.ico` / `favicon-32.png` | Aba do navegador |
-| `static/img/brand/apple-touch-icon.png` | Atalho no iPhone (fundo azul-noite) |
+| `static/img/brand/apple-touch-icon.png` | Atalho no iPhone (fundo escuro) |
 | `static/img/brand/icon-512.png` | Dados estruturados (Google), redes sociais |
 | `static/img/brand/og-servicesbi.png` | Imagem de compartilhamento (WhatsApp, LinkedIn) 1200×630 |
 
-**Assinatura em texto** (cabeçalho do site e documentos): `Services` na cor do título + `BI` na cor de destaque da marca.
+**Assinatura em texto** (cabeçalho do site e documentos): `Services` na cor do título + `BI` na cor de destaque da marca (laranja `#E0812F` no claro, violeta `#8B5CFF` no escuro).
 
 ```html
 <a class="site-logo" href="/">Services<span>BI</span></a>
@@ -33,7 +33,7 @@
 **Regras de uso**
 - Área de proteção: espaço livre ao redor do símbolo igual a ¼ do seu diâmetro.
 - Tamanho mínimo: 64 px (digital) e 20 mm (impresso). Abaixo disso o símbolo é só ícone (favicon, avatar).
-- Fundos permitidos: bege, branco, petróleo e azul-noite.
+- Fundos permitidos: bege, branco, petróleo e preto-azulado.
 - Posição: canto superior esquerdo em capas, propostas e relatórios.
 
 **Evite:** distorcer · mudar as cores · fundo sem contraste · girar ou adicionar sombra.
@@ -87,7 +87,9 @@ Bege 55% · Petróleo 20% · Laranja 15% · Grafite e vermelho 10%. No máximo *
     --color-border-strong: #D2C8B6;
     --color-accent: #A9561A;           /* laranja de texto */
     --color-accent-bright: var(--brand-laranja);
-    --color-on-accent: #FFFFFF;        /* texto sobre botão de destaque */
+    --color-on-accent: #FFFFFF;        /* texto sobre preenchimento de destaque */
+    --color-button-bg: var(--color-accent);  /* botão primário */
+    --color-button-text: #FFFFFF;
     --color-success: #2E7D4F;
     --color-warning: #B7791F;
     --color-danger: #A8432C;           /* vermelho para TEXTO */
@@ -101,36 +103,56 @@ Bege 55% · Petróleo 20% · Laranja 15% · Grafite e vermelho 10%. No máximo *
 
 O site **abre no tema escuro** e o visitante pode alternar para o claro (botão ☀/☾). Documentos impressos e relatórios usam o tema claro.
 
+Estilo **premium**: fundo quase preto, brilho violeta, cards em roxo profundo e botões bege-dourados. O bege dos botões faz a ponte com o fundo bege do tema claro.
+
+### 4.1 Cores
+
 | Nome | HEX | Uso |
 |---|---|---|
-| Azul-noite | `#0A1420` | Fundo |
-| Superfície | `#112236` | Seções alternadas e cards |
-| Superfície forte | `#1A2F4A` | Cards em destaque |
-| Gelo | `#F5F9FC` | Títulos |
-| Azul-claro | `#B8C9DC` | Texto |
-| Cinza-azulado | `#8A9BAA` | Texto secundário |
-| **Ciano** | `#38CBD9` | Destaque, links, botões |
+| **Preto-azulado** | `#06060E` | Fundo |
+| Superfície suave | `#0E0E18` | Seções alternadas |
+| Superfície | `#161624` | Painéis |
+| Superfície forte | `#1E1B33` | Cards (com degradê `#2A2150 → #1A1830 → #161624`) |
+| Branco-lavanda | `#F5F4FA` | Títulos |
+| Lavanda-acinzentado | `#C9C8DA` | Texto |
+| Cinza-lavanda | `#8E8DA8` | Texto secundário |
+| **Violeta** | `#7335FD` | Preenchimentos, brilhos, números de passo, borda do card em destaque |
+| Violeta de títulos | `#8B5CFF` | Títulos de seção (H2) e "BI" da assinatura em texto |
+| Violeta de texto | `#9B7BFF` | Links, rótulos e destaques em texto (contraste 6,4:1) |
+| **Bege-dourado** | `#E8C9A0` | Botões de ação (degradê `#F1D9B8 → #DDBB90`, texto `#1A1428`) |
 | Coral | `#FF6B7A` | Alertas |
 
-**Correspondência:** fundo bege → azul-noite · títulos petróleo → gelo · texto grafite → azul-claro · destaque laranja → ciano.
+> **Regra:** violeta `#7335FD` só **preenchendo áreas** (com texto branco) · em **texto** use `#9B7BFF` ou `#8B5CFF` (títulos grandes) · **botão de ação** sempre bege-dourado.
+
+**Correspondência entre os temas:** fundo bege → preto-azulado · títulos petróleo → branco-lavanda (seções em violeta) · texto grafite → lavanda-acinzentado · destaque laranja → violeta · botão laranja → bege-dourado.
+
+### 4.2 Tokens CSS (dark)
 
 ```css
 html.theme-dark, body.theme-dark {
-    --color-bg: #0A1420;
-    --color-bg-soft: #112236;
-    --color-surface: #112236;
-    --color-surface-strong: #1A2F4A;
-    --color-text: #F5F9FC;
-    --color-text-body: #B8C9DC;
-    --color-text-muted: #8A9BAA;
-    --color-border: rgba(255, 255, 255, 0.10);
-    --color-border-strong: rgba(255, 255, 255, 0.16);
-    --color-accent: #38CBD9;
-    --color-accent-bright: #38CBD9;
-    --color-on-accent: #0A1420;
+    --brand-violeta: #7335FD;
+    --brand-dourado: #E8C9A0;
+    --brand-preto: #06060E;
+
+    --color-bg: var(--brand-preto);
+    --color-bg-soft: #0E0E18;
+    --color-surface: #161624;
+    --color-surface-strong: #1E1B33;
+    --color-text: #F5F4FA;
+    --color-text-body: #C9C8DA;
+    --color-text-muted: #8E8DA8;
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-border-strong: rgba(155, 123, 255, 0.28);
+    --color-accent: #9B7BFF;
+    --color-accent-bright: #8B5CFF;
+    --color-on-accent: #FFFFFF;
+    --color-button-bg: var(--brand-dourado);
+    --color-button-text: #1A1428;
     --color-danger: #FF6B7A;
 }
 ```
+
+Efeitos exclusivos do tema escuro ficam no fim de `static/css/v2.css` (bloco "Tema dark — estilo premium"): brilho violeta no hero e na faixa de CTA, degradê dos cards, títulos de seção em violeta e botões em degradê bege.
 
 **Regra de ouro do CSS:** nunca escreva HEX direto em componentes — use sempre os tokens (`var(--color-...)`). Assim o tema claro e o escuro funcionam juntos sem esforço.
 
@@ -180,7 +202,7 @@ Alternativas: Segoe UI (Power BI e Office) ou Arial.
 
 | Classe | Uso |
 |---|---|
-| `.btn .btn--primary` | Ação principal — **no máximo 1 por seção** |
+| `.btn .btn--primary` | Ação principal — **no máximo 1 por seção**. Laranja `#A9561A` no claro, bege-dourado no escuro (tokens `--color-button-*`) |
 | `.btn .btn--secondary` | Ação alternativa |
 | `.btn .btn--whatsapp` | Abrir conversa no WhatsApp (verde `#1FAA52`) |
 | `.site-nav__cta` | Botão "Diagnóstico gratuito" no menu |
@@ -220,7 +242,7 @@ Alterne seções normais e `v2-section--soft` para criar ritmo. Grades: `v2-grid
 | **Case** | `.v2-card .v2-case` + `.v2-case__media` + `.v2-case__body` + `<dl>` | Desafio → O que foi feito → Resultado |
 | **Passo** | `<ol class="v2-steps">` + `<li class="v2-card v2-step">` | Processo numerado (sempre 3 passos) |
 | **Selo** | `.v2-badge` | "Dados ilustrativos", "Exemplo de entrega" |
-| **Faixa de CTA** | `.v2-cta` + `.v2-cta__actions` | Fechamento de toda página (petróleo no claro, azul-noite no escuro) |
+| **Faixa de CTA** | `.v2-cta` + `.v2-cta__actions` | Fechamento de toda página (petróleo no claro, roxo-noite `#12102A` com brilho violeta no escuro) |
 | **Sobre** | `.v2-about` + `.v2-avatar` | Bloco com foto e apresentação do consultor |
 
 ```html

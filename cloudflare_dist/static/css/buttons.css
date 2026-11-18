@@ -37,23 +37,23 @@
 }
 
 .btn--primary {
-    color: var(--color-on-accent);
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-    box-shadow: 0 8px 18px color-mix(in srgb, var(--color-accent) 18%, transparent);
+    color: var(--color-button-text);
+    background: var(--color-button-bg);
+    border-color: var(--color-button-bg);
+    box-shadow: 0 8px 18px color-mix(in srgb, var(--color-button-bg) 18%, transparent);
 }
 
 .btn--primary:hover {
-    color: var(--color-on-accent);
-    border-color: var(--color-accent);
-    box-shadow: 0 10px 24px color-mix(in srgb, var(--color-accent) 22%, transparent);
+    color: var(--color-button-text);
+    border-color: var(--color-button-bg);
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--color-button-bg) 22%, transparent);
 }
 
 .btn--primary:focus-visible,
 .btn--primary:active {
-    color: var(--color-on-accent);
-    background: var(--color-accent);
-    border-color: var(--color-accent);
+    color: var(--color-button-text);
+    background: var(--color-button-bg);
+    border-color: var(--color-button-bg);
 }
 
 .btn--secondary {
