@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ServicesBI | Consultoria Financeira e BI para Empresas</title>
-    <meta name="description" content="Consultoria financeira com inteligência de dados: fluxo de caixa, DRE gerencial, redução de custos, dashboards em Power BI e automação de processos. Agende um diagnóstico gratuito.">
+    <meta name="description" content="Consultoria financeira com Business Intelligence e ferramentas próprias: fluxo de caixa projetado, DRE gerencial, dashboards em Power BI e automação. Agende um diagnóstico gratuito.">
     <link rel="canonical" href="https://www.servicesbi.com.br/">
 
     <meta property="og:type" content="website">
@@ -28,7 +28,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
     <script src="/static/js/theme-init.js"></script>
     <link rel="stylesheet" href="/static/css/tokens.css">
     <link rel="stylesheet" href="/static/css/base.css">
@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="/static/css/whatsapp-float.css">
     <link rel="stylesheet" href="/static/css/v2.css">
     
-<link rel="preload" as="image" href="/static/img/home/portfolio/destaques/dashboard-financeiro.webp">
+<link rel="stylesheet" href="/static/css/pages/home-v3.css">
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -74,10 +74,9 @@
 
         
         <nav class="site-nav" aria-label="Menu principal">
-            <a class="is-active" href="/" aria-current="page">Início</a>
             <a class="" href="/consultoria-financeira/">Consultoria Financeira</a>
             <a class="" href="/power-bi/">BI &amp; Dashboards</a>
-            <a class="" href="/automacoes/">Automação &amp; Sistemas</a>
+            <a href="/#ferramentas">Ferramentas</a>
             <a href="/#cases">Cases</a>
             <a class="" href="/sobre/">Sobre</a>
             <a class="site-nav__cta" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20agendar%20o%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener noreferrer">Diagnóstico gratuito</a>
@@ -96,247 +95,315 @@
         
 
 <!-- ===== 1. HERO ===== -->
-<section class="v2-hero" aria-labelledby="hero-title">
-    <div class="v2-container v2-hero__grid">
-        <div>
-            <p class="eyebrow text-accent">Consultoria financeira · Inteligência de dados</p>
-            <h1 id="hero-title">Sua empresa fatura, mas você não vê a cor do lucro? <em>Nós organizamos o seu financeiro com inteligência de dados.</em></h1>
-            <p class="v2-hero__lead">
-                Consultoria financeira estratégica e Business Intelligence sob medida para empresas que precisam de controle de caixa, redução de custos e decisões baseadas em números reais — sem planilhas confusas.
-            </p>
-            <div class="v2-hero__actions">
-                <a class="btn btn--primary" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20agendar%20o%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener noreferrer">Agendar diagnóstico financeiro gratuito</a>
-                <a class="btn btn--secondary" href="#solucoes">Conhecer nossas soluções</a>
+<section class="hv-hero" aria-labelledby="hero-title">
+    <div class="hv-wrap hv-hero__grid">
+        <div class="hv-hero__copy">
+            <p class="hv-label">— Consultoria financeira · Dados · Automação</p>
+            <h1 id="hero-title">Sua empresa fatura.<br>Falta enxergar <span>o lucro.</span></h1>
+            <p class="hv-hero__lead">Consultoria financeira com Business Intelligence e ferramentas próprias: caixa projetado, DRE gerencial e rotinas que deixam de depender de planilhas soltas.</p>
+            <div class="hv-hero__actions">
+                <a class="hv-btn hv-btn--primary" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20agendar%20o%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener noreferrer">Agendar diagnóstico gratuito →</a>
+                <a class="hv-btn hv-btn--ghost" href="#processo">Como trabalhamos</a>
             </div>
-            <ul class="v2-hero__trust" aria-label="Diferenciais">
-                <li>Diagnóstico inicial sem custo</li>
-                <li>Gestão financeira + análise de dados</li>
-                <li>Atendimento direto com o consultor</li>
+            <ul class="hv-hero__trust" aria-label="Diferenciais">
+                <li><span>01</span>Diagnóstico inicial sem custo</li>
+                <li><span>02</span>Atendimento direto com o consultor</li>
+                <li><span>03</span>Finanças + dados + ferramentas próprias</li>
             </ul>
         </div>
 
-        <div class="v2-hero__visual">
-            <div class="v2-frame">
-                <img src="/static/img/home/portfolio/destaques/dashboard-financeiro.webp" alt="Exemplo de dashboard financeiro com contas a pagar, a receber, receita líquida e lucro" width="1271" height="713" fetchpriority="high">
+        <div class="hv-dre" role="figure" aria-label="Exemplo de DRE gerencial e caixa projetado com dados ilustrativos">
+            <div class="hv-dre__head">
+                <span>DRE gerencial · Out/2026</span>
+                <span class="hv-dre__tag">dados ilustrativos</span>
             </div>
-            <span class="v2-badge">Exemplo de entrega · dados ilustrativos</span>
+            <dl class="hv-dre__rows">
+                
+                <div class="hv-dre__row is-total">
+                    <dt>Receita bruta</dt>
+                    <dd><span>1.248.300</span><span class="hv-dre__pct"></span></dd>
+                </div>
+                
+                <div class="hv-dre__row">
+                    <dt>(−) Deduções</dt>
+                    <dd><span>−149.796</span><span class="hv-dre__pct"></span></dd>
+                </div>
+                
+                <div class="hv-dre__row is-total">
+                    <dt>Receita líquida</dt>
+                    <dd><span>1.098.504</span><span class="hv-dre__pct"></span></dd>
+                </div>
+                
+                <div class="hv-dre__row">
+                    <dt>(−) Custos variáveis</dt>
+                    <dd><span>−512.430</span><span class="hv-dre__pct"></span></dd>
+                </div>
+                
+                <div class="hv-dre__row is-total">
+                    <dt>Margem de contribuição</dt>
+                    <dd><span>586.074</span><span class="hv-dre__pct">53,4%</span></dd>
+                </div>
+                
+                <div class="hv-dre__row">
+                    <dt>(−) Despesas fixas</dt>
+                    <dd><span>−401.220</span><span class="hv-dre__pct"></span></dd>
+                </div>
+                
+                <div class="hv-dre__row is-total">
+                    <dt>Resultado operacional</dt>
+                    <dd><span>184.854</span><span class="hv-dre__pct">16,8%</span></dd>
+                </div>
+                
+            </dl>
+            <div class="hv-cash">
+                <div class="hv-cash__head">
+                    <span>Caixa projetado · 12 semanas</span>
+                    <strong>sem. 7 abaixo do mínimo</strong>
+                </div>
+                <div class="hv-cash__bars" aria-hidden="true">
+                    <div class="hv-cash__min" style="bottom: 57px;"></div>
+                    
+                    <div class="hv-cash__bar" style="height: 95px;"></div>
+                    
+                    <div class="hv-cash__bar" style="height: 102px;"></div>
+                    
+                    <div class="hv-cash__bar" style="height: 89px;"></div>
+                    
+                    <div class="hv-cash__bar" style="height: 98px;"></div>
+                    
+                    <div class="hv-cash__bar" style="height: 83px;"></div>
+                    
+                    <div class="hv-cash__bar" style="height: 72px;"></div>
+                    
+                    <div class="hv-cash__bar is-alert" style="height: 48px;"></div>
+                    
+                    <div class="hv-cash__bar" style="height: 63px;"></div>
+                    
+                    <div class="hv-cash__bar" style="height: 78px;"></div>
+                    
+                    <div class="hv-cash__bar" style="height: 91px;"></div>
+                    
+                    <div class="hv-cash__bar" style="height: 105px;"></div>
+                    
+                    <div class="hv-cash__bar" style="height: 118px;"></div>
+                    
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- ===== 2. DORES ===== -->
-<section class="v2-section v2-section--soft" aria-labelledby="dores-title">
-    <div class="v2-container">
-        <div class="v2-head">
-            <p class="eyebrow text-accent">Você se identifica?</p>
-            <h2 id="dores-title">Você sente que trabalha muito, mas falta clareza sobre a saúde real do seu negócio?</h2>
-        </div>
-
-        <div class="v2-grid v2-grid--4">
-            <article class="v2-card">
-                <span class="v2-card__icon" aria-hidden="true">$</span>
-                <h3>Falta de visibilidade de caixa</h3>
-                <p>Você não sabe exatamente quanto vai sobrar ou faltar nos próximos 30, 60 ou 90 dias.</p>
-            </article>
-            <article class="v2-card">
-                <span class="v2-card__icon" aria-hidden="true">?</span>
-                <h3>Decisões no "achismo"</h3>
-                <p>Falta uma DRE gerencial clara para saber quais produtos ou serviços dão lucro e quais dão prejuízo.</p>
-            </article>
-            <article class="v2-card">
-                <span class="v2-card__icon" aria-hidden="true">▤</span>
-                <h3>Dependência de planilhas manuais</h3>
-                <p>Dados espalhados entre vendas, estoque e financeiro que não batem e geram retrabalho constante.</p>
-            </article>
-            <article class="v2-card">
-                <span class="v2-card__icon" aria-hidden="true">⇄</span>
-                <h3>Áreas desalinhadas</h3>
-                <p>Compras, comercial e estoque operam cada um do seu jeito e acabam drenando o caixa da empresa.</p>
-            </article>
-        </div>
-    </div>
+<!-- ===== CREDENCIAIS ===== -->
+<section class="hv-soft" aria-label="Credenciais">
+    <dl class="hv-wrap hv-creds">
+        <div><dt>Desde 2017</dt><dd>em finanças, compras e dados</dd></div>
+        <div><dt>2 formações</dt><dd>Gestão Financeira e Análise de Dados</dd></div>
+        <div><dt>3 setores</dt><dd>educação, saúde e suprimentos</dd></div>
+        <div><dt>Ferramentas próprias</dt><dd>SIGE, automações e modelos</dd></div>
+    </dl>
 </section>
 
-<!-- ===== 3. SOLUÇÕES ===== -->
-<section class="v2-section" id="solucoes" aria-labelledby="solucoes-title">
-    <div class="v2-container">
-        <div class="v2-head">
-            <p class="eyebrow text-accent">O método ServicesBI</p>
-            <h2 id="solucoes-title">Consultoria financeira completa, com respaldo em todas as áreas da sua empresa</h2>
-            <p>Começamos pelo dinheiro — caixa, margem e custos — e usamos dados e tecnologia para que os números sejam confiáveis e cheguem até você sem esforço.</p>
-        </div>
-
-        <div class="v2-grid v2-grid--3">
-            <article class="v2-card v2-card--pillar v2-card--featured">
-                <p class="eyebrow">Pilar 1 · O coração do negócio</p>
-                <h3>Consultoria Financeira Estratégica</h3>
-                <ul class="v2-list">
-                    <li>Estruturação e projeção de fluxo de caixa</li>
-                    <li>DRE gerencial e análise de margem de contribuição</li>
-                    <li>Revisão de custos fixos e variáveis e precificação</li>
-                    <li>Planejamento orçamentário e metas financeiras</li>
-                </ul>
-                <a class="v2-link" href="/consultoria-financeira/">Ver a consultoria financeira →</a>
-            </article>
-
-            <article class="v2-card v2-card--pillar">
-                <p class="eyebrow">Pilar 2 · Visão em tempo real</p>
-                <h3>Business Intelligence &amp; Dashboards</h3>
-                <ul class="v2-list">
-                    <li>Painéis executivos interativos em Power BI</li>
-                    <li>KPIs financeiros, comerciais e operacionais sempre atualizados</li>
-                    <li>Fim dos relatórios estáticos montados à mão</li>
-                </ul>
-                <a class="v2-link" href="/power-bi/">Ver BI &amp; dashboards →</a>
-            </article>
-
-            <article class="v2-card v2-card--pillar">
-                <p class="eyebrow">Pilar 3 · Respaldo operacional</p>
-                <h3>Processos, Automação &amp; Sistemas</h3>
-                <ul class="v2-list">
-                    <li>Integração entre comercial, estoque, compras e financeiro</li>
-                    <li>Automação de rotinas repetitivas e envio de relatórios</li>
-                    <li>Integração de sistemas e soluções sob medida, como o SIGE</li>
-                </ul>
-                <a class="v2-link" href="/automacoes/">Ver automação &amp; sistemas →</a>
-            </article>
-        </div>
-    </div>
-</section>
-
-<!-- ===== 4. CASES ===== -->
-<section class="v2-section v2-section--soft" id="cases" aria-labelledby="cases-title">
-    <div class="v2-container">
-        <div class="v2-head">
-            <p class="eyebrow text-accent">Cases e experiência</p>
-            <h2 id="cases-title">Experiência real em finanças e dados, em empresas de diferentes setores</h2>
-            <p>Projetos que conduzi em educação, saúde e instituições de grande porte — apresentados de forma anônima — e exemplos do tipo de painel que você recebe.</p>
-        </div>
-
-        <div class="v2-grid v2-grid--3">
-            <article class="v2-card v2-case">
-                <div class="v2-case__media">
-                    <img src="/static/img/home/portfolio/destaques/dashboard-financeiro.webp" alt="Dashboard financeiro com contas a pagar, a receber e principais resultados" loading="lazy" width="1271" height="713">
-                    <span class="v2-badge">Dados ilustrativos</span>
-                </div>
-                <div class="v2-case__body">
-                    <p class="v2-case__tag">Educação · Financeiro</p>
-                    <h3>Gestão financeira de uma instituição de ensino</h3>
-                    <dl>
-                        <dt>Desafio</dt>
-                        <dd>Receitas, inadimplência e contas a pagar e receber controladas em planilhas separadas, sem visão consolidada para a diretoria.</dd>
-                        <dt>O que foi feito</dt>
-                        <dd>Dashboards em Power BI de receitas, inadimplência e fluxo de caixa, além de DRE, projeções financeiras e relatórios gerenciais.</dd>
-                        <dt>Resultado</dt>
-                        <dd>Diretoria passou a decidir com base em indicadores consolidados, com menos rotinas manuais.</dd>
-                    </dl>
-                </div>
-            </article>
-
-            <article class="v2-card v2-case">
-                <div class="v2-case__media">
-                    <img src="/static/img/home/portfolio/destaques/dashboard-comercial.webp" alt="Exemplo de painel de indicadores com realizado versus meta" loading="lazy" width="1323" height="729">
-                    <span class="v2-badge">Exemplo de painel · dados ilustrativos</span>
-                </div>
-                <div class="v2-case__body">
-                    <p class="v2-case__tag">Saúde · Compras e suprimentos</p>
-                    <h3>Indicadores de compras de um hospital</h3>
-                    <dl>
-                        <dt>Desafio</dt>
-                        <dd>Compras, contratos e fornecedores sem acompanhamento de saving, prazos e desempenho.</dd>
-                        <dt>O que foi feito</dt>
-                        <dd>Controles e relatórios em Power BI e Excel de compras, estoques, saving e performance de fornecedores, com apoio às negociações.</dd>
-                        <dt>Resultado</dt>
-                        <dd>Negociações apoiadas em histórico e indicadores, e não em impressões.</dd>
-                    </dl>
-                </div>
-            </article>
-
-            <article class="v2-card v2-case">
-                <div class="v2-case__media">
-                    <img src="/static/img/home/portfolio/destaques/integracao-excel-banco.png" alt="Fluxo de automação integrando sistemas, banco de dados e relatórios" loading="lazy" width="1024" height="436">
-                    <span class="v2-badge">Exemplo de fluxo</span>
-                </div>
-                <div class="v2-case__body">
-                    <p class="v2-case__tag">Instituição nacional · Dados e automação</p>
-                    <h3>Consolidação de dados financeiros e automação</h3>
-                    <dl>
-                        <dt>Desafio</dt>
-                        <dd>Dados financeiros e acadêmicos espalhados e demandas manuais repetitivas nas áreas administrativas.</dd>
-                        <dt>O que foi feito</dt>
-                        <dd>Integração e consolidação dos dados com Python e SQL, análises de inadimplência, receitas e orçamento, e fluxos automatizados.</dd>
-                        <dt>Resultado</dt>
-                        <dd>Rotinas manuais transformadas em relatórios e processos automáticos.</dd>
-                    </dl>
-                </div>
-            </article>
-        </div>
-    </div>
-</section>
-
-<!-- ===== 5. QUEM ESTÁ POR TRÁS ===== -->
-<section class="v2-section" aria-labelledby="sobre-title">
-    <div class="v2-container v2-about">
-        <!-- Para usar sua foto: salve em static/img/sobre/leles.webp e troque o "LJ" por
-             <img src="/static/img/sobre/leles.webp" alt="Leles Júnior, fundador da ServicesBI"> -->
-        <div class="v2-avatar" aria-hidden="true">LJ</div>
-
+<!-- ===== 01 DIAGNÓSTICO ===== -->
+<section class="hv-section" aria-labelledby="dores-title">
+    <div class="hv-wrap hv-split">
         <div>
-            <p class="eyebrow text-accent">Quem está por trás da ServicesBI</p>
-            <h2 id="sobre-title">A união entre visão financeira de negócios e domínio técnico de dados</h2>
-            <blockquote>
-                <p class="v2-hero__lead">Olá, eu sou <strong>Leles Júnior</strong>, fundador da ServicesBI.</p>
-                <p>Com formação em <strong>Gestão Financeira</strong> e em <strong>Análise de Dados</strong>, fundei a ServicesBI para resolver um problema que vejo nas empresas: consultores financeiros que não dominam a tecnologia para extrair dados limpos, e profissionais de TI que criam sistemas complexos mas não entendem de fluxo de caixa e margem de lucro.</p>
-                <p>Meu papel é atuar ao lado do empresário como um braço estratégico — organizando as finanças, estruturando os processos de todas as áreas e entregando indicadores claros para você crescer com segurança e previsibilidade.</p>
-            </blockquote>
-            <ul class="v2-about__meta" aria-label="Formação e experiência">
-                <li>Gestão Financeira</li>
-                <li>Análise de Dados</li>
-                <li>Experiência em educação, saúde e suprimentos</li>
-            </ul>
-            <div class="v2-hero__actions">
-                <a class="btn btn--secondary" href="/sobre/">Conheça minha trajetória</a>
-            </div>
+            <p class="hv-label">01 — Diagnóstico</p>
+            <h2 class="hv-h2" id="dores-title">Muito trabalho, pouca clareza sobre a saúde real do negócio.</h2>
+            <p style="margin: 20px 0 0; color: var(--color-text-muted);">Os sintomas mais comuns nas primeiras conversas com empresários.</p>
         </div>
-    </div>
-</section>
-
-<!-- ===== 6. COMO FUNCIONA ===== -->
-<section class="v2-section v2-section--soft" aria-labelledby="processo-title">
-    <div class="v2-container">
-        <div class="v2-head v2-head--center">
-            <p class="eyebrow text-accent">Como funciona</p>
-            <h2 id="processo-title">Do primeiro contato aos resultados, em três passos</h2>
-        </div>
-
-        <ol class="v2-grid v2-grid--3 v2-steps">
-            <li class="v2-card v2-step">
-                <h3>Diagnóstico inicial gratuito</h3>
-                <p>Uma conversa objetiva de 20 a 30 minutos para entender o momento da sua empresa e os principais gargalos financeiros ou operacionais.</p>
-            </li>
-            <li class="v2-card v2-step">
-                <h3>Mapeamento e plano de ação</h3>
-                <p>Levantamento dos dados, processos e sistemas atuais para desenhar um cronograma claro de organização e melhorias.</p>
-            </li>
-            <li class="v2-card v2-step">
-                <h3>Implementação e acompanhamento</h3>
-                <p>Estruturação financeira, criação dos dashboards de controle e suporte contínuo nas áreas da empresa para garantir resultados.</p>
-            </li>
+        <ol class="hv-pains">
+            <li><span>01</span><div><h3>Falta de visibilidade de caixa</h3><p>Você não sabe exatamente quanto vai sobrar ou faltar nos próximos 30, 60 ou 90 dias.</p></div></li>
+            <li><span>02</span><div><h3>Decisões no “achismo”</h3><p>Sem uma DRE gerencial clara, não dá para saber quais produtos ou serviços dão lucro e quais dão prejuízo.</p></div></li>
+            <li><span>03</span><div><h3>Dependência de planilhas manuais</h3><p>Dados espalhados entre vendas, estoque e financeiro que não batem e geram retrabalho.</p></div></li>
+            <li><span>04</span><div><h3>Áreas desalinhadas</h3><p>Compras, comercial e estoque operam cada um do seu jeito e acabam drenando o caixa.</p></div></li>
         </ol>
     </div>
 </section>
 
-<!-- ===== 7. CTA FINAL ===== -->
-<section class="v2-section" aria-labelledby="cta-title">
-    <div class="v2-container">
-        <div class="v2-cta">
+<!-- ===== 02 MÉTODO ===== -->
+<section class="hv-section hv-soft" id="metodo" aria-labelledby="metodo-title">
+    <div class="hv-wrap">
+        <div class="hv-head">
             <div>
-                <h2 id="cta-title">Pronto para assumir o controle dos números da sua empresa?</h2>
-                <p>Dê o primeiro passo hoje. Solicite uma análise inicial sem compromisso e descubra onde estão as oportunidades de ganho e economia no seu negócio.</p>
+                <p class="hv-label">02 — Método</p>
+                <h2 class="hv-h2" id="metodo-title">Começamos pelo dinheiro. A tecnologia vem para sustentar os números.</h2>
             </div>
-            <div class="v2-cta__actions">
-                <a class="btn btn--whatsapp" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20agendar%20o%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener noreferrer">Falar agora pelo WhatsApp</a>
-                <a class="btn btn--secondary" href="/contato/">Preencher formulário</a>
+            <p>Caixa, margem e custos primeiro. Depois dados e automação, para que os números sejam confiáveis e cheguem até você sem esforço.</p>
+        </div>
+        <div class="hv-pillars">
+            <article class="hv-pillar">
+                <div class="hv-pillar__meta"><span>Pilar 1</span><span>O coração do negócio</span></div>
+                <h3>Consultoria Financeira Estratégica</h3>
+                <ul class="hv-dash">
+                    <li>Estruturação e projeção de fluxo de caixa</li>
+                    <li>DRE gerencial e margem de contribuição</li>
+                    <li>Custos fixos e variáveis e precificação</li>
+                    <li>Orçamento e metas financeiras</li>
+                </ul>
+                <a class="hv-link" href="/consultoria-financeira/">Ver a consultoria financeira →</a>
+            </article>
+            <article class="hv-pillar">
+                <div class="hv-pillar__meta"><span>Pilar 2</span><span>Visão em tempo real</span></div>
+                <h3>Business Intelligence &amp; Dashboards</h3>
+                <ul class="hv-dash">
+                    <li>Painéis executivos em Power BI</li>
+                    <li>KPIs financeiros, comerciais e operacionais</li>
+                    <li>Fim dos relatórios montados à mão</li>
+                </ul>
+                <a class="hv-link" href="/power-bi/">Ver BI &amp; dashboards →</a>
+            </article>
+            <article class="hv-pillar">
+                <div class="hv-pillar__meta"><span>Pilar 3</span><span>Respaldo operacional</span></div>
+                <h3>Processos, Automação &amp; Sistemas</h3>
+                <ul class="hv-dash">
+                    <li>Integração entre comercial, estoque, compras e financeiro</li>
+                    <li>Rotinas e envio de relatórios automatizados</li>
+                    <li>Sistemas sob medida, como o SIGE</li>
+                </ul>
+                <a class="hv-link" href="/automacoes/">Ver automação &amp; sistemas →</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 03 FERRAMENTAS ===== -->
+<section class="hv-section hv-band" id="ferramentas" aria-labelledby="ferramentas-title">
+    <div class="hv-wrap">
+        <div class="hv-head">
+            <div>
+                <p class="hv-label">03 — Ferramentas ServicesBI</p>
+                <h2 class="hv-h2" id="ferramentas-title">Não só recomendamos.<br>Construímos as ferramentas.</h2>
+            </div>
+            <p>Sistemas, robôs e modelos desenvolvidos por nós, para que a gestão financeira rode no dia a dia, e não só no relatório do consultor.</p>
+        </div>
+        <div class="hv-tools">
+            <article class="hv-tool">
+                <div class="hv-tool__top"><span class="hv-tool__kind">ERP</span><span class="hv-badge hv-badge--gold">Demo disponível</span></div>
+                <h3>SIGE</h3>
+                <p>Gestão integrada: cadastros, compras, vendas, financeiro, estoque, fluxo de caixa e indicadores no mesmo lugar.</p>
+                <a href="/sige-servicesbi/">Acessar a demonstração →</a>
+            </article>
+            <article class="hv-tool">
+                <div class="hv-tool__top"><span class="hv-tool__kind">Python · n8n</span><span class="hv-badge">Sob medida</span></div>
+                <h3>Automações</h3>
+                <p>Relatórios enviados sozinhos por e-mail e WhatsApp, conciliação de planilhas e integração entre sistemas.</p>
+                <a href="/automacoes/">Ver automações →</a>
+            </article>
+            <article class="hv-tool">
+                <div class="hv-tool__top"><span class="hv-tool__kind">Excel corporativo</span><span class="hv-badge">Templates prontos</span></div>
+                <h3>Modelos financeiros</h3>
+                <p>Fluxo de caixa, DRE e precificação com Power Query e VBA, prontos para usar no dia seguinte.</p>
+                <a href="/excel/">Ver modelos →</a>
+            </article>
+            <article class="hv-tool">
+                <div class="hv-tool__top"><span class="hv-tool__kind">Assistente de IA</span><span class="hv-badge">Em desenvolvimento</span></div>
+                <h3>Jarvis</h3>
+                <p>Assistente operacional para financeiro, documentos, e-mail e agenda. Acesso antecipado para os primeiros clientes.</p>
+                <a href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20quero%20entrar%20na%20lista%20de%20espera%20do%20Jarvis." target="_blank" rel="noopener noreferrer">Entrar na lista de espera →</a>
+            </article>
+        </div>
+
+        
+    </div>
+</section>
+
+<!-- ===== 04 CASES ===== -->
+<section class="hv-section" id="cases" aria-labelledby="cases-title">
+    <div class="hv-wrap">
+        <div class="hv-head">
+            <div>
+                <p class="hv-label">04 — Cases</p>
+                <h2 class="hv-h2" id="cases-title">Experiência real em finanças e dados.</h2>
+            </div>
+            <p>Projetos conduzidos em educação, saúde e instituições de grande porte, apresentados de forma anônima.</p>
+        </div>
+        <div class="hv-cases">
+            <article class="hv-case">
+                <div><div class="hv-case__tag">Educação · Financeiro</div><h3>Gestão financeira de uma instituição de ensino</h3></div>
+                <dl><dt>DESAFIO</dt><dd>Receitas, inadimplência e contas a pagar e receber em planilhas separadas, sem visão consolidada.</dd></dl>
+                <dl><dt>O QUE FOI FEITO</dt><dd>Dashboards em Power BI de receitas, inadimplência e fluxo de caixa, DRE e projeções.</dd></dl>
+                <dl><dt>RESULTADO</dt><dd class="is-result">Diretoria passou a decidir com base em indicadores consolidados.</dd></dl>
+            </article>
+            <article class="hv-case">
+                <div><div class="hv-case__tag">Saúde · Compras</div><h3>Indicadores de compras de um hospital</h3></div>
+                <dl><dt>DESAFIO</dt><dd>Compras, contratos e fornecedores sem acompanhamento de saving, prazos e desempenho.</dd></dl>
+                <dl><dt>O QUE FOI FEITO</dt><dd>Controles e relatórios de compras, estoques, saving e performance de fornecedores.</dd></dl>
+                <dl><dt>RESULTADO</dt><dd class="is-result">Negociações apoiadas em histórico e indicadores, não em impressões.</dd></dl>
+            </article>
+            <article class="hv-case">
+                <div><div class="hv-case__tag">Instituição nacional · Dados</div><h3>Consolidação de dados financeiros e automação</h3></div>
+                <dl><dt>DESAFIO</dt><dd>Dados financeiros e acadêmicos espalhados e demandas manuais repetitivas.</dd></dl>
+                <dl><dt>O QUE FOI FEITO</dt><dd>Integração com Python e SQL, análises de inadimplência, receitas e orçamento.</dd></dl>
+                <dl><dt>RESULTADO</dt><dd class="is-result">Rotinas manuais transformadas em relatórios automáticos.</dd></dl>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 05 QUEM CONDUZ ===== -->
+<section class="hv-section hv-soft" id="sobre" aria-labelledby="sobre-title">
+    <div class="hv-wrap hv-about">
+        <figure>
+            
+            <div class="hv-about__photo" aria-hidden="true">LJ</div>
+            
+            <figcaption><span>Leles Júnior</span><span>Fundador · ServicesBI</span></figcaption>
+        </figure>
+        <div class="hv-about__text">
+            <p class="hv-label">05 — Quem conduz</p>
+            <h2 class="hv-h2" id="sobre-title">Visão financeira de negócio e domínio técnico de dados, na mesma pessoa.</h2>
+            <p style="margin-top: 20px;">Com formação em Gestão Financeira e em Análise de Dados, fundei a ServicesBI para resolver um problema que via nas empresas: consultores financeiros que não dominam a tecnologia, e profissionais de TI que não entendem fluxo de caixa e margem de lucro.</p>
+            <p>Meu papel é atuar ao lado do empresário como um braço estratégico: organizar as finanças, construir as ferramentas e entregar indicadores claros para crescer com segurança.</p>
+            <dl class="hv-facts">
+                <div><dt>FORMAÇÃO</dt><dd>Gestão Financeira · Análise de Dados</dd></div>
+                <div><dt>SETORES</dt><dd>Educação · Saúde · Suprimentos</dd></div>
+                <div><dt>STACK</dt><dd>Power BI · Python · Django · n8n · SQL</dd></div>
+            </dl>
+            <p style="margin-top: 24px;"><a class="hv-link" href="/sobre/">Conheça minha trajetória →</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 06 COMO TRABALHAMOS ===== -->
+<section class="hv-section" id="processo" aria-labelledby="processo-title">
+    <div class="hv-wrap">
+        <div class="hv-head">
+            <div>
+                <p class="hv-label">06 — Como trabalhamos</p>
+                <h2 class="hv-h2" id="processo-title">Do primeiro contato ao acompanhamento mensal.</h2>
+            </div>
+            <p>Cada etapa tem escopo e prazo definidos. Você decide se segue para a próxima.</p>
+        </div>
+        <ol class="hv-steps">
+            <li class="hv-step"><div class="hv-step__meta"><span>Etapa 1</span><span>30 min</span></div><h3>Diagnóstico gratuito</h3><p>Conversa objetiva para entender o momento da empresa e os principais gargalos.</p><p class="hv-step__price">Sem custo</p></li>
+            <li class="hv-step"><div class="hv-step__meta"><span>Etapa 2</span><span>1–2 semanas</span></div><h3>Raio-X Financeiro</h3><p>Análise de caixa, custos e margens, com relatório de prioridades.</p><p class="hv-step__price">Sob consulta</p></li>
+            <li class="hv-step"><div class="hv-step__meta"><span>Etapa 3</span><span>até 30 dias</span></div><h3>Implantação</h3><p>Fluxo de caixa projetado, DRE gerencial e painel em Power BI ou no SIGE.</p><p class="hv-step__price">Sob consulta</p></li>
+            <li class="hv-step"><div class="hv-step__meta"><span>Etapa 4</span><span>Mensal</span></div><h3>Acompanhamento</h3><p>Reunião de resultados, manutenção dos indicadores e das ferramentas.</p><p class="hv-step__price">Recorrente</p></li>
+        </ol>
+    </div>
+</section>
+
+<!-- ===== 07 MATERIAL GRATUITO ===== -->
+<section class="hv-wrap" style="padding-bottom: 104px;" aria-labelledby="isca-title">
+    <div class="hv-lead">
+        <div>
+            <p class="hv-label">Material gratuito</p>
+            <h2 id="isca-title">Planilha de fluxo de caixa projetado para 12 semanas.</h2>
+            <p>O mesmo modelo que usamos nos diagnósticos. Veja com antecedência a semana em que o caixa aperta.</p>
+        </div>
+        <a class="hv-btn hv-btn--outline" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20receber%20a%20planilha%20gratuita%20de%20fluxo%20de%20caixa%20projetado." target="_blank" rel="noopener noreferrer">Receber pelo WhatsApp</a>
+    </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="hv-cta" id="contato" aria-labelledby="cta-title">
+    <div class="hv-wrap hv-cta__grid">
+        <h2 id="cta-title">Assuma o controle dos números da sua empresa.</h2>
+        <div class="hv-cta__side">
+            <p>Solicite uma análise inicial sem compromisso. Em 30 minutos mostramos onde estão as oportunidades de ganho e economia.</p>
+            <div class="hv-cta__actions">
+                <a class="hv-btn hv-btn--cta" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20agendar%20o%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
+                <a class="hv-btn hv-btn--band" href="/contato/">Preencher formulário</a>
             </div>
         </div>
     </div>
@@ -350,7 +417,7 @@
         <div class="v2-footer__grid">
             <div class="v2-footer__brand">
                 <a class="site-logo" href="/">Services<span>BI</span></a>
-                <p>Consultoria financeira com inteligência de dados para empresas que querem clareza, controle e previsibilidade.</p>
+                <p>Consultoria financeira com inteligência de dados e ferramentas próprias.</p>
             </div>
 
             <nav aria-labelledby="footer-solucoes">
@@ -360,18 +427,17 @@
                     <li><a href="/power-bi/">BI &amp; Dashboards</a></li>
                     <li><a href="/automacoes/">Automação de Processos</a></li>
                     <li><a href="/python/">Python &amp; Integrações</a></li>
-                    <li><a href="/excel/">Excel Avançado</a></li>
                 </ul>
             </nav>
 
-            <nav aria-labelledby="footer-empresa">
-                <h2 id="footer-empresa">ServicesBI</h2>
+            <nav aria-labelledby="footer-ferramentas">
+                <h2 id="footer-ferramentas">Ferramentas</h2>
                 <ul>
-                    <li><a href="/sobre/">Sobre</a></li>
-                    <li><a href="/#cases">Cases</a></li>
                     <li><a href="/sige-servicesbi/">SIGE</a></li>
+                    <li><a href="/automacoes/">Automações</a></li>
+                    <li><a href="/excel/">Modelos financeiros</a></li>
                     <li><a href="/jarvis/">Jarvis</a></li>
-                    <li><a href="/curriculo/">Currículo</a></li>
+                    <li><a href="/sobre/">Sobre</a> · <a href="/curriculo/">Currículo</a></li>
                 </ul>
             </nav>
 

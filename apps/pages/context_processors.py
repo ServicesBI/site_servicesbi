@@ -17,6 +17,8 @@ def site(request):
         "WHATSAPP_NUMERO": WHATSAPP_NUMERO,
         "WA_GERAL": _wa("Olá Leles, vi o site da ServicesBI e gostaria de saber mais sobre a consultoria financeira."),
         "WA_DIAGNOSTICO": _wa("Olá Leles, vi o site da ServicesBI e gostaria de agendar o diagnóstico financeiro gratuito."),
+        "WA_PLANILHA": _wa("Olá Leles, vi o site da ServicesBI e gostaria de receber a planilha gratuita de fluxo de caixa projetado."),
+        "WA_JARVIS": _wa("Olá Leles, vi o site da ServicesBI e quero entrar na lista de espera do Jarvis."),
         "EMAIL_CONTATO": "servicesbi.ltda@gmail.com",
         "LINKEDIN_URL": "https://www.linkedin.com/in/jrleles/",
     }

@@ -16,8 +16,50 @@ PAGINAS_PUBLICAS = [
 ]
 
 
+# ---------------------------------------------------------------------------
+# HOME
+# ---------------------------------------------------------------------------
+
+# NOVIDADES das ferramentas (SIGE, automações, modelos, Jarvis).
+# A seção "Novidades" da home só aparece quando esta lista tem itens.
+# Coloque as mais recentes primeiro. Exemplo:
+#     {"data": "11/2026", "ferramenta": "SIGE", "texto": "Novo módulo de fluxo de caixa projetado."},
+NOVIDADES = []
+
+# Painel ilustrativo do topo da home (valores fictícios, marcados como "dados ilustrativos").
+DRE_ILUSTRATIVA = [
+    ("Receita bruta", "1.248.300", "", True),
+    ("(−) Deduções", "−149.796", "", False),
+    ("Receita líquida", "1.098.504", "", True),
+    ("(−) Custos variáveis", "−512.430", "", False),
+    ("Margem de contribuição", "586.074", "53,4%", True),
+    ("(−) Despesas fixas", "−401.220", "", False),
+    ("Resultado operacional", "184.854", "16,8%", True),
+]
+CAIXA_SEMANAS = [182, 196, 171, 188, 160, 138, 92, 121, 149, 174, 201, 226]  # R$ mil
+CAIXA_MINIMO = 110
+FOTO_SOBRE = "img/sobre/leles.webp"
+
+
 def home(request):
-    return render(request, "pages/home.html")
+    from django.contrib.staticfiles import finders
+
+    escala_max, altura = 230, 120
+    barras = [
+        {"altura": round(v / escala_max * altura), "alerta": v < CAIXA_MINIMO}
+        for v in CAIXA_SEMANAS
+    ]
+    contexto = {
+        "dre": [
+            {"rotulo": r, "valor": val, "pct": pct, "total": tot}
+            for r, val, pct, tot in DRE_ILUSTRATIVA
+        ],
+        "barras": barras,
+        "linha_minimo": round(CAIXA_MINIMO / escala_max * altura),
+        "novidades": NOVIDADES,
+        "foto_sobre": FOTO_SOBRE if finders.find(FOTO_SOBRE) else None,
+    }
+    return render(request, "pages/home.html", contexto)
 
 
 def sige_institucional_page(request):
