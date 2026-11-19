@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Consultoria Financeira para Empresas | ServicesBI{% endblock %}
+{% block meta_description %}Fluxo de caixa, DRE gerencial, margem de contribuição, redução de custos, precificação e orçamento — consultoria financeira com dados confiáveis e dashboards em Power BI.{% endblock %}
+{% block og_title %}Consultoria Financeira para Empresas | ServicesBI{% endblock %}
+
+{% block content %}
+
+<section class="v2-hero" aria-labelledby="cf-title">
+    <div class="v2-container v2-hero__grid">
+        <div>
+            <p class="eyebrow text-accent">Consultoria Financeira</p>
+            <h1 id="cf-title">Saiba quanto sua empresa <em>realmente</em> lucra — e onde está perdendo dinheiro.</h1>
+            <p class="v2-hero__lead">
+                Organizamos o financeiro da sua empresa: fluxo de caixa projetado, DRE gerencial, custos e precificação revisados e metas claras — tudo acompanhado em painéis simples de ler.
+            </p>
+            <div class="v2-hero__actions">
+                <a class="btn btn--primary" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Agendar diagnóstico gratuito</a>
+                <a class="btn btn--secondary" href="#pacotes">Ver formatos de trabalho</a>
+            </div>
+        </div>
+        <div class="v2-hero__visual">
+            <div class="v2-frame">
+                <img src="{% static 'img/home/portfolio/destaques/dashboard-financeiro.webp' %}" alt="Exemplo de dashboard financeiro" width="1271" height="713" fetchpriority="high">
+            </div>
+            <span class="v2-badge">Exemplo de entrega · dados ilustrativos</span>
+        </div>
+    </div>
+</section>
+
+<section class="v2-section v2-section--soft" aria-labelledby="cf-servicos-title">
+    <div class="v2-container">
+        <div class="v2-head">
+            <p class="eyebrow text-accent">O que fazemos</p>
+            <h2 id="cf-servicos-title">Os quatro pilares de um financeiro sob controle</h2>
+        </div>
+        <div class="v2-grid v2-grid--2">
+            <article class="v2-card">
+                <span class="v2-card__icon" aria-hidden="true">$</span>
+                <h3>Fluxo de caixa projetado</h3>
+                <p>Estruturamos entradas e saídas e projetamos os próximos 30, 60 e 90 dias, para você antecipar falta de caixa em vez de ser surpreendido.</p>
+                <ul class="v2-list">
+                    <li>Contas a pagar e a receber organizadas</li>
+                    <li>Projeção e cenários de caixa</li>
+                    <li>Controle de inadimplência</li>
+                </ul>
+            </article>
+            <article class="v2-card">
+                <span class="v2-card__icon" aria-hidden="true">▤</span>
+                <h3>DRE gerencial e margem</h3>
+                <p>Montamos a DRE gerencial e a margem de contribuição por produto, serviço ou unidade, para mostrar o que dá lucro e o que dá prejuízo.</p>
+                <ul class="v2-list">
+                    <li>DRE mensal e comparativos</li>
+                    <li>Margem de contribuição e ponto de equilíbrio</li>
+                    <li>Análise por produto, cliente ou unidade</li>
+                </ul>
+            </article>
+            <article class="v2-card">
+                <span class="v2-card__icon" aria-hidden="true">↘</span>
+                <h3>Custos e precificação</h3>
+                <p>Revisamos custos fixos e variáveis e a forma de formar preço, para proteger a margem sem perder competitividade.</p>
+                <ul class="v2-list">
+                    <li>Mapeamento e classificação de custos</li>
+                    <li>Oportunidades de redução</li>
+                    <li>Formação de preço com margem-alvo</li>
+                </ul>
+            </article>
+            <article class="v2-card">
+                <span class="v2-card__icon" aria-hidden="true">◎</span>
+                <h3>Orçamento e metas</h3>
+                <p>Definimos orçamento e metas financeiras e acompanhamos o realizado contra o planejado, mês a mês.</p>
+                <ul class="v2-list">
+                    <li>Orçamento anual e mensal</li>
+                    <li>Metas e indicadores financeiros</li>
+                    <li>Reuniões de acompanhamento de resultados</li>
+                </ul>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="v2-section" id="pacotes" aria-labelledby="cf-pacotes-title">
+    <div class="v2-container">
+        <div class="v2-head">
+            <p class="eyebrow text-accent">Formatos de trabalho</p>
+            <h2 id="cf-pacotes-title">Comece pelo que faz mais sentido para o momento da sua empresa</h2>
+            <p>Todo trabalho começa com um diagnóstico gratuito. Os valores são definidos após entendermos o porte e a necessidade da empresa.</p>
+        </div>
+        <div class="v2-grid v2-grid--3">
+            <article class="v2-card v2-card--pillar">
+                <p class="eyebrow">Ponto de partida</p>
+                <h3>Raio-X Financeiro</h3>
+                <p class="v2-price">Prazo estimado: 1 a 2 semanas</p>
+                <ul class="v2-list">
+                    <li>Análise do caixa, custos e margens atuais</li>
+                    <li>Mapa dos principais problemas e riscos</li>
+                    <li>Relatório com prioridades de ação</li>
+                </ul>
+                <a class="v2-link" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Quero o Raio-X →</a>
+            </article>
+            <article class="v2-card v2-card--pillar v2-card--featured">
+                <p class="eyebrow">Mais procurado</p>
+                <h3>DRE Gerencial + Fluxo de Caixa</h3>
+                <p class="v2-price">Prazo estimado: até 30 dias</p>
+                <ul class="v2-list">
+                    <li>Estruturação do fluxo de caixa projetado</li>
+                    <li>DRE gerencial e margem de contribuição</li>
+                    <li>Dashboard em Power BI para acompanhar tudo</li>
+                </ul>
+                <a class="v2-link" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Quero organizar meu financeiro →</a>
+            </article>
+            <article class="v2-card v2-card--pillar">
+                <p class="eyebrow">Continuidade</p>
+                <h3>Acompanhamento Mensal</h3>
+                <p class="v2-price">Recorrente</p>
+                <ul class="v2-list">
+                    <li>Reunião mensal de resultados</li>
+                    <li>Atualização e manutenção dos indicadores</li>
+                    <li>Apoio nas decisões financeiras do mês</li>
+                </ul>
+                <a class="v2-link" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Quero acompanhamento →</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="v2-section v2-section--soft" aria-labelledby="cf-processo-title">
+    <div class="v2-container">
+        <div class="v2-head v2-head--center">
+            <p class="eyebrow text-accent">Como funciona</p>
+            <h2 id="cf-processo-title">Três passos, sem complicação</h2>
+        </div>
+        <ol class="v2-grid v2-grid--3 v2-steps">
+            <li class="v2-card v2-step">
+                <h3>Diagnóstico gratuito</h3>
+                <p>Conversa de 20 a 30 minutos para entender o momento da empresa.</p>
+            </li>
+            <li class="v2-card v2-step">
+                <h3>Plano de ação</h3>
+                <p>Levantamento de dados e processos e um cronograma claro do que será feito.</p>
+            </li>
+            <li class="v2-card v2-step">
+                <h3>Implementação</h3>
+                <p>Estruturação financeira, painéis de controle e acompanhamento dos resultados.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<section class="v2-section" aria-labelledby="cf-cta-title">
+    <div class="v2-container">
+        <div class="v2-cta">
+            <div>
+                <h2 id="cf-cta-title">Vamos descobrir onde está o lucro da sua empresa?</h2>
+                <p>O diagnóstico inicial é gratuito e sem compromisso.</p>
+            </div>
+            <div class="v2-cta__actions">
+                <a class="btn btn--whatsapp" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Falar agora pelo WhatsApp</a>
+                <a class="btn btn--secondary" href="{% url 'pages:contato' %}">Preencher formulário</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

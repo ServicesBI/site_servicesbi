@@ -1,4 +1,4 @@
-﻿
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -40,25 +40,30 @@
     <link rel="stylesheet" href="/static/css/whatsapp-float.css">
     <link rel="stylesheet" href="/static/css/v2.css">
     
-<link rel="stylesheet" href="/static/css/pages/home.css">
-<link rel="stylesheet" href="/static/css/pages/python.css">
-<link rel="stylesheet" href="/static/css/pages/excel.css">
+<link rel="stylesheet" href="/static/css/pages/home-v3.css">
+
 
 </head>
 <body>
     <header class="site-header">
     <div class="site-header__inner">
         <a class="site-logo" href="/" aria-label="ServicesBI — página inicial">
-            Services<span>BI</span>
+            <img class="site-logo__mark site-logo__mark--claro" src="/static/img/brand/logo-servicesbi-claro-96.webp" alt="" width="44" height="44"><img class="site-logo__mark site-logo__mark--escuro" src="/static/img/brand/logo-servicesbi-escuro-96.webp" alt="" width="44" height="44">
+
+            <span class="site-logo__text">Services<span>BI</span></span>
         </a>
 
         
         <nav class="site-nav" aria-label="Menu principal">
-            <a class="" href="/consultoria-financeira/">Consultoria Financeira</a>
-            <a class="" href="/power-bi/">BI &amp; Dashboards</a>
-            <a href="/#ferramentas">Ferramentas</a>
-            <a href="/#cases">Cases</a>
-            <a class="" href="/sobre/">Sobre</a>
+            
+
+<a class="" href="/">Consultoria Financeira</a>
+<a class="" href="/power-bi/">BI &amp; Dashboards</a>
+<a class="" href="/produtos/">Nossos Produtos</a>
+<a class="" href="/cases/">Cases</a>
+<a class="" href="/sobre/">Sobre</a>
+
+
             <a class="site-nav__cta" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20agendar%20o%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener noreferrer">Diagnóstico gratuito</a>
         </nav>
         
@@ -73,330 +78,891 @@
 
     <main>
         
-<section class="service-hero excel-hero" aria-labelledby="excel-hero-title">
-    <div class="service-hero__inner">
-        <div class="service-hero__copy">
-            <p class="eyebrow text-accent">Excel</p>
-            <h1 class="section-title" id="excel-hero-title">Planilhas inteligentes para organizar dados e automatizar relatórios.</h1>
-            <p class="section-subtitle">
-                Excel avançado, VBA e Power Query para transformar planilhas frágeis em ferramentas confiáveis de controle, análise e produtividade.
-            </p>
-            <div class="service-hero__actions">
-                <a class="btn btn--primary" href="#excel-beneficios">Ver soluções</a>
-                <a class="btn btn--secondary" href="/contato/">Falar comigo</a>
+
+
+
+<!-- ===== 1. HERO ===== -->
+<section class="hv-hero" id="hvHero" aria-labelledby="hero-title">
+    <div class="hv-hero__pin">
+    <div class="hv-wrap hv-hero__grid">
+        <div class="hv-hero__copy">
+            <p class="hv-label hv-hero__eyebrow">— Consultoria financeira · Dados · Automação</p>
+            <h1 id="hero-title"><span>Sua empresa fatura.</span> <span>Falta enxergar <em>o lucro.</em></span></h1>
+            <p class="hv-hero__lead">Consultoria financeira com Business Intelligence e ferramentas próprias: caixa projetado, DRE gerencial e rotinas que deixam de depender de planilhas soltas.</p>
+            <div class="hv-hero__actions">
+                <a class="hv-btn hv-btn--primary" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20agendar%20o%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener noreferrer">Agendar diagnóstico gratuito →</a>
+                
             </div>
-            <ul class="service-hero__points" aria-label="Principais frentes em Excel">
-                <li>Planilhas inteligentes</li>
-                <li>VBA e macros</li>
-                <li>Power Query</li>
+            <ul class="hv-hero__trust" aria-label="Diferenciais">
+                
+                <li>
+                    <a class="hv-acard" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20agendar%20o%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener noreferrer">
+                        <img class="hv-acard__img hv-acard__img--claro" src="/static/img/home/cards/light/card04.webp" alt="" loading="lazy" width="800" height="738">
+                        <img class="hv-acard__img hv-acard__img--escuro" src="/static/img/home/cards/dark/card04.webp" alt="" loading="lazy" width="800" height="738">
+                        <span class="hv-acard__overlay" aria-hidden="true"></span>
+                        <span class="hv-acard__body">
+                            <span class="hv-acard__cat hv-acard__cat--linha">Diagnóstico inicial</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="hv-acard" href="/power-bi/">
+                        <img class="hv-acard__img hv-acard__img--claro" src="/static/img/home/cards/light/card02.webp" alt="" loading="lazy" width="800" height="738">
+                        <img class="hv-acard__img hv-acard__img--escuro" src="/static/img/home/cards/dark/card02.webp" alt="" loading="lazy" width="800" height="738">
+                        <span class="hv-acard__overlay" aria-hidden="true"></span>
+                        <span class="hv-acard__body">
+                            <span class="hv-acard__cat hv-acard__cat--linha">Análise de dados</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="hv-acard" href="/automacoes/">
+                        <img class="hv-acard__img hv-acard__img--claro" src="/static/img/home/cards/light/card03.webp" alt="" loading="lazy" width="800" height="738">
+                        <img class="hv-acard__img hv-acard__img--escuro" src="/static/img/home/cards/dark/card03.webp" alt="" loading="lazy" width="800" height="738">
+                        <span class="hv-acard__overlay" aria-hidden="true"></span>
+                        <span class="hv-acard__body">
+                            <span class="hv-acard__cat hv-acard__cat--linha">Automações</span>
+                        </span>
+                    </a>
+                </li>
+                
             </ul>
         </div>
 
-        <div class="excel-hero__media" aria-hidden="true">
-            <img
-                src="/static/img/excel/hero/hero_excel_light.webp"
-                alt="Representação visual de Excel avançado, planilhas e automação de relatórios"
-                class="excel-hero__image excel-hero__image--light"
-            >
+        <div class="hv-story" id="hvStory" data-step="4" role="figure" aria-label="Exemplo com dados fictícios: dados soltos viram DRE gerencial, indicadores e alerta de caixa">
+            <div class="hv-story__nav" role="group" aria-label="Etapas">
+                <button type="button" class="hv-story__tab" data-go="1">Dados<span class="hv-story__fill"></span></button>
+                <button type="button" class="hv-story__tab" data-go="2">Organização<span class="hv-story__fill"></span></button>
+                <button type="button" class="hv-story__tab" data-go="3">Indicadores<span class="hv-story__fill"></span></button>
+                <button type="button" class="hv-story__tab" data-go="4">Decisão<span class="hv-story__fill"></span></button>
+            </div>
+            <div class="hv-story__caps" aria-live="polite">
+                <p class="hv-story__cap" data-cap="1">Extrato, planilha, nota e boleto. Tudo existe, nada conversa. <span class="hv-story__hint">↓ role para organizar</span></p>
+                <p class="hv-story__cap" data-cap="2">Cada lançamento classificado na DRE gerencial.</p>
+                <p class="hv-story__cap" data-cap="3">Os mesmos números, agora como painel.</p>
+                <p class="hv-story__cap" data-cap="4">O alerta chega antes do aperto. Teste as saídas.</p>
 
-            <img
-                src="/static/img/excel/hero/hero_excel_dark.webp"
-                alt=""
-                class="excel-hero__image excel-hero__image--dark"
-            >
+            </div>
+            <div class="hv-story__stage">
+                <div class="hv-story__docs" aria-hidden="true">
+                    <span class="hv-story__doc" style="--x:-120px; --y:-215px; --r:-7deg;">extrato_banco.ofx<small>342 lançamentos</small></span>
+                    <span class="hv-story__doc" style="--x:110px; --y:-150px; --r:6deg;">vendas_out.xlsx<small>aba 3 de 7</small></span>
+                    <span class="hv-story__doc" style="--x:-135px; --y:-75px; --r:4deg;">NF-e 004.312<small>sem categoria</small></span>
+                    <span class="hv-story__doc" style="--x:105px; --y:-5px; --r:-5deg;">contas_a_pagar.csv<small>atualizado em set</small></span>
+                    <span class="hv-story__doc" style="--x:-110px; --y:80px; --r:-3deg;">folha_outubro.pdf<small>quanto foi?</small></span>
+                    <span class="hv-story__doc" style="--x:120px; --y:145px; --r:7deg;">boleto venc. 12/11<small>quem pagou?</small></span>
+                    <span class="hv-story__doc" style="--x:-40px; --y:215px; --r:-6deg;">caixa_loja_final(2).xlsx<small>qual é a certa?</small></span>
+
+                </div>
+
+                <div class="hv-story__folder">
+                    <div class="hv-story__foldertabs">
+                        <button type="button" class="hv-story__foldertab hv-story__foldertab--dre" data-go="2"><span class="hv-story__dot" aria-hidden="true"></span>DRE - Gerencial</button>
+                        <button type="button" class="hv-story__foldertab hv-story__foldertab--ind" data-go="3"><span class="hv-story__dot" aria-hidden="true"></span>Indicadores</button>
+                        <button type="button" class="hv-story__foldertab hv-story__foldertab--dec" data-go="4"><span class="hv-story__dot" aria-hidden="true"></span>Decisão</button>
+                    </div>
+                    <div class="hv-dre">
+                        <div class="hv-story__pane hv-story__pane--dre">
+                            <dl class="hv-dre__rows">
+                                
+                                <div class="hv-dre__row is-total" style="--i: 0;">
+                                    <dt>Receita bruta</dt>
+                                    <dd><span>1.248.300</span></dd>
+                                </div>
+                                
+                                <div class="hv-dre__row" style="--i: 1;">
+                                    <dt>(−) Deduções</dt>
+                                    <dd><span class="hv-dre__neg">−149.796</span></dd>
+                                </div>
+                                
+                                <div class="hv-dre__row is-total" style="--i: 2;">
+                                    <dt>Receita líquida</dt>
+                                    <dd><span>1.098.504</span></dd>
+                                </div>
+                                
+                                <div class="hv-dre__row" style="--i: 3;">
+                                    <dt>(−) Custos variáveis</dt>
+                                    <dd><span class="hv-dre__neg">−512.430</span></dd>
+                                </div>
+                                
+                                <div class="hv-dre__row is-total" style="--i: 4;">
+                                    <dt>Margem de contribuição</dt>
+                                    <dd><span>586.074</span></dd>
+                                </div>
+                                
+                                <div class="hv-dre__row" style="--i: 5;">
+                                    <dt>(−) Despesas fixas</dt>
+                                    <dd><span class="hv-dre__neg">−401.220</span></dd>
+                                </div>
+                                
+                                <div class="hv-dre__row is-total" style="--i: 6;">
+                                    <dt>Resultado operacional</dt>
+                                    <dd><span>184.854</span></dd>
+                                </div>
+                                
+                            </dl>
+                        </div>
+
+                        <div class="hv-story__pane hv-story__pane--ind">
+                            <div class="hv-kpis">
+                                <div class="hv-kpi">
+                                    <span class="hv-kpi__l">Margem contrib.</span>
+                                    <span class="hv-kpi__ring">
+                                        <svg width="32" height="32" viewBox="0 0 36 36" aria-hidden="true"><circle class="hv-kpi__track" cx="18" cy="18" r="15"/><circle class="hv-kpi__arc" cx="18" cy="18" r="15" style="--dash: 50.28;" transform="rotate(-90 18 18)"/></svg>
+                                        <span class="hv-kpi__v" data-n="53.4" data-suf="%">53,4%</span>
+                                    </span>
+                                    <span class="hv-kpi__s">da rec. líquida</span>
+                                </div>
+                                <div class="hv-kpi">
+                                    <span class="hv-kpi__l">Resultado</span>
+                                    <span class="hv-kpi__v" data-n="16.8" data-suf="%">16,8%</span>
+                                    <span class="hv-kpi__s">R$ 184,9 mil/mês</span>
+                                </div>
+                                <div class="hv-kpi">
+                                    <span class="hv-kpi__l">Equilíbrio</span>
+                                    <span class="hv-kpi__v">R$ 752 mil</span>
+                                    <span class="hv-kpi__s"><b>31,5% de folga</b></span>
+                                </div>
+                            </div>
+
+                            <div class="hv-wf">
+                                <div class="hv-wf__head"><span>Receita → resultado · R$ mil</span><b>sobra R$ 16,83 a cada R$ 100</b></div>
+                                <div class="hv-wf__chart" aria-hidden="true">
+                                    
+                                    <div class="hv-wf__col">
+                                        <i class="hv-wf__bar is-pos" style="bottom: 0.00%; height: 100.00%; --i: 0;"></i>
+                                        <em class="hv-wf__val" style="bottom: calc(100.00% + 4px); --i: 0;">1.099</em>
+                                    </div>
+                                    
+                                    <div class="hv-wf__col">
+                                        <i class="hv-wf__bar is-neg" style="bottom: 53.35%; height: 46.65%; --i: 1;"></i>
+                                        <em class="hv-wf__val" style="bottom: calc(100.00% + 4px); --i: 1;">−512</em>
+                                    </div>
+                                    
+                                    <div class="hv-wf__col">
+                                        <i class="hv-wf__bar is-pos" style="bottom: 0.00%; height: 53.35%; --i: 2;"></i>
+                                        <em class="hv-wf__val" style="bottom: calc(53.35% + 4px); --i: 2;">586</em>
+                                    </div>
+                                    
+                                    <div class="hv-wf__col">
+                                        <i class="hv-wf__bar is-neg" style="bottom: 16.83%; height: 36.52%; --i: 3;"></i>
+                                        <em class="hv-wf__val" style="bottom: calc(53.35% + 4px); --i: 3;">−401</em>
+                                    </div>
+                                    
+                                    <div class="hv-wf__col">
+                                        <i class="hv-wf__bar is-res" style="bottom: 0.00%; height: 16.83%; --i: 4;"></i>
+                                        <em class="hv-wf__val" style="bottom: calc(16.83% + 4px); --i: 4;">185</em>
+                                    </div>
+                                    
+                                </div>
+                                <div class="hv-wf__labels"><span>Receita líquida</span><span>Custos variáveis</span><span>Margem</span><span>Despesas fixas</span><span>Resultado</span></div>
+                            </div>
+
+                            <div class="hv-cash">
+                                <div class="hv-cash__head">
+                                    <span>Caixa · 12 semanas · R$ mil</span>
+                                    <span class="hv-cash__min-label">mínimo R$ 110 mil</span>
+                                </div>
+                                <div class="hv-cash__bars">
+                                    <div class="hv-cash__min" style="bottom: 45.83%;"></div>
+                                    
+                                    <div class="hv-cash__bar" style="height: 75.83%; --i: 0;"></div>
+                                    
+                                    <div class="hv-cash__bar" style="height: 81.67%; --i: 1;"></div>
+                                    
+                                    <div class="hv-cash__bar" style="height: 71.25%; --i: 2;"></div>
+                                    
+                                    <div class="hv-cash__bar" style="height: 78.33%; --i: 3;"></div>
+                                    
+                                    <div class="hv-cash__bar" style="height: 66.67%; --i: 4;"></div>
+                                    
+                                    <div class="hv-cash__bar" style="height: 57.50%; --i: 5;"></div>
+                                    
+                                    <div class="hv-cash__bar is-alert" style="height: 38.33%; --i: 6;"></div>
+                                    
+                                    <div class="hv-cash__bar" style="height: 50.42%; --i: 7;"></div>
+                                    
+                                    <div class="hv-cash__bar" style="height: 62.08%; --i: 8;"></div>
+                                    
+                                    <div class="hv-cash__bar" style="height: 72.50%; --i: 9;"></div>
+                                    
+                                    <div class="hv-cash__bar" style="height: 83.75%; --i: 10;"></div>
+                                    
+                                    <div class="hv-cash__bar" style="height: 94.17%; --i: 11;"></div>
+                                    
+                                </div>
+                                <div class="hv-cash__weeks" aria-hidden="true"><span>S1</span><span>S2</span><span>S3</span><span>S4</span><span>S5</span><span>S6</span><span>S7</span><span>S8</span><span>S9</span><span>S10</span><span>S11</span><span>S12</span></div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="hv-story__pane hv-story__pane--dec" id="hvDecisao">
+                            <div class="hv-dec__alert" aria-live="polite">
+                                <span class="hv-dec__ico" aria-hidden="true"><span class="hv-dec__ico-warn">!</span><span class="hv-dec__ico-ok">✓</span></span>
+                                <span class="hv-dec__msg">
+                                    <span class="hv-dec__when-warn"><b>Semana 7: caixa R$ 18 mil abaixo do mínimo</b><small>Sem ação, o caixa fura o mínimo em 4 semanas.</small></span>
+                                    <span class="hv-dec__when-ok"><b>Caixa protegido: semana 7 acima do mínimo</b><small>Decisão tomada 4 semanas antes do aperto.</small></span>
+                                </span>
+                                <span class="hv-dec__clock"><span class="hv-dec__when-warn"><strong>4 sem.</strong>para agir</span><span class="hv-dec__when-ok"><strong>OK</strong>resolvido</span></span>
+                            </div>
+
+                            <div class="hv-dec__chart">
+                                <div class="hv-dec__head"><span>Caixa projetado · R$ mil</span><span class="hv-dec__legend"><span><i class="is-ghost"></i>sem ação</span><span><i class="is-ok"></i>com a decisão</span></span></div>
+                                <div class="hv-dec__bars" aria-hidden="true">
+                                    <div class="hv-dec__min" style="bottom: 45.83%;"><span>mínimo 110</span></div>
+                                    
+                                    <div class="hv-dec__col">
+                                        <i class="hv-dec__ghost" style="height: 75.83%;"></i>
+                                        <i class="hv-dec__bar" style="height: 75.83%;"></i>
+                                        <em class="hv-dec__delta"></em>
+                                    </div>
+                                    
+                                    <div class="hv-dec__col">
+                                        <i class="hv-dec__ghost" style="height: 81.67%;"></i>
+                                        <i class="hv-dec__bar" style="height: 81.67%;"></i>
+                                        <em class="hv-dec__delta"></em>
+                                    </div>
+                                    
+                                    <div class="hv-dec__col">
+                                        <i class="hv-dec__ghost" style="height: 71.25%;"></i>
+                                        <i class="hv-dec__bar" style="height: 71.25%;"></i>
+                                        <em class="hv-dec__delta"></em>
+                                    </div>
+                                    
+                                    <div class="hv-dec__col">
+                                        <i class="hv-dec__ghost" style="height: 78.33%;"></i>
+                                        <i class="hv-dec__bar" style="height: 78.33%;"></i>
+                                        <em class="hv-dec__delta"></em>
+                                    </div>
+                                    
+                                    <div class="hv-dec__col">
+                                        <i class="hv-dec__ghost" style="height: 66.67%;"></i>
+                                        <i class="hv-dec__bar" style="height: 66.67%;"></i>
+                                        <em class="hv-dec__delta"></em>
+                                    </div>
+                                    
+                                    <div class="hv-dec__col">
+                                        <i class="hv-dec__ghost" style="height: 57.50%;"></i>
+                                        <i class="hv-dec__bar" style="height: 57.50%;"></i>
+                                        <em class="hv-dec__delta"></em>
+                                    </div>
+                                    
+                                    <div class="hv-dec__col">
+                                        <i class="hv-dec__ghost" style="height: 38.33%;"></i>
+                                        <i class="hv-dec__bar is-low" style="height: 38.33%;"></i>
+                                        <em class="hv-dec__delta"></em>
+                                    </div>
+                                    
+                                    <div class="hv-dec__col">
+                                        <i class="hv-dec__ghost" style="height: 50.42%;"></i>
+                                        <i class="hv-dec__bar" style="height: 50.42%;"></i>
+                                        <em class="hv-dec__delta"></em>
+                                    </div>
+                                    
+                                    <div class="hv-dec__col">
+                                        <i class="hv-dec__ghost" style="height: 62.08%;"></i>
+                                        <i class="hv-dec__bar" style="height: 62.08%;"></i>
+                                        <em class="hv-dec__delta"></em>
+                                    </div>
+                                    
+                                    <div class="hv-dec__col">
+                                        <i class="hv-dec__ghost" style="height: 72.50%;"></i>
+                                        <i class="hv-dec__bar" style="height: 72.50%;"></i>
+                                        <em class="hv-dec__delta"></em>
+                                    </div>
+                                    
+                                    <div class="hv-dec__col">
+                                        <i class="hv-dec__ghost" style="height: 83.75%;"></i>
+                                        <i class="hv-dec__bar" style="height: 83.75%;"></i>
+                                        <em class="hv-dec__delta"></em>
+                                    </div>
+                                    
+                                    <div class="hv-dec__col">
+                                        <i class="hv-dec__ghost" style="height: 94.17%;"></i>
+                                        <i class="hv-dec__bar" style="height: 94.17%;"></i>
+                                        <em class="hv-dec__delta"></em>
+                                    </div>
+                                    
+                                </div>
+                                <div class="hv-cash__weeks" aria-hidden="true"><span>S1</span><span>S2</span><span>S3</span><span>S4</span><span>S5</span><span>S6</span><span>S7</span><span>S8</span><span>S9</span><span>S10</span><span>S11</span><span>S12</span></div>
+                            </div>
+
+                            <div class="hv-dec__opts" role="group" aria-label="Simule a decisão">
+                                <span class="hv-dec__label">Simule a decisão</span>
+                                
+                                <button type="button" class="hv-dec__opt" role="switch" aria-checked="false" data-opcao="estoque" data-recomendado="1">
+                                    <span class="hv-dec__sw" aria-hidden="true"></span>
+                                    <span class="hv-dec__txt"><b>Adiar a compra de estoque em 2 semanas</b><span>+R$ 35 mil nas sem. 6 e 7 · custo R$ 0</span></span>
+                                    <span class="hv-dec__tag">recomendado</span>
+                                </button>
+                                
+                                <button type="button" class="hv-dec__opt" role="switch" aria-checked="false" data-opcao="fornecedor">
+                                    <span class="hv-dec__sw" aria-hidden="true"></span>
+                                    <span class="hv-dec__txt"><b>Renegociar prazo do fornecedor principal</b><span>+R$ 25 mil nas sem. 7 e 8 · custo R$ 0</span></span>
+                                    
+                                </button>
+                                
+                                <button type="button" class="hv-dec__opt" role="switch" aria-checked="false" data-opcao="recebiveis">
+                                    <span class="hv-dec__sw" aria-hidden="true"></span>
+                                    <span class="hv-dec__txt"><b>Antecipar recebíveis de cartão</b><span>+R$ 40 mil nas sem. 5 a 8 · taxa R$ 1,2 mil</span></span>
+                                    
+                                </button>
+                                
+                            </div>
+
+                            <div class="hv-dec__res">
+                                <div><span class="hv-dec__l">Menor caixa</span><span class="hv-dec__v is-bad" data-res="menor">R$ 92 mil</span></div>
+                                <div><span class="hv-dec__l">Semanas abaixo</span><span class="hv-dec__v is-bad" data-res="semanas">1</span></div>
+                                <div><span class="hv-dec__l">Custo</span><span class="hv-dec__v" data-res="custo">R$ 0</span></div>
+                            </div>
+                            <a class="hv-dec__cta" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20agendar%20o%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener noreferrer">Quero esse painel na minha empresa <span aria-hidden="true">→</span></a>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+
+<!-- ===== VITRINE: vídeo "Tudo sai de um só lugar" (no lugar da faixa de pastas) ===== -->
+<section class="hv-showcase" aria-labelledby="showcase-title">
+    <div class="hv-showcase__grid">
+        <div class="hv-showcase__copy">
+            <p class="hv-label hv-showcase__eyebrow">— Produtos e ferramentas</p>
+            <h2 class="hv-showcase__title" id="showcase-title">Tudo sai de <em>um só lugar.</em></h2>
+            <p class="hv-showcase__lead">Do SIGE saem os painéis, as automações e os modelos que organizam o financeiro da sua empresa. Teste a demonstração sem cadastro.</p>
+            <div class="hv-showcase__actions">
+                <a class="hv-btn hv-btn--primary" href="https://servicesbi.com.br/sige-demo/login/" data-sige-demo target="_blank" rel="noopener noreferrer">Testar demo do SIGE →</a>
+            </div>
+        </div>
+        <div class="hv-showcase__media">
+            <video class="hv-showcase__video" id="hvShowcaseVideo" muted loop playsinline preload="none" poster="/static/video/home/sige-loop-poster.jpg" width="1280" height="738" aria-label="Celular com o login do SIGE e pastas com dashboards girando em volta">
+                <source data-src="/static/video/home/sige-loop.mp4" type="video/mp4">
+            </video>
         </div>
     </div>
 </section>
 
-<section class="home-solutions" id="excel-beneficios" aria-labelledby="excel-beneficios-title">
-    <div class="home-solutions__header">
-        <p class="eyebrow text-accent">O que entregamos</p>
-        <h2 class="section-title" id="excel-beneficios-title">Excel como ferramenta de gestão, não só planilha.</h2>
-        <p class="section-subtitle">
-            Estruturas pensadas para reduzir erros, organizar bases e tornar a rotina de relatórios muito mais simples.
-        </p>
+
+
+<!-- ===== O QUE A SERVICESBI ENTREGA: pastas com os produtos e serviços ===== -->
+<section class="hv-entrega" aria-labelledby="entrega-title">
+    <div class="hv-entrega__head">
+        <div>
+            <p class="hv-label hv-entrega__eyebrow">— Serviços</p>
+            <h2 class="hv-entrega__title" id="entrega-title">O que a ServicesBI <em>entrega.</em></h2>
+        </div>
+        <p class="hv-entrega__lead">Do diagnóstico financeiro ao sistema rodando: escolha por onde começar. Passe o mouse numa pasta para abrir.</p>
     </div>
-
-    <div class="home-solutions__grid">
-        <article class="home-solution-card">
-            <div class="home-solution-card__media">
-                <img
-                    class="home-solution-card__image home-solution-card__image--light"
-                    src="/static/img/excel/cards/light/card01.webp"
-                    alt="Planilhas inteligentes em Excel"
-                    loading="lazy"
-                >
-                <img
-                    class="home-solution-card__image home-solution-card__image--dark"
-                    src="/static/img/excel/cards/dark/card01.webp"
-                    alt="Planilhas inteligentes em Excel"
-                    loading="lazy"
-                >
-            </div>
-            <div class="home-solution-card__body">
-                <p class="home-solution-card__eyebrow">Planilhas</p>
-                <h3 class="home-solution-card__title">Controles inteligentes</h3>
-                <p class="home-solution-card__text">Planilhas estruturadas para acompanhar indicadores, cadastros, rotinas e resultados.</p>
-                <a class="home-solution-card__link" href="/contato/">Saiba mais &rarr;</a>
-            </div>
-        </article>
-
-        <article class="home-solution-card">
-            <div class="home-solution-card__media">
-                <img
-                    class="home-solution-card__image home-solution-card__image--light"
-                    src="/static/img/excel/cards/light/card02.webp"
-                    alt="VBA e macros em Excel"
-                    loading="lazy"
-                >
-                <img
-                    class="home-solution-card__image home-solution-card__image--dark"
-                    src="/static/img/excel/cards/dark/card02.webp"
-                    alt="VBA e macros em Excel"
-                    loading="lazy"
-                >
-            </div>
-            <div class="home-solution-card__body">
-                <p class="home-solution-card__eyebrow">VBA</p>
-                <h3 class="home-solution-card__title">Macros e automações</h3>
-                <p class="home-solution-card__text">Botões, rotinas e validações para acelerar tarefas repetitivas dentro do Excel.</p>
-                <a class="home-solution-card__link" href="/contato/">Saiba mais &rarr;</a>
-            </div>
-        </article>
-
-        <article class="home-solution-card">
-            <div class="home-solution-card__media">
-                <img
-                    class="home-solution-card__image home-solution-card__image--light"
-                    src="/static/img/excel/cards/light/card03.webp"
-                    alt="Power Query para organização de dados"
-                    loading="lazy"
-                >
-                <img
-                    class="home-solution-card__image home-solution-card__image--dark"
-                    src="/static/img/excel/cards/dark/card03.webp"
-                    alt="Power Query para organização de dados"
-                    loading="lazy"
-                >
-            </div>
-            <div class="home-solution-card__body">
-                <p class="home-solution-card__eyebrow">Power Query</p>
-                <h3 class="home-solution-card__title">Bases limpas e atualizáveis</h3>
-                <p class="home-solution-card__text">Importação, tratamento e atualização de dados sem copiar e colar manualmente.</p>
-                <a class="home-solution-card__link" href="/contato/">Saiba mais &rarr;</a>
-            </div>
-        </article>
-
-        <article class="home-solution-card">
-            <div class="home-solution-card__media">
-                <img
-                    class="home-solution-card__image home-solution-card__image--light"
-                    src="/static/img/excel/cards/light/card04.webp"
-                    alt="Relatórios automáticos em Excel"
-                    loading="lazy"
-                >
-                <img
-                    class="home-solution-card__image home-solution-card__image--dark"
-                    src="/static/img/excel/cards/dark/card04.webp"
-                    alt="Relatórios automáticos em Excel"
-                    loading="lazy"
-                >
-            </div>
-            <div class="home-solution-card__body">
-                <p class="home-solution-card__eyebrow">Relatórios</p>
-                <h3 class="home-solution-card__title">Dashboards e fechamento</h3>
-                <p class="home-solution-card__text">Relatórios recorrentes com painéis, filtros, indicadores e arquivos prontos para gestão.</p>
-                <a class="home-solution-card__link" href="/contato/">Saiba mais &rarr;</a>
-            </div>
-        </article>
+    <div class="hv-entrega__grid">
+        
+        <a class="hv-folder hv-folder--grid" href="https://servicesbi.com.br/sige-demo/login/" data-sige-demo target="_blank" rel="noopener noreferrer" style="--img-claro: url('/static/img/home/portfolio/destaques/sige-servicesbi.webp'); --img-escuro: url('/static/img/home/portfolio/destaques/sige-servicesbi.webp');">
+            <span class="hv-folder__back" aria-hidden="true"></span><span class="hv-folder__tab" aria-hidden="true"></span>
+            <span class="hv-folder__sheet hv-folder__sheet--img" aria-hidden="true"></span>
+            <span class="hv-folder__sheet hv-folder__sheet--doc" aria-hidden="true"><span>ERP · demo aberta</span></span>
+            <span class="hv-folder__front">
+                
+                <span class="hv-folder__title">SIGE ServicesBI</span>
+                <span class="hv-folder__sub">ERP completo com demo</span>
+                <span class="hv-folder__btn hv-folder__btn--demo">Testar demo →</span>
+            </span>
+        </a>
+        
+        <a class="hv-folder hv-folder--grid" href="/jarvis/" style="--img-claro: url('/static/img/home/Services_Jarvis/orquestrador.webp'); --img-escuro: url('/static/img/home/Services_Jarvis/orquestrador.webp');">
+            <span class="hv-folder__back" aria-hidden="true"></span><span class="hv-folder__tab" aria-hidden="true"></span>
+            <span class="hv-folder__sheet hv-folder__sheet--img" aria-hidden="true"></span>
+            <span class="hv-folder__sheet hv-folder__sheet--doc" aria-hidden="true"><span>IA · em desenvolvimento</span></span>
+            <span class="hv-folder__front">
+                <span class="hv-folder__badge">em desenvolvimento</span>
+                <span class="hv-folder__title">Jarvis</span>
+                <span class="hv-folder__sub">Assistente operacional</span>
+                <span class="hv-folder__btn" aria-hidden="true">→</span>
+            </span>
+        </a>
+        
+        <a class="hv-folder hv-folder--grid" href="/power-bi/" style="--img-claro: url('/static/img/powerbi/hero/hero_powerbi_light.webp'); --img-escuro: url('/static/img/powerbi/hero/hero_powerbi_dark.webp');">
+            <span class="hv-folder__back" aria-hidden="true"></span><span class="hv-folder__tab" aria-hidden="true"></span>
+            <span class="hv-folder__sheet hv-folder__sheet--img" aria-hidden="true"></span>
+            <span class="hv-folder__sheet hv-folder__sheet--doc" aria-hidden="true"><span>Dashboards · BI</span></span>
+            <span class="hv-folder__front">
+                
+                <span class="hv-folder__title">Power BI</span>
+                <span class="hv-folder__sub">Painéis sob medida</span>
+                <span class="hv-folder__btn" aria-hidden="true">→</span>
+            </span>
+        </a>
+        
+        <a class="hv-folder hv-folder--grid" href="/automacoes/" style="--img-claro: url('/static/img/automacoes/hero/hero_automacoes_light.webp'); --img-escuro: url('/static/img/automacoes/hero/hero_automacoes_dark.webp');">
+            <span class="hv-folder__back" aria-hidden="true"></span><span class="hv-folder__tab" aria-hidden="true"></span>
+            <span class="hv-folder__sheet hv-folder__sheet--img" aria-hidden="true"></span>
+            <span class="hv-folder__sheet hv-folder__sheet--doc" aria-hidden="true"><span>n8n · fluxo</span></span>
+            <span class="hv-folder__front">
+                
+                <span class="hv-folder__title">Automações n8n</span>
+                <span class="hv-folder__sub">Rotinas sem retrabalho</span>
+                <span class="hv-folder__btn" aria-hidden="true">→</span>
+            </span>
+        </a>
+        
+        <a class="hv-folder hv-folder--grid" href="/python/" style="--img-claro: url('/static/img/python/hero/hero_python_light.webp'); --img-escuro: url('/static/img/python/hero/hero_python_dark.webp');">
+            <span class="hv-folder__back" aria-hidden="true"></span><span class="hv-folder__tab" aria-hidden="true"></span>
+            <span class="hv-folder__sheet hv-folder__sheet--img" aria-hidden="true"></span>
+            <span class="hv-folder__sheet hv-folder__sheet--doc" aria-hidden="true"><span>.py · sistema web</span></span>
+            <span class="hv-folder__front">
+                
+                <span class="hv-folder__title">Projetos em Python</span>
+                <span class="hv-folder__sub">Sistemas internos</span>
+                <span class="hv-folder__btn" aria-hidden="true">→</span>
+            </span>
+        </a>
+        
+        <a class="hv-folder hv-folder--grid" href="/excel/" style="--img-claro: url('/static/img/home/pastas/excel_dashboard.webp'); --img-escuro: url('/static/img/home/pastas/excel_dashboard.webp');">
+            <span class="hv-folder__back" aria-hidden="true"></span><span class="hv-folder__tab" aria-hidden="true"></span>
+            <span class="hv-folder__sheet hv-folder__sheet--img" aria-hidden="true"></span>
+            
+            <span class="hv-folder__front">
+                
+                <span class="hv-folder__title">Modelos em Excel</span>
+                <span class="hv-folder__sub">Planilhas prontas</span>
+                <span class="hv-folder__btn" aria-hidden="true">→</span>
+            </span>
+        </a>
+        
     </div>
 </section>
 
-<section class="home-portfolio python-projects" aria-labelledby="excel-projetos-title">
-    <div class="home-portfolio__head">
-        <div class="home-portfolio__intro">
-            <p class="eyebrow text-accent">Soluções</p>
-            <h2 class="section-title" id="excel-projetos-title">Planilhas para rotinas críticas.</h2>
-            <p class="section-subtitle">
-                Controles, relatórios e ferramentas internas estruturadas para reduzir erros e facilitar a gestão do dia a dia.
-            </p>
+
+
+<!-- ===== 01 DIAGNÓSTICO (autodiagnóstico interativo) ===== -->
+<section class="hv-diag" id="diagnostico" aria-labelledby="dores-title">
+    <div class="hv-diag__grid">
+        <div>
+            <p class="hv-label hv-diag__eyebrow">— Diagnóstico rápido</p>
+            <h2 class="hv-diag__title" id="dores-title">Quantos desses acontecem <em>na sua empresa?</em></h2>
+            <p class="hv-diag__lead">Marque o que você reconhece no seu dia a dia. Em 10 segundos você vê onde o financeiro está pedindo atenção.</p>
+            <div class="hv-diag__cards" data-diag-cards>
+                
+                <button class="hv-dor" type="button" aria-pressed="false">
+                    <span class="hv-dor__box" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>
+                    <span class="hv-dor__title">Não sei quanto vai sobrar no caixa</span>
+                    <span class="hv-dor__text">Você não sabe ao certo quanto vai sobrar ou faltar nos próximos 30, 60 ou 90 dias.</span>
+                    <span class="hv-dor__sol"><span><span>→ Caixa projetado para 12 semanas</span></span></span>
+                </button>
+                
+                <button class="hv-dor" type="button" aria-pressed="false">
+                    <span class="hv-dor__box" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>
+                    <span class="hv-dor__title">Decido no “achismo”</span>
+                    <span class="hv-dor__text">Sem DRE gerencial, não dá para saber quais produtos ou serviços dão lucro e quais dão prejuízo.</span>
+                    <span class="hv-dor__sol"><span><span>→ DRE gerencial e margem por produto</span></span></span>
+                </button>
+                
+                <button class="hv-dor" type="button" aria-pressed="false">
+                    <span class="hv-dor__box" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>
+                    <span class="hv-dor__title">Vivo de planilha manual</span>
+                    <span class="hv-dor__text">Vendas, estoque e financeiro em arquivos que não batem e geram retrabalho todo mês.</span>
+                    <span class="hv-dor__sol"><span><span>→ Dados integrados e rotinas automatizadas</span></span></span>
+                </button>
+                
+                <button class="hv-dor" type="button" aria-pressed="false">
+                    <span class="hv-dor__box" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>
+                    <span class="hv-dor__title">Cada área faz do seu jeito</span>
+                    <span class="hv-dor__text">Compras, comercial e estoque operam separados e acabam drenando o caixa.</span>
+                    <span class="hv-dor__sol"><span><span>→ Indicadores únicos para todas as áreas</span></span></span>
+                </button>
+                
+            </div>
+            <p class="hv-diag__hint">Clique nos cards para marcar</p>
+        </div>
+        <div class="hv-diag__folder">
+            <div class="hv-diag__tabs" role="tablist" aria-label="Resultado do diagnóstico">
+                <button type="button" class="hv-diag__tab is-on" role="tab" aria-selected="true" data-diag-tab="saude"><span class="hv-diag__dot" aria-hidden="true"></span>Saúde financeira</button>
+                <button type="button" class="hv-diag__tab" role="tab" aria-selected="false" data-diag-tab="solucao"><span class="hv-diag__dot" aria-hidden="true"></span>Solução<span class="hv-diag__badge" data-diag-badge hidden>0</span></button>
+            </div>
+            <div class="hv-diag__panel" aria-live="polite">
+                <div class="hv-diag__pane" data-diag-pane="saude" role="tabpanel">
+                    <p class="hv-diag__lab">Saúde financeira</p>
+                    <svg class="hv-gauge" viewBox="0 0 340 190" aria-hidden="true">
+                        <path class="hv-gauge__trk" d="M30 170 A140 140 0 0 1 310 170" fill="none" stroke-width="22" stroke-linecap="round"/>
+                        <path class="hv-gauge__val" data-diag-val d="M30 170 A140 140 0 0 1 310 170" fill="none" stroke-width="22" stroke-linecap="round" stroke-dasharray="440" stroke-dashoffset="440"/>
+                        <g class="hv-gauge__ndl" data-diag-ndl><line x1="170" y1="170" x2="170" y2="58" stroke-width="4" stroke-linecap="round"/><circle cx="170" cy="170" r="10"/></g>
+                    </svg>
+                    <div class="hv-gauge__scale"><span>0%</span><span>100%</span></div>
+                    <p class="hv-diag__count"><span data-diag-n>0</span><small>%</small></p>
+                    <span class="hv-diag__status" data-diag-status>Comece marcando</span>
+                    <p class="hv-diag__msg" data-diag-msg>Marque ao lado os sintomas que você reconhece na sua empresa.</p>
+                    <button type="button" class="hv-diag__see" data-diag-see hidden>Ver a solução para o seu caso →</button>
+                </div>
+                <div class="hv-diag__pane" data-diag-pane="solucao" role="tabpanel" hidden>
+                    <p class="hv-diag__lab">Como a ServicesBI resolve</p>
+                    <p class="hv-diag__empty" data-diag-empty>Marque ao lado um sintoma para ver o caminho da solução.</p>
+                    <ol class="hv-sol">
+                        
+                        <li class="hv-sol__item" data-diag-sol="0" hidden>
+                            <p class="hv-sol__head"><span class="hv-sol__n">01</span>Não sei quanto vai sobrar no caixa</p>
+                            <p class="hv-sol__step"><span class="hv-sol__k">O que fazemos</span>Montamos o fluxo de caixa projetado de 12 semanas com as contas reais a pagar e a receber.</p>
+                            <p class="hv-sol__step hv-sol__step--ok"><span class="hv-sol__k">Resultado</span>Você enxerga um aperto com semanas de antecedência e decide antes dele chegar.</p>
+                        </li>
+                        
+                        <li class="hv-sol__item" data-diag-sol="1" hidden>
+                            <p class="hv-sol__head"><span class="hv-sol__n">02</span>Decido no “achismo”</p>
+                            <p class="hv-sol__step"><span class="hv-sol__k">O que fazemos</span>Estruturamos a DRE gerencial e a margem de contribuição por produto e serviço.</p>
+                            <p class="hv-sol__step hv-sol__step--ok"><span class="hv-sol__k">Resultado</span>Você sabe o que dá lucro, o que dá prejuízo e onde cortar ou investir.</p>
+                        </li>
+                        
+                        <li class="hv-sol__item" data-diag-sol="2" hidden>
+                            <p class="hv-sol__head"><span class="hv-sol__n">03</span>Vivo de planilha manual</p>
+                            <p class="hv-sol__step"><span class="hv-sol__k">O que fazemos</span>Integramos vendas, estoque e financeiro e automatizamos a atualização dos números.</p>
+                            <p class="hv-sol__step hv-sol__step--ok"><span class="hv-sol__k">Resultado</span>Os números batem sozinhos e o fechamento deixa de levar dias.</p>
+                        </li>
+                        
+                        <li class="hv-sol__item" data-diag-sol="3" hidden>
+                            <p class="hv-sol__head"><span class="hv-sol__n">04</span>Cada área faz do seu jeito</p>
+                            <p class="hv-sol__step"><span class="hv-sol__k">O que fazemos</span>Definimos indicadores únicos e um painel compartilhado entre compras, comercial e estoque.</p>
+                            <p class="hv-sol__step hv-sol__step--ok"><span class="hv-sol__k">Resultado</span>Todas as áreas olham o mesmo número e o caixa para de vazar.</p>
+                        </li>
+                        
+                    </ol>
+                </div>
+            </div>
         </div>
     </div>
+</section>
 
-    <div class="python-projects__list">
-        <article class="python-project">
-            <div class="python-project__content">
-                <p class="python-project__tag">Financeiro</p>
-                <h3 class="python-project__title">Controle financeiro</h3>
-                <div class="python-project__text">
-                    <p>Planilha para acompanhar fluxo de caixa, categorias, previsões e resultado em uma estrutura clara e confiável.</p>
-                    <ul>
-                        <li>Lançamentos de entradas e saídas;</li>
-                        <li>categorização automática;</li>
-                        <li>saldo projetado;</li>
-                        <li>comparativo mensal;</li>
-                        <li>dashboard de resultado.</li>
-                    </ul>
-                </div>
-                <a class="btn btn--primary python-project__cta" href="/contato/">Ver solução</a>
-            </div>
-            <div class="python-project__media">
-                <img
-                    class="python-project__image python-project__image--light"
-                    src="/static/img/excel/cards/light/card01.webp"
-                    alt="Controle financeiro em Excel"
-                    loading="lazy"
-                >
-                <img
-                    class="python-project__image python-project__image--dark"
-                    src="/static/img/excel/cards/dark/card01.webp"
-                    alt="Controle financeiro em Excel"
-                    loading="lazy"
-                >
-            </div>
-        </article>
 
-        <article class="python-project python-project--reverse">
-            <div class="python-project__content">
-                <p class="python-project__tag">Operação</p>
-                <h3 class="python-project__title">Controle operacional</h3>
-                <div class="python-project__text">
-                    <p>Planilhas para acompanhar volumes, prazos, pendências, responsáveis e produtividade da equipe.</p>
-                    <ul>
-                        <li>Registro de tarefas e responsáveis;</li>
-                        <li>controle de prazos;</li>
-                        <li>status por área;</li>
-                        <li>métricas de produtividade;</li>
-                        <li>alertas visuais de atraso.</li>
-                    </ul>
-                </div>
-                <a class="btn btn--primary python-project__cta" href="/contato/">Conhecer</a>
-            </div>
-            <div class="python-project__media">
-                <img
-                    class="python-project__image python-project__image--light"
-                    src="/static/img/excel/cards/light/card02.webp"
-                    alt="Controle operacional em Excel"
-                    loading="lazy"
-                >
-                <img
-                    class="python-project__image python-project__image--dark"
-                    src="/static/img/excel/cards/dark/card02.webp"
-                    alt="Controle operacional em Excel"
-                    loading="lazy"
-                >
-            </div>
-        </article>
 
-        <article class="python-project">
-            <div class="python-project__content">
-                <p class="python-project__tag">Gestão</p>
-                <h3 class="python-project__title">Relatório gerencial</h3>
-                <div class="python-project__text">
-                    <p>Painéis e resumos automáticos para reuniões, fechamento mensal e análise por área com VBA.</p>
-                    <ul>
-                        <li>Consolidação de bases;</li>
-                        <li>tabelas dinâmicas estruturadas;</li>
-                        <li>gráficos atualizáveis;</li>
-                        <li>exportação automática;</li>
-                        <li>versões por período.</li>
-                    </ul>
-                </div>
-                <a class="btn btn--primary python-project__cta" href="/contato/">Ver relatório</a>
+<!-- ===== 02 GESTÃO COMERCIAL: Top 5 vendedores e painel de metas ===== -->
+<section class="hv-metas" id="metas" aria-labelledby="metas-title">
+    <div class="hv-metas__inner">
+        <div class="hv-metas__head">
+            <div>
+                <p class="hv-label hv-metas__eyebrow">— Gestão comercial</p>
+                <h2 class="hv-metas__title" id="metas-title">Quem bateu a meta? <em>Você vê na hora.</em></h2>
+                <p class="hv-metas__lead">Ranking de vendas por colaborador, com faturamento, meta e atingimento. Marque um vendedor para abrir o painel dele.</p>
             </div>
-            <div class="python-project__media">
-                <img
-                    class="python-project__image python-project__image--light"
-                    src="/static/img/excel/cards/light/card03.webp"
-                    alt="Relatório gerencial em Excel"
-                    loading="lazy"
-                >
-                <img
-                    class="python-project__image python-project__image--dark"
-                    src="/static/img/excel/cards/dark/card03.webp"
-                    alt="Relatório gerencial em Excel"
-                    loading="lazy"
-                >
+            <div class="hv-metas__tabs" role="group" aria-label="Mês" data-metas-tabs></div>
+        </div>
+        <div class="hv-metas__layout">
+            <div class="hv-top5">
+                <h3 class="hv-top5__title">Top 5 vendedores</h3>
+                <span class="hv-metas__k hv-top5__sub" data-metas-sub>Ranking por atingimento</span>
+                <div class="hv-top5__list" data-metas-list></div>
             </div>
-        </article>
-
-        <article class="python-project python-project--reverse">
-            <div class="python-project__content">
-                <p class="python-project__tag">Integração</p>
-                <h3 class="python-project__title">Excel conectado ao banco de dados</h3>
-                <div class="python-project__text">
-                    <p>Planilha com Power Query para importar, tratar e atualizar dados diretamente de bancos de dados e sistemas externos.</p>
-                    <ul>
-                        <li>Conexão com banco de dados;</li>
-                        <li>tratamento e limpeza automática;</li>
-                        <li>atualização com um clique;</li>
-                        <li>sem copiar e colar;</li>
-                        <li>dados sempre atualizados.</li>
-                    </ul>
-                </div>
-                <a class="btn btn--primary python-project__cta" href="/contato/">Ver solução</a>
+            <div class="hv-metas__right">
+                <article class="hv-vpanel" data-metas-panel aria-live="polite">
+                    <div class="hv-vpanel__who">
+                        <span class="hv-ph hv-ph--lg"><img data-p="foto" src="" alt="" width="132" height="132"></span>
+                        <span class="hv-vpanel__name" data-p="nome"></span>
+                        <span class="hv-vpanel__city" data-p="cidade"></span>
+                        <span class="hv-vpanel__rank" data-p="rank"></span>
+                    </div>
+                    <div class="hv-vpanel__nums">
+                        <div class="hv-vpanel__fat"><span class="hv-metas__k">Faturamento</span><span class="hv-vpanel__big" data-p="fat"></span></div>
+                        <div class="hv-vpanel__box"><span class="hv-metas__k">Meta</span><span class="hv-vpanel__v" data-p="meta"></span></div>
+                        <div class="hv-vpanel__box"><span class="hv-metas__k">Diferença</span><span class="hv-vpanel__v" data-p="dif"></span></div>
+                        <div class="hv-vpanel__box hv-vpanel__box--full"><span class="hv-metas__k">Variação contra o mês anterior</span><span class="hv-vpanel__v" data-p="mom"></span></div>
+                    </div>
+                    <div class="hv-vpanel__gauge">
+                        <span class="hv-metas__k">Atingimento</span>
+                        <svg viewBox="0 0 200 112" aria-hidden="true">
+                            <path class="hv-vg__trk" d="M16 100 A84 84 0 0 1 184 100" fill="none" stroke-width="14" stroke-linecap="round"/>
+                            <path class="hv-vg__val" data-p="gval" d="M16 100 A84 84 0 0 1 184 100" fill="none" stroke-width="14" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="264"/>
+                            <g class="hv-vg__ndl" data-p="gndl"><line x1="100" y1="100" x2="100" y2="40" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="100" r="6"/></g>
+                        </svg>
+                        <span class="hv-vg__scale"><span>0</span><span>120%</span></span>
+                        <span class="hv-vg__pct" data-p="pct"></span>
+                        <span class="hv-vg__st" data-p="st"></span>
+                    </div>
+                </article>
             </div>
-            <div class="python-project__media">
-                <img
-                    class="python-project__image python-project__image--light"
-                    src="/static/img/excel/cards/light/card04.webp"
-                    alt="Excel conectado ao banco de dados"
-                    loading="lazy"
-                >
-                <img
-                    class="python-project__image python-project__image--dark"
-                    src="/static/img/excel/cards/dark/card04.webp"
-                    alt="Excel conectado ao banco de dados"
-                    loading="lazy"
-                >
-            </div>
-        </article>
+        </div>
     </div>
 </section>
+
+
+
+<!-- ===== 03 FERRAMENTAS ===== -->
+<section class="hv-section hv-band hv-ferr" id="ferramentas" aria-labelledby="ferramentas-title">
+    <div class="hv-ferr__inner">
+        <div class="hv-ferr__head">
+            <div>
+                <p class="hv-label hv-ferr__eyebrow">— Nossos Produtos ServicesBI</p>
+                <h2 class="hv-ferr__title" id="ferramentas-title">Não só recomendamos.<br><em>Construímos as ferramentas.</em></h2>
+            </div>
+            <p class="hv-ferr__lead">Sistemas, robôs e modelos desenvolvidos por nós, para que a gestão financeira rode no dia a dia, e não só no relatório do consultor.</p>
+        </div>
+        
+
+        <div class="hv-ferr__grid">
+            
+            <article class="hv-tcard">
+                <div class="hv-tcard__media">
+                    <img class="hv-tcard__img hv-tcard__img--l" src="/static/img/home/portfolio/destaques/sige-servicesbi.webp" alt="" loading="lazy">
+                    <img class="hv-tcard__img hv-tcard__img--d" src="/static/img/home/portfolio/destaques/sige-servicesbi.webp" alt="" loading="lazy">
+                    <span class="hv-tcard__badge">Demo disponível</span>
+                </div>
+                <div class="hv-tcard__body">
+                    <p class="hv-tcard__kind">ERP · Gestão integrada</p>
+                    <h3 class="hv-tcard__title">SIGE</h3>
+                    <dl class="hv-tcard__dl">
+                        <dt>O que faz</dt><dd>Cadastros, compras, vendas, financeiro, estoque e fluxo de caixa no mesmo sistema.</dd>
+                        <dt>Para quem</dt><dd>Empresas que controlam a operação em planilhas e sistemas que não conversam entre si.</dd>
+                    </dl>
+                    <a class="hv-tcard__link" href="/produtos/#sige">Ver detalhes <span aria-hidden="true">→</span></a>
+                </div>
+            </article>
+            
+            <article class="hv-tcard">
+                <div class="hv-tcard__media">
+                    <img class="hv-tcard__img hv-tcard__img--l" src="/static/img/home/Services_Jarvis/orquestrador.webp" alt="" loading="lazy">
+                    <img class="hv-tcard__img hv-tcard__img--d" src="/static/img/home/Services_Jarvis/orquestrador.webp" alt="" loading="lazy">
+                    <span class="hv-tcard__badge">Em desenvolvimento</span>
+                </div>
+                <div class="hv-tcard__body">
+                    <p class="hv-tcard__kind">Assistente de IA</p>
+                    <h3 class="hv-tcard__title">Jarvis</h3>
+                    <dl class="hv-tcard__dl">
+                        <dt>O que faz</dt><dd>Assistente operacional para financeiro, documentos, e-mail e agenda.</dd>
+                        <dt>Para quem</dt><dd>Empresas que querem acesso antecipado como primeiros clientes.</dd>
+                    </dl>
+                    <a class="hv-tcard__link" href="/produtos/#jarvis">Ver detalhes <span aria-hidden="true">→</span></a>
+                </div>
+            </article>
+            
+            <article class="hv-tcard">
+                <div class="hv-tcard__media">
+                    <img class="hv-tcard__img hv-tcard__img--l" src="/static/img/automacoes/hero/hero_automacoes_light.webp" alt="" loading="lazy">
+                    <img class="hv-tcard__img hv-tcard__img--d" src="/static/img/automacoes/hero/hero_automacoes_dark.webp" alt="" loading="lazy">
+                    <span class="hv-tcard__badge">Sob medida</span>
+                </div>
+                <div class="hv-tcard__body">
+                    <p class="hv-tcard__kind">Python · n8n</p>
+                    <h3 class="hv-tcard__title">Automações n8n</h3>
+                    <dl class="hv-tcard__dl">
+                        <dt>O que faz</dt><dd>Relatórios enviados sozinhos por e-mail e WhatsApp, conciliação de planilhas e integração entre sistemas.</dd>
+                        <dt>Para quem</dt><dd>Equipes que perdem horas toda semana copiando e colando dados.</dd>
+                    </dl>
+                    <a class="hv-tcard__link" href="/produtos/#automacoes">Ver detalhes <span aria-hidden="true">→</span></a>
+                </div>
+            </article>
+            
+            <article class="hv-tcard">
+                <div class="hv-tcard__media">
+                    <img class="hv-tcard__img hv-tcard__img--l" src="/static/img/home/pastas/excel_dashboard.webp" alt="" loading="lazy">
+                    <img class="hv-tcard__img hv-tcard__img--d" src="/static/img/home/pastas/excel_dashboard.webp" alt="" loading="lazy">
+                    <span class="hv-tcard__badge">Templates prontos</span>
+                </div>
+                <div class="hv-tcard__body">
+                    <p class="hv-tcard__kind">Modelos financeiros</p>
+                    <h3 class="hv-tcard__title">Excel corporativo</h3>
+                    <dl class="hv-tcard__dl">
+                        <dt>O que faz</dt><dd>Fluxo de caixa, DRE e precificação com Power Query e VBA, prontos para usar no dia seguinte.</dd>
+                        <dt>Para quem</dt><dd>Quem precisa de controle financeiro agora, sem implantar um sistema.</dd>
+                    </dl>
+                    <a class="hv-tcard__link" href="/produtos/#excel">Ver detalhes <span aria-hidden="true">→</span></a>
+                </div>
+            </article>
+            
+        </div>
+
+
+        
+    </div>
+</section>
+
+
+
+<!-- ===== 04 CASES ===== -->
+<section class="hv-cases2" id="cases" aria-labelledby="cases-title">
+    <div class="hv-cases2__inner">
+        <div class="hv-cases2__head">
+            <p class="hv-label hv-cases2__eyebrow">— Cases</p>
+            <h2 class="hv-cases2__title" id="cases-title">Experiência real em <em>finanças e dados.</em></h2>
+            <p class="hv-cases2__lead">Projetos conduzidos em educação, saúde e instituições de grande porte, apresentados de forma anônima.</p>
+        </div>
+        <div class="hv-cases2__grid">
+            
+            <article class="hv-ccard">
+                <div class="hv-ccard__media">
+                    <img src="/static/img/home/portfolio/destaques/dashboard-financeiro.webp" alt="" loading="lazy">
+                    <span class="hv-ccard__badge">Dados ilustrativos</span>
+                </div>
+                <div class="hv-ccard__body">
+                    <p class="hv-ccard__tag">Educação · Financeiro</p>
+                    <h3 class="hv-ccard__title">Gestão financeira de uma instituição de ensino</h3>
+                    <dl class="hv-ccard__dl">
+                        <dt>Desafio</dt><dd>Receitas, inadimplência e contas a pagar e a receber em planilhas separadas, sem visão consolidada.</dd>
+                        <dt>O que foi feito</dt><dd>Painéis de receitas, inadimplência, fluxo de caixa e DRE, com projeções financeiras.</dd>
+                    </dl>
+                    <div class="hv-ccard__res">
+                        <span class="hv-ccard__k">Resultado</span>
+                        <p>Diretoria passou a decidir com base em indicadores consolidados.</p>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="hv-ccard">
+                <div class="hv-ccard__media">
+                    <img src="/static/img/home/portfolio/destaques/dashboard-compras.webp" alt="" loading="lazy">
+                    <span class="hv-ccard__badge">Dados ilustrativos</span>
+                </div>
+                <div class="hv-ccard__body">
+                    <p class="hv-ccard__tag">Saúde · Compras e suprimentos</p>
+                    <h3 class="hv-ccard__title">Indicadores de compras de um hospital</h3>
+                    <dl class="hv-ccard__dl">
+                        <dt>Desafio</dt><dd>Compras, contratos e fornecedores sem acompanhamento de saving, prazos e desempenho.</dd>
+                        <dt>O que foi feito</dt><dd>Controles e relatórios de compras, estoques, saving e desempenho de fornecedores.</dd>
+                    </dl>
+                    <div class="hv-ccard__res">
+                        <span class="hv-ccard__k">Resultado</span>
+                        <p>Negociações apoiadas em histórico e indicadores, e não em impressões.</p>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="hv-ccard">
+                <div class="hv-ccard__media">
+                    <img src="/static/img/home/portfolio/destaques/robos-python-operacional.webp" alt="" loading="lazy">
+                    <span class="hv-ccard__badge">Exemplo de fluxo</span>
+                </div>
+                <div class="hv-ccard__body">
+                    <p class="hv-ccard__tag">Instituição nacional · Dados e automação</p>
+                    <h3 class="hv-ccard__title">Consolidação de dados financeiros e automação</h3>
+                    <dl class="hv-ccard__dl">
+                        <dt>Desafio</dt><dd>Dados financeiros e acadêmicos espalhados e demandas manuais repetitivas.</dd>
+                        <dt>O que foi feito</dt><dd>Integração das bases, análises de inadimplência, receitas e orçamento, e rotinas automatizadas.</dd>
+                    </dl>
+                    <div class="hv-ccard__res">
+                        <span class="hv-ccard__k">Resultado</span>
+                        <p>Rotinas manuais transformadas em relatórios automáticos.</p>
+                    </div>
+                </div>
+            </article>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ===== QUEM CONDUZ ===== -->
+<section class="hv-soft hv-quem" id="sobre" aria-labelledby="sobre-title">
+    <div class="hv-quem__inner">
+        <div class="hv-quem__who">
+            <div class="hv-quem__photo">
+                <img src="/static/img/sobre/leles.webp" alt="Leles Júnior, fundador da ServicesBI" width="300" height="300" loading="lazy">
+            </div>
+            <p class="hv-quem__name">Júnior Leles <span>|</span> Tech &amp; Data</p>
+            <ul class="hv-quem__bio">
+                <li><span class="hv-quem__ico" aria-hidden="true">🚀</span><span><b>Founder</b> @servicesbi</span></li>
+                <li><span class="hv-quem__ico" aria-hidden="true">💻</span><span><b>Dev Software</b> &amp; Data Analyst</span></li>
+                <li><span class="hv-quem__ico" aria-hidden="true">📊</span><span><b>Especialista</b> em Finanças</span></li>
+            </ul>
+        </div>
+        <div class="hv-quem__text">
+            <p class="hv-label hv-quem__eyebrow">— Quem conduz a ServicesBI</p>
+            <h2 class="hv-quem__title" id="sobre-title">Finanças e tecnologia <em>na mesma mesa.</em></h2>
+            <p>Sou Leles Júnior, fundador da ServicesBI. Formado em Gestão Financeira e em Análise de Dados, uno duas áreas que costumam trabalhar separadas: quem entende de caixa, margem e resultado, e quem transforma dados em sistemas, painéis e automações.</p>
+            <p>Na prática, quem analisa os seus números é o mesmo profissional que constrói a solução. Organizo as finanças, conecto os dados do seu sistema e das suas planilhas, desenvolvo as ferramentas e entrego indicadores claros para sua tomada de decisão.</p>
+            <div class="hv-quem__pillars">
+                <div class="hv-quem__pill"><div class="hv-quem__pic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><h3>Gestão financeira</h3><p>Fluxo de caixa, DRE gerencial, margens, custos e metas.</p></div>
+                <div class="hv-quem__pill"><div class="hv-quem__pic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="12" width="4" height="8" rx="1"/><rect x="10" y="7" width="4" height="13" rx="1"/><rect x="17" y="3" width="4" height="17" rx="1"/></svg></div><h3>Dados &amp; BI</h3><p>Power BI, SQL e modelagem de dados para decidir com indicadores.</p></div>
+                <div class="hv-quem__pill"><div class="hv-quem__pic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9l-4 3 4 3"/><path d="M16 9l4 3-4 3"/><path d="M13 5l-2 14"/></svg></div><h3>Sistemas &amp; automação</h3><p>Python, Django e n8n para tirar o trabalho manual da rotina.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ===== 06 COMO TRABALHAMOS ===== -->
+<section class="hv-section" id="processo" aria-labelledby="processo-title">
+    <div class="hv-wrap">
+        <div class="hv-head">
+            <div>
+                <p class="hv-label">06 — Como trabalhamos</p>
+                <h2 class="hv-h2" id="processo-title">Do primeiro contato ao acompanhamento mensal.</h2>
+            </div>
+            <p>Cada etapa tem escopo e prazo definidos. Você decide se segue para a próxima.</p>
+        </div>
+        <ol class="hv-steps">
+            <li class="hv-step"><div class="hv-step__meta"><span>Etapa 1</span><span>30 min</span></div><h3>Diagnóstico gratuito</h3><p>Conversa objetiva para entender o momento da empresa e os principais gargalos.</p><p class="hv-step__price">Sem custo</p></li>
+            <li class="hv-step"><div class="hv-step__meta"><span>Etapa 2</span><span>1–2 semanas</span></div><h3>Raio-X Financeiro</h3><p>Análise de caixa, custos e margens, com relatório de prioridades.</p><p class="hv-step__price">Sob consulta</p></li>
+            <li class="hv-step"><div class="hv-step__meta"><span>Etapa 3</span><span>até 30 dias</span></div><h3>Implantação</h3><p>Fluxo de caixa projetado, DRE gerencial e painel em Power BI ou no SIGE.</p><p class="hv-step__price">Sob consulta</p></li>
+            <li class="hv-step"><div class="hv-step__meta"><span>Etapa 4</span><span>Mensal</span></div><h3>Acompanhamento</h3><p>Reunião de resultados, manutenção dos indicadores e das ferramentas.</p><p class="hv-step__price">Recorrente</p></li>
+        </ol>
+    </div>
+</section>
+
+
+
+<!-- ===== 07 MATERIAL GRATUITO ===== -->
+<section class="hv-wrap" style="padding-bottom: 104px;" aria-labelledby="isca-title">
+    <div class="hv-lead">
+        <div>
+            <p class="hv-label">Material gratuito</p>
+            <h2 id="isca-title">Planilha de fluxo de caixa projetado para 12 semanas.</h2>
+            <p>O mesmo modelo que usamos nos diagnósticos. Veja com antecedência a semana em que o caixa aperta.</p>
+        </div>
+        <a class="hv-btn hv-btn--outline" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20receber%20a%20planilha%20gratuita%20de%20fluxo%20de%20caixa%20projetado." target="_blank" rel="noopener noreferrer">Receber pelo WhatsApp</a>
+    </div>
+</section>
+
+
+
+<!-- ===== CTA FINAL ===== -->
+<section class="hv-cta" id="contato" aria-labelledby="cta-title">
+    <div class="hv-wrap hv-cta__grid">
+        <h2 id="cta-title">Assuma o controle dos números da sua empresa.</h2>
+        <div class="hv-cta__side">
+            <p>Solicite uma análise inicial sem compromisso. Em 30 minutos mostramos onde estão as oportunidades de ganho e economia.</p>
+            <div class="hv-cta__actions">
+                <a class="hv-btn hv-btn--cta" href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20agendar%20o%20diagn%C3%B3stico%20financeiro%20gratuito." target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
+                <a class="hv-btn hv-btn--band" href="/contato/">Preencher formulário</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
 
     </main>
 
-    <footer class="v2-footer">
+    <footer class="v2-footer v2-footer--simples">
     <div class="v2-container">
-        <div class="v2-footer__grid">
-            <div class="v2-footer__brand">
-                <a class="site-logo" href="/">Services<span>BI</span></a>
-                <p>Consultoria financeira com inteligência de dados e ferramentas próprias.</p>
-            </div>
-
-            <nav aria-labelledby="footer-solucoes">
-                <h2 id="footer-solucoes">Soluções</h2>
-                <ul>
-                    <li><a href="/consultoria-financeira/">Consultoria Financeira</a></li>
-                    <li><a href="/power-bi/">BI &amp; Dashboards</a></li>
-                    <li><a href="/automacoes/">Automação de Processos</a></li>
-                    <li><a href="/python/">Python &amp; Integrações</a></li>
-                </ul>
-            </nav>
-
-            <nav aria-labelledby="footer-ferramentas">
-                <h2 id="footer-ferramentas">Ferramentas</h2>
-                <ul>
-                    <li><a href="/sige-servicesbi/">SIGE</a></li>
-                    <li><a href="/automacoes/">Automações</a></li>
-                    <li><a href="/excel/">Modelos financeiros</a></li>
-                    <li><a href="/jarvis/">Jarvis</a></li>
-                    <li><a href="/sobre/">Sobre</a> · <a href="/curriculo/">Currículo</a></li>
-                </ul>
-            </nav>
-
-            <div aria-labelledby="footer-contato">
-                <h2 id="footer-contato">Contato</h2>
-                <ul>
-                    <li><a href="https://wa.me/5561993029988?text=Ol%C3%A1%20Leles%2C%20vi%20o%20site%20da%20ServicesBI%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20financeira." target="_blank" rel="noopener noreferrer">WhatsApp: (61) 99302-9988</a></li>
-                    <li><a href="mailto:servicesbi.ltda@gmail.com">servicesbi.ltda@gmail.com</a></li>
-                    <li><a href="https://www.linkedin.com/in/jrleles/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="/contato/">Formulário de contato</a></li>
-                </ul>
-            </div>
+        <div class="v2-footer__brand">
+            <a class="site-logo" href="/" aria-label="ServicesBI — página inicial"><img class="site-logo__mark site-logo__mark--claro" src="/static/img/brand/logo-servicesbi-claro-96.webp" alt="" width="44" height="44"><img class="site-logo__mark site-logo__mark--escuro" src="/static/img/brand/logo-servicesbi-escuro-96.webp" alt="" width="44" height="44">
+<span class="site-logo__text">Services<span>BI</span></span></a>
+            <p>Consultoria financeira com inteligência de dados e ferramentas próprias.</p>
         </div>
+        <nav class="v2-footer__links" aria-label="Rodapé">
+            
 
-        <p class="v2-footer__meta">© 2026 ServicesBI · Leles Júnior. Todos os direitos reservados.</p>
+<a class="" href="/">Consultoria Financeira</a>
+<a class="" href="/power-bi/">BI &amp; Dashboards</a>
+<a class="" href="/produtos/">Nossos Produtos</a>
+<a class="" href="/cases/">Cases</a>
+<a class="" href="/sobre/">Sobre</a>
+
+
+        </nav>
+        <div class="v2-footer__base">
+            <p class="v2-footer__meta">© 2026 ServicesBI. Todos os direitos reservados.</p>
+            <ul class="v2-footer__social" aria-label="Redes sociais">
+                <li><a href="https://www.linkedin.com/in/jrleles/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+                <li><a href="https://www.instagram.com/servicesbi.ltda/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.86 5.86 0 0 0-2.13 1.38A5.86 5.86 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13a5.86 5.86 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.86 5.86 0 0 0 2.13-1.38 5.86 5.86 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.86 5.86 0 0 0-1.38-2.13A5.86 5.86 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a></li>
+                <li><a href="https://github.com/ServicesBI" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.82-.26.82-.57v-2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg></a></li>
+                <li><a href="https://wa.me/5561985749988" target="_blank" rel="noopener" aria-label="WhatsApp (61) 98574-9988" title="WhatsApp (61) 98574-9988"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg></a></li>
+            </ul>
+        </div>
     </div>
 </footer>
 
@@ -407,5 +973,133 @@
     </a>
     <script src="/static/js/theme.js"></script>
     
+<script id="hvDecisaoDados" type="application/json">{"semanas": [182, 196, 171, 188, 160, 138, 92, 121, 149, 174, 201, 226], "minimo": 110, "escala": 240, "opcoes": [{"id": "estoque", "efeito": {"6": 35, "7": 35}, "custo": 0}, {"id": "fornecedor", "efeito": {"7": 25, "8": 25}, "custo": 0}, {"id": "recebiveis", "efeito": {"5": 40, "6": 40, "7": 40, "8": 40, "9": 20, "10": -1.2, "11": -1.2, "12": -1.2}, "custo": 1.2}]}</script>
+<script src="/static/js/home-story.js" defer></script>
+<script>
+/* Testando no computador (127.0.0.1 / localhost): os links da demo do SIGE vão para o SIGE local na porta 8001.
+   No site publicado nada muda e continua indo para servicesbi.com.br/sige-demo/. */
+(function () {
+    var h = location.hostname;
+    if (h !== "127.0.0.1" && h !== "localhost") return;
+    document.querySelectorAll("[data-sige-demo]").forEach(function (a) { a.href = "http://127.0.0.1:8001/login/"; });
+})();
+</script>
+<script>
+/* Vídeo da vitrine: só carrega quando a seção aparece; respeita "reduzir movimento". */
+(function () {
+    var v = document.getElementById("hvShowcaseVideo");
+    if (!v) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;   // fica só a imagem parada
+    function carregar() {
+        var src = v.querySelector("source[data-src]");
+        if (src) { src.src = src.getAttribute("data-src"); src.removeAttribute("data-src"); v.load(); }
+    }
+    if (!("IntersectionObserver" in window)) { carregar(); v.play().catch(function () {}); return; }
+    new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) { carregar(); v.play().catch(function () {}); } else { v.pause(); }
+        });
+    }, { rootMargin: "200px 0px", threshold: 0.15 }).observe(v);
+})();
+</script>
+<script>
+/* Autodiagnóstico: cada card marcado soma 25%. Abas de pasta: Saúde financeira e Solução. */
+(function () {
+    var root = document.querySelector(".hv-diag"); if (!root) return;
+    var q = function (s) { return root.querySelector(s); };
+    var cards = [].slice.call(root.querySelectorAll(".hv-dor")), total = cards.length;
+    var sols = [].slice.call(root.querySelectorAll("[data-diag-sol]"));
+    var tabs = [].slice.call(root.querySelectorAll("[data-diag-tab]"));
+    var val = q("[data-diag-val]"), ndl = q("[data-diag-ndl]"), nEl = q("[data-diag-n]"), st = q("[data-diag-status]");
+    var msg = q("[data-diag-msg]"), cta = q("[data-diag-cta]"), see = q("[data-diag-see]"), badge = q("[data-diag-badge]"), empty = q("[data-diag-empty]");
+    var R = {
+        0: ["Comece marcando", "Marque ao lado os sintomas que você reconhece na sua empresa."],
+        ok: ["Sob controle", "Poucos sintomas. Dá para ajustar cedo, antes de virar problema."],
+        warn: ["Atenção", "Já tem dinheiro escapando sem você ver. Vale agir agora."],
+        bad: ["Alerta", "Seu financeiro está no escuro. Vamos acender a luz juntos."]
+    };
+    function aba(nome) {
+        tabs.forEach(function (t) { var on = t.getAttribute("data-diag-tab") === nome; t.classList.toggle("is-on", on); t.setAttribute("aria-selected", on); });
+        root.querySelectorAll("[data-diag-pane]").forEach(function (p) { p.hidden = p.getAttribute("data-diag-pane") !== nome; });
+        root.setAttribute("data-tab", nome);
+    }
+    function upd() {
+        var on = cards.map(function (c) { return c.classList.contains("is-on"); });
+        var n = on.filter(Boolean).length, pct = Math.round(n / total * 100);
+        var lvl = n === 0 ? "0" : pct <= 50 ? "ok" : pct <= 75 ? "warn" : "bad";
+        val.style.strokeDashoffset = 440 - 440 * n / total;
+        ndl.style.transform = "rotate(" + (-90 + 180 * n / total) + "deg)";
+        nEl.textContent = pct; st.textContent = R[lvl][0]; msg.textContent = R[lvl][1];
+        root.setAttribute("data-level", lvl);
+        if (cta) cta.classList.toggle("is-off", n === 0); see.hidden = n === 0;
+        badge.hidden = n === 0; badge.textContent = n;
+        sols.forEach(function (s, i) { s.hidden = !on[i]; }); empty.hidden = n > 0;
+    }
+    cards.forEach(function (c) { c.addEventListener("click", function () {
+        c.classList.toggle("is-on"); c.setAttribute("aria-pressed", c.classList.contains("is-on")); upd(); }); });
+    tabs.forEach(function (t) { t.addEventListener("click", function () { aba(t.getAttribute("data-diag-tab")); }); });
+    see.addEventListener("click", function () { aba("solucao"); });
+    aba("saude"); upd();
+})();
+</script>
+<script id="hvMetasDados" type="application/json">{"meses": ["Setembro", "Outubro", "Novembro"], "vendedores": [{"nome": "Caroline Mendes", "cidade": "Porto Alegre \u00b7 RS", "foto": "/static/img/home/vendedores/caroline.webp", "fat": [2610, 2770, 3080], "meta": [2700, 2750, 2840]}, {"nome": "Rafael Souza", "cidade": "Curitiba \u00b7 PR", "foto": "/static/img/home/vendedores/rafael.webp", "fat": [2480, 2350, 2540], "meta": [2400, 2500, 2600]}, {"nome": "Juliana Alves", "cidade": "Florian\u00f3polis \u00b7 SC", "foto": "/static/img/home/vendedores/juliana.webp", "fat": [2010, 2290, 2420], "meta": [2300, 2300, 2400]}, {"nome": "Marcos Lima", "cidade": "S\u00e3o Paulo \u00b7 SP", "foto": "/static/img/home/vendedores/marcos.webp", "fat": [2350, 2120, 1840], "meta": [2300, 2350, 2450]}, {"nome": "Mariana Sato", "cidade": "Belo Horizonte \u00b7 MG", "foto": "/static/img/home/vendedores/mariana.webp", "fat": [1980, 2150, 2330], "meta": [2100, 2200, 2250]}]}</script>
+<script>
+/* Painel de metas: Top 5 vendedores + painel do vendedor marcado */
+(function () {
+    var root = document.querySelector(".hv-metas"), dataEl = document.getElementById("hvMetasDados");
+    if (!root || !dataEl) return;
+    var D = JSON.parse(dataEl.textContent), V = D.vendedores, M = D.meses;
+    var list = root.querySelector("[data-metas-list]"), tabs = root.querySelector("[data-metas-tabs]");
+    var panel = root.querySelector("[data-metas-panel]"), sub = root.querySelector("[data-metas-sub]");
+    var P = {}; panel.querySelectorAll("[data-p]").forEach(function (e) { P[e.getAttribute("data-p")] = e; });
+    var m = M.length - 1, sel = 0;
+    function brl(v) { return v >= 1000 ? "R$ " + (v / 1000).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " Mi" : "R$ " + v.toLocaleString("pt-BR") + " Mil"; }
+    function pct(p) { return p.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + "%"; }
+    function lvl(p) { return p >= 100 ? ["ok", "No rumo"] : p >= 85 ? ["warn", "Atenção"] : ["bad", "Abaixo"]; }
+    var check = '<span class="hv-vend__chk" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>';
+    M.forEach(function (nome, i) {
+        var b = document.createElement("button"); b.type = "button"; b.textContent = nome;
+        b.addEventListener("click", function () { m = i; render(false); }); tabs.appendChild(b);
+    });
+    var rows = V.map(function (v, i) {
+        var b = document.createElement("button"); b.type = "button"; b.className = "hv-vend";
+        b.innerHTML = check + '<span class="hv-ph"><img src="' + v.foto + '" alt="" width="54" height="54" loading="lazy"><span class="hv-ph__n"></span></span>' +
+            '<span class="hv-vend__info"><span class="hv-vend__name">' + v.nome + '</span><span class="hv-vend__bar"><span class="hv-vend__mini"><i></i></span><span class="hv-vend__pct"></span></span></span>' +
+            '<span class="hv-vend__fat"></span>';
+        b.addEventListener("click", function () { sel = i; render(true); }); list.appendChild(b); return b;
+    });
+    function render(swap) {
+        var r = V.map(function (v, i) {
+            var f = v.fat[m], meta = v.meta[m], prev = m ? v.fat[m - 1] : null, p = f / meta * 100;
+            return { i: i, v: v, f: f, meta: meta, prev: prev, p: p, l: lvl(p) };
+        });
+        r.slice().sort(function (a, b) { return b.p - a.p; }).forEach(function (x, n) { x.rank = n + 1; });
+        r.forEach(function (x) {
+            var b = rows[x.i]; b.style.order = x.rank; b.setAttribute("data-lvl", x.l[0]);
+            b.classList.toggle("is-on", x.i === sel); b.setAttribute("aria-pressed", x.i === sel);
+            b.querySelector(".hv-ph__n").textContent = x.rank;
+            b.querySelector(".hv-vend__mini i").style.width = Math.min(x.p, 120) / 1.2 + "%";
+            b.querySelector(".hv-vend__pct").textContent = pct(x.p);
+            b.querySelector(".hv-vend__fat").innerHTML = brl(x.f) + "<small>meta " + brl(x.meta) + "</small>";
+        });
+        var x = r[sel]; panel.setAttribute("data-lvl", x.l[0]);
+        P.foto.src = x.v.foto; P.foto.alt = "Foto de " + x.v.nome;
+        P.nome.textContent = x.v.nome; P.cidade.textContent = x.v.cidade; P.rank.textContent = "Rank #" + x.rank;
+        P.fat.textContent = brl(x.f); P.meta.textContent = brl(x.meta);
+        var d = x.f - x.meta; P.dif.textContent = (d >= 0 ? "+" : "−") + brl(Math.abs(d)); P.dif.className = "hv-vpanel__v " + (d >= 0 ? "is-pos" : "is-neg");
+        if (x.prev) { var mo = (x.f / x.prev - 1) * 100; P.mom.textContent = (mo >= 0 ? "▲ " : "▼ ") + pct(Math.abs(mo)); P.mom.className = "hv-vpanel__v " + (mo >= 0 ? "is-pos" : "is-neg"); }
+        else { P.mom.textContent = "—"; P.mom.className = "hv-vpanel__v"; }
+        var fr = Math.min(x.p, 120) / 120;
+        P.gval.style.strokeDashoffset = 264 - 264 * fr; P.gndl.style.transform = "rotate(" + (-90 + 180 * fr) + "deg)";
+        P.pct.textContent = pct(x.p); P.st.textContent = x.l[1];
+        sub.textContent = "Ranking por atingimento · " + M[m];
+        [].forEach.call(tabs.children, function (b, i) { b.classList.toggle("is-on", i === m); b.setAttribute("aria-pressed", i === m); });
+        if (swap) { panel.classList.remove("is-swap"); void panel.offsetWidth; panel.classList.add("is-swap"); }
+    }
+    render(false);
+})();
+</script>
+
+
 </body>
 </html>

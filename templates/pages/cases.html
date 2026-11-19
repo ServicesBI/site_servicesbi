@@ -1,0 +1,324 @@
+{% extends "pages/modelo_consultoria.html" %}
+{# Página Cases. Começou como cópia da página BI & Dashboards; ajustar o conteúdo a partir daqui. #}
+
+{% block title %}Cases | ServicesBI{% endblock %}
+{% block meta_description %}Projetos de finanças, BI e automação conduzidos pela ServicesBI, apresentados de forma anônima.{% endblock %}
+{% block schema %}{% endblock schema %}
+
+{% block hero_eyebrow %}— BI &amp; Dashboards · Power BI{% endblock hero_eyebrow %}
+{% block hero_titulo %}<span>Do ERP e das planilhas</span> <span>para <em>um painel só.</em></span>{% endblock hero_titulo %}
+{% block hero_lead %}Dashboards em Power BI conectados ao seu sistema, planilhas e banco de dados. Faturamento, margem, caixa e metas atualizados sozinhos, num lugar só, auxiliando no seu processo de decisão.{% endblock hero_lead %}
+{% block hero_cta2 %}<a class="hv-btn hv-btn--ghost" href="#entrega-title">Ver nossos dashboards ↓</a>{% endblock hero_cta2 %}
+{% block story_passo_1 %}Fontes{% endblock story_passo_1 %}
+{% block story_passo_2 %}Modelagem{% endblock story_passo_2 %}
+{% block story_passo_3 %}Painel{% endblock story_passo_3 %}
+{% block story_passo_4 %}Decisão{% endblock story_passo_4 %}
+
+{% block story_caps %}
+                <p class="hv-story__cap" data-cap="1">Banco de dados, ERP, Excel e API. Cada fonte num formato, nada conversa. <span class="hv-story__hint">↓ role para organizar</span></p>
+                <p class="hv-story__cap" data-cap="2">Dados limpos (ETL) e relacionados num modelo único.</p>
+                <p class="hv-story__cap" data-cap="3">O mesmo modelo, agora como painel.</p>
+                <p class="hv-story__cap" data-cap="4">O alerta chega antes do fim do mês. Teste as saídas.</p>
+{% endblock story_caps %}
+
+{% block story_docs %}
+                    <span class="hv-story__doc hv-bisrc" style="--x:-120px; --y:-215px; --r:-6deg;"><svg viewBox="0 0 24 24" fill="none" stroke="#2F6690" stroke-width="1.6"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span>SQL Server · vendas<small>1,2 mi de linhas</small></span></span>
+                    <span class="hv-story__doc hv-bisrc" style="--x:115px; --y:-150px; --r:5deg;"><svg viewBox="0 0 24 24" fill="none" stroke="#A9561A" stroke-width="1.6"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg><span>ERP SIGE · API<small>pedidos e estoque</small></span></span>
+                    <span class="hv-story__doc hv-bisrc" style="--x:-130px; --y:-75px; --r:3deg;"><svg viewBox="0 0 24 24" fill="none" stroke="#336791" stroke-width="1.6"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg><span>PostgreSQL · financeiro<small>contas a pagar</small></span></span>
+                    <span class="hv-story__doc hv-bisrc" style="--x:110px; --y:-5px; --r:-4deg;"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="#1D6F42"/><path d="M8 8l8 8M16 8l-8 8" stroke="#fff" stroke-width="2"/></svg><span>vendas_2026.xlsx<small>7 abas</small></span></span>
+                    <span class="hv-story__doc hv-bisrc" style="--x:-110px; --y:80px; --r:-3deg;"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" fill="#0F9D58"/><path d="M8 9h8M8 13h8M8 17h8M12 9v8" stroke="#fff" stroke-width="1.4"/></svg><span>Google Sheets · metas<small>atualizado à mão</small></span></span>
+                    <span class="hv-story__doc hv-bisrc" style="--x:120px; --y:145px; --r:6deg;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5M9 13h8M9 17h8"/></svg><span>extrato_banco.csv<small>sem padrão</small></span></span>
+                    <span class="hv-story__doc hv-bisrc" style="--x:-40px; --y:215px; --r:-5deg;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5M9 12h4"/></svg><span>cadastro_clientes.txt<small>duplicados?</small></span></span>
+{% endblock story_docs %}
+
+{% block story_folder %}
+                <div class="hv-story__folder">
+                    <div class="hv-story__foldertabs">
+                        <button type="button" class="hv-story__foldertab hv-story__foldertab--dre" data-go="2"><span class="hv-story__dot" aria-hidden="true"></span>Modelo · Vendas</button>
+                        <button type="button" class="hv-story__foldertab hv-story__foldertab--ind" data-go="3"><span class="hv-story__dot" aria-hidden="true"></span>Painel comercial</button>
+                        <button type="button" class="hv-story__foldertab hv-story__foldertab--dec" data-go="4"><span class="hv-story__dot" aria-hidden="true"></span>Decisão</button>
+                    </div>
+                    <div class="hv-dre">
+                        <!-- 2 · Modelo estrela -->
+                        <div class="hv-story__pane hv-story__pane--dre">
+                            <div class="hv-bim">
+                                <svg class="hv-bim__links" aria-hidden="true"><line x1="50%" y1="45%" x2="22%" y2="16%"/><line x1="50%" y1="45%" x2="78%" y2="16%"/><line x1="50%" y1="45%" x2="22%" y2="72%"/><line x1="50%" y1="45%" x2="78%" y2="72%"/></svg>
+                                <div class="hv-bim__tb" style="left:4%; top:4%; --i:1;"><h4>dCalendário</h4><ul><li class="is-key">Data</li><li>Mês <span>texto</span></li><li>Ano <span>int</span></li></ul></div>
+                                <div class="hv-bim__tb" style="right:4%; top:4%; --i:2;"><h4>dCliente</h4><ul><li class="is-key">ID_Cliente</li><li>Cidade <span>texto</span></li><li>Segmento <span>texto</span></li></ul></div>
+                                <div class="hv-bim__tb hv-bim__tb--fato" style="--i:0;"><h4>fVendas</h4><ul><li>Data <span>→ dCalendário</span></li><li>ID_Cliente <span>→ dCliente</span></li><li>ID_Produto <span>→ dProduto</span></li><li>ID_Vendedor <span>→ dVendedor</span></li><li>Valor <span>R$</span></li></ul></div>
+                                <div class="hv-bim__tb" style="left:4%; top:59%; --i:3;"><h4>dProduto</h4><ul><li class="is-key">ID_Produto</li><li>Categoria <span>texto</span></li><li>Custo <span>R$</span></li></ul></div>
+                                <div class="hv-bim__tb" style="right:4%; top:59%; --i:4;"><h4>dVendedor</h4><ul><li class="is-key">ID_Vendedor</li><li>Região <span>texto</span></li><li>Meta <span>R$</span></li></ul></div>
+                                <div class="hv-bim__etl"><span>✓ 7 fontes conectadas</span><span>✓ 4.812 duplicados removidos</span><span>✓ tipos padronizados</span><span>✓ atualização diária 06:00</span></div>
+                            </div>
+                        </div>
+                        <!-- 3 · Painel comercial -->
+                        <div class="hv-story__pane hv-story__pane--ind">
+                            <div class="hv-bip__kpis">
+                                <div><span class="hv-bip__l">Faturamento</span><span class="hv-bip__v">R$ 2,84 Mi</span><span class="hv-bip__s is-up">▲ 8,2% vs out</span></div>
+                                <div><span class="hv-bip__l">Ticket médio</span><span class="hv-bip__v">R$ 1.240</span><span class="hv-bip__s is-up">▲ 3,1%</span></div>
+                                <div><span class="hv-bip__l">Margem</span><span class="hv-bip__v">38,6%</span><span class="hv-bip__s is-dn">▼ 1,4 p.p.</span></div>
+                                <div><span class="hv-bip__l">Meta do mês</span><span class="hv-bip__v">92%</span><span class="hv-bip__s">faltam 8 dias</span></div>
+                            </div>
+                            <div class="hv-bip__charts">
+                                <div class="hv-bip__ch"><div class="hv-bip__t"><span>Faturamento · R$ mil</span><span>2026</span></div>
+                                    <div class="hv-bip__cols">
+                                        <div style="--h:52%; --i:0;"><i>jun</i></div><div style="--h:58%; --i:1;"><i>jul</i></div><div style="--h:55%; --i:2;"><i>ago</i></div><div style="--h:66%; --i:3;"><i>set</i></div><div style="--h:72%; --i:4;"><i>out</i></div><div class="is-cur" style="--h:78%; --i:5;"><i>nov</i></div>
+                                        <span class="hv-bip__meta"><span>meta</span></span>
+                                    </div>
+                                </div>
+                                <div class="hv-bip__ch"><div class="hv-bip__t"><span>Meta por região</span></div>
+                                    <div class="hv-bip__reg">
+                                        <div><span>Sudeste</span><span class="hv-bip__bar"><i style="--w:100%;"></i></span><b>104%</b></div>
+                                        <div><span>Centro</span><span class="hv-bip__bar"><i style="--w:97%;"></i></span><b>97%</b></div>
+                                        <div><span>Nordeste</span><span class="hv-bip__bar"><i style="--w:91%;"></i></span><b>91%</b></div>
+                                        <div class="is-bad"><span>Sul</span><span class="hv-bip__bar"><i style="--w:78%;"></i></span><b>78%</b></div>
+                                        <div><span>Norte</span><span class="hv-bip__bar"><i style="--w:88%;"></i></span><b>88%</b></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 4 · Decisão -->
+                        <div class="hv-story__pane hv-story__pane--dec hv-bid" id="hvBiDecisao" data-base="468" data-meta="600">
+                            <div class="hv-bid__alert"><span class="hv-bid__ic" aria-hidden="true">!</span><span><b data-bid="titulo">Meta da região Sul em risco</b><small data-bid="sub">78% da meta com 8 dias para fechar o mês</small></span><span class="hv-bid__st" data-bid="falta">−R$ 132 mil<small>para a meta</small></span></div>
+                            <div class="hv-bid__proj"><div class="hv-bid__lg"><span>Projeção de fechamento · região Sul</span><span>meta R$ 600 mil</span></div>
+                                <div class="hv-bid__track"><span class="hv-bid__base" style="width:78%"></span><span class="hv-bid__new" data-bid="barra" style="width:78%"></span></div>
+                                <div class="hv-bid__lg"><span data-bid="proj">R$ 468 mil projetado</span><span>100%</span></div></div>
+                            <p class="hv-bid__k">Simule a decisão</p>
+                            <div class="hv-bid__opts">
+                                <button type="button" class="hv-bid__opt" role="switch" aria-checked="false" data-v="70" data-c="4" data-rec="1"><span class="hv-bid__sw" aria-hidden="true"></span><span><b>Campanha de recompra para a carteira inativa</b><small>+R$ 70 mil · custo R$ 4 mil</small></span><em>recomendado</em></button>
+                                <button type="button" class="hv-bid__opt" role="switch" aria-checked="false" data-v="65" data-c="0"><span class="hv-bid__sw" aria-hidden="true"></span><span><b>Ajustar mix: priorizar produtos de maior margem</b><small>+R$ 65 mil · custo R$ 0</small></span></button>
+                                <button type="button" class="hv-bid__opt" role="switch" aria-checked="false" data-v="30" data-c="2"><span class="hv-bid__sw" aria-hidden="true"></span><span><b>Remanejar 2 vendedores do Sudeste por 1 semana</b><small>+R$ 30 mil · custo R$ 2 mil</small></span></button>
+                            </div>
+                            <div class="hv-bid__foot"><div><span>Projeção</span><b data-bid="fp">R$ 468 mil</b></div><div><span>Atingimento</span><b data-bid="fa">78%</b></div><div><span>Custo</span><b data-bid="fc">R$ 0</b></div></div>
+                            <a class="hv-dec__cta hv-bid__cta" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Quero esse painel na minha empresa <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                </div>
+{% endblock story_folder %}
+
+{% block extra_js_pagina %}
+<script>
+/* Página de BI: simulador da etapa "Decisão" (meta da região Sul) */
+(function () {
+    var p = document.getElementById("hvBiDecisao"), story = document.getElementById("hvStory"); if (!p || !story) return;
+    var base = +p.getAttribute("data-base"), meta = +p.getAttribute("data-meta"), mexeu = false, t = null;
+    var opts = [].slice.call(p.querySelectorAll(".hv-bid__opt"));
+    var q = function (k) { return p.querySelector('[data-bid="' + k + '"]'); };
+    function render() {
+        var on = opts.filter(function (o) { return o.getAttribute("aria-checked") === "true"; });
+        var v = base + on.reduce(function (a, o) { return a + +o.getAttribute("data-v"); }, 0);
+        var c = on.reduce(function (a, o) { return a + +o.getAttribute("data-c"); }, 0);
+        var pct = Math.round(v / meta * 100), ok = v >= meta;
+        q("barra").style.width = Math.min(pct, 100) + "%";
+        q("proj").textContent = "R$ " + v + " mil projetado";
+        q("fp").textContent = "R$ " + v + " mil"; q("fa").textContent = pct + "%"; q("fc").textContent = c ? "R$ " + c + " mil" : "R$ 0";
+        p.classList.toggle("is-ok", ok);
+        q("titulo").textContent = ok ? "Meta da região Sul garantida" : "Meta da região Sul em risco";
+        q("sub").textContent = ok ? "Decisão tomada 8 dias antes do fechamento" : pct + "% da meta com 8 dias para fechar o mês";
+        q("falta").innerHTML = ok ? "OK<small>meta batida</small>" : "−R$ " + (meta - v) + " mil<small>para a meta</small>";
+        story.classList.toggle("hv-dec--ok", on.length > 0);
+    }
+    opts.forEach(function (o) { o.addEventListener("click", function () {
+        mexeu = true; clearTimeout(t); o.setAttribute("aria-checked", o.getAttribute("aria-checked") === "true" ? "false" : "true"); render(); }); });
+    new MutationObserver(function () {
+        if (mexeu) return; clearTimeout(t);
+        if (story.getAttribute("data-step") === "4") t = setTimeout(function () {
+            var rec = p.querySelector('[data-rec="1"]'), mix = opts[1];
+            rec.setAttribute("aria-checked", "true"); mix.setAttribute("aria-checked", "true"); render(); }, 1500);
+        else { opts.forEach(function (o) { o.setAttribute("aria-checked", "false"); }); render(); }
+    }).observe(story, { attributes: true, attributeFilter: ["data-step"] });
+    render();
+})();
+</script>
+<script>
+/* Página de BI: janela "Como construímos o seu painel" (avança sozinha quando aparece na tela) */
+(function () {
+    var sec = document.getElementById("processo-bi"); if (!sec) return;
+    var tabs = [].slice.call(sec.querySelectorAll("[data-proc-tabs] button")), steps = [].slice.call(sec.querySelectorAll("[data-proc-steps] li"));
+    var phs = [].slice.call(sec.querySelectorAll(".hv-pwin__ph")), st = sec.querySelector("[data-proc-st]");
+    var ST = { 1: "● conectado", 2: "● transformando", 3: "● calculando medidas", 4: "● publicado" }, t = null, rodando = false, MS = 4600;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function go(n, auto) {
+        phs.forEach(function (p) { p.classList.toggle("is-on", +p.getAttribute("data-p") === n); });
+        [tabs, steps].forEach(function (l) { l.forEach(function (e, i) { e.classList.toggle("is-on", i + 1 === n); e.classList.toggle("is-done", i + 1 < n); }); });
+        st.textContent = ST[n];
+        tabs.forEach(function (b, i) { var pg = b.querySelector("span"); pg.style.transition = "none"; pg.style.width = i + 1 < n ? "100%" : "0%";
+            if (i + 1 === n && auto) { void pg.offsetWidth; pg.style.transition = "width " + (dur(n) - 100) + "ms linear"; pg.style.width = "100%"; } });
+        clearTimeout(t); historia(n === 4);
+        if (auto) t = setTimeout(function () { go(n % 4 + 1, true); }, dur(n));
+    }
+    var dash = sec.querySelector(".hv-pwin__ph--dash"), ht = [];
+    function dur(n) { return n === 4 ? 12500 : MS; }
+    function historia(on) {
+        ht.forEach(clearTimeout); ht = []; dash.setAttribute("data-story", "0");
+        if (!on) return;
+        [2200, 5000, 7800].forEach(function (ms, i) { ht.push(setTimeout(function () { dash.setAttribute("data-story", String(i + 1)); }, reduce ? 0 : ms)); });
+    }
+    [].concat(tabs, steps).forEach(function (e) { e.addEventListener("click", function () { rodando = true; go(+e.getAttribute("data-s"), false); }); });
+    if (reduce || !("IntersectionObserver" in window)) { go(4, false); return; }
+    go(1, false);
+    new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting && !rodando) { rodando = true; go(1, true); } }); }, { threshold: 0.4 }).observe(sec);
+})();
+</script>
+<script>
+/* Página de BI: clicar numa pasta abre o dashboard em tamanho grande */
+(function () {
+    var links = document.querySelectorAll(".hv-entrega [data-zoom]"); if (!links.length || !window.HTMLDialogElement) return;
+    var dlg = document.createElement("dialog"); dlg.className = "hv-zoom";
+    dlg.innerHTML = '<button type="button" class="hv-zoom__x" aria-label="Fechar">×</button><p class="hv-zoom__t"></p><img alt=""><div class="hv-zoom__live"><iframe title="" allowfullscreen loading="lazy"></iframe></div><a class="hv-zoom__open" target="_blank" rel="noopener noreferrer">Abrir em tela cheia ↗</a>';
+    document.body.appendChild(dlg);
+    var img = dlg.querySelector("img"), tit = dlg.querySelector(".hv-zoom__t"), live = dlg.querySelector(".hv-zoom__live"), ifr = dlg.querySelector("iframe"), abrir = dlg.querySelector(".hv-zoom__open");
+    links.forEach(function (a) { a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var escuro = document.documentElement.classList.contains("theme-dark"), embed = a.getAttribute("data-embed"), nome = a.getAttribute("data-zoom-titulo");
+        tit.textContent = nome;
+        if (embed) {
+            img.hidden = true; live.hidden = false; abrir.hidden = false; abrir.href = embed;
+            ifr.title = "Dashboard interativo: " + nome; if (ifr.src !== embed) ifr.src = embed;
+        } else {
+            live.hidden = true; abrir.hidden = true; img.hidden = false;
+            img.src = escuro ? a.getAttribute("data-zoom-escuro") : a.getAttribute("data-zoom"); img.alt = "Dashboard: " + nome;
+        }
+        dlg.showModal(); }); });
+    dlg.querySelector(".hv-zoom__x").addEventListener("click", function () { dlg.close(); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+})();
+</script>
+{% endblock extra_js_pagina %}
+
+{% block secao_vitrine %}
+<!-- ===== PROCESSO: como construímos o seu painel (página de BI) ===== -->
+<section class="hv-proc" id="processo-bi" aria-labelledby="proc-title">
+    <div class="hv-proc__grid">
+        <div class="hv-proc__copy">
+            <p class="hv-label hv-proc__eyebrow">— Nosso processo · Power BI</p>
+            <h2 class="hv-proc__title" id="proc-title">Como construímos o seu painel. <em>Em dias, com cada número conferido.</em></h2>
+            <p class="hv-proc__lead">Conectamos as fontes, limpamos os dados e montamos o modelo utilizando o MCP conectado ao Power BI. Você acompanha cada fase e recebe o painel pronto para usar.</p>
+            <ol class="hv-proc__steps" data-proc-steps>
+                <li data-s="1"><b>1</b><span>Conexão com banco de dados<small>SQL Server, ERP, planilhas e APIs</small></span></li>
+                <li data-s="2"><b>2</b><span>ETL<small>Limpeza e padronização no Power Query</small></span></li>
+                <li data-s="3"><b>3</b><span>Medidas DAX<small>Indicadores calculados com apoio de IA e validados por especialista</small></span></li>
+                <li data-s="4"><b>4</b><span>Dashboard<small>Painel publicado e atualizado sozinho</small></span></li>
+            </ol>
+        </div>
+
+        <div class="hv-pwin" aria-label="Exemplo das fases de construção de um painel">
+            <div class="hv-pwin__bar"><i></i><i></i><i></i><span>servicesbi · projeto_vendas.pbip</span><em data-proc-st>● conectado</em></div>
+            <div class="hv-pwin__tabs" data-proc-tabs>
+                <button type="button" data-s="1">1 · Conexão<span></span></button><button type="button" data-s="2">2 · ETL<span></span></button><button type="button" data-s="3">3 · Medidas DAX<span></span></button><button type="button" data-s="4">4 · Dashboard<span></span></button>
+            </div>
+            <div class="hv-pwin__body">
+                <div class="hv-pwin__ph" data-p="1">
+                    <p class="hv-pwin__lbl">Fontes de dados</p>
+                    <div class="hv-pwin__conn">
+                        <div class="hv-pwin__ln" style="--d:0">SQL Server · <b>vendas</b><small>1,2 mi linhas</small><span>✓</span></div>
+                        <div class="hv-pwin__ln" style="--d:1">ERP SIGE · <b>API pedidos</b><small>atualiza 06:00</small><span>✓</span></div>
+                        <div class="hv-pwin__ln" style="--d:2">PostgreSQL · <b>financeiro</b><small>14 tabelas</small><span>✓</span></div>
+                        <div class="hv-pwin__ln" style="--d:3">Excel · <b>metas_2026.xlsx</b><small>OneDrive</small><span>✓</span></div>
+                    </div>
+                    <div class="hv-pwin__code hv-pwin__ln" style="--d:4"><span class="k">SELECT</span> data, id_cliente, id_produto, valor
+<span class="k">FROM</span>   vendas.pedidos
+<span class="k">WHERE</span>  data &gt;= <span class="s">'2024-01-01'</span>;  <span class="c">-- 1.204.338 linhas</span></div>
+                </div>
+                <div class="hv-pwin__ph" data-p="2">
+                    <p class="hv-pwin__lbl">Power Query · tratamento</p>
+                    <div class="hv-pwin__code"><span class="hv-pwin__ln" style="--d:0"><span class="k">let</span></span>
+<span class="hv-pwin__ln" style="--d:1">  Fonte     = <span class="f">Sql.Database</span>(<span class="s">"srv01"</span>, <span class="s">"vendas"</span>),</span>
+<span class="hv-pwin__ln" style="--d:2">  SemDuplic = <span class="f">Table.Distinct</span>(Fonte, {<span class="s">"id_pedido"</span>}),</span>
+<span class="hv-pwin__ln" style="--d:3">  Tipos     = <span class="f">Table.TransformColumnTypes</span>(SemDuplic, &#123;&#123;<span class="s">"valor"</span>, Currency.Type&#125;&#125;),</span>
+<span class="hv-pwin__ln" style="--d:4">  Limpo     = <span class="f">Table.SelectRows</span>(Tipos, <span class="k">each</span> [valor] &gt; 0)</span>
+<span class="hv-pwin__ln" style="--d:5"><span class="k">in</span> Limpo</span></div>
+                    <div class="hv-pwin__res"><span class="hv-pwin__ln" style="--d:6">✓ 4.812 duplicados removidos</span><span class="hv-pwin__ln" style="--d:7">✓ tipos padronizados</span><span class="hv-pwin__ln" style="--d:8">✓ 312 linhas inválidas filtradas</span></div>
+                </div>
+                <div class="hv-pwin__ph hv-pwin__ph--dax" data-p="3">
+                    <div class="hv-pdax">
+                        <div class="hv-pdax__tree">
+                            <p class="hv-pwin__lbl">Tabela Medidas</p>
+                            <ul>
+                                <li class="hv-pdax__dir">▾ Vendas</li>
+                                <li class="hv-pwin__ln" style="--d:0"><i>ƒx</i>Faturamento</li>
+                                <li class="hv-pwin__ln" style="--d:1"><i>ƒx</i>Ticket médio</li>
+                                <li class="hv-pdax__dir">▾ Margem</li>
+                                <li class="hv-pwin__ln" style="--d:2"><i>ƒx</i>Custo</li>
+                                <li class="hv-pwin__ln is-sel" style="--d:3"><i>ƒx</i>Margem %</li>
+                                <li class="hv-pdax__dir">▾ Tempo</li>
+                                <li class="hv-pwin__ln" style="--d:4"><i>ƒx</i>Faturamento MoM %</li>
+                                <li class="hv-pwin__ln" style="--d:5"><i>ƒx</i>Faturamento YTD</li>
+                            </ul>
+                        </div>
+                        <div class="hv-pdax__main">
+                            <div class="hv-pwin__code hv-pdax__code"><span class="hv-pwin__ln" style="--d:3"><span class="c">-- Margem de contribuição sobre o faturamento</span></span>
+<span class="hv-pwin__ln" style="--d:4">Margem % =</span>
+<span class="hv-pwin__ln" style="--d:5"><span class="f">DIVIDE</span>(</span>
+<span class="hv-pwin__ln" style="--d:6">    [Faturamento] - [Custo],</span>
+<span class="hv-pwin__ln" style="--d:7">    [Faturamento]</span>
+<span class="hv-pwin__ln" style="--d:8">)</span></div>
+                            <div class="hv-pwin__code hv-pdax__code hv-pwin__ln" style="--d:9">Faturamento MoM % =
+<span class="k">VAR</span> Atual    = [Faturamento]
+<span class="k">VAR</span> Anterior = <span class="f">CALCULATE</span>( [Faturamento], <span class="f">DATEADD</span>( dCalendário[Data], -1, <span class="k">MONTH</span> ) )
+<span class="k">RETURN</span> <span class="f">DIVIDE</span>( Atual - Anterior, Anterior )</div>
+                            <div class="hv-pdax__check">
+                                <span class="hv-pwin__ln" style="--d:10">Margem % <b>38,6%</b></span>
+                                <span class="hv-pwin__ln" style="--d:11">MoM <b>+8,2%</b></span>
+                                <span class="hv-pwin__seal hv-pwin__ln" style="--d:12">✓ valores conferidos com a fonte</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hv-pwin__ph hv-pwin__ph--dash" data-p="4">
+                    <div class="hv-pdash__head hv-pwin__pop" style="--d:0">
+                        <span class="hv-pdash__title">Painel comercial <small>· novembro 2026</small></span>
+                        <span class="hv-pdash__slicers"><span>Ano: 2026 ▾</span><span>Região: Todas ▾</span><span>Vendedor: Todos ▾</span></span>
+                    </div>
+                    <div class="hv-pwin__kpis">
+                        <div class="hv-pwin__pop" data-hl="1" style="--d:1"><small>Faturamento</small><b>R$ 2,84 Mi</b><em class="is-up">▲ 8,2% vs out</em>
+                            <svg class="hv-pdash__spark" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,18 20,15 40,16 60,10 80,8 100,4"/></svg></div>
+                        <div class="hv-pwin__pop" data-hl="2" style="--d:2"><small>Margem %</small><b>38,6%</b><em class="is-dn">▼ 1,4 p.p.</em>
+                            <svg class="hv-pdash__spark" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,8 20,6 40,9 60,7 80,11 100,13"/></svg></div>
+                        <div class="hv-pwin__pop" style="--d:3"><small>Ticket médio</small><b>R$ 1.240</b><em class="is-up">▲ 3,1%</em>
+                            <svg class="hv-pdash__spark" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,16 20,14 40,15 60,12 80,11 100,9"/></svg></div>
+                        <div class="hv-pwin__pop" style="--d:4"><small>Meta do mês</small><b>92%</b><em>faltam 8 dias</em>
+                            <span class="hv-pdash__meter"><i style="width:92%"></i></span></div>
+                    </div>
+                    <div class="hv-pwin__charts">
+                        <div class="hv-pwin__pop" style="--d:5"><small>Faturamento por mês · R$ mil</small>
+                            <div class="hv-pwin__cols">
+                                <i style="--h:50%;--i:0"><span>2.150</span><b>jun</b></i><i style="--h:58%;--i:1"><span>2.410</span><b>jul</b></i><i style="--h:54%;--i:2"><span>2.290</span><b>ago</b></i>
+                                <i style="--h:66%;--i:3"><span>2.620</span><b>set</b></i><i style="--h:72%;--i:4"><span>2.620</span><b>out</b></i><i class="is-cur" style="--h:80%;--i:5"><span>2.840</span><b>nov</b></i>
+                                <span class="hv-pdash__meta"><em>meta 3.000</em></span>
+                            </div>
+                        </div>
+                        <div class="hv-pwin__pop" data-hl="3" style="--d:6"><small>Faturamento por categoria</small>
+                            <div class="hv-pdash__donutwrap">
+                                <svg class="hv-pwin__donut" viewBox="0 0 42 42" aria-hidden="true"><circle cx="21" cy="21" r="15.9" fill="none" class="t" stroke-width="6"/><circle cx="21" cy="21" r="15.9" fill="none" class="a" stroke-width="6" stroke-dasharray="46 54" stroke-dashoffset="25"/><circle cx="21" cy="21" r="15.9" fill="none" class="b" stroke-width="6" stroke-dasharray="28 72" stroke-dashoffset="79"/><circle cx="21" cy="21" r="15.9" fill="none" class="c" stroke-width="6" stroke-dasharray="26 74" stroke-dashoffset="51"/><text x="21" y="20.5" text-anchor="middle" font-size="5.2" font-weight="700">R$ 2,84</text><text x="21" y="26" text-anchor="middle" font-size="3.4" class="sub">milhões</text></svg>
+                                <ul class="hv-pdash__leg"><li class="is-key"><i class="a"></i>Bebidas<b>46%</b></li><li><i class="b"></i>Mercearia<b>28%</b></li><li><i class="c"></i>Limpeza<b>26%</b></li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hv-pdash__story" aria-live="polite">
+                        <span class="hv-pdash__sk">O que o painel conta</span>
+                        <p data-n="1"><b>1</b>O faturamento cresceu 8,2% em novembro…</p>
+                        <p data-n="2"><b>2</b>…mas a margem caiu 1,4 p.p. Vender mais não virou mais lucro.</p>
+                        <p data-n="3"><b>3</b>Causa: Bebidas, 46% das vendas, saíram com desconto acima do padrão. Ação: revisar a política de preço.</p>
+                    </div>
+                    <div class="hv-pdash__pages hv-pwin__pop" style="--d:7"><span class="is-on">Visão geral</span><span>Vendas</span><span>Margem</span><span>Clientes</span><em>atualizado hoje 06:00</em></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock secao_vitrine %}
+
+{% block entrega_eyebrow %}— Portfólio · Power BI{% endblock entrega_eyebrow %}
+{% block entrega_titulo %}Nossos <em>dashboards.</em>{% endblock entrega_titulo %}
+{% block entrega_lead %}Painéis entregues em Power BI, com dados de exemplo. Clique numa pasta para ver o dashboard inteiro.{% endblock entrega_lead %}
+
+{# Página de BI: depois das pastas de dashboards vem direto o CTA final (verde) e o rodapé. #}
+{% block secao_diagnostico %}{% endblock secao_diagnostico %}
+{% block secao_metas %}{% endblock secao_metas %}
+{% block secao_ferramentas %}{% endblock secao_ferramentas %}
+{% block secao_cases %}{% endblock secao_cases %}
+{% block secao_quem_conduz %}{% endblock secao_quem_conduz %}
+{% block secao_como_trabalhamos %}{% endblock secao_como_trabalhamos %}
+{% block secao_material %}{% endblock secao_material %}
+{% block secao_cta %}{% endblock secao_cta %}

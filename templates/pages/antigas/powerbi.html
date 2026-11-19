@@ -1,0 +1,294 @@
+﻿{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Power BI | ServicesBI{% endblock %}
+{% block meta_description %}Dashboards em Power BI, indicadores, modelagem de dados e relatórios executivos para melhorar a tomada de decisão.{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/python.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/powerbi.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="service-hero powerbi-hero" aria-labelledby="powerbi-hero-title">
+    <div class="service-hero__inner">
+        <div class="service-hero__copy">
+            <p class="eyebrow text-accent">Power BI</p>
+            <h1 class="section-title" id="powerbi-hero-title">Dashboards executivos para transformar dados em decisão.</h1>
+            <p class="section-subtitle">
+                Indicadores claros, modelagem consistente e relatórios visuais para acompanhar resultado financeiro, comercial e operacional com confiança.
+            </p>
+            <div class="service-hero__actions">
+                <a class="btn btn--primary" href="#powerbi-beneficios">Ver soluções</a>
+                <a class="btn btn--secondary" href="{% url 'pages:contato' %}">Falar comigo</a>
+            </div>
+            <ul class="service-hero__points" aria-label="Principais frentes em Power BI">
+                <li>Dashboards executivos</li>
+                <li>Modelagem de dados</li>
+                <li>Indicadores de gestão</li>
+            </ul>
+        </div>
+
+        <div class="powerbi-hero__media" aria-hidden="true">
+            <img
+                src="{% static 'img/powerbi/hero/hero_powerbi_light.webp' %}"
+                alt="Representação visual de Business Intelligence, dashboards e análise de dados"
+                class="powerbi-hero__image powerbi-hero__image--light"
+            >
+
+            <img
+                src="{% static 'img/powerbi/hero/hero_powerbi_dark.webp' %}"
+                alt=""
+                class="powerbi-hero__image powerbi-hero__image--dark"
+            >
+        </div>
+    </div>
+</section>
+
+<section class="home-solutions" id="powerbi-beneficios" aria-labelledby="powerbi-beneficios-title">
+    <div class="home-solutions__header">
+        <p class="eyebrow text-accent">O que entregamos</p>
+        <h2 class="section-title" id="powerbi-beneficios-title">BI para enxergar resultado sem planilhas espalhadas.</h2>
+        <p class="section-subtitle">
+            Dashboards construídos para responder perguntas reais de gestão, com dados organizados e visual consistente.
+        </p>
+    </div>
+
+    <div class="home-solutions__grid">
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img
+                    class="home-solution-card__image home-solution-card__image--light"
+                    src="{% static 'img/powerbi/cards/light/card01.webp' %}"
+                    alt="Dashboard executivo em Power BI"
+                    loading="lazy"
+                >
+                <img
+                    class="home-solution-card__image home-solution-card__image--dark"
+                    src="{% static 'img/powerbi/cards/dark/card01.webp' %}"
+                    alt="Dashboard executivo em Power BI"
+                    loading="lazy"
+                >
+            </div>
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Dashboards</p>
+                <h3 class="home-solution-card__title">Visões executivas</h3>
+                <p class="home-solution-card__text">Painéis para diretoria e gestão com KPIs, metas, evolução e análise por área.</p>
+                <a class="home-solution-card__link" href="{% url 'pages:contato' %}">Saiba mais &rarr;</a>
+            </div>
+        </article>
+
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img
+                    class="home-solution-card__image home-solution-card__image--light"
+                    src="{% static 'img/powerbi/cards/light/card02.webp' %}"
+                    alt="Modelagem de dados no Power BI"
+                    loading="lazy"
+                >
+                <img
+                    class="home-solution-card__image home-solution-card__image--dark"
+                    src="{% static 'img/powerbi/cards/dark/card02.webp' %}"
+                    alt="Modelagem de dados no Power BI"
+                    loading="lazy"
+                >
+            </div>
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Modelagem</p>
+                <h3 class="home-solution-card__title">Base confiável</h3>
+                <p class="home-solution-card__text">Tratamento, relacionamento e organização das tabelas para indicadores consistentes.</p>
+                <a class="home-solution-card__link" href="{% url 'pages:contato' %}">Saiba mais &rarr;</a>
+            </div>
+        </article>
+
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img
+                    class="home-solution-card__image home-solution-card__image--light"
+                    src="{% static 'img/powerbi/cards/light/card03.webp' %}"
+                    alt="Relatórios gerenciais em Power BI"
+                    loading="lazy"
+                >
+                <img
+                    class="home-solution-card__image home-solution-card__image--dark"
+                    src="{% static 'img/powerbi/cards/dark/card03.webp' %}"
+                    alt="Relatórios gerenciais em Power BI"
+                    loading="lazy"
+                >
+            </div>
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Relatórios</p>
+                <h3 class="home-solution-card__title">Análises gerenciais</h3>
+                <p class="home-solution-card__text">Relatórios para financeiro, comercial, compras, estoque e operação com leitura rápida.</p>
+                <a class="home-solution-card__link" href="{% url 'pages:contato' %}">Saiba mais &rarr;</a>
+            </div>
+        </article>
+
+        <article class="home-solution-card">
+            <div class="home-solution-card__media">
+                <img
+                    class="home-solution-card__image home-solution-card__image--light"
+                    src="{% static 'img/powerbi/cards/light/card04.webp' %}"
+                    alt="Tomada de decisão com Power BI"
+                    loading="lazy"
+                >
+                <img
+                    class="home-solution-card__image home-solution-card__image--dark"
+                    src="{% static 'img/powerbi/cards/dark/card04.webp' %}"
+                    alt="Tomada de decisão com Power BI"
+                    loading="lazy"
+                >
+            </div>
+            <div class="home-solution-card__body">
+                <p class="home-solution-card__eyebrow">Decisão</p>
+                <h3 class="home-solution-card__title">Rotina orientada por dados</h3>
+                <p class="home-solution-card__text">Indicadores atualizados para reuniões, acompanhamento de metas e decisões de curto prazo.</p>
+                <a class="home-solution-card__link" href="{% url 'pages:contato' %}">Saiba mais &rarr;</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="home-portfolio python-projects" aria-labelledby="powerbi-projetos-title">
+    <div class="home-portfolio__head">
+        <div class="home-portfolio__intro">
+            <p class="eyebrow text-accent">Soluções</p>
+            <h2 class="section-title" id="powerbi-projetos-title">Dashboards por área do negócio.</h2>
+            <p class="section-subtitle">
+                Painéis construídos para responder perguntas reais de gestão, com dados organizados e visual consistente.
+            </p>
+        </div>
+    </div>
+
+    <div class="python-projects__list">
+        <article class="python-project">
+            <div class="python-project__content">
+                <p class="python-project__tag">Financeiro</p>
+                <h3 class="python-project__title">Fluxo de caixa e DRE</h3>
+                <div class="python-project__text">
+                    <p>Painel para acompanhar receitas, despesas, margem e resultado com visão do desempenho financeiro em tempo real.</p>
+                    <ul>
+                        <li>Entradas e saídas por período;</li>
+                        <li>DRE gerencial;</li>
+                        <li>margem bruta e líquida;</li>
+                        <li>comparativo mês a mês;</li>
+                        <li>projeções e metas.</li>
+                    </ul>
+                </div>
+                <a class="btn btn--primary python-project__cta" href="{% url 'pages:contato' %}">Ver dashboard</a>
+            </div>
+            <div class="python-project__media">
+                <img
+                    class="python-project__image python-project__image--light"
+                    src="{% static 'img/powerbi/cards/light/card01.webp' %}"
+                    alt="Dashboard financeiro em Power BI"
+                    loading="lazy"
+                >
+                <img
+                    class="python-project__image python-project__image--dark"
+                    src="{% static 'img/powerbi/cards/dark/card01.webp' %}"
+                    alt="Dashboard financeiro em Power BI"
+                    loading="lazy"
+                >
+            </div>
+        </article>
+
+        <article class="python-project python-project--reverse">
+            <div class="python-project__content">
+                <p class="python-project__tag">Comercial</p>
+                <h3 class="python-project__title">Metas e performance</h3>
+                <div class="python-project__text">
+                    <p>Visão completa de vendas para acompanhar resultados por vendedor, período, produto e canal.</p>
+                    <ul>
+                        <li>Funil de vendas;</li>
+                        <li>ticket médio e volume;</li>
+                        <li>desempenho por vendedor;</li>
+                        <li>carteira de clientes;</li>
+                        <li>metas vs. realizado.</li>
+                    </ul>
+                </div>
+                <a class="btn btn--primary python-project__cta" href="{% url 'pages:contato' %}">Ver dashboard</a>
+            </div>
+            <div class="python-project__media">
+                <img
+                    class="python-project__image python-project__image--light"
+                    src="{% static 'img/powerbi/cards/light/card02.webp' %}"
+                    alt="Dashboard comercial em Power BI"
+                    loading="lazy"
+                >
+                <img
+                    class="python-project__image python-project__image--dark"
+                    src="{% static 'img/powerbi/cards/dark/card02.webp' %}"
+                    alt="Dashboard comercial em Power BI"
+                    loading="lazy"
+                >
+            </div>
+        </article>
+
+        <article class="python-project">
+            <div class="python-project__content">
+                <p class="python-project__tag">Operação</p>
+                <h3 class="python-project__title">Processos e produtividade</h3>
+                <div class="python-project__text">
+                    <p>Métricas operacionais para acompanhar prazos, gargalos, volumes e qualidade da operação com leitura rápida.</p>
+                    <ul>
+                        <li>Produtividade por área;</li>
+                        <li>cumprimento de prazos;</li>
+                        <li>volume de operações;</li>
+                        <li>indicadores de qualidade;</li>
+                        <li>alertas de desvio.</li>
+                    </ul>
+                </div>
+                <a class="btn btn--primary python-project__cta" href="{% url 'pages:contato' %}">Conhecer</a>
+            </div>
+            <div class="python-project__media">
+                <img
+                    class="python-project__image python-project__image--light"
+                    src="{% static 'img/powerbi/cards/light/card03.webp' %}"
+                    alt="Dashboard operacional em Power BI"
+                    loading="lazy"
+                >
+                <img
+                    class="python-project__image python-project__image--dark"
+                    src="{% static 'img/powerbi/cards/dark/card03.webp' %}"
+                    alt="Dashboard operacional em Power BI"
+                    loading="lazy"
+                >
+            </div>
+        </article>
+
+        <article class="python-project python-project--reverse">
+            <div class="python-project__content">
+                <p class="python-project__tag">Compras</p>
+                <h3 class="python-project__title">Gestão de compras e estoque</h3>
+                <div class="python-project__text">
+                    <p>Painel para controlar fornecedores, pedidos, estoque e custo de aquisição com visão integrada da cadeia de suprimentos.</p>
+                    <ul>
+                        <li>Pedidos por fornecedor;</li>
+                        <li>evolução de custos;</li>
+                        <li>giro de estoque;</li>
+                        <li>itens críticos e rupturas;</li>
+                        <li>comparativo de preços.</li>
+                    </ul>
+                </div>
+                <a class="btn btn--primary python-project__cta" href="{% url 'pages:contato' %}">Ver dashboard</a>
+            </div>
+            <div class="python-project__media">
+                <img
+                    class="python-project__image python-project__image--light"
+                    src="{% static 'img/powerbi/cards/light/card04.webp' %}"
+                    alt="Dashboard de compras em Power BI"
+                    loading="lazy"
+                >
+                <img
+                    class="python-project__image python-project__image--dark"
+                    src="{% static 'img/powerbi/cards/dark/card04.webp' %}"
+                    alt="Dashboard de compras em Power BI"
+                    loading="lazy"
+                >
+            </div>
+        </article>
+    </div>
+</section>
+{% endblock %}

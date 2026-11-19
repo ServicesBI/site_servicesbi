@@ -1,0 +1,651 @@
+{% extends "base.html" %}
+{# Modelo de página da ServicesBI (base: Consultoria Financeira). Cada página estende este arquivo e sobrescreve os blocos secao_* que quiser. #}
+{% load static l10n %}
+
+{% block title %}ServicesBI | Consultoria Financeira e BI para Empresas{% endblock %}
+{% block meta_description %}Consultoria financeira com Business Intelligence e ferramentas próprias: fluxo de caixa projetado, DRE gerencial, dashboards em Power BI e automação. Agende um diagnóstico gratuito.{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/pages/home-v3.css' %}">
+{% block schema %}<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "ServicesBI",
+    "description": "Consultoria financeira com inteligência de dados: fluxo de caixa, DRE gerencial, redução de custos, Business Intelligence (Power BI) e automação de processos.",
+    "url": "{{ SITE_URL }}/",
+    "image": "{{ SITE_URL }}/static/img/brand/og-servicesbi.png",
+    "logo": "{{ SITE_URL }}/static/img/brand/icon-512.png",
+    "telephone": "+55-61-99302-9988",
+    "email": "{{ EMAIL_CONTATO }}",
+    "areaServed": "BR",
+    "founder": {
+        "@type": "Person",
+        "name": "Antônio M. Leles Júnior",
+        "jobTitle": "Consultor financeiro e analista de dados",
+        "sameAs": ["{{ LINKEDIN_URL }}"]
+    },
+    "sameAs": ["{{ LINKEDIN_URL }}", "https://github.com/ServicesBI"],
+    "knowsAbout": ["Fluxo de caixa", "DRE gerencial", "Precificação", "Power BI", "Business Intelligence", "Automação de processos"]
+}
+</script>{% endblock schema %}
+{% endblock %}
+
+{% block content %}
+
+
+{% block secao_hero %}
+<!-- ===== 1. HERO ===== -->
+<section class="hv-hero" id="hvHero" aria-labelledby="hero-title">
+    <div class="hv-hero__pin">
+    <div class="hv-wrap hv-hero__grid">
+        <div class="hv-hero__copy">
+            <p class="hv-label hv-hero__eyebrow">{% block hero_eyebrow %}— Consultoria financeira · Dados · Automação{% endblock hero_eyebrow %}</p>
+            <h1 id="hero-title">{% block hero_titulo %}<span>Sua empresa fatura.</span> <span>Falta enxergar <em>o lucro.</em></span>{% endblock hero_titulo %}</h1>
+            <p class="hv-hero__lead">{% block hero_lead %}Consultoria financeira com Business Intelligence e ferramentas próprias: caixa projetado, DRE gerencial e rotinas que deixam de depender de planilhas soltas.{% endblock hero_lead %}</p>
+            <div class="hv-hero__actions">
+                <a class="hv-btn hv-btn--primary" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Agendar diagnóstico gratuito →</a>
+                {% block hero_cta2 %}{% endblock hero_cta2 %}
+            </div>
+            <ul class="hv-hero__trust" aria-label="Diferenciais">
+                {% for c in hero_cards %}
+                <li>
+                    <a class="hv-acard" href="{% if c.wa %}{{ WA_DIAGNOSTICO }}{% else %}{{ c.url }}{% endif %}"{% if c.wa %} target="_blank" rel="noopener noreferrer"{% endif %}>
+                        <img class="hv-acard__img hv-acard__img--claro" src="{% static c.claro %}" alt="" loading="lazy" width="800" height="738">
+                        <img class="hv-acard__img hv-acard__img--escuro" src="{% static c.escuro %}" alt="" loading="lazy" width="800" height="738">
+                        <span class="hv-acard__overlay" aria-hidden="true"></span>
+                        <span class="hv-acard__body">
+                            <span class="hv-acard__cat hv-acard__cat--linha">{{ c.titulo }}</span>
+                        </span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="hv-story" id="hvStory" data-step="4" role="figure" aria-label="Exemplo com dados fictícios: dados soltos viram DRE gerencial, indicadores e alerta de caixa">
+            <div class="hv-story__nav" role="group" aria-label="Etapas">
+                <button type="button" class="hv-story__tab" data-go="1">{% block story_passo_1 %}Dados{% endblock story_passo_1 %}<span class="hv-story__fill"></span></button>
+                <button type="button" class="hv-story__tab" data-go="2">{% block story_passo_2 %}Organização{% endblock story_passo_2 %}<span class="hv-story__fill"></span></button>
+                <button type="button" class="hv-story__tab" data-go="3">{% block story_passo_3 %}Indicadores{% endblock story_passo_3 %}<span class="hv-story__fill"></span></button>
+                <button type="button" class="hv-story__tab" data-go="4">{% block story_passo_4 %}Decisão{% endblock story_passo_4 %}<span class="hv-story__fill"></span></button>
+            </div>
+            <div class="hv-story__caps" aria-live="polite">{% block story_caps %}
+                <p class="hv-story__cap" data-cap="1">Extrato, planilha, nota e boleto. Tudo existe, nada conversa. <span class="hv-story__hint">↓ role para organizar</span></p>
+                <p class="hv-story__cap" data-cap="2">Cada lançamento classificado na DRE gerencial.</p>
+                <p class="hv-story__cap" data-cap="3">Os mesmos números, agora como painel.</p>
+                <p class="hv-story__cap" data-cap="4">O alerta chega antes do aperto. Teste as saídas.</p>
+{% endblock story_caps %}
+            </div>
+            <div class="hv-story__stage">
+                <div class="hv-story__docs" aria-hidden="true">{% block story_docs %}
+                    <span class="hv-story__doc" style="--x:-120px; --y:-215px; --r:-7deg;">extrato_banco.ofx<small>342 lançamentos</small></span>
+                    <span class="hv-story__doc" style="--x:110px; --y:-150px; --r:6deg;">vendas_out.xlsx<small>aba 3 de 7</small></span>
+                    <span class="hv-story__doc" style="--x:-135px; --y:-75px; --r:4deg;">NF-e 004.312<small>sem categoria</small></span>
+                    <span class="hv-story__doc" style="--x:105px; --y:-5px; --r:-5deg;">contas_a_pagar.csv<small>atualizado em set</small></span>
+                    <span class="hv-story__doc" style="--x:-110px; --y:80px; --r:-3deg;">folha_outubro.pdf<small>quanto foi?</small></span>
+                    <span class="hv-story__doc" style="--x:120px; --y:145px; --r:7deg;">boleto venc. 12/11<small>quem pagou?</small></span>
+                    <span class="hv-story__doc" style="--x:-40px; --y:215px; --r:-6deg;">caixa_loja_final(2).xlsx<small>qual é a certa?</small></span>
+{% endblock story_docs %}
+                </div>
+{% block story_folder %}
+                <div class="hv-story__folder">
+                    <div class="hv-story__foldertabs">
+                        <button type="button" class="hv-story__foldertab hv-story__foldertab--dre" data-go="2"><span class="hv-story__dot" aria-hidden="true"></span>DRE - Gerencial</button>
+                        <button type="button" class="hv-story__foldertab hv-story__foldertab--ind" data-go="3"><span class="hv-story__dot" aria-hidden="true"></span>Indicadores</button>
+                        <button type="button" class="hv-story__foldertab hv-story__foldertab--dec" data-go="4"><span class="hv-story__dot" aria-hidden="true"></span>Decisão</button>
+                    </div>
+                    <div class="hv-dre">
+                        <div class="hv-story__pane hv-story__pane--dre">
+                            <dl class="hv-dre__rows">
+                                {% for linha in dre %}
+                                <div class="hv-dre__row{% if linha.total %} is-total{% endif %}" style="--i: {{ forloop.counter0 }};">
+                                    <dt>{{ linha.rotulo }}</dt>
+                                    <dd><span{% if linha.valor|slice:":1" == "−" %} class="hv-dre__neg"{% endif %}>{{ linha.valor }}</span></dd>
+                                </div>
+                                {% endfor %}
+                            </dl>
+                        </div>
+
+                        <div class="hv-story__pane hv-story__pane--ind">
+                            <div class="hv-kpis">
+                                <div class="hv-kpi">
+                                    <span class="hv-kpi__l">Margem contrib.</span>
+                                    <span class="hv-kpi__ring">
+                                        <svg width="32" height="32" viewBox="0 0 36 36" aria-hidden="true"><circle class="hv-kpi__track" cx="18" cy="18" r="15"/><circle class="hv-kpi__arc" cx="18" cy="18" r="15" style="--dash: {{ indicadores.mc_dash }};" transform="rotate(-90 18 18)"/></svg>
+                                        <span class="hv-kpi__v" data-n="{{ indicadores.mc_raw }}" data-suf="%">{{ indicadores.mc_pct }}</span>
+                                    </span>
+                                    <span class="hv-kpi__s">da rec. líquida</span>
+                                </div>
+                                <div class="hv-kpi">
+                                    <span class="hv-kpi__l">Resultado</span>
+                                    <span class="hv-kpi__v" data-n="{{ indicadores.res_raw }}" data-suf="%">{{ indicadores.res_pct }}</span>
+                                    <span class="hv-kpi__s">R$ {{ indicadores.res_mil }} mil/mês</span>
+                                </div>
+                                <div class="hv-kpi">
+                                    <span class="hv-kpi__l">Equilíbrio</span>
+                                    <span class="hv-kpi__v">R$ {{ indicadores.pe_mil }} mil</span>
+                                    <span class="hv-kpi__s"><b>{{ indicadores.folga }}% de folga</b></span>
+                                </div>
+                            </div>
+
+                            <div class="hv-wf">
+                                <div class="hv-wf__head"><span>Receita → resultado · R$ mil</span><b>sobra R$ {{ indicadores.sobra }} a cada R$ 100</b></div>
+                                <div class="hv-wf__chart" aria-hidden="true">
+                                    {% for passo in cascata %}
+                                    <div class="hv-wf__col">
+                                        <i class="hv-wf__bar is-{{ passo.tipo }}" style="bottom: {{ passo.base }}%; height: {{ passo.altura }}%; --i: {{ passo.i }};"></i>
+                                        <em class="hv-wf__val" style="bottom: calc({{ passo.topo }}% + 4px); --i: {{ passo.i }};">{{ passo.texto }}</em>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="hv-wf__labels">{% for passo in cascata %}<span>{{ passo.rotulo }}</span>{% endfor %}</div>
+                            </div>
+
+                            <div class="hv-cash">
+                                <div class="hv-cash__head">
+                                    <span>Caixa · 12 semanas · R$ mil</span>
+                                    <span class="hv-cash__min-label">mínimo R$ {{ caixa_minimo }} mil</span>
+                                </div>
+                                <div class="hv-cash__bars">
+                                    <div class="hv-cash__min" style="bottom: {{ linha_minimo }}%;"></div>
+                                    {% for barra in barras %}
+                                    <div class="hv-cash__bar{% if barra.alerta %} is-alert{% endif %}" style="height: {{ barra.pct }}%; --i: {{ forloop.counter0 }};"></div>
+                                    {% endfor %}
+                                </div>
+                                <div class="hv-cash__weeks" aria-hidden="true">{% for barra in barras %}<span>S{{ barra.semana }}</span>{% endfor %}</div>
+                            </div>
+                        </div>
+
+                        {% if alerta %}
+                        <div class="hv-story__pane hv-story__pane--dec" id="hvDecisao">
+                            <div class="hv-dec__alert" aria-live="polite">
+                                <span class="hv-dec__ico" aria-hidden="true"><span class="hv-dec__ico-warn">!</span><span class="hv-dec__ico-ok">✓</span></span>
+                                <span class="hv-dec__msg">
+                                    <span class="hv-dec__when-warn"><b>Semana {{ alerta.semana }}: caixa R$ {{ alerta.falta }} mil abaixo do mínimo</b><small>Sem ação, o caixa fura o mínimo em {{ alerta.prazo }} semanas.</small></span>
+                                    <span class="hv-dec__when-ok"><b>Caixa protegido: semana {{ alerta.semana }} acima do mínimo</b><small>Decisão tomada {{ alerta.prazo }} semanas antes do aperto.</small></span>
+                                </span>
+                                <span class="hv-dec__clock"><span class="hv-dec__when-warn"><strong>{{ alerta.prazo }} sem.</strong>para agir</span><span class="hv-dec__when-ok"><strong>OK</strong>resolvido</span></span>
+                            </div>
+
+                            <div class="hv-dec__chart">
+                                <div class="hv-dec__head"><span>Caixa projetado · R$ mil</span><span class="hv-dec__legend"><span><i class="is-ghost"></i>sem ação</span><span><i class="is-ok"></i>com a decisão</span></span></div>
+                                <div class="hv-dec__bars" aria-hidden="true">
+                                    <div class="hv-dec__min" style="bottom: {{ linha_minimo }}%;"><span>mínimo {{ caixa_minimo }}</span></div>
+                                    {% for barra in barras %}
+                                    <div class="hv-dec__col">
+                                        <i class="hv-dec__ghost" style="height: {{ barra.pct }}%;"></i>
+                                        <i class="hv-dec__bar{% if barra.alerta %} is-low{% endif %}" style="height: {{ barra.pct }}%;"></i>
+                                        <em class="hv-dec__delta"></em>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="hv-cash__weeks" aria-hidden="true">{% for barra in barras %}<span>S{{ barra.semana }}</span>{% endfor %}</div>
+                            </div>
+
+                            <div class="hv-dec__opts" role="group" aria-label="Simule a decisão">
+                                <span class="hv-dec__label">Simule a decisão</span>
+                                {% for opcao in opcoes_decisao %}
+                                <button type="button" class="hv-dec__opt" role="switch" aria-checked="false" data-opcao="{{ opcao.id }}"{% if opcao.recomendado %} data-recomendado="1"{% endif %}>
+                                    <span class="hv-dec__sw" aria-hidden="true"></span>
+                                    <span class="hv-dec__txt"><b>{{ opcao.titulo }}</b><span>{{ opcao.detalhe }}</span></span>
+                                    {% if opcao.recomendado %}<span class="hv-dec__tag">recomendado</span>{% endif %}
+                                </button>
+                                {% endfor %}
+                            </div>
+
+                            <div class="hv-dec__res">
+                                <div><span class="hv-dec__l">Menor caixa</span><span class="hv-dec__v is-bad" data-res="menor">R$ {{ alerta.valor }} mil</span></div>
+                                <div><span class="hv-dec__l">Semanas abaixo</span><span class="hv-dec__v is-bad" data-res="semanas">1</span></div>
+                                <div><span class="hv-dec__l">Custo</span><span class="hv-dec__v" data-res="custo">R$ 0</span></div>
+                            </div>
+                            <a class="hv-dec__cta" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Quero esse painel na minha empresa <span aria-hidden="true">→</span></a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endblock story_folder %}
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+{% endblock secao_hero %}
+
+{% block secao_vitrine %}
+<!-- ===== VITRINE: vídeo "Tudo sai de um só lugar" (no lugar da faixa de pastas) ===== -->
+<section class="hv-showcase" aria-labelledby="showcase-title">
+    <div class="hv-showcase__grid">
+        <div class="hv-showcase__copy">
+            <p class="hv-label hv-showcase__eyebrow">— Produtos e ferramentas</p>
+            <h2 class="hv-showcase__title" id="showcase-title">Tudo sai de <em>um só lugar.</em></h2>
+            <p class="hv-showcase__lead">Do SIGE saem os painéis, as automações e os modelos que organizam o financeiro da sua empresa. Teste a demonstração sem cadastro.</p>
+            <div class="hv-showcase__actions">
+                <a class="hv-btn hv-btn--primary" href="{{ sige_demo_url }}" data-sige-demo target="_blank" rel="noopener noreferrer">Testar demo do SIGE →</a>
+            </div>
+        </div>
+        <div class="hv-showcase__media">
+            <video class="hv-showcase__video" id="hvShowcaseVideo" muted loop playsinline preload="none" poster="{% static 'video/home/sige-loop-poster.jpg' %}" width="1280" height="738" aria-label="Celular com o login do SIGE e pastas com dashboards girando em volta">
+                <source data-src="{% static 'video/home/sige-loop.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</section>
+{% endblock secao_vitrine %}
+
+{% block secao_entrega %}
+<!-- ===== O QUE A SERVICESBI ENTREGA: pastas com os produtos e serviços ===== -->
+<section class="hv-entrega" aria-labelledby="entrega-title">
+    <div class="hv-entrega__head">
+        <div>
+            <p class="hv-label hv-entrega__eyebrow">{% block entrega_eyebrow %}— Serviços{% endblock entrega_eyebrow %}</p>
+            <h2 class="hv-entrega__title" id="entrega-title">{% block entrega_titulo %}O que a ServicesBI <em>entrega.</em>{% endblock entrega_titulo %}</h2>
+        </div>
+        <p class="hv-entrega__lead">{% block entrega_lead %}Do diagnóstico financeiro ao sistema rodando: escolha por onde começar. Passe o mouse numa pasta para abrir.{% endblock entrega_lead %}</p>
+    </div>
+    <div class="hv-entrega__grid">
+        {% for p in marquee_pastas %}
+        <a class="hv-folder hv-folder--grid" href="{{ p.url }}"{% if p.demo %} data-sige-demo target="_blank" rel="noopener noreferrer"{% endif %}{% if p.zoom %} data-zoom="{% static p.claro %}" data-zoom-escuro="{% static p.escuro %}" data-zoom-titulo="{{ p.titulo }}"{% if p.embed %} data-embed="{{ p.embed }}"{% endif %}{% endif %} style="--img-claro: url('{% static p.claro %}'); --img-escuro: url('{% static p.escuro %}');">
+            <span class="hv-folder__back" aria-hidden="true"></span><span class="hv-folder__tab" aria-hidden="true"></span>
+            <span class="hv-folder__sheet hv-folder__sheet--img" aria-hidden="true"></span>
+            {% if p.etiqueta %}<span class="hv-folder__sheet hv-folder__sheet--doc" aria-hidden="true"><span>{{ p.etiqueta }}</span></span>{% endif %}
+            <span class="hv-folder__front">
+                {% if p.selo %}<span class="hv-folder__badge">{{ p.selo }}</span>{% endif %}
+                <span class="hv-folder__title">{{ p.titulo }}</span>
+                <span class="hv-folder__sub">{{ p.sub }}</span>
+                {% if p.demo %}<span class="hv-folder__btn hv-folder__btn--demo">Testar demo →</span>{% else %}<span class="hv-folder__btn" aria-hidden="true">→</span>{% endif %}
+            </span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endblock secao_entrega %}
+
+{% block secao_diagnostico %}
+<!-- ===== 01 DIAGNÓSTICO (autodiagnóstico interativo) ===== -->
+<section class="hv-diag" id="diagnostico" aria-labelledby="dores-title">
+    <div class="hv-diag__grid">
+        <div>
+            <p class="hv-label hv-diag__eyebrow">— Diagnóstico rápido</p>
+            <h2 class="hv-diag__title" id="dores-title">Quantos desses acontecem <em>na sua empresa?</em></h2>
+            <p class="hv-diag__lead">Marque o que você reconhece no seu dia a dia. Em 10 segundos você vê onde o financeiro está pedindo atenção.</p>
+            <div class="hv-diag__cards" data-diag-cards>
+                {% for d in dores %}
+                <button class="hv-dor" type="button" aria-pressed="false">
+                    <span class="hv-dor__box" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>
+                    <span class="hv-dor__title">{{ d.0 }}</span>
+                    <span class="hv-dor__text">{{ d.1 }}</span>
+                    <span class="hv-dor__sol"><span><span>→ {{ d.2 }}</span></span></span>
+                </button>
+                {% endfor %}
+            </div>
+            <p class="hv-diag__hint">Clique nos cards para marcar</p>
+        </div>
+        <div class="hv-diag__folder">
+            <div class="hv-diag__tabs" role="tablist" aria-label="Resultado do diagnóstico">
+                <button type="button" class="hv-diag__tab is-on" role="tab" aria-selected="true" data-diag-tab="saude"><span class="hv-diag__dot" aria-hidden="true"></span>Saúde financeira</button>
+                <button type="button" class="hv-diag__tab" role="tab" aria-selected="false" data-diag-tab="solucao"><span class="hv-diag__dot" aria-hidden="true"></span>Solução<span class="hv-diag__badge" data-diag-badge hidden>0</span></button>
+            </div>
+            <div class="hv-diag__panel" aria-live="polite">
+                <div class="hv-diag__pane" data-diag-pane="saude" role="tabpanel">
+                    <p class="hv-diag__lab">Saúde financeira</p>
+                    <svg class="hv-gauge" viewBox="0 0 340 190" aria-hidden="true">
+                        <path class="hv-gauge__trk" d="M30 170 A140 140 0 0 1 310 170" fill="none" stroke-width="22" stroke-linecap="round"/>
+                        <path class="hv-gauge__val" data-diag-val d="M30 170 A140 140 0 0 1 310 170" fill="none" stroke-width="22" stroke-linecap="round" stroke-dasharray="440" stroke-dashoffset="440"/>
+                        <g class="hv-gauge__ndl" data-diag-ndl><line x1="170" y1="170" x2="170" y2="58" stroke-width="4" stroke-linecap="round"/><circle cx="170" cy="170" r="10"/></g>
+                    </svg>
+                    <div class="hv-gauge__scale"><span>0%</span><span>100%</span></div>
+                    <p class="hv-diag__count"><span data-diag-n>0</span><small>%</small></p>
+                    <span class="hv-diag__status" data-diag-status>Comece marcando</span>
+                    <p class="hv-diag__msg" data-diag-msg>Marque ao lado os sintomas que você reconhece na sua empresa.</p>
+                    <button type="button" class="hv-diag__see" data-diag-see hidden>Ver a solução para o seu caso →</button>
+                </div>
+                <div class="hv-diag__pane" data-diag-pane="solucao" role="tabpanel" hidden>
+                    <p class="hv-diag__lab">Como a ServicesBI resolve</p>
+                    <p class="hv-diag__empty" data-diag-empty>Marque ao lado um sintoma para ver o caminho da solução.</p>
+                    <ol class="hv-sol">
+                        {% for d in dores %}
+                        <li class="hv-sol__item" data-diag-sol="{{ forloop.counter0 }}" hidden>
+                            <p class="hv-sol__head"><span class="hv-sol__n">{{ forloop.counter|stringformat:"02d" }}</span>{{ d.0 }}</p>
+                            <p class="hv-sol__step"><span class="hv-sol__k">O que fazemos</span>{{ d.3 }}</p>
+                            <p class="hv-sol__step hv-sol__step--ok"><span class="hv-sol__k">Resultado</span>{{ d.4 }}</p>
+                        </li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock secao_diagnostico %}
+
+{% block secao_metas %}
+<!-- ===== 02 GESTÃO COMERCIAL: Top 5 vendedores e painel de metas ===== -->
+<section class="hv-metas" id="metas" aria-labelledby="metas-title">
+    <div class="hv-metas__inner">
+        <div class="hv-metas__head">
+            <div>
+                <p class="hv-label hv-metas__eyebrow">— Gestão comercial</p>
+                <h2 class="hv-metas__title" id="metas-title">Quem bateu a meta? <em>Você vê na hora.</em></h2>
+                <p class="hv-metas__lead">Ranking de vendas por colaborador, com faturamento, meta e atingimento. Marque um vendedor para abrir o painel dele.</p>
+            </div>
+            <div class="hv-metas__tabs" role="group" aria-label="Mês" data-metas-tabs></div>
+        </div>
+        <div class="hv-metas__layout">
+            <div class="hv-top5">
+                <h3 class="hv-top5__title">Top 5 vendedores</h3>
+                <span class="hv-metas__k hv-top5__sub" data-metas-sub>Ranking por atingimento</span>
+                <div class="hv-top5__list" data-metas-list></div>
+            </div>
+            <div class="hv-metas__right">
+                <article class="hv-vpanel" data-metas-panel aria-live="polite">
+                    <div class="hv-vpanel__who">
+                        <span class="hv-ph hv-ph--lg"><img data-p="foto" src="" alt="" width="132" height="132"></span>
+                        <span class="hv-vpanel__name" data-p="nome"></span>
+                        <span class="hv-vpanel__city" data-p="cidade"></span>
+                        <span class="hv-vpanel__rank" data-p="rank"></span>
+                    </div>
+                    <div class="hv-vpanel__nums">
+                        <div class="hv-vpanel__fat"><span class="hv-metas__k">Faturamento</span><span class="hv-vpanel__big" data-p="fat"></span></div>
+                        <div class="hv-vpanel__box"><span class="hv-metas__k">Meta</span><span class="hv-vpanel__v" data-p="meta"></span></div>
+                        <div class="hv-vpanel__box"><span class="hv-metas__k">Diferença</span><span class="hv-vpanel__v" data-p="dif"></span></div>
+                        <div class="hv-vpanel__box hv-vpanel__box--full"><span class="hv-metas__k">Variação contra o mês anterior</span><span class="hv-vpanel__v" data-p="mom"></span></div>
+                    </div>
+                    <div class="hv-vpanel__gauge">
+                        <span class="hv-metas__k">Atingimento</span>
+                        <svg viewBox="0 0 200 112" aria-hidden="true">
+                            <path class="hv-vg__trk" d="M16 100 A84 84 0 0 1 184 100" fill="none" stroke-width="14" stroke-linecap="round"/>
+                            <path class="hv-vg__val" data-p="gval" d="M16 100 A84 84 0 0 1 184 100" fill="none" stroke-width="14" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="264"/>
+                            <g class="hv-vg__ndl" data-p="gndl"><line x1="100" y1="100" x2="100" y2="40" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="100" r="6"/></g>
+                        </svg>
+                        <span class="hv-vg__scale"><span>0</span><span>120%</span></span>
+                        <span class="hv-vg__pct" data-p="pct"></span>
+                        <span class="hv-vg__st" data-p="st"></span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock secao_metas %}
+
+{% block secao_ferramentas %}
+<!-- ===== 03 FERRAMENTAS ===== -->
+<section class="hv-section hv-band hv-ferr" id="ferramentas" aria-labelledby="ferramentas-title">
+    <div class="hv-ferr__inner">
+        <div class="hv-ferr__head">
+            <div>
+                <p class="hv-label hv-ferr__eyebrow">— Nossos Produtos ServicesBI</p>
+                <h2 class="hv-ferr__title" id="ferramentas-title">Não só recomendamos.<br><em>Construímos as ferramentas.</em></h2>
+            </div>
+            <p class="hv-ferr__lead">Sistemas, robôs e modelos desenvolvidos por nós, para que a gestão financeira rode no dia a dia, e não só no relatório do consultor.</p>
+        </div>
+        {% include "includes/ferramentas_cards.html" %}
+
+        {% if novidades %}
+        <div class="hv-news">
+            <div>
+                <p class="hv-label">Novidades</p>
+                <h3>O que mudou nas ferramentas.</h3>
+                <p style="margin: 12px 0 0; font-size: 15px;">Atualizações publicadas aqui e no LinkedIn.</p>
+            </div>
+            <ul>
+                {% for item in novidades %}
+                <li><time>{{ item.data }}</time><strong>{{ item.ferramenta }}</strong><span>{{ item.texto }}</span></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock secao_ferramentas %}
+
+{% block secao_cases %}
+<!-- ===== 04 CASES ===== -->
+<section class="hv-cases2" id="cases" aria-labelledby="cases-title">
+    <div class="hv-cases2__inner">
+        <div class="hv-cases2__head">
+            <p class="hv-label hv-cases2__eyebrow">— Cases</p>
+            <h2 class="hv-cases2__title" id="cases-title">Experiência real em <em>finanças e dados.</em></h2>
+            <p class="hv-cases2__lead">Projetos conduzidos em educação, saúde e instituições de grande porte, apresentados de forma anônima.</p>
+        </div>
+        <div class="hv-cases2__grid">
+            {% for c in cases %}
+            <article class="hv-ccard">
+                <div class="hv-ccard__media">
+                    <img src="{% static c.3 %}" alt="" loading="lazy">
+                    <span class="hv-ccard__badge">{{ c.2 }}</span>
+                </div>
+                <div class="hv-ccard__body">
+                    <p class="hv-ccard__tag">{{ c.0 }}</p>
+                    <h3 class="hv-ccard__title">{{ c.1 }}</h3>
+                    <dl class="hv-ccard__dl">
+                        <dt>Desafio</dt><dd>{{ c.4 }}</dd>
+                        <dt>O que foi feito</dt><dd>{{ c.5 }}</dd>
+                    </dl>
+                    <div class="hv-ccard__res">
+                        <span class="hv-ccard__k">Resultado</span>
+                        <p>{{ c.6 }}</p>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock secao_cases %}
+
+{% block secao_quem_conduz %}
+<!-- ===== QUEM CONDUZ ===== -->
+<section class="hv-soft hv-quem" id="sobre" aria-labelledby="sobre-title">
+    <div class="hv-quem__inner">
+        <div class="hv-quem__who">
+            <div class="hv-quem__photo">
+                {% if foto_sobre %}<img src="{% static foto_sobre %}" alt="Leles Júnior, fundador da ServicesBI" width="300" height="300" loading="lazy">{% else %}<span aria-hidden="true">LJ</span>{% endif %}
+            </div>
+            <p class="hv-quem__name">Júnior Leles <span>|</span> Tech &amp; Data</p>
+            <ul class="hv-quem__bio">
+                <li><span class="hv-quem__ico" aria-hidden="true">🚀</span><span><b>Founder</b> @servicesbi</span></li>
+                <li><span class="hv-quem__ico" aria-hidden="true">💻</span><span><b>Dev Software</b> &amp; Data Analyst</span></li>
+                <li><span class="hv-quem__ico" aria-hidden="true">📊</span><span><b>Especialista</b> em Finanças</span></li>
+            </ul>
+        </div>
+        <div class="hv-quem__text">
+            <p class="hv-label hv-quem__eyebrow">— Quem conduz a ServicesBI</p>
+            <h2 class="hv-quem__title" id="sobre-title">Finanças e tecnologia <em>na mesma mesa.</em></h2>
+            <p>Sou Leles Júnior, fundador da ServicesBI. Formado em Gestão Financeira e em Análise de Dados, uno duas áreas que costumam trabalhar separadas: quem entende de caixa, margem e resultado, e quem transforma dados em sistemas, painéis e automações.</p>
+            <p>Na prática, quem analisa os seus números é o mesmo profissional que constrói a solução. Organizo as finanças, conecto os dados do seu sistema e das suas planilhas, desenvolvo as ferramentas e entrego indicadores claros para sua tomada de decisão.</p>
+            <div class="hv-quem__pillars">
+                <div class="hv-quem__pill"><div class="hv-quem__pic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><h3>Gestão financeira</h3><p>Fluxo de caixa, DRE gerencial, margens, custos e metas.</p></div>
+                <div class="hv-quem__pill"><div class="hv-quem__pic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="12" width="4" height="8" rx="1"/><rect x="10" y="7" width="4" height="13" rx="1"/><rect x="17" y="3" width="4" height="17" rx="1"/></svg></div><h3>Dados &amp; BI</h3><p>Power BI, SQL e modelagem de dados para decidir com indicadores.</p></div>
+                <div class="hv-quem__pill"><div class="hv-quem__pic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9l-4 3 4 3"/><path d="M16 9l4 3-4 3"/><path d="M13 5l-2 14"/></svg></div><h3>Sistemas &amp; automação</h3><p>Python, Django e n8n para tirar o trabalho manual da rotina.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock secao_quem_conduz %}
+
+{% block secao_como_trabalhamos %}
+<!-- ===== 06 COMO TRABALHAMOS ===== -->
+<section class="hv-section" id="processo" aria-labelledby="processo-title">
+    <div class="hv-wrap">
+        <div class="hv-head">
+            <div>
+                <p class="hv-label">06 — Como trabalhamos</p>
+                <h2 class="hv-h2" id="processo-title">Do primeiro contato ao acompanhamento mensal.</h2>
+            </div>
+            <p>Cada etapa tem escopo e prazo definidos. Você decide se segue para a próxima.</p>
+        </div>
+        <ol class="hv-steps">
+            <li class="hv-step"><div class="hv-step__meta"><span>Etapa 1</span><span>30 min</span></div><h3>Diagnóstico gratuito</h3><p>Conversa objetiva para entender o momento da empresa e os principais gargalos.</p><p class="hv-step__price">Sem custo</p></li>
+            <li class="hv-step"><div class="hv-step__meta"><span>Etapa 2</span><span>1–2 semanas</span></div><h3>Raio-X Financeiro</h3><p>Análise de caixa, custos e margens, com relatório de prioridades.</p><p class="hv-step__price">Sob consulta</p></li>
+            <li class="hv-step"><div class="hv-step__meta"><span>Etapa 3</span><span>até 30 dias</span></div><h3>Implantação</h3><p>Fluxo de caixa projetado, DRE gerencial e painel em Power BI ou no SIGE.</p><p class="hv-step__price">Sob consulta</p></li>
+            <li class="hv-step"><div class="hv-step__meta"><span>Etapa 4</span><span>Mensal</span></div><h3>Acompanhamento</h3><p>Reunião de resultados, manutenção dos indicadores e das ferramentas.</p><p class="hv-step__price">Recorrente</p></li>
+        </ol>
+    </div>
+</section>
+{% endblock secao_como_trabalhamos %}
+
+{% block secao_material %}
+<!-- ===== 07 MATERIAL GRATUITO ===== -->
+<section class="hv-wrap" style="padding-bottom: 104px;" aria-labelledby="isca-title">
+    <div class="hv-lead">
+        <div>
+            <p class="hv-label">Material gratuito</p>
+            <h2 id="isca-title">Planilha de fluxo de caixa projetado para 12 semanas.</h2>
+            <p>O mesmo modelo que usamos nos diagnósticos. Veja com antecedência a semana em que o caixa aperta.</p>
+        </div>
+        <a class="hv-btn hv-btn--outline" href="{{ WA_PLANILHA }}" target="_blank" rel="noopener noreferrer">Receber pelo WhatsApp</a>
+    </div>
+</section>
+{% endblock secao_material %}
+
+{% block secao_cta %}
+<!-- ===== CTA FINAL ===== -->
+<section class="hv-cta" id="contato" aria-labelledby="cta-title">
+    <div class="hv-wrap hv-cta__grid">
+        <h2 id="cta-title">Assuma o controle dos números da sua empresa.</h2>
+        <div class="hv-cta__side">
+            <p>Solicite uma análise inicial sem compromisso. Em 30 minutos mostramos onde estão as oportunidades de ganho e economia.</p>
+            <div class="hv-cta__actions">
+                <a class="hv-btn hv-btn--cta" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
+                <a class="hv-btn hv-btn--band" href="{% url 'pages:contato' %}">Preencher formulário</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock secao_cta %}
+
+
+
+{% endblock %}
+
+{% block extra_js %}
+{{ decisao|json_script:"hvDecisaoDados" }}
+<script src="{% static 'js/home-story.js' %}" defer></script>
+<script>
+/* Testando no computador (127.0.0.1 / localhost): os links da demo do SIGE vão para o SIGE local na porta 8001.
+   No site publicado nada muda e continua indo para servicesbi.com.br/sige-demo/. */
+(function () {
+    var h = location.hostname;
+    if (h !== "127.0.0.1" && h !== "localhost") return;
+    document.querySelectorAll("[data-sige-demo]").forEach(function (a) { a.href = "http://127.0.0.1:8001/login/"; });
+})();
+</script>
+<script>
+/* Vídeo da vitrine: só carrega quando a seção aparece; respeita "reduzir movimento". */
+(function () {
+    var v = document.getElementById("hvShowcaseVideo");
+    if (!v) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;   // fica só a imagem parada
+    function carregar() {
+        var src = v.querySelector("source[data-src]");
+        if (src) { src.src = src.getAttribute("data-src"); src.removeAttribute("data-src"); v.load(); }
+    }
+    if (!("IntersectionObserver" in window)) { carregar(); v.play().catch(function () {}); return; }
+    new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) { carregar(); v.play().catch(function () {}); } else { v.pause(); }
+        });
+    }, { rootMargin: "200px 0px", threshold: 0.15 }).observe(v);
+})();
+</script>
+<script>
+/* Autodiagnóstico: cada card marcado soma 25%. Abas de pasta: Saúde financeira e Solução. */
+(function () {
+    var root = document.querySelector(".hv-diag"); if (!root) return;
+    var q = function (s) { return root.querySelector(s); };
+    var cards = [].slice.call(root.querySelectorAll(".hv-dor")), total = cards.length;
+    var sols = [].slice.call(root.querySelectorAll("[data-diag-sol]"));
+    var tabs = [].slice.call(root.querySelectorAll("[data-diag-tab]"));
+    var val = q("[data-diag-val]"), ndl = q("[data-diag-ndl]"), nEl = q("[data-diag-n]"), st = q("[data-diag-status]");
+    var msg = q("[data-diag-msg]"), cta = q("[data-diag-cta]"), see = q("[data-diag-see]"), badge = q("[data-diag-badge]"), empty = q("[data-diag-empty]");
+    var R = {
+        0: ["Comece marcando", "Marque ao lado os sintomas que você reconhece na sua empresa."],
+        ok: ["Sob controle", "Poucos sintomas. Dá para ajustar cedo, antes de virar problema."],
+        warn: ["Atenção", "Já tem dinheiro escapando sem você ver. Vale agir agora."],
+        bad: ["Alerta", "Seu financeiro está no escuro. Vamos acender a luz juntos."]
+    };
+    function aba(nome) {
+        tabs.forEach(function (t) { var on = t.getAttribute("data-diag-tab") === nome; t.classList.toggle("is-on", on); t.setAttribute("aria-selected", on); });
+        root.querySelectorAll("[data-diag-pane]").forEach(function (p) { p.hidden = p.getAttribute("data-diag-pane") !== nome; });
+        root.setAttribute("data-tab", nome);
+    }
+    function upd() {
+        var on = cards.map(function (c) { return c.classList.contains("is-on"); });
+        var n = on.filter(Boolean).length, pct = Math.round(n / total * 100);
+        var lvl = n === 0 ? "0" : pct <= 50 ? "ok" : pct <= 75 ? "warn" : "bad";
+        val.style.strokeDashoffset = 440 - 440 * n / total;
+        ndl.style.transform = "rotate(" + (-90 + 180 * n / total) + "deg)";
+        nEl.textContent = pct; st.textContent = R[lvl][0]; msg.textContent = R[lvl][1];
+        root.setAttribute("data-level", lvl);
+        if (cta) cta.classList.toggle("is-off", n === 0); see.hidden = n === 0;
+        badge.hidden = n === 0; badge.textContent = n;
+        sols.forEach(function (s, i) { s.hidden = !on[i]; }); empty.hidden = n > 0;
+    }
+    cards.forEach(function (c) { c.addEventListener("click", function () {
+        c.classList.toggle("is-on"); c.setAttribute("aria-pressed", c.classList.contains("is-on")); upd(); }); });
+    tabs.forEach(function (t) { t.addEventListener("click", function () { aba(t.getAttribute("data-diag-tab")); }); });
+    see.addEventListener("click", function () { aba("solucao"); });
+    aba("saude"); upd();
+})();
+</script>
+{{ metas|json_script:"hvMetasDados" }}
+<script>
+/* Painel de metas: Top 5 vendedores + painel do vendedor marcado */
+(function () {
+    var root = document.querySelector(".hv-metas"), dataEl = document.getElementById("hvMetasDados");
+    if (!root || !dataEl) return;
+    var D = JSON.parse(dataEl.textContent), V = D.vendedores, M = D.meses;
+    var list = root.querySelector("[data-metas-list]"), tabs = root.querySelector("[data-metas-tabs]");
+    var panel = root.querySelector("[data-metas-panel]"), sub = root.querySelector("[data-metas-sub]");
+    var P = {}; panel.querySelectorAll("[data-p]").forEach(function (e) { P[e.getAttribute("data-p")] = e; });
+    var m = M.length - 1, sel = 0;
+    function brl(v) { return v >= 1000 ? "R$ " + (v / 1000).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " Mi" : "R$ " + v.toLocaleString("pt-BR") + " Mil"; }
+    function pct(p) { return p.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + "%"; }
+    function lvl(p) { return p >= 100 ? ["ok", "No rumo"] : p >= 85 ? ["warn", "Atenção"] : ["bad", "Abaixo"]; }
+    var check = '<span class="hv-vend__chk" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>';
+    M.forEach(function (nome, i) {
+        var b = document.createElement("button"); b.type = "button"; b.textContent = nome;
+        b.addEventListener("click", function () { m = i; render(false); }); tabs.appendChild(b);
+    });
+    var rows = V.map(function (v, i) {
+        var b = document.createElement("button"); b.type = "button"; b.className = "hv-vend";
+        b.innerHTML = check + '<span class="hv-ph"><img src="' + v.foto + '" alt="" width="54" height="54" loading="lazy"><span class="hv-ph__n"></span></span>' +
+            '<span class="hv-vend__info"><span class="hv-vend__name">' + v.nome + '</span><span class="hv-vend__bar"><span class="hv-vend__mini"><i></i></span><span class="hv-vend__pct"></span></span></span>' +
+            '<span class="hv-vend__fat"></span>';
+        b.addEventListener("click", function () { sel = i; render(true); }); list.appendChild(b); return b;
+    });
+    function render(swap) {
+        var r = V.map(function (v, i) {
+            var f = v.fat[m], meta = v.meta[m], prev = m ? v.fat[m - 1] : null, p = f / meta * 100;
+            return { i: i, v: v, f: f, meta: meta, prev: prev, p: p, l: lvl(p) };
+        });
+        r.slice().sort(function (a, b) { return b.p - a.p; }).forEach(function (x, n) { x.rank = n + 1; });
+        r.forEach(function (x) {
+            var b = rows[x.i]; b.style.order = x.rank; b.setAttribute("data-lvl", x.l[0]);
+            b.classList.toggle("is-on", x.i === sel); b.setAttribute("aria-pressed", x.i === sel);
+            b.querySelector(".hv-ph__n").textContent = x.rank;
+            b.querySelector(".hv-vend__mini i").style.width = Math.min(x.p, 120) / 1.2 + "%";
+            b.querySelector(".hv-vend__pct").textContent = pct(x.p);
+            b.querySelector(".hv-vend__fat").innerHTML = brl(x.f) + "<small>meta " + brl(x.meta) + "</small>";
+        });
+        var x = r[sel]; panel.setAttribute("data-lvl", x.l[0]);
+        P.foto.src = x.v.foto; P.foto.alt = "Foto de " + x.v.nome;
+        P.nome.textContent = x.v.nome; P.cidade.textContent = x.v.cidade; P.rank.textContent = "Rank #" + x.rank;
+        P.fat.textContent = brl(x.f); P.meta.textContent = brl(x.meta);
+        var d = x.f - x.meta; P.dif.textContent = (d >= 0 ? "+" : "−") + brl(Math.abs(d)); P.dif.className = "hv-vpanel__v " + (d >= 0 ? "is-pos" : "is-neg");
+        if (x.prev) { var mo = (x.f / x.prev - 1) * 100; P.mom.textContent = (mo >= 0 ? "▲ " : "▼ ") + pct(Math.abs(mo)); P.mom.className = "hv-vpanel__v " + (mo >= 0 ? "is-pos" : "is-neg"); }
+        else { P.mom.textContent = "—"; P.mom.className = "hv-vpanel__v"; }
+        var fr = Math.min(x.p, 120) / 120;
+        P.gval.style.strokeDashoffset = 264 - 264 * fr; P.gndl.style.transform = "rotate(" + (-90 + 180 * fr) + "deg)";
+        P.pct.textContent = pct(x.p); P.st.textContent = x.l[1];
+        sub.textContent = "Ranking por atingimento · " + M[m];
+        [].forEach.call(tabs.children, function (b, i) { b.classList.toggle("is-on", i === m); b.setAttribute("aria-pressed", i === m); });
+        if (swap) { panel.classList.remove("is-swap"); void panel.offsetWidth; panel.classList.add("is-swap"); }
+    }
+    render(false);
+})();
+</script>
+{% block extra_js_pagina %}{% endblock extra_js_pagina %}
+{% endblock %}

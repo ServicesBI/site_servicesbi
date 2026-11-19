@@ -1,0 +1,118 @@
+{% extends "pages/modelo_consultoria.html" %}
+{# Página Nossos Produtos: SIGE, Jarvis, Automações n8n e Excel corporativo. Dados em apps/pages/views.py (PRODUTOS_DETALHE). #}
+{% load static %}
+
+{% block title %}Nossos Produtos | ServicesBI{% endblock %}
+{% block meta_description %}Sistemas, robôs e modelos próprios da ServicesBI: SIGE, Jarvis, automações n8n e Excel corporativo para a gestão financeira.{% endblock %}
+{% block schema %}{% endblock schema %}
+
+{% block hero_eyebrow %}— Nossos Produtos · ServicesBI{% endblock hero_eyebrow %}
+{% block hero_titulo %}<span>Não só recomendamos.</span> <span>Construímos <em>as ferramentas.</em></span>{% endblock hero_titulo %}
+{% block hero_lead %}Sistema de gestão, assistente de IA, automações e modelos em Excel desenvolvidos pela ServicesBI, para que a gestão financeira rode no dia a dia, e não só no relatório.{% endblock hero_lead %}
+{% block hero_cta2 %}<a class="hv-btn hv-btn--ghost" href="#produtos-title">Ver os produtos ↓</a>{% endblock hero_cta2 %}
+{% block story_passo_1 %}Hoje{% endblock story_passo_1 %}
+{% block story_passo_2 %}SIGE{% endblock story_passo_2 %}
+{% block story_passo_3 %}Automações{% endblock story_passo_3 %}
+{% block story_passo_4 %}Jarvis{% endblock story_passo_4 %}
+
+{% block story_caps %}
+                <p class="hv-story__cap" data-cap="1">Planilhas, extratos, e-mails e tarefas repetidas. Cada rotina num lugar. <span class="hv-story__hint">↓ role para organizar</span></p>
+                <p class="hv-story__cap" data-cap="2">SIGE: compras, vendas, estoque e financeiro no mesmo sistema.</p>
+                <p class="hv-story__cap" data-cap="3">Automações: relatórios e conciliações rodando sozinhos.</p>
+                <p class="hv-story__cap" data-cap="4">Jarvis: um assistente de IA para a rotina do escritório.</p>
+{% endblock story_caps %}
+
+{% block story_docs %}
+                    <span class="hv-story__doc hv-bisrc" style="--x:-120px; --y:-215px; --r:-6deg;"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="#1D6F42"/><path d="M8 8l8 8M16 8l-8 8" stroke="#fff" stroke-width="2"/></svg><span>compras_novembro.xlsx<small>atualizado à mão</small></span></span>
+                    <span class="hv-story__doc hv-bisrc" style="--x:115px; --y:-150px; --r:5deg;"><svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="1.6"><path d="M4 20l1.4-4A8 8 0 1 1 8 18.6z"/></svg><span>Pedidos pelo WhatsApp<small>32 conversas abertas</small></span></span>
+                    <span class="hv-story__doc hv-bisrc" style="--x:-130px; --y:-75px; --r:3deg;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5M9 13h8M9 17h8"/></svg><span>extrato_banco.csv<small>conciliar com o caixa</small></span></span>
+                    <span class="hv-story__doc hv-bisrc" style="--x:110px; --y:-5px; --r:-4deg;"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="#1D6F42"/><path d="M8 8l8 8M16 8l-8 8" stroke="#fff" stroke-width="2"/></svg><span>estoque_planilha.xlsx<small>não bate com vendas</small></span></span>
+                    <span class="hv-story__doc hv-bisrc" style="--x:-110px; --y:80px; --r:-3deg;"><svg viewBox="0 0 24 24" fill="none" stroke="#C0392B" stroke-width="1.6"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/><text x="8" y="18" font-size="6" fill="#C0392B" stroke="none">PDF</text></svg><span>notas_fiscais.pdf<small>18 arquivos</small></span></span>
+                    <span class="hv-story__doc hv-bisrc" style="--x:120px; --y:145px; --r:6deg;"><svg viewBox="0 0 24 24" fill="none" stroke="#2F6690" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Relatório semanal<small>montado toda segunda</small></span></span>
+                    <span class="hv-story__doc hv-bisrc" style="--x:-40px; --y:215px; --r:-5deg;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><span>Agenda de pagamentos<small>lembrete no papel</small></span></span>
+{% endblock story_docs %}
+
+{% block story_folder %}
+                <div class="hv-story__folder">
+                    <div class="hv-story__foldertabs">
+                        <button type="button" class="hv-story__foldertab hv-story__foldertab--dre" data-go="2"><span class="hv-story__dot" aria-hidden="true"></span>SIGE · ERP</button>
+                        <button type="button" class="hv-story__foldertab hv-story__foldertab--ind" data-go="3"><span class="hv-story__dot" aria-hidden="true"></span>Automações</button>
+                        <button type="button" class="hv-story__foldertab hv-story__foldertab--dec" data-go="4"><span class="hv-story__dot" aria-hidden="true"></span>Jarvis</button>
+                    </div>
+                    <div class="hv-dre">
+                        <div class="hv-story__pane hv-story__pane--dre">
+                            <div class="hv-prp">
+                                <div class="hv-prp__media"><img src="{% static 'img/home/portfolio/destaques/sige-servicesbi.webp' %}" alt="Tela de acesso do SIGE" loading="lazy"><span class="hv-prp__tag">Demo disponível</span></div>
+                                <ul class="hv-prp__list"><li>Cadastros</li><li>Compras e vendas</li><li>Estoque</li><li>Fluxo de caixa</li></ul>
+                            </div>
+                        </div>
+                        <div class="hv-story__pane hv-story__pane--ind">
+                            <div class="hv-prp">
+                                <div class="hv-prp__media"><img class="hv-prp__l" src="{% static 'img/automacoes/hero/hero_automacoes_light.webp' %}" alt="Fluxos de automação no n8n" loading="lazy"><img class="hv-prp__d" src="{% static 'img/automacoes/hero/hero_automacoes_dark.webp' %}" alt="" loading="lazy"><span class="hv-prp__tag">Sob medida</span></div>
+                                <ul class="hv-prp__list"><li>Relatórios por e-mail</li><li>Avisos no WhatsApp</li><li>Conciliação</li><li>Integração de sistemas</li></ul>
+                            </div>
+                        </div>
+                        <div class="hv-story__pane hv-story__pane--dec">
+                            <div class="hv-prp">
+                                <div class="hv-prp__media"><img src="{% static 'img/home/Services_Jarvis/orquestrador.webp' %}" alt="Jarvis, assistente de IA da ServicesBI" loading="lazy"><span class="hv-prp__tag">Em desenvolvimento</span></div>
+                                <ul class="hv-prp__list"><li>Financeiro</li><li>Documentos</li><li>E-mail</li><li>Agenda</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock story_folder %}
+
+{% block secao_vitrine %}
+<!-- ===== GRADE DE PRODUTOS ===== -->
+<section class="hv-section hv-band hv-ferr" id="produtos" aria-labelledby="produtos-title">
+    <div class="hv-ferr__inner">
+        <div class="hv-ferr__head">
+            <div>
+                <p class="hv-label hv-ferr__eyebrow">— Produtos iniciais</p>
+                <h2 class="hv-ferr__title" id="produtos-title">Quatro ferramentas, <em>um mesmo objetivo.</em></h2>
+            </div>
+            <p class="hv-ferr__lead">Do sistema de gestão ao modelo em Excel: escolha o ponto de partida que cabe no momento da sua empresa.</p>
+        </div>
+        {% include "includes/ferramentas_cards.html" %}
+    </div>
+</section>
+{% endblock secao_vitrine %}
+
+{% block secao_entrega %}{% endblock secao_entrega %}
+{% block secao_diagnostico %}{% endblock secao_diagnostico %}
+{% block secao_metas %}{% endblock secao_metas %}
+
+{% block secao_ferramentas %}
+<!-- ===== DETALHE DE CADA PRODUTO ===== -->
+{% for p in produtos %}
+<section class="hv-prod{% if forloop.counter|divisibleby:2 %} hv-prod--rev hv-soft{% endif %}" id="{{ p.ancora }}" aria-labelledby="prod-{{ p.ancora }}">
+    <div class="hv-prod__inner">
+        <div class="hv-prod__media">
+            <img class="hv-prod__img hv-prod__img--l" src="{% static p.img %}" alt="Exemplo do {{ p.titulo }}" loading="lazy">
+            <img class="hv-prod__img hv-prod__img--d" src="{% static p.img_dark %}" alt="" loading="lazy">
+            <span class="hv-tcard__badge">{{ p.selo }}</span>
+        </div>
+        <div class="hv-prod__text">
+            <p class="hv-label hv-prod__eyebrow">— {{ p.tipo }}</p>
+            <h2 class="hv-prod__title" id="prod-{{ p.ancora }}">{{ p.titulo }}: {{ p.chamada|safe }}</h2>
+            <p class="hv-prod__lead">{{ p.texto }}</p>
+            <ul class="hv-prod__list">
+                {% for i in p.itens %}<li>{{ i }}</li>{% endfor %}
+            </ul>
+            <p class="hv-prod__para"><span>Para quem</span>{{ p.para }}</p>
+            <div class="hv-prod__acts">
+                {% if p.destino == "sige" %}<a class="hv-btn hv-btn--primary" href="{{ sige_demo_url }}" data-sige-demo target="_blank" rel="noopener noreferrer">{{ p.cta }} →</a>
+                {% elif p.destino == "jarvis" %}<a class="hv-btn hv-btn--primary" href="{{ WA_JARVIS }}" target="_blank" rel="noopener noreferrer">{{ p.cta }} →</a>
+                {% else %}<a class="hv-btn hv-btn--primary" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">{{ p.cta }} →</a>{% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+{% endblock secao_ferramentas %}
+
+{% block secao_cases %}{% endblock secao_cases %}
+{% block secao_quem_conduz %}{% endblock secao_quem_conduz %}
+{% block secao_como_trabalhamos %}{% endblock secao_como_trabalhamos %}
+{% block secao_material %}{% endblock secao_material %}
+{% block secao_cta %}{% endblock secao_cta %}

@@ -661,3 +661,76 @@ html:not(.theme-dark) .v2-card--featured {
         #12102A;
     border: 1px solid rgba(155, 123, 255, 0.18);
 }
+
+/* ---------- Logo da marca antes do nome (cabeçalho e rodapé) ---------- */
+.site-logo {
+    gap: 10px;
+}
+
+.site-logo__mark {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+}
+
+.site-logo__mark--escuro,
+html.theme-dark .site-logo__mark--claro {
+    display: none;
+}
+
+html.theme-dark .site-logo__mark--escuro {
+    display: block;
+}
+
+.site-logo__text span {
+    color: var(--color-accent-bright);
+}
+
+.site-logo span.site-logo__text {
+    color: inherit;
+}
+
+.site-logo .site-logo__text span {
+    color: var(--color-accent-bright);
+}
+
+.v2-footer .site-logo__mark {
+    width: 36px;
+    height: 36px;
+}
+
+/* ---------- Footer verde (19/11/2026): fundo petróleo, textos em branco ---------- */
+.v2-footer { color: #FFFFFF; background: var(--brand-petroleo); border-top: 0; }
+html.theme-dark .v2-footer { background: #12102A; border-top: 1px solid rgba(155, 123, 255, 0.22); }
+.v2-footer h2 { color: #F3C79A; }
+html.theme-dark .v2-footer h2 { color: #E8C9A0; }
+.v2-footer a, .v2-footer__brand p, .v2-footer li { color: #FFFFFF; }
+.v2-footer a { opacity: .9; transition: opacity .2s, color .2s; }
+.v2-footer a:hover { color: #F3C79A; opacity: 1; }
+html.theme-dark .v2-footer a:hover { color: #E8C9A0; }
+.v2-footer .site-logo, .v2-footer .site-logo__text { color: #FFFFFF; }
+.v2-footer__meta { color: rgba(255, 255, 255, 0.72); border-top-color: rgba(255, 255, 255, 0.18); }
+html.theme-dark .v2-footer__meta { border-top-color: rgba(155, 123, 255, 0.22); }
+
+/* Rodapé simples e centralizado (19/11/2026): logo, texto, links em linha e copyright */
+.v2-footer--simples { padding-block: 44px 30px; text-align: center; }
+.v2-footer--simples .v2-footer__brand { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.v2-footer--simples .v2-footer__brand p { margin: 0 auto; max-width: 40rem; font-size: 0.9375rem; color: rgba(255, 255, 255, 0.85); }
+.v2-footer__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: 26px; }
+.v2-footer__links a { font-size: 0.9375rem; font-weight: 600; }
+.v2-footer--simples .v2-footer__meta { margin-top: 22px; padding-top: 0; border-top: 0; }
+
+/* Rodapé: linha de base com copyright ao centro e redes sociais à direita */
+.v2-footer--simples { padding-bottom: 96px; }
+.v2-footer__base { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 14px; margin-top: 22px; }
+.v2-footer__base .v2-footer__meta { grid-column: 2; margin: 0; }
+.v2-footer .v2-footer__social { grid-column: 3; justify-self: end; display: flex; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.v2-footer__social a { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.35); opacity: 1; transition: background .2s, color .2s, border-color .2s; }
+.v2-footer__social svg { width: 17px; height: 17px; fill: currentColor; }
+.v2-footer__social a:hover { background: #FFFFFF; color: var(--brand-petroleo); border-color: #FFFFFF; }
+html.theme-dark .v2-footer__social a:hover { background: #E8C9A0; color: #12102A; border-color: #E8C9A0; }
+@media (max-width: 720px) {
+    .v2-footer__base { grid-template-columns: 1fr; }
+    .v2-footer__base .v2-footer__meta, .v2-footer__social { grid-column: 1; justify-self: center; }
+    .v2-footer .v2-footer__social { grid-row: 1; grid-column: 1; justify-self: center; }
+}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Sobre Leles Júnior | ServicesBI{% endblock %}
+{% block meta_description %}Leles Júnior, fundador da ServicesBI: formação em Gestão Financeira e Análise de Dados, com experiência em finanças, BI e automação nos setores de educação e saúde.{% endblock %}
+{% block og_title %}Sobre Leles Júnior | ServicesBI{% endblock %}
+
+{% block content %}
+
+<section class="v2-hero" aria-labelledby="sobre-title">
+    <div class="v2-container v2-about">
+        <!-- Para usar sua foto: salve em static/img/sobre/leles.webp e troque o "LJ" por
+             <img src="{% static 'img/sobre/leles.webp' %}" alt="Leles Júnior, fundador da ServicesBI"> -->
+        <div class="v2-avatar" aria-hidden="true">LJ</div>
+        <div>
+            <p class="eyebrow text-accent">Sobre</p>
+            <h1 id="sobre-title">Leles Júnior</h1>
+            <p class="v2-hero__lead">Fundador da ServicesBI. Formado em <strong>Gestão Financeira</strong> e em <strong>Análise de Dados</strong>, uno a visão de negócio e de dinheiro com a capacidade técnica de estruturar, integrar e automatizar informações.</p>
+            <p class="v2-hero__lead">Ao longo da minha trajetória, atuei nas áreas financeira, de compras e de dados de instituições de educação e saúde — criando dashboards, DRE, projeções, controles de inadimplência e de suprimentos, além de sistemas e automações que tiraram equipes do trabalho manual.</p>
+            <div class="v2-hero__actions">
+                <a class="btn btn--primary" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Agendar diagnóstico gratuito</a>
+                <a class="btn btn--secondary" href="{{ LINKEDIN_URL }}" target="_blank" rel="noopener noreferrer">Ver LinkedIn</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="v2-section v2-section--soft" aria-labelledby="trajetoria-title">
+    <div class="v2-container">
+        <div class="v2-head">
+            <p class="eyebrow text-accent">Trajetória</p>
+            <h2 id="trajetoria-title">Experiência prática onde finanças e dados se encontram</h2>
+        </div>
+        <div class="v2-grid v2-grid--3">
+            <article class="v2-card">
+                <p class="v2-case__tag">2025 · Instituição de ensino nacional</p>
+                <h3>Analista de Dados e Soluções Internas</h3>
+                <p>Integração e consolidação de dados financeiros e acadêmicos, análises de inadimplência, receitas e orçamento, e automação de rotinas manuais.</p>
+            </article>
+            <article class="v2-card">
+                <p class="v2-case__tag">2021 – 2023 · Colégio</p>
+                <h3>Analista de Dados / BI</h3>
+                <p>Dashboards financeiros de receitas, inadimplência e fluxo de caixa; DRE, projeções e relatórios gerenciais para a diretoria.</p>
+            </article>
+            <article class="v2-card">
+                <p class="v2-case__tag">2017 – 2019 · Hospital</p>
+                <h3>Analista de Compras / Indicadores</h3>
+                <p>Gestão de compras, contratos e fornecedores, com controles de saving, estoques e desempenho de fornecedores.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="v2-section" aria-labelledby="formacao-title">
+    <div class="v2-container">
+        <div class="v2-grid v2-grid--2">
+            <div>
+                <div class="v2-head">
+                    <p class="eyebrow text-accent">Formação</p>
+                    <h2 id="formacao-title">Base acadêmica dupla</h2>
+                </div>
+                <ul class="v2-list">
+                    <li><strong>Gestão Financeira</strong> — Faculdade Anhanguera (2025)</li>
+                    <li><strong>Análise de Dados</strong> — Centro Universitário UNIFATEC (2025)</li>
+                    <li>DRE, Fluxo de Caixa, Contas a Pagar e Receber e Análise de Risco — CEFIS</li>
+                    <li>Data Analytics — Xperiun (360h)</li>
+                    <li>Power BI: do Zero ao Expert — Cubo Três (360h)</li>
+                    <li>Excel Avançado (80h) e Python (40h)</li>
+                </ul>
+            </div>
+            <div>
+                <div class="v2-head">
+                    <p class="eyebrow text-accent">Competências</p>
+                    <h2>O que uso para entregar resultado</h2>
+                </div>
+                <ul class="v2-list">
+                    <li><strong>Finanças:</strong> DRE, fluxo de caixa, contas a pagar e receber, inadimplência, orçamento, compras e saving</li>
+                    <li><strong>Dados e BI:</strong> Power BI, DAX, Power Query, Excel avançado, SQL</li>
+                    <li><strong>Automação e sistemas:</strong> Python, Django, APIs, n8n</li>
+                </ul>
+                <div class="v2-hero__actions">
+                    <a class="btn btn--secondary" href="{% url 'pages:curriculo' %}">Ver currículo completo</a>
+                    <a class="btn btn--secondary" href="{% static 'docs/curriculo/Curriculo-Leles-junior.pdf' %}" download>Baixar currículo (PDF)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="v2-section" aria-labelledby="sobre-cta-title">
+    <div class="v2-container">
+        <div class="v2-cta">
+            <div>
+                <h2 id="sobre-cta-title">Vamos conversar sobre a sua empresa?</h2>
+                <p>Me conte o desafio do momento — o diagnóstico inicial é gratuito.</p>
+            </div>
+            <div class="v2-cta__actions">
+                <a class="btn btn--whatsapp" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
+                <a class="btn btn--secondary" href="{% url 'pages:contato' %}">Preencher formulário</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

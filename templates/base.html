@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}ServicesBI{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}ServicesBI — consultoria financeira com inteligência de dados.{% endblock %}">
-    <link rel="canonical" href="{{ SITE_URL }}{{ request.path }}">
+    <link rel="canonical" href="{{ SITE_URL }}{% if request.resolver_match.url_name == 'consultoria' %}/{% else %}{{ request.path }}{% endif %}">
 
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">

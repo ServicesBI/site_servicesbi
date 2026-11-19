@@ -1,0 +1,8 @@
+{# Links principais: usados pelo menu superior E pelo rodapé (uma lista só). #}
+{% with current_url=request.resolver_match.url_name %}
+<a class="{% if current_url == 'consultoria' or current_url == 'home' %}is-active{% endif %}" href="{% url 'pages:home' %}"{% if current_url == 'consultoria' or current_url == 'home' %} aria-current="page"{% endif %}>Consultoria Financeira</a>
+<a class="{% if current_url == 'powerbi' %}is-active{% endif %}" href="{% url 'pages:powerbi' %}"{% if current_url == 'powerbi' %} aria-current="page"{% endif %}>BI &amp; Dashboards</a>
+<a class="{% if current_url == 'produtos' %}is-active{% endif %}" href="{% url 'pages:produtos' %}"{% if current_url == 'produtos' %} aria-current="page"{% endif %}>Nossos Produtos</a>
+<a class="{% if current_url == 'cases' %}is-active{% endif %}" href="{% url 'pages:cases' %}"{% if current_url == 'cases' %} aria-current="page"{% endif %}>Cases</a>
+<a class="{% if current_url == 'sobre' or current_url == 'curriculo' %}is-active{% endif %}" href="{% url 'pages:sobre' %}"{% if current_url == 'sobre' %} aria-current="page"{% endif %}>Sobre</a>
+{% endwith %}

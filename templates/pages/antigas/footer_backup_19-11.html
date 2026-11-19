@@ -1,0 +1,43 @@
+<footer class="v2-footer">
+    <div class="v2-container">
+        <div class="v2-footer__grid">
+            <div class="v2-footer__brand">
+                <a class="site-logo" href="{% url 'pages:home' %}" aria-label="ServicesBI — página inicial">{% include "includes/logo_mark.html" %}<span class="site-logo__text">Services<span>BI</span></span></a>
+                <p>Consultoria financeira com inteligência de dados e ferramentas próprias.</p>
+            </div>
+
+            <nav aria-labelledby="footer-solucoes">
+                <h2 id="footer-solucoes">Soluções</h2>
+                <ul>
+                    <li><a href="{% url 'pages:home' %}">Consultoria Financeira</a></li>
+                    <li><a href="{% url 'pages:powerbi' %}">BI &amp; Dashboards</a></li>
+                    <li><a href="{% url 'pages:automacoes' %}">Automação de Processos</a></li>
+                    <li><a href="{% url 'pages:python' %}">Python &amp; Integrações</a></li>
+                </ul>
+            </nav>
+
+            <nav aria-labelledby="footer-ferramentas">
+                <h2 id="footer-ferramentas">Ferramentas</h2>
+                <ul>
+                    <li><a href="{% url 'pages:sige_institucional' %}">SIGE</a></li>
+                    <li><a href="{% url 'pages:automacoes' %}">Automações</a></li>
+                    <li><a href="{% url 'pages:excel' %}">Modelos financeiros</a></li>
+                    <li><a href="{% url 'pages:jarvis' %}">Jarvis</a></li>
+                    <li><a href="{% url 'pages:sobre' %}">Sobre</a> · <a href="{% url 'pages:curriculo' %}">Currículo</a></li>
+                </ul>
+            </nav>
+
+            <div aria-labelledby="footer-contato">
+                <h2 id="footer-contato">Contato</h2>
+                <ul>
+                    <li><a href="{{ WA_GERAL }}" target="_blank" rel="noopener noreferrer">WhatsApp: (61) 99302-9988</a></li>
+                    <li><a href="mailto:{{ EMAIL_CONTATO }}">{{ EMAIL_CONTATO }}</a></li>
+                    <li><a href="{{ LINKEDIN_URL }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="{% url 'pages:contato' %}">Formulário de contato</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="v2-footer__meta">© 2026 ServicesBI · Leles Júnior. Todos os direitos reservados.</p>
+    </div>
+</footer>

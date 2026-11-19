@@ -1,0 +1,22 @@
+{% load static %}
+{# Cards dos produtos (home e página Nossos Produtos). Os links levam ao detalhe de cada produto na página Nossos Produtos (com ancoras=True, descem na própria página). #}
+        <div class="hv-ferr__grid">
+            {% for t in ferramentas %}
+            <article class="hv-tcard">
+                <div class="hv-tcard__media">
+                    <img class="hv-tcard__img hv-tcard__img--l" src="{% static t.img %}" alt="" loading="lazy">
+                    <img class="hv-tcard__img hv-tcard__img--d" src="{% static t.img_dark %}" alt="" loading="lazy">
+                    <span class="hv-tcard__badge">{{ t.selo }}</span>
+                </div>
+                <div class="hv-tcard__body">
+                    <p class="hv-tcard__kind">{{ t.tipo }}</p>
+                    <h3 class="hv-tcard__title">{{ t.titulo }}</h3>
+                    <dl class="hv-tcard__dl">
+                        <dt>O que faz</dt><dd>{{ t.faz }}</dd>
+                        <dt>Para quem</dt><dd>{{ t.para }}</dd>
+                    </dl>
+                    <a class="hv-tcard__link" href="{% if ancoras %}#{{ t.ancora }}{% else %}{% url 'pages:produtos' %}#{{ t.ancora }}{% endif %}">Ver detalhes <span aria-hidden="true">{% if ancoras %}↓{% else %}→{% endif %}</span></a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>

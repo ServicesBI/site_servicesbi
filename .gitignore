@@ -24,3 +24,6 @@ staticfiles/
 # Scripts de debug/captura local â€” nÃ£o versionar
 static/js/home-capture.js
 static/js/dev-home-text-metrics.js
+
+# Esbocos e previas gerados pelo Claude
+Claude outputs/
