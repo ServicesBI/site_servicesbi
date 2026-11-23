@@ -2,6 +2,8 @@ from urllib.parse import quote
 
 from django.conf import settings
 
+from .central import central_ativa
+
 WHATSAPP_NUMERO = "5561993029988"
 
 
@@ -21,4 +23,6 @@ def site(request):
         "WA_JARVIS": _wa("Olá Leles, vi o site da ServicesBI e quero entrar na lista de espera do Jarvis."),
         "EMAIL_CONTATO": "servicesbi.ltda@gmail.com",
         "LINKEDIN_URL": "https://www.linkedin.com/in/jrleles/",
+        # Central de comando (clique no logo): só no PC, nunca no site publicado.
+        "CENTRAL_LOCAL": central_ativa(request),
     }

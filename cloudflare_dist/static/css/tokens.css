@@ -79,29 +79,30 @@ html.theme-dark,
 body.theme-dark {
     color-scheme: dark;
 
-    /* ===== Paleta oficial ServicesBI — tema dark (Manual de Identidade 2026) ===== */
-    --brand-violeta: #7335FD;      /* Violeta: preenchimentos, brilhos, números de passo */
-    --brand-dourado: #E8C9A0;      /* Bege-dourado: botões de ação */
-    --brand-preto: #06060E;        /* Preto-azulado: fundo */
+    /* ===== Tema dark — mesma paleta do SIGE (ERP ServicesBI) ===== */
+    --brand-aco: #7FB8CF;           /* Azul-aço: botões, links, destaques, "BI" */
+    --brand-aco-claro: #A3D0E0;     /* Aço claro: títulos de destaque */
+    --brand-aco-profundo: #4A8BA8;  /* Aço profundo: preenchimentos, barras, números de passo */
+    --brand-grafite-azul: #0A1217;  /* Grafite-azulado: fundo */
 
-    --color-bg: var(--brand-preto);
-    --color-bg-soft: #0E0E18;
-    --color-surface: #161624;
-    --color-surface-strong: #1E1B33;
-    --color-text: #F5F4FA;
-    --color-text-body: #C9C8DA;
-    --color-text-muted: #8E8DA8;
-    --color-border: rgba(255, 255, 255, 0.08);
-    --color-border-strong: rgba(155, 123, 255, 0.28);
-    --color-accent: #9B7BFF;        /* violeta de texto/links: contraste 6,4:1 */
-    --color-accent-bright: #8B5CFF; /* violeta de títulos e do "BI" */
-    --color-on-accent: #FFFFFF;
-    --color-button-bg: var(--brand-dourado);
-    --color-button-text: #1A1428;
+    --color-bg: var(--brand-grafite-azul);
+    --color-bg-soft: #0D171D;
+    --color-surface: #13222D;
+    --color-surface-strong: #1F3340;
+    --color-text: #E3EEF3;
+    --color-text-body: #9FB9C6;
+    --color-text-muted: #6E8C9B;
+    --color-border: rgba(127, 184, 207, 0.12);
+    --color-border-strong: #274151;
+    --color-accent: var(--brand-aco);
+    --color-accent-bright: var(--brand-aco-claro);
+    --color-on-accent: #0A1217;
+    --color-button-bg: var(--brand-aco);
+    --color-button-text: #0A1217;
     --color-success: #30D08D;
-    --color-warning: #F2C94C;
+    --color-warning: #E5B567;
     --color-danger: #FF6B7A;
-    --color-info: #65A9EA;
+    --color-info: #7FB8CF;
 
     --shadow-soft: 0 12px 32px rgba(0, 0, 0, 0.45);
     --shadow-card: 0 18px 48px rgba(0, 0, 0, 0.55);

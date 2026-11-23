@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views
+from . import central, views
 
 
 app_name = "pages"
@@ -21,4 +21,9 @@ urlpatterns = [
     path("contato/", views.contato_page, name="contato"),
     path("robots.txt", views.robots_txt, name="robots"),
     path("sitemap.xml", views.sitemap_xml, name="sitemap"),
+    # Central de comando: só funciona no PC (runserver local). Ver apps/pages/central.py
+    path("central/status/", central.central_status, name="central_status"),
+    path("central/exportar/", central.central_exportar, name="central_exportar"),
+    path("central/publicar/", central.central_publicar, name="central_publicar"),
+    path("central/publicar/status/", central.central_publicar_status, name="central_publicar_status"),
 ]

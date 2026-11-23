@@ -3,6 +3,8 @@
 > **Fonte de verdade da marca ServicesBI.** Versão técnica do *Manual de Identidade Visual* (PDF).
 > Vale para o site, propostas, relatórios, apresentações e dashboards em Power BI.
 > Substitui `SERVICESBI_COLOR_PALETTE.md` (paleta antiga com accent `#CA3A18`).
+> **Última atualização: 23/11/2026** — tema escuro passou a usar a paleta do SIGE (seção 4) e foram registradas as decisões de design das conversas (seção 13).
+> A parte técnica (código, rotas, publicação) está em `docs/SERVICESBI_PROGRAMACAO.md`.
 
 ---
 
@@ -18,13 +20,27 @@
 
 | Arquivo | Uso |
 |---|---|
-| `static/img/brand/logo-servicesbi.png` | Símbolo redondo, fundo transparente (410×410 px) |
+| `static/img/brand/logo-servicesbi.png` | Símbolo original (azul e verde), fundo transparente (410×410 px) |
+| `static/img/brand/logo-servicesbi-claro.png` / `-claro-96.webp` | Versão do tema claro: disco petróleo com detalhes em laranja |
+| `static/img/brand/logo-servicesbi-escuro.png` / `-escuro-96.webp` | Versão do tema escuro: disco preto-violeta com detalhes em violeta (**ainda não atualizada para o azul-aço do dark atual — pendente**) |
 | `static/img/brand/favicon.ico` / `favicon-32.png` | Aba do navegador |
 | `static/img/brand/apple-touch-icon.png` | Atalho no iPhone (fundo escuro) |
 | `static/img/brand/icon-512.png` | Dados estruturados (Google), redes sociais |
 | `static/img/brand/og-servicesbi.png` | Imagem de compartilhamento (WhatsApp, LinkedIn) 1200×630 |
 
-**Assinatura em texto** (cabeçalho do site e documentos): `Services` na cor do título + `BI` na cor de destaque da marca (laranja `#E0812F` no claro, violeta `#8B5CFF` no escuro).
+**Assinatura em texto** (cabeçalho do site e documentos): `Services` na cor do título + `BI` na cor de destaque da marca (laranja `#E0812F` no claro, azul-aço `#7FB8CF` no escuro).
+
+**Logo no cabeçalho e no rodapé** (`templates/includes/logo_mark.html`): as duas versões (claro e escuro) ficam no HTML e o CSS mostra a do tema ativo. Tamanho: **44 px no cabeçalho, 36 px no rodapé**.
+
+**Favicon em tudo que abre no navegador:** site, SIGE, Jarvis, Compras e qualquer sistema novo da ServicesBI mostram o logo na aba. Três linhas logo depois do `<title>` (copiar os 3 arquivos para `static/img/brand/` do projeto):
+
+```html
+<link rel="icon" href="{% static 'img/brand/favicon.ico' %}" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/brand/favicon-32.png' %}">
+<link rel="apple-touch-icon" href="{% static 'img/brand/apple-touch-icon.png' %}">
+```
+
+O favicon e a imagem de compartilhamento (`og-servicesbi.png`) ainda usam o logo original azul e verde.
 
 ```html
 <a class="site-logo" href="/">Services<span>BI</span></a>
@@ -103,56 +119,65 @@ Bege 55% · Petróleo 20% · Laranja 15% · Grafite e vermelho 10%. No máximo *
 
 O site **abre no tema escuro** e o visitante pode alternar para o claro (botão ☀/☾). Documentos impressos e relatórios usam o tema claro.
 
-Estilo **premium**: fundo quase preto, brilho violeta, cards em roxo profundo e botões bege-dourados. O bege dos botões faz a ponte com o fundo bege do tema claro.
+> **Decisão de 22/11/2026:** o tema escuro do site usa **a mesma paleta do SIGE versão dark** (grafite-azulado, petróleo escuro e azul-aço). Substituiu o estilo "premium" preto + violeta + bege-dourado (inspirado na Xperiun), que vigorou de 18 a 22/11/2026. O tema claro não mudou. As cores foram tiradas do print do SIGE em produção, porque o código do SIGE fica em outro projeto (`D:\python\SIGE_ServicesBI`).
 
 ### 4.1 Cores
 
 | Nome | HEX | Uso |
 |---|---|---|
-| **Preto-azulado** | `#06060E` | Fundo |
-| Superfície suave | `#0E0E18` | Seções alternadas |
-| Superfície | `#161624` | Painéis |
-| Superfície forte | `#1E1B33` | Cards (com degradê `#2A2150 → #1A1830 → #161624`) |
-| Branco-lavanda | `#F5F4FA` | Títulos |
-| Lavanda-acinzentado | `#C9C8DA` | Texto |
-| Cinza-lavanda | `#8E8DA8` | Texto secundário |
-| **Violeta** | `#7335FD` | Preenchimentos, brilhos, números de passo, borda do card em destaque |
-| Violeta de títulos | `#8B5CFF` | Títulos de seção (H2) e "BI" da assinatura em texto |
-| Violeta de texto | `#9B7BFF` | Links, rótulos e destaques em texto (contraste 6,4:1) |
-| **Bege-dourado** | `#E8C9A0` | Botões de ação (degradê `#F1D9B8 → #DDBB90`, texto `#1A1428`) |
-| Coral | `#FF6B7A` | Alertas |
+| **Grafite-azulado** | `#0A1217` | Fundo (também `theme-color` da barra do navegador no celular) |
+| Superfície suave | `#0D171D` | Seções alternadas |
+| Superfície | `#13222D` | Painéis e cards |
+| Superfície forte | `#1F3340` | Cards em destaque |
+| Borda forte | `#274151` | Bordas de destaque |
+| Texto de título | `#E3EEF3` | Títulos |
+| Texto corrido | `#9FB9C6` | Parágrafos |
+| Texto secundário | `#6E8C9B` | Legendas, rótulos discretos |
+| **Azul-aço** | `#7FB8CF` | Botões de ação, links, "BI" da assinatura, destaques em texto |
+| **Aço claro** | `#A3D0E0` | Títulos em destaque |
+| **Aço profundo** | `#4A8BA8` | Preenchimentos, barras de gráfico, números de passo |
+| Âmbar | `#E5B567` | Alertas e metas (antes era o dourado) |
+| Verde | `#30D08D` | Sucesso |
+| Coral | `#FF6B7A` | Erros e quedas |
 
-> **Regra:** violeta `#7335FD` só **preenchendo áreas** (com texto branco) · em **texto** use `#9B7BFF` ou `#8B5CFF` (títulos grandes) · **botão de ação** sempre bege-dourado.
+Botão de ação no escuro: fundo azul-aço `#7FB8CF` com texto `#0A1217`. Brilhos de fundo em azul-aço, com intensidade baixa (discretos como no SIGE).
 
-**Correspondência entre os temas:** fundo bege → preto-azulado · títulos petróleo → branco-lavanda (seções em violeta) · texto grafite → lavanda-acinzentado · destaque laranja → violeta · botão laranja → bege-dourado.
+**Correspondência entre os temas:** fundo bege → grafite-azulado · títulos petróleo → `#E3EEF3` · texto grafite → `#9FB9C6` · destaque laranja → azul-aço · botão laranja → botão azul-aço.
 
-### 4.2 Tokens CSS (dark)
+### 4.2 Tokens CSS (dark) — `static/css/tokens.css`
 
 ```css
 html.theme-dark, body.theme-dark {
-    --brand-violeta: #7335FD;
-    --brand-dourado: #E8C9A0;
-    --brand-preto: #06060E;
+    color-scheme: dark;
+    --brand-aco: #7FB8CF;
+    --brand-aco-claro: #A3D0E0;
+    --brand-aco-profundo: #4A8BA8;
+    --brand-grafite-azul: #0A1217;
 
-    --color-bg: var(--brand-preto);
-    --color-bg-soft: #0E0E18;
-    --color-surface: #161624;
-    --color-surface-strong: #1E1B33;
-    --color-text: #F5F4FA;
-    --color-text-body: #C9C8DA;
-    --color-text-muted: #8E8DA8;
-    --color-border: rgba(255, 255, 255, 0.08);
-    --color-border-strong: rgba(155, 123, 255, 0.28);
-    --color-accent: #9B7BFF;
-    --color-accent-bright: #8B5CFF;
-    --color-on-accent: #FFFFFF;
-    --color-button-bg: var(--brand-dourado);
-    --color-button-text: #1A1428;
+    --color-bg: var(--brand-grafite-azul);
+    --color-bg-soft: #0D171D;
+    --color-surface: #13222D;
+    --color-surface-strong: #1F3340;
+    --color-text: #E3EEF3;
+    --color-text-body: #9FB9C6;
+    --color-text-muted: #6E8C9B;
+    --color-border: rgba(127, 184, 207, 0.12);
+    --color-border-strong: #274151;
+    --color-accent: var(--brand-aco);
+    --color-accent-bright: var(--brand-aco-claro);
+    --color-on-accent: #0A1217;
+    --color-button-bg: var(--brand-aco);
+    --color-button-text: #0A1217;
+    --color-success: #30D08D;
+    --color-warning: #E5B567;
     --color-danger: #FF6B7A;
+    --color-info: #7FB8CF;
+    --shadow-soft: 0 12px 32px rgba(0, 0, 0, 0.45);
+    --shadow-card: 0 18px 48px rgba(0, 0, 0, 0.55);
 }
 ```
 
-Efeitos exclusivos do tema escuro ficam no fim de `static/css/v2.css` (bloco "Tema dark — estilo premium"): brilho violeta no hero e na faixa de CTA, degradê dos cards, títulos de seção em violeta e botões em degradê bege.
+Efeitos exclusivos do tema escuro ficam no fim de `static/css/v2.css` (bloco "Tema dark — mesma paleta do SIGE") e em `static/css/pages/home-v3.css` (home).
 
 **Regra de ouro do CSS:** nunca escreva HEX direto em componentes — use sempre os tokens (`var(--color-...)`). Assim o tema claro e o escuro funcionam juntos sem esforço.
 
@@ -162,6 +187,8 @@ Efeitos exclusivos do tema escuro ficam no fim de `static/css/v2.css` (bloco "Te
 
 **Família oficial: Inter** (Google Fonts) — pesos 400, 500, 600 e 700.
 Alternativas: Segoe UI (Power BI e Office) ou Arial.
+
+**Fonte de números: IBM Plex Mono** (pesos 400 e 500), estilo planilha, usada nos números e rótulos do painel da home (DRE e caixa projetado). Carregada junto com a Inter em `templates/base.html`.
 
 ### 5.1 Site
 
@@ -242,7 +269,7 @@ Alterne seções normais e `v2-section--soft` para criar ritmo. Grades: `v2-grid
 | **Case** | `.v2-card .v2-case` + `.v2-case__media` + `.v2-case__body` + `<dl>` | Desafio → O que foi feito → Resultado |
 | **Passo** | `<ol class="v2-steps">` + `<li class="v2-card v2-step">` | Processo numerado (sempre 3 passos) |
 | **Selo** | `.v2-badge` | "Dados ilustrativos", "Exemplo de entrega" |
-| **Faixa de CTA** | `.v2-cta` + `.v2-cta__actions` | Fechamento de toda página (petróleo no claro, roxo-noite `#12102A` com brilho violeta no escuro) |
+| **Faixa de CTA** | `.v2-cta` + `.v2-cta__actions` | Fechamento de toda página (petróleo no claro, superfície grafite-azulada com brilho azul-aço no escuro) |
 | **Sobre** | `.v2-about` + `.v2-avatar` | Bloco com foto e apresentação do consultor |
 
 ```html
@@ -331,3 +358,38 @@ Laranja só para o dado que merece atenção · vermelho (`#C2553D`) só para qu
 ## 12. Ao pedir alterações a uma IA (Claude, Codex)
 
 > "Siga `docs/SERVICESBI_IDENTIDADE_VISUAL.md`. Use apenas tokens de `tokens.css` e componentes de `v2.css`. Não crie cores novas. Teste nos temas claro e escuro e no celular."
+
+---
+
+## 13. Decisões de design registradas (histórico das conversas, nov/2026)
+
+**Posicionamento visual**
+- A ServicesBI é uma **consultoria financeira** respaldada por dados, BI e automação. O visual tem que parecer finanças, não "fábrica de software" e não "cara de IA".
+- O visitante deve perceber em segundos que o Leles "sabe fazer as coisas": o topo da home mostra uma **DRE gerencial** e um **caixa projetado de 12 semanas** com a semana 7 abaixo do mínimo (dados ilustrativos, com selo).
+- Menos cards e mais respiro. Dores em lista numerada, cases em tabela.
+
+**Home e páginas**
+- A home aprovada é o **"Modelo B ajustado"** (18/11/2026). Seções: topo com DRE e caixa → faixa de credenciais reais → 01 Diagnóstico (dores) → 02 Método (3 pilares) → 03 Ferramentas ServicesBI (SIGE, Automações, Modelos financeiros, Jarvis, com selo de status) e Novidades → 04 Cases → 05 Quem conduz → 06 Como trabalhamos (escada de ofertas) → material gratuito → chamada final.
+- A **home é a página de Consultoria Financeira**: o item "Consultoria Financeira" do menu abre a home.
+- A home é o **modelo para todas as páginas**: cada página nova parte da estrutura dela e depois é moldada para o seu assunto.
+- **Alinhamento:** todas as seções de todas as páginas seguem as margens laterais do hero da home.
+- Menu atual: **Consultoria Financeira · BI & Dashboards · Nossos Produtos · Cases · Sobre**, mais o botão "Diagnóstico gratuito". O "Currículo" fica dentro de "Sobre".
+- Rodapé com redes sociais (LinkedIn, Instagram, GitHub, WhatsApp).
+- Nada de números inventados apresentados como reais; prints de dashboards são **provisórios** (serão refeitos) e levam o selo "Dados ilustrativos".
+
+**Produtos e marca nos sistemas**
+- Produtos iniciais: **SIGE, Jarvis, Automações n8n e Excel corporativo**. Continuam no marketing, como diferencial, sem tirar o foco do financeiro.
+- O **SIGE é uma extensão do site**: segue a mesma identidade (paleta e fontes). A capa/login do SIGE foi refeita com a paleta e as fontes do site 2.0, e o dark do site agora é o mesmo do SIGE.
+- Todo sistema aberto no navegador (SIGE, Jarvis, Compras, outros) leva o **favicon da ServicesBI** (seção 2).
+
+**Pendências visuais**
+- [ ] Logo do tema escuro ainda é violeta: gerar versão em azul-aço.
+- [ ] Favicon e imagem de compartilhamento ainda usam o logo original azul e verde.
+- [ ] Foto profissional em `static/img/sobre/leles.webp` (enquanto não existir, aparece "LJ").
+- [ ] Refazer os dashboards Power BI exibidos no site.
+- [ ] Novidades reais das ferramentas para ativar a seção da home.
+
+**Forma de trabalhar**
+- Mudança grande: primeiro um **esboço para aprovação**, só depois mexer no site.
+- Testar sempre nos temas claro e escuro e no celular (390 px).
+- Commit e publicação só no final, quando o Leles pedir.

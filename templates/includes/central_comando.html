@@ -1,0 +1,181 @@
+{# Central de comando — SÓ no PC (runserver local). Incluída pelo header quando CENTRAL_LOCAL é verdadeiro. #}
+{# Estilo e script ficam aqui dentro de propósito: nada disto vai para static/ nem para o site publicado. #}
+<div class="cc-painel" id="ccPainel" role="dialog" aria-label="Central de comando" hidden>
+    <div class="cc-topo">
+        <strong>Central de comando</strong>
+        <span class="cc-selo">só no seu PC</span>
+    </div>
+    <p class="cc-status" id="ccStatus">Carregando status…</p>
+
+    <form class="cc-publicar" id="ccFormPublicar">
+        <label for="ccMensagem">Descrição do commit (opcional)</label>
+        <input id="ccMensagem" name="mensagem" type="text" maxlength="200" placeholder="Ex.: Ajusta textos da home" autocomplete="off">
+        <button class="cc-btn" type="submit" id="ccSubir">Subir site</button>
+        <small>Abre a janela do PowerShell, igual ao SIGE: exporta, faz o commit, envia ao GitHub e atualiza o servidor.</small>
+        <p class="cc-pub" id="ccPub" hidden></p>
+    </form>
+
+    <div class="cc-sep"></div>
+    <button class="cc-item" type="button" id="ccExportar">Só exportar (gerar cloudflare_dist)</button>
+    <button class="cc-item" type="button" id="ccAtualizar">Ver o que mudou</button>
+    <pre class="cc-log" id="ccLog" hidden></pre>
+
+    <div class="cc-sep"></div>
+    <a class="cc-item" href="{% url 'pages:home' %}">Página inicial</a>
+    <a class="cc-item" href="/admin/" target="_blank" rel="noopener">Administração do site</a>
+    <a class="cc-item" href="https://servicesbi.com.br" target="_blank" rel="noopener">Site no ar</a>
+    <a class="cc-item" href="https://servicesbi.com.br/sige/" target="_blank" rel="noopener">SIGE</a>
+    <a class="cc-item" href="https://servicesbi.com.br/sige-demo/login/" target="_blank" rel="noopener">SIGE demo</a>
+    <a class="cc-item" href="https://github.com/ServicesBI/site_servicesbi" target="_blank" rel="noopener">GitHub do site</a>
+
+    <div class="cc-sep"></div>
+    <button class="cc-item cc-item--fechar" type="button" id="ccFechar">Fechar</button>
+</div>
+
+<style>
+.cc-painel{position:fixed;z-index:1000;width:300px;max-height:calc(100vh - 96px);overflow:auto;padding:12px 0;border:1px solid var(--color-border-strong);border-radius:var(--radius-lg,12px);background:var(--color-surface);box-shadow:var(--shadow-card);font-size:14px;color:var(--color-text-body)}
+.cc-topo{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:4px 18px 2px}
+.cc-topo strong{color:var(--color-text);font-size:15px}
+.cc-selo{font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid var(--color-border-strong);color:var(--color-accent)}
+.cc-status{margin:4px 18px 10px;font-size:12px;color:var(--color-text-muted)}
+.cc-publicar{display:grid;gap:6px;padding:0 18px 12px}
+.cc-publicar label{font-size:12px;color:var(--color-text-muted)}
+.cc-publicar input{width:100%;padding:8px 10px;border-radius:var(--radius-md,8px);border:1px solid var(--color-border-strong);background:var(--color-bg);color:var(--color-text);font:inherit}
+.cc-publicar small{font-size:11px;line-height:1.4;color:var(--color-text-muted)}
+.cc-btn{padding:9px 12px;border:0;border-radius:var(--radius-md,8px);background:var(--color-button-bg);color:var(--color-button-text);font:inherit;font-weight:600;cursor:pointer}
+.cc-btn:disabled,.cc-item:disabled{opacity:.6;cursor:wait}
+.cc-sep{height:1px;margin:6px 0;background:var(--color-border-strong)}
+.cc-item{display:block;width:100%;padding:9px 18px;border:0;background:none;text-align:left;font:inherit;font-weight:600;color:var(--color-text-body);text-decoration:none;cursor:pointer}
+.cc-item:hover,.cc-item:focus-visible{background:var(--color-bg-soft);color:var(--color-text)}
+.cc-item--fechar{color:var(--color-danger)}
+.cc-log{margin:4px 18px 8px;padding:8px;max-height:180px;overflow:auto;border-radius:var(--radius-md,8px);background:var(--color-bg);font-size:11px;white-space:pre-wrap;color:var(--color-text-body)}
+.cc-log.is-erro{color:var(--color-danger)}
+.cc-pub{margin:2px 0 0;padding:7px 9px;border-radius:var(--radius-md,8px);font-size:12px;line-height:1.4;background:var(--color-bg-soft);color:var(--color-text-body)}
+.cc-pub[data-estado="ok"]{color:var(--color-success)}
+.cc-pub[data-estado="erro"]{color:var(--color-danger)}
+.cc-pub[data-estado="executando"]{color:var(--color-accent)}
+</style>
+
+<script>
+(function () {
+    var logo = document.querySelector(".site-header .site-logo");
+    var painel = document.getElementById("ccPainel");
+    if (!logo || !painel) return;
+    var csrf = "{{ csrf_token }}";
+    var statusEl = document.getElementById("ccStatus");
+    var logEl = document.getElementById("ccLog");
+
+    function posicionar() {
+        var r = logo.getBoundingClientRect();
+        painel.style.top = (r.bottom + 8) + "px";
+        painel.style.left = Math.max(8, r.left) + "px";
+    }
+    function abrir() { posicionar(); painel.hidden = false; carregarStatus(false); acompanharPublicacao(false); }
+    function fechar() { painel.hidden = true; }
+    function mostrarLog(texto, erro) {
+        logEl.hidden = false; logEl.textContent = texto; logEl.classList.toggle("is-erro", !!erro);
+    }
+    function enviar(url, dados) {
+        var corpo = new FormData();
+        Object.keys(dados || {}).forEach(function (k) { corpo.append(k, dados[k]); });
+        return fetch(url, { method: "POST", body: corpo, headers: { "X-CSRFToken": csrf }, credentials: "same-origin" })
+            .then(function (r) { return r.json(); });
+    }
+    function carregarStatus(mostrarLista) {
+        statusEl.textContent = "Carregando status…";
+        fetch("{% url 'pages:central_status' %}", { credentials: "same-origin" })
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+                if (!d.ok) { statusEl.textContent = "Não consegui ler o git."; mostrarLog(d.erro, true); return; }
+                var n = d.arquivos.length;
+                statusEl.textContent = "Branch " + d.branch + " · " + (n ? n + " arquivo(s) alterado(s)" : "nada pendente");
+                if (mostrarLista) {
+                    mostrarLog((n ? d.arquivos.join("\n") : "Nenhuma alteração pendente.") + "\n\nÚltimo commit: " + d.ultimo_commit, false);
+                }
+            })
+            .catch(function () { statusEl.textContent = "Status indisponível."; });
+    }
+
+    // Clique no logo abre/fecha a central (só aqui no PC; no site publicado o logo volta para a home).
+    logo.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (painel.hidden) { abrir(); } else { fechar(); }
+    });
+    document.getElementById("ccFechar").addEventListener("click", fechar);
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") fechar(); });
+    document.addEventListener("click", function (e) {
+        if (!painel.hidden && !painel.contains(e.target) && !logo.contains(e.target)) fechar();
+    });
+    window.addEventListener("resize", function () { if (!painel.hidden) posicionar(); });
+
+    document.getElementById("ccAtualizar").addEventListener("click", function () { carregarStatus(true); });
+
+    var btnExportar = document.getElementById("ccExportar");
+    btnExportar.addEventListener("click", function () {
+        btnExportar.disabled = true; mostrarLog("Exportando… aguarde.", false);
+        enviar("{% url 'pages:central_exportar' %}")
+            .then(function (d) {
+                mostrarLog(d.ok ? d.log : ("ERRO: " + d.erro + "\n\n" + (d.log || "")), !d.ok);
+                carregarStatus(false);
+            })
+            .catch(function () { mostrarLog("Falha ao exportar.", true); })
+            .then(function () { btnExportar.disabled = false; });
+    });
+
+    // ---- Subir site (mesmo padrão do "Publicar online" do SIGE) ----
+    var form = document.getElementById("ccFormPublicar");
+    var btnSubir = document.getElementById("ccSubir");
+    var pubEl = document.getElementById("ccPub");
+    var acompanhando = false;
+
+    function mostrarPublicacao(d) {
+        if (!d || !d.estado) { pubEl.hidden = true; btnSubir.disabled = false; return; }
+        pubEl.hidden = false;
+        pubEl.dataset.estado = d.em_andamento ? "executando" : d.estado;
+        if (d.em_andamento) {
+            pubEl.textContent = "Publicando… " + (d.mensagem || "");
+        } else if (d.estado === "ok") {
+            pubEl.textContent = "Última publicação: concluída em " + d.fim_legivel + ".";
+        } else if (d.estado === "erro") {
+            pubEl.textContent = "Última publicação falhou: " + d.mensagem;
+        } else {
+            pubEl.textContent = "A última publicação não terminou (janela fechada no meio?). Pode tentar de novo.";
+        }
+        btnSubir.disabled = !!d.em_andamento;
+    }
+    function acompanharPublicacao(mostrarAndamento) {
+        fetch("{% url 'pages:central_publicar_status' %}", { credentials: "same-origin" })
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+                mostrarPublicacao(d);
+                if ((mostrarAndamento || d.em_andamento) && d.log) {
+                    mostrarLog(d.log, d.estado === "erro");
+                    logEl.scrollTop = logEl.scrollHeight;
+                }
+                if (d.em_andamento) {
+                    if (!acompanhando) { acompanhando = true; }
+                    setTimeout(function () { acompanharPublicacao(true); }, 3000);
+                } else if (acompanhando) {
+                    acompanhando = false;
+                    carregarStatus(false);
+                }
+            })
+            .catch(function () { setTimeout(function () { acompanharPublicacao(mostrarAndamento); }, 5000); });
+    }
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!window.confirm("Publicar agora no servicesbi.com.br? As alterações vão para o GitHub e o site no ar é atualizado.")) return;
+        btnSubir.disabled = true;
+        enviar("{% url 'pages:central_publicar' %}", { mensagem: document.getElementById("ccMensagem").value.trim() })
+            .then(function (d) {
+                if (!d.ok) { mostrarLog(d.erro, true); btnSubir.disabled = false; return; }
+                document.getElementById("ccMensagem").value = "";
+                mostrarLog("Publicação iniciada. Uma janela do PowerShell abriu com o andamento.", false);
+                acompanhando = true;
+                setTimeout(function () { acompanharPublicacao(true); }, 1500);
+            })
+            .catch(function () { mostrarLog("Falha ao iniciar a publicação.", true); btnSubir.disabled = false; });
+    });
+})();
+</script>

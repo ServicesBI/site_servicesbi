@@ -27,3 +27,6 @@ static/js/dev-home-text-metrics.js
 
 # Esbocos e previas gerados pelo Claude
 Claude outputs/
+
+# Andamento do publicador (Central de comando)
+scripts/logs/

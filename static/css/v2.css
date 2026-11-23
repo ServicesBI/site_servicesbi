@@ -618,21 +618,21 @@ html:not(.theme-dark) .v2-card--featured {
 }
 
 /* =========================================================
-   Tema dark — estilo premium: preto, violeta e bege-dourado
+   Tema dark — mesma paleta do SIGE: grafite-azulado, petróleo escuro e azul-aço
    ========================================================= */
 .theme-dark .v2-hero {
     background:
-        radial-gradient(60rem 30rem at 50% -10%, rgba(115, 53, 253, 0.35), transparent 70%),
+        radial-gradient(60rem 30rem at 50% -10%, rgba(127, 184, 207, 0.175), transparent 70%),
         var(--color-bg);
 }
 
 .theme-dark .v2-card {
-    background: linear-gradient(160deg, #2A2150 0%, #1A1830 60%, #161624 100%);
+    background: linear-gradient(160deg, #1F3340 0%, #172A36 60%, #13222D 100%);
 }
 
 .theme-dark .v2-card--featured {
-    border-color: var(--brand-violeta);
-    box-shadow: 0 0 0 1px rgba(115, 53, 253, 0.35), 0 18px 40px rgba(115, 53, 253, 0.18);
+    border-color: var(--brand-aco-profundo);
+    box-shadow: 0 0 0 1px rgba(127, 184, 207, 0.175), 0 18px 40px rgba(127, 184, 207, 0.09);
 }
 
 .theme-dark .v2-head h2 {
@@ -641,9 +641,9 @@ html:not(.theme-dark) .v2-card--featured {
 
 .theme-dark .btn--primary,
 .theme-dark .site-nav__cta {
-    background: linear-gradient(180deg, #F1D9B8, #DDBB90);
-    border-color: #DDBB90;
-    box-shadow: 0 8px 22px rgba(221, 187, 144, 0.18);
+    background: linear-gradient(180deg, #8EC3D8, #7FB8CF);
+    border-color: #7FB8CF;
+    box-shadow: 0 8px 22px rgba(127, 184, 207, 0.16);
 }
 
 .theme-dark .btn--primary:hover {
@@ -651,15 +651,15 @@ html:not(.theme-dark) .v2-card--featured {
 }
 
 .theme-dark .v2-step::before {
-    background: var(--brand-violeta);
+    background: var(--brand-aco-profundo);
     color: #FFFFFF;
 }
 
 .theme-dark .v2-cta {
     background:
-        radial-gradient(40rem 20rem at 100% 0%, rgba(115, 53, 253, 0.45), transparent 70%),
-        #12102A;
-    border: 1px solid rgba(155, 123, 255, 0.18);
+        radial-gradient(40rem 20rem at 100% 0%, rgba(127, 184, 207, 0.225), transparent 70%),
+        #0D171D;
+    border: 1px solid rgba(127, 184, 207, 0.18);
 }
 
 /* ---------- Logo da marca antes do nome (cabeçalho e rodapé) ---------- */
@@ -701,16 +701,16 @@ html.theme-dark .site-logo__mark--escuro {
 
 /* ---------- Footer verde (19/11/2026): fundo petróleo, textos em branco ---------- */
 .v2-footer { color: #FFFFFF; background: var(--brand-petroleo); border-top: 0; }
-html.theme-dark .v2-footer { background: #12102A; border-top: 1px solid rgba(155, 123, 255, 0.22); }
+html.theme-dark .v2-footer { background: #0D171D; border-top: 1px solid rgba(127, 184, 207, 0.22); }
 .v2-footer h2 { color: #F3C79A; }
-html.theme-dark .v2-footer h2 { color: #E8C9A0; }
+html.theme-dark .v2-footer h2 { color: #7FB8CF; }
 .v2-footer a, .v2-footer__brand p, .v2-footer li { color: #FFFFFF; }
 .v2-footer a { opacity: .9; transition: opacity .2s, color .2s; }
 .v2-footer a:hover { color: #F3C79A; opacity: 1; }
-html.theme-dark .v2-footer a:hover { color: #E8C9A0; }
+html.theme-dark .v2-footer a:hover { color: #7FB8CF; }
 .v2-footer .site-logo, .v2-footer .site-logo__text { color: #FFFFFF; }
 .v2-footer__meta { color: rgba(255, 255, 255, 0.72); border-top-color: rgba(255, 255, 255, 0.18); }
-html.theme-dark .v2-footer__meta { border-top-color: rgba(155, 123, 255, 0.22); }
+html.theme-dark .v2-footer__meta { border-top-color: rgba(127, 184, 207, 0.22); }
 
 /* Rodapé simples e centralizado (19/11/2026): logo, texto, links em linha e copyright */
 .v2-footer--simples { padding-block: 44px 30px; text-align: center; }
@@ -728,7 +728,7 @@ html.theme-dark .v2-footer__meta { border-top-color: rgba(155, 123, 255, 0.22); 
 .v2-footer__social a { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.35); opacity: 1; transition: background .2s, color .2s, border-color .2s; }
 .v2-footer__social svg { width: 17px; height: 17px; fill: currentColor; }
 .v2-footer__social a:hover { background: #FFFFFF; color: var(--brand-petroleo); border-color: #FFFFFF; }
-html.theme-dark .v2-footer__social a:hover { background: #E8C9A0; color: #12102A; border-color: #E8C9A0; }
+html.theme-dark .v2-footer__social a:hover { background: #7FB8CF; color: #0D171D; border-color: #7FB8CF; }
 @media (max-width: 720px) {
     .v2-footer__base { grid-template-columns: 1fr; }
     .v2-footer__base .v2-footer__meta, .v2-footer__social { grid-column: 1; justify-self: center; }
