@@ -734,3 +734,13 @@ html.theme-dark .v2-footer__social a:hover { background: #7FB8CF; color: #0D171D
     .v2-footer__base .v2-footer__meta, .v2-footer__social { grid-column: 1; justify-self: center; }
     .v2-footer .v2-footer__social { grid-row: 1; grid-column: 1; justify-self: center; }
 }
+
+/* Celular e telas de toque: cabeçalho fixo sem vidro (o desfoque a cada quadro deixava a rolagem pesada) */
+@media (max-width: 900px), (hover: none) {
+    .site-header, body > header {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        background: var(--color-bg);
+    }
+    .v2-hero__visual .v2-badge { -webkit-backdrop-filter: none; backdrop-filter: none; }
+}

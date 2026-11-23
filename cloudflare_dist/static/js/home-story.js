@@ -179,7 +179,7 @@
         entries.forEach(function (e) {
             if (mode === "auto" && e.isIntersecting && !autoDone && !timer) runAuto(1);
         });
-    }, { threshold: 0.45 }) : null;
+    }, { threshold: 0.3 }) : null;
 
     function layout() {
         stopAuto();
@@ -205,7 +205,9 @@
             if (autoDone) { setStep(STEPS); setFills(1); }
             else {
                 setStep(1); setFills(0);
-                if (io) io.observe(story); else runAuto(1);
+                // unobserve + observe: o observador reavalia na hora; se o painel
+                // já estiver na tela, a sequência recomeça em vez de ficar parada.
+                if (io) { io.unobserve(story); io.observe(story); } else runAuto(1);
             }
         }
     }
@@ -225,7 +227,19 @@
     });
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    var rt;
-    window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(layout, 150); });
+    /* No celular (iPhone principalmente) a barra do navegador some/aparece durante
+       a rolagem e dispara "resize" só de altura. Refazer o layout nesse caso
+       parava a sequência na etapa 1 ("Dados"). Só refaz quando a largura muda,
+       ou no modo fixo do desktop, que depende da altura da janela. */
+    var rt, lastW = window.innerWidth;
+    window.addEventListener("resize", function () {
+        clearTimeout(rt);
+        rt = setTimeout(function () {
+            var w = window.innerWidth;
+            if (w === lastW && mode !== "pin") return;
+            lastW = w;
+            layout();
+        }, 150);
+    });
     layout();
 })();

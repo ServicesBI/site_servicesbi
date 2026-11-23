@@ -195,7 +195,10 @@ Janelinha no estilo da central do SIGE, para subir o site sem usar o terminal. C
 
 ## 14. Pendências técnicas
 
-- [ ] Commitar e publicar o dark novo (quando o Leles pedir).
+- [x] Dark novo publicado pelo botão Subir site (23/11/2026).
+- [ ] Publicar as correções de celular de 23/11 (vidro desligado no celular + painel da DRE que travava na etapa 1 no iPhone, em `static/js/home-story.js`).
+- [ ] Página do Jarvis (`/jarvis/`): esboço aprovado para depois, no canvas https://claude.ai/artifact/NYjop8mYEFEaqHn3wVQrdt — falta o print real do HUD 3.0. Pausado em 23/11/2026 para terminar o Jarvis primeiro.
+- [ ] Texto das pastas da home no celular diz "passe o mouse"; trocar por "toque".
 - [ ] Confirmar o número de WhatsApp correto (seção 6).
 - [ ] `CLARITY_ID` no `.env` do servidor/export e cadastro no Google Search Console; Google Business Profile.
 - [ ] E-mail `contato@servicesbi.com.br`.

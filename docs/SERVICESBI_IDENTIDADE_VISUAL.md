@@ -392,4 +392,5 @@ Laranja só para o dado que merece atenção · vermelho (`#C2553D`) só para qu
 **Forma de trabalhar**
 - Mudança grande: primeiro um **esboço para aprovação**, só depois mexer no site.
 - Testar sempre nos temas claro e escuro e no celular (390 px).
+- **Celular sem efeito de vidro:** `backdrop-filter` (vidro/desfoque) só no desktop. No celular e em telas de toque ele deixa a rolagem travando; os blocos de fim de `home-v3.css` e `v2.css` trocam o vidro por fundo sólido (23/11/2026). Efeito novo de vidro deve entrar já com essa exceção.
 - Commit e publicação só no final, quando o Leles pedir.

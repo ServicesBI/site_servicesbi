@@ -1132,3 +1132,22 @@ html.theme-dark .hv-prod__list li::before { color: #0A1217; background: #7FB8CF;
 .hv-prod__acts { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 @media (max-width: 1000px) { .hv-prod__inner { grid-template-columns: 1fr; } .hv-prod--rev .hv-prod__media { order: 0; } }
 @media (max-width: 600px) { .hv-prod__list { grid-template-columns: 1fr; } }
+
+/* ---------- Celular e telas de toque: rolagem leve (23/11/2026) ----------
+   O efeito de vidro (backdrop-filter) obriga o celular a borrar o fundo a cada
+   quadro da rolagem. Com ~20 camadas de vidro logo abaixo do painel da DRE, a
+   rolagem travava. No celular as pastas e selos usam fundo sólido no lugar do vidro.
+   Desktop com mouse não muda. */
+@media (max-width: 900px), (hover: none) {
+    .hv-entrega, .hv-marquee { --glass: rgba(255, 255, 255, 0.95); }
+    html.theme-dark .hv-entrega, html.theme-dark .hv-marquee { --glass: rgba(19, 34, 45, 0.96); }
+    .hv-folder__front,
+    .hv-entrega .hv-folder--grid .hv-folder__back,
+    .hv-entrega .hv-folder--grid .hv-folder__tab,
+    .hv-acard__chip, .hv-tcard__badge, .hv-ccard__badge {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+    .hv-folder, .hv-acard { will-change: auto; }
+    .hv-story__dot { animation: none; }
+}
