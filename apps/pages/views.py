@@ -205,8 +205,10 @@ PASTAS_POWERBI = [
      "https://app.powerbi.com/view?r=eyJrIjoiODkwZmQwOWYtNWYyMy00NjZiLWI2MDYtMWExMDU5MWE5ZWU1IiwidCI6ImQxZTQzMTViLTY1NTktNGQwOC1hNDRlLTI1MDgwYzMyYTA2ZiJ9"),
     ("Real x Meta completo", "Tempo, time, produtos e recomendações", "Interativo", "img/powerbi/dashboards/real-x-meta-completo.webp", None,
      "https://app.powerbi.com/view?r=eyJrIjoiY2I5NzA2YzQtYTRjNS00ZWQwLTg4MmItY2I0MTdjZTFkMmM4IiwidCI6ImQxZTQzMTViLTY1NTktNGQwOC1hNDRlLTI1MDgwYzMyYTA2ZiJ9"),
-    ("Dashboard financeiro", "Contas a pagar e a receber", "", "img/home/portfolio/destaques/dashboard-financeiro.webp", None, None),
-    ("Performance de vendas", "Vendedores e produtos", "", "img/home/portfolio/destaques/dashboard-compras.webp", None, None),
+    ("Dashboard financeiro", "Contas a pagar e a receber", "Interativo", "img/home/portfolio/destaques/dashboard-financeiro.webp", None,
+     "https://app.powerbi.com/view?r=eyJrIjoiYzE4NDU2Y2MtN2RlOS00MGQzLWEwODItNWI5Nzk0NzY2NDk2IiwidCI6ImQxZTQzMTViLTY1NTktNGQwOC1hNDRlLTI1MDgwYzMyYTA2ZiJ9"),
+    ("Performance de vendas", "Vendedores e produtos", "Interativo", "img/home/portfolio/destaques/dashboard-compras.webp", None,
+     "https://app.powerbi.com/view?r=eyJrIjoiZWNhYTBjNjctNGUzOS00ZDdjLTg2NWEtYzU5MmUxZTI0NDJmIiwidCI6ImQxZTQzMTViLTY1NTktNGQwOC1hNDRlLTI1MDgwYzMyYTA2ZiJ9"),
 ]
 
 
