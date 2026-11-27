@@ -14,7 +14,6 @@ PAGINAS_PUBLICAS = [
     ("/contato/", "0.7"),
     ("/python/", "0.6"),
     ("/excel/", "0.6"),
-    ("/sige-servicesbi/", "0.5"),
     ("/jarvis/", "0.4"),
     ("/curriculo/", "0.4"),
 ]
@@ -75,7 +74,7 @@ FERRAMENTAS_HOME = [
     ("SIGE", "ERP · Gestão integrada", "Demo disponível",
      "Cadastros, compras, vendas, financeiro, estoque e fluxo de caixa no mesmo sistema.",
      "Empresas que controlam a operação em planilhas e sistemas que não conversam entre si.",
-     "Acessar a demonstração", "pages:sige_institucional", "img/home/portfolio/destaques/sige-servicesbi.webp", None),
+     "Conhecer o SIGE", "pages:sige_produto", "img/home/portfolio/destaques/sige-servicesbi.webp", None),
     ("Jarvis", "Assistente de IA", "Em desenvolvimento",
      "Assistente operacional para financeiro, documentos, e-mail e agenda.",
      "Empresas que querem acesso antecipado como primeiros clientes.",
@@ -101,7 +100,7 @@ PRODUTOS_DETALHE = [
         "texto": "ERP da ServicesBI que reúne cadastros, compras, vendas, estoque e financeiro. O fluxo de caixa sai direto das operações do dia a dia, sem planilha paralela.",
         "itens": ["Cadastros de clientes, fornecedores e produtos", "Compras e vendas ligadas ao estoque", "Contas a pagar, a receber e fluxo de caixa", "Dados prontos para os painéis em Power BI"],
         "para": "Empresas que controlam a operação em planilhas e sistemas que não conversam entre si.",
-        "cta": "Testar demo do SIGE", "destino": "sige",
+        "cta": "Conhecer o SIGE", "destino": "sige",
         "img": "img/home/portfolio/destaques/sige-servicesbi.webp", "img_dark": None,
     },
     {
@@ -391,8 +390,22 @@ def home(request):
     return render(request, "pages/home.html", _contexto_modelo())
 
 
+def _redirecionar(request, destino, titulo):
+    """Página que só encaminha o visitante para outro endereço.
+    O site publicado é estático (cloudflare_dist), então o redirecionamento é feito
+    no próprio HTML (meta refresh), sem depender do Nginx."""
+    return render(request, "pages/redirecionar.html", {"destino": destino, "titulo": titulo})
+
+
+def sige_produto_page(request):
+    # /produtos/sige/ — endereço oficial do SIGE no site.
+    # Por enquanto leva à página do SIGE (apresentação, módulos, planos e login da demo).
+    return _redirecionar(request, SIGE_DEMO_URL, "SIGE | ServicesBI")
+
+
 def sige_institucional_page(request):
-    return render(request, "pages/sige_institucional.html", _contexto_modelo())
+    # Endereço antigo: agora aponta para /produtos/sige/ (antes era uma cópia da Home).
+    return _redirecionar(request, "/produtos/sige/", "SIGE | ServicesBI")
 
 
 def jarvis_page(request):

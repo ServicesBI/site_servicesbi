@@ -101,7 +101,7 @@
             </ul>
             <p class="hv-prod__para"><span>Para quem</span>{{ p.para }}</p>
             <div class="hv-prod__acts">
-                {% if p.destino == "sige" %}<a class="hv-btn hv-btn--primary" href="{{ sige_demo_url }}" data-sige-demo target="_blank" rel="noopener noreferrer">{{ p.cta }} →</a>
+                {% if p.destino == "sige" %}<a class="hv-btn hv-btn--primary" href="{% url 'pages:sige_produto' %}">{{ p.cta }} →</a>
                 {% elif p.destino == "jarvis" %}<a class="hv-btn hv-btn--primary" href="{{ WA_JARVIS }}" target="_blank" rel="noopener noreferrer">{{ p.cta }} →</a>
                 {% else %}<a class="hv-btn hv-btn--primary" href="{{ WA_DIAGNOSTICO }}" target="_blank" rel="noopener noreferrer">{{ p.cta }} →</a>{% endif %}
             </div>

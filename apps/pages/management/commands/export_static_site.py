@@ -14,6 +14,7 @@ PAGES = [
     ("/python/", "python/index.html"),
     ("/power-bi/", "power-bi/index.html"),
     ("/produtos/", "produtos/index.html"),
+    ("/produtos/sige/", "produtos/sige/index.html"),
     ("/cases/", "cases/index.html"),
     ("/automacoes/", "automacoes/index.html"),
     ("/excel/", "excel/index.html"),

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{# Página de encaminhamento. O site publicado é estático, por isso o redirecionamento é feito aqui no HTML. #}
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>{{ titulo }}</title>
+    <meta name="robots" content="noindex">
+    <meta http-equiv="refresh" content="0; url={{ destino }}">
+    <link rel="canonical" href="{{ destino }}">
+    <script>location.replace("{{ destino|escapejs }}");</script>
+</head>
+<body>
+    <p>Redirecionando… Se nada acontecer, <a href="{{ destino }}">clique aqui</a>.</p>
+</body>
+</html>

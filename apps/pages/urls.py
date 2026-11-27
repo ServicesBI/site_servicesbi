@@ -14,6 +14,7 @@ urlpatterns = [
     path("python/", views.python_page, name="python"),
     path("power-bi/", views.powerbi_page, name="powerbi"),
     path("produtos/", views.produtos_page, name="produtos"),
+    path("produtos/sige/", views.sige_produto_page, name="sige_produto"),
     path("cases/", views.cases_page, name="cases"),
     path("automacoes/", views.automacoes_page, name="automacoes"),
     path("excel/", views.excel_page, name="excel"),
